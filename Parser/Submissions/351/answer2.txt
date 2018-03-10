@@ -1,0 +1,18 @@
+import java.util.*;
+pulic class palindwords{
+public static void main(String args[]){
+Scanner scan=new Scanner(System.in);
+System.out.println(""Enter a word"");
+String word=scan.nextLine();
+String reverso="""";
+for(int i=word.length()-1;i>=0;i--){
+reverso=reverso+word.charAt(i);
+}
+if(reverso.equals(word)){
+System.out.println(""It is a palindrome"");
+}
+else{
+System.out.println(""Not a palindrome"");
+}
+}
+}

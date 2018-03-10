@@ -1,0 +1,37 @@
+import java.util.*;
+public class rdates{
+int date = (int)(Math.random()*30);
+int month=(int)(Math.random()*12);
+int year=(int)(Math.random()*27)+1990;
+System.out.println(""Guess the year(btn 1990-2017)"");
+int guessyr=scan.nextInt();
+System.out.println(""Guess the the month (number)"")
+int guessm=scan.nextInt;
+System.out.println(""Guess the date (number)"");
+int guessdt=scan.nextInt();
+if(guessyr>year){
+System.out.println(""You were too late"");
+}
+if(guess<year){
+System.out.println(""You are too early"");
+}
+if(guessyr==year&&guessm<month){
+System.out.println(""You are too early"");
+}
+if(guessyr==year&&guessm>month){
+System.out.println(""You were too late"");
+}
+if(guessyr==year&&guessm==month&&guessdt>date){
+System.out.println(""You were too late"");
+}
+if(guessyr==year&&guessm===month&&guessdt<date){
+System.out.println(""Yout were too early"");
+}
+else if(guessyr==year&&guessm==month&&guessdt==date){
+System.out.println(""You got it !"");
+}
+System.out.println(""The date was : ""+year+""-""+date+""-""+month);
+}
+}
+
+

@@ -1,0 +1,18 @@
+public static void main(String[] args) {
+   Scanner input = new Scanner(System.in);
+   System.out.println(""Enter a number:"");
+   
+   int n = input.nextInt();
+   int test = n;
+   int reverse = 0;
+   
+   while (test != 0) {
+      int r = test % 10;
+      reverse = (reverse * 10) + r; 
+      test /= 10;
+   }
+
+   System.out.println(""Is "" + n + "" a palindrome?"");
+   System.out.println(n == reverse);
+   input.close();
+}

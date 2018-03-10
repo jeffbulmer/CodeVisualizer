@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class CLASS_NAME2 {
+	public static void main(String[] args) {
+	
+	Scanner in = new Scanner(System.in);
+	
+	System.out.println(""Enter a word: "");
+	String input = in.nextLine();
+	
+	System.out.println(""Is "" + input + "" a palindrome?"");
+	System.out.println(isPalindrome(reverse(input), input));
+	}
+
+public static String reverse(String input) {
+	
+	String reverse = """";
+	
+	for (int i = 0; i < length.input; i++) {
+		reverse += i;
+	}
+	return reverse;
+	
+	}
+public static boolean isPalindrome( reverse, input ) {
+	
+	if (reverse.equals(input))
+	return true;
+	else
+	return false;
+	
+	}
+}

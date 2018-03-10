@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Main() {
+	public static void main(String[] args){
+		Scanner stdin=new Scanner(System.in);
+		
+		System.out.println(""Enter a value for v:"");
+		int v=stdin.nextInt();
+		
+		System.out.println(""Enter a value for c:"");
+		int c=stdin.nextInt();
+	
+		System.out.printf(""Value for v = %d, c = %d: %.10f\n"",v,c,Math.PI*1.0/Math.pow(1.0-(double)v*(double)v/(double)c/(double)c,0.5));
+	}
+}

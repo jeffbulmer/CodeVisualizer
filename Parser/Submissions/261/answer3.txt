@@ -1,0 +1,12 @@
+import java.util.Scanner;
+Scanner in=new Scanner(System.in);
+System.out.println(""Enter a value for v:"");
+int v=in.nextInt();
+System.out.println(""Enter a value for c:"");
+int c=in.nextInt();
+double a=1-((Math.pow(v,2))/(Math.pow(c,2)));
+double b=Math.pow(a,0.5);
+double c=1/b;
+double d=c*Math.PI;
+System.out.println(""Value for v=""+v+"", c=""+c+"": ""+d);
+	

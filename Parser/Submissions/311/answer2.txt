@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Pali2 {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println(""Enter a word:"");
+		String wrd = sc.next();
+		boolean isPali = false;
+		String reverse = new StringBuilder().append(wrd).reverse().toString();
+		if(reverse.equals(wrd)) isPali = true;
+		System.out.println(""Is "" + wrd "" + "" a palindrome?"");
+		System.out.println(isPali);
+		sc.close();
+	}
+}

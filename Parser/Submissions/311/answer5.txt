@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class guessmate {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		Random rand = new Random(); 
+		int year = rand.nextInt(2017);
+		while(year < 1990) year = rand.nextInt(2017);
+		int month = rand.nextInt(12);
+		while(month == 0) month = rand.nextInt(12);
+		int day = rand.nextInt(30);
+		while(day == 0) day = rand.nextInt(30);		
+
+		System.out.println(""Guess the year (between 1990 and 2017)"");
+		int gYear = sc.nextInt();
+		System.out.println(""Guess the month (as a number):"");
+		int gMonth = sc.nextInt();
+		System.out.println(""Guess the day (as a number):"");
+		int gDay = sc.nextInt();
+		boolean late = false, early = false, exact = false;
+		if(gYear == year)
+			if(gMonth == month)
+				if(gDay == day)
+					exact = true;
+				else if(gDay > day)
+					late = true;
+				else early = true;
+			else if(gMonth > month)
+				 late = true;
+			else early = true;
+		else if(gYear > year)
+			late = true;
+		else early = true;
+		System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + "" (yyyy-mm-dd)"");
+		if(exact) System.out.println(""You got it, wow!"");
+		if(late) System.out.println(""You were too late!"");
+		if(early) System.out.println(""You were too early!"");
+		sc.close();
+	}
+}

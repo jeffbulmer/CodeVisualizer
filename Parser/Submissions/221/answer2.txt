@@ -1,0 +1,11 @@
+import java.util.Scanner;
+public class PalindromeString {
+Scanner in= new scanner(System.in);
+public static void main(String[] args) {
+	System.out.print(""Enter a word: "");
+	String word = in.nextLine();
+	boolean answer= word.equals(new StringBuilder(word).reverse().toString());	
+	System.out.printf(Is %s a palindrome?\n"", word);
+	System.out.print(answer)
+      }
+}  

@@ -1,0 +1,10 @@
+public static void main(String[] args) {
+   Scanner input = new Scanner(System.in);
+   System.out.println(""Enter a value for v:"");
+   int v = input.nextInt();
+   System.out.println(""Enter a value for c:"");
+   int c = input.nextInt();
+   input.close();
+   double answer = Math.PI * (1 / Math.sqrt((1 - ((v*v)/(c*c)))));
+   System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + answer);
+}

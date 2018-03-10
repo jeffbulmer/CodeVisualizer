@@ -1,0 +1,34 @@
+// same old same old, scanner is imported. 
+int year = (Math.random *18) + 1990;
+int month = Math.random * 12  + 1;
+int day;
+if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+	day = Math.random() * 31 + 1;
+else if (month == 2)
+	day = Math.random() *28 +1;
+else 
+	day = Math.random() * 30;
+
+System.out.println(""Guess the year (between 1990 and 2017"");
+int gYear = in.nextInt();
+System.out.println(""Guess the month (as num)"");
+int gMonth = in.nextInt();
+System.out.println(""Guess the day (as num)"");
+int gDay = in.nextInt();
+
+int compY = year * 100;
+int compDay = day / 10;
+gYear *= 100;
+gDay /= 10;
+
+if((compY + compDay + month) < (gYear + gDay +gMonth))
+	system.out.println(""too early"");
+else if (((compY + compDay + month) > (gYear + gDay +gMonth))
+	system.out.println(""too late"");
+else 
+	system.out.println(""You got the right date!"");
+
+sysout.out.printf(""The right date was %d-%d-%d"",year,month,day);","int[] arr = new int[10];
+for(int i = 0; i < arr.length(),i++){
+	arr[i] = Math.sqrt(i);
+}

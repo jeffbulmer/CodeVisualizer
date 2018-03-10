@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class CalcFormula {
+	public static void main (String[] args) {
+
+		Scanner in = new Scanner(System.in);
+	
+		System.out.println(""Enter a value for v:"");
+		int v = in.nextInt();
+		System.out.println(""Enter a value for c:"");
+		int c = in.nextInt(); 
+
+		double answer = Math.PI / Math.sqrt(1 - (v * v) / (c * c));
+
+		System.out.printf(""Value for v = %d, c = %d: %f"", v, c, answer); 
+
+	}
+}
