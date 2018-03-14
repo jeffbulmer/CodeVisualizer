@@ -1,0 +1,33 @@
+public BankCard class {
+
+	private int money;
+
+	BankCard () {}
+	BankCard (int someMoney) {
+		money = someMoney
+	}
+
+	public int loadCard (int load) {
+		money += load;
+		System.out.println{""Loading BankCard with $"" + load);
+		System.out.println(""BankCard now has $"" + money);
+	}
+
+	public int buyItem (int amount) {
+		if (money < amount) {
+			System.out.println(""Card declined. Please contact bank.""); }
+		else 
+			money -= amount;
+			System.out.println(""Buying item for "" + amount);
+	}
+}
+
+public Test class {
+	public static void main (String [] args) {
+		BankCard card = new BankCard(200);
+
+		BankCard.loadCard(500);
+		BankCard.butItem(600);
+	}
+}
+		

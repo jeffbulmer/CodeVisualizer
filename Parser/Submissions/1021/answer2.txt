@@ -1,0 +1,10 @@
+Scanner scanner  = new Scanner(System.in);
+System.out.println(""Enter a word:"");
+String text = scanner.next();
+String temp = """";
+char[] arr = text.toCharArray();
+for (int i  = arr.length - 1; i >=0; i --)
+temp += arr[i];
+
+System.out.println(""Is "" + text + ""a palndrome?"");
+System.out.println(temp.equals(text));

@@ -1,0 +1,30 @@
+public static void main(String[] args) {
+	boolean palindrome = false;
+
+	Scanner input = new Scanner(System.in);
+	System.out.println(""Enter a word"");
+	String word = input.nextLine();
+	if (word.length() % 2 == 0) {
+		for (int i = 0, j = word.length() -1; i < word.length() / 2, j > word.length() / 2 - 1; i++, j--) {
+			if(word.charAt(i) == word.charAt(j) {
+				palindrome = true;
+			} else {
+				palindrome = false;
+				break;
+			}
+		}
+	} else if (word.length() % 2 != 0) {
+		for (int i = 0, j = word.length() - 1; i < (word.length() - 1) / 2 + 1, j > (word.length() - 1) / 2 + 1; i++, j--) {
+			if(word.charAt(i) == word.charAt(j)) {
+				palindrome = true;
+			} else {
+				palindrome = false;
+				break;
+			}
+		}
+	}
+	
+	System.out.println(""Is "" + word + "" a palindrome?"");
+	System.out.println(palindrome);
+	input.close();
+}

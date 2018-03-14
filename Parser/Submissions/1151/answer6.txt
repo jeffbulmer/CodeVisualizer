@@ -1,0 +1,11 @@
+double[] array = new double[10]
+int x = 0;
+while(x<10){
+array[x] = Math.Sqrt(x);
+x++;
+}
+System.out.println(""Elements of the array:"");
+while(x<10){
+System.out.println(array[x]);
+x++;
+}

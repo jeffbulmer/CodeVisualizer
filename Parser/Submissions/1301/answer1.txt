@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Test {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println(""Enter a number: "");
+		int p = input.nextInt();
+		String c = (char) p;
+		String d;
+		for(i = 0; i < p.length; i ++) {
+			d += c.charAt(i);
+		}
+		int q = (int) d;
+		System.out.println(""Is "" + p + "" a palindrome?"")
+		if(p = q)
+			System.out.println(""true"");
+		else
+			System.out.printin(""false""):
+	}
+}

@@ -1,0 +1,29 @@
+//Classic BogoSort
+//Assume random is imported
+Random ro = new Random();
+int[] red = new int[]{1,5,7,4,3,2,6};
+while(!red.equals({1,2,3,4,5,6,7})){
+rand1 = ro[7];
+rand 2 = ro[7];
+int temp = red[rand1];
+red[rand1] = red[rand2];
+red[rand2 ]= temp;
+//print all info
+
+}
+
+System.out.println(""sorted finally"");","class BankCard {
+protected transient int value = 50;
+
+public BankCard(int value){
+this.value = value;}
+
+public int getValue(){
+return value;}
+
+public removeFunds(int value){
+if(this.value>value){
+this.value-= value;}else{
+System.exit(0);
+}}
+}

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Calculate
+{
+	public static void main(String[] args)
+	throws InputMismatchException
+	{
+		Scanner keyboardScanner = new Scanner(System.in);
+		System.out.println(""Enter a value for v:"");
+		int givenV = keyboardScanner.nextInt();
+		System.out.println(""Enter a value for c:"");
+		int givenC = keyboardScanner.nextInt();
+		System.out.print(""Value for v = "" + givenV);
+		System.out.print(""c = "" + givenC);
+		System.out.println("": "" + calculateFormula(givenV, givenC));
+		keyboardScanner.close();
+	}
+	
+	static double calculateFormula(int v, int c)
+	{
+		return Math.PI/Math.sqrt(1 - Math.pow(v/c, 2));
+	}
+}

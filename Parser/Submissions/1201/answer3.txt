@@ -1,0 +1,12 @@
+package 1;
+import java.util.Scanner;
+public class 1{
+	public static void main(String[] args){
+		Scanner scan = new Scanner(System.in);
+		System.out.println(""Enter a value for v: "");
+		double v = scan.nextDouble();
+		System.out.println(""Enter a value for c: "");
+		double c = scan.nextDouble();
+		double value = (Math.PI * Math.pow(1-(Math.pow(v,2)/Math.pow(c,2)),-(1/2)));
+		System.out.printf(""Value for v= %f, c= %f, %f"", v, c, value); 
+}

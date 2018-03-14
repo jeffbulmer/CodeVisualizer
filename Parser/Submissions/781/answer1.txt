@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Q1 {
+
+      public static void main(String[] args) {
+            Scanner in = new Scanner(System.in);
+            System.out.println(""Enter a number:"");
+            int num = in.nextInt();
+            in.close();
+            System.out.println(""Is "" + num + "" a palindrome?\n"" + isPalindrome(num));
+      }
+
+      public static boolean isPalindrome(int x) {
+            int[] ar = new int[20];
+            int i = 0;
+            while ( (x % ( 10^(i+1) ) ) != x) {
+                  ar[i] = x % ( 10^(i+1) );
+                  i++;
+            }
+            for (int j = 0; j <   // couldn't figure it out without changing the integer into a String... Sorry, I give up.
+      }
+
+}

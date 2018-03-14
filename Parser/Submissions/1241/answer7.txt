@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class{
+	public static void main{String[] args){
+		Scanner input = new Scanner(System.in);
+		int vowelendings = 0;
+		for(int i = 1; i <= 5; i++){
+			System.out.printf(""Enter a word: "");
+			String word = input.next();
+			if (vowelcheck(word) == true)
+				vowelendings++;
+			else
+				break;
+		}
+	}
+	public static boolean vowelcheck(Sting word){
+		int length = word.lenght();
+		if (charAt(length) == 'a' || charAt(length) == 'e' || charAt(length) == 'i' || charAt(length) == 'o' || charAt(length) == 'u')
+			return true;
+		else
+			return false;
+	}
+}

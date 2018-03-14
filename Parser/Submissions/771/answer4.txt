@@ -1,0 +1,12 @@
+//Assuming Scanner library was imported, and assuming that all this code was written within a public class named main.
+
+Scanner grab = new Scanner(System.in);
+System.Out.println(""Enter a number greater than 0:"");
+int userNum = grab.nextInt();
+grab.close();
+
+int numOfOddNumbers = 0;
+
+for (int k = 0; k <= userNum; k++){if (k % 2 != 0{numOfOddNumbers ++;}}
+
+System.Out.println(""There are "" + numOfOddNumbers + "" odd numbers between 0 and"" + "" and "" + userNum);

@@ -1,0 +1,14 @@
+double[] d = new double[10];
+for(int i = 0; i<10;i++){
+d[i] = Math.sqrt(i+1);
+}","Scanner sc = new Scanner(System.in);
+String[] wordsThingsWhatever = new String[5];
+//fill array using sc.next() and a loop
+int soryer = 0;
+for(String re : words){
+String ro = re.susbtring(re.length()-2);
+if(ro.contains(""a"")||ro.contains(""o"")||ro.contains(""i"")||ro.contains(""u"")){
+soryer ++;}
+}
+
+return soryer

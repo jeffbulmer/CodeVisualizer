@@ -1,0 +1,17 @@
+import java.util.Scanner; //didnt know if needed to make a class name and all so skipped it
+public static void main (String[] args){
+Scanner s = new Scanner (System.in);
+System.out.println(""Enter a number to check if its a palindrome"");
+int num = s.nextInt();
+int backward = 0;
+while (num != 0){
+backward = backward * 10 + (num % 10);
+num = num / 10;
+}
+if (num == backward){
+System.out.println(""Is palindrome"");
+}
+else{
+System.out.println(""no palindrome"");
+}
+}

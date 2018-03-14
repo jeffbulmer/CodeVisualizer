@@ -1,0 +1,18 @@
+import java.util.Scanner; // above the main method
+
+String[] words = new String[5];
+Scanner in = new Scanner(System.in);
+for(int i = 0; i<words.length; i++) {
+	System.out.println(""Enter a word: "");
+	words[i] = in.nextLine();
+}
+int vcounter = 0;
+for(String s : words) {
+	if(s.charAt(s.length-1) == 'a' || s.charAt(s.length-1) == 'e' || s.charAt(s.length-1) == 'i' || s.charAt(s.length-1) == 'o' || s.charAt(s.length-1) == 'u');
+		vcounter++;
+}
+if(vcounter == 0)
+	System.out.println(""Of the words you entered, none end in vowels."");
+else
+	System.out.println(""Of the words you entered, ""+vcounter+"" ends in a vowel.""
+in.close();

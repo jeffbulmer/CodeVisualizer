@@ -1,0 +1,14 @@
+String[] strs = new String[5];
+Scanner in = new Scanner(System.in);
+int vowels = 0;
+for(int i = 0; i < 5; i++){
+	strs[i] = in.next();
+	switch(strs[i].charAt(strs[i].length()-1)){
+		case 'a':
+		case 'e':
+		case 'i':
+		case 'o':
+		case 'u': vowels++;
+	}
+}
+System.out.println(vowels);

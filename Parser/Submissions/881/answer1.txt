@@ -1,0 +1,14 @@
+Scanner in = new Scanner(System.in);
+int n = in.nextInt();
+int length = (int) (Math.log10(number) + 1);
+boolean check = true;
+for(int i = 0; i < length/2; i++){
+	int left = n%(Math.pow(10,length-i);
+	int right = n%(Math.pow(10,i);
+	if(left!=right){
+		check = false;
+	}
+}
+System.out.println(""Is"" + n + ""a palindrome?"");
+System.out.println(check);
+in.close();

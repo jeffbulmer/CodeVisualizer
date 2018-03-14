@@ -1,0 +1,8 @@
+system.out.println(""Enter a word:"");
+Scanner input= new scanner system (in);
+String w = input.nextLine();
+System.out.println("" Is "" + w +"" a palidrome"");
+if(w==""abba""&&w==""cdc"")
+system.out.println(""true"");
+else
+system.out.println(""false"");

@@ -1,0 +1,6 @@
+Scanner in = new Scanner (System.in(;
+sysout(""enter a word: "");
+String x = in.nextLine();
+String rev;
+for(i = x.lenth; i = 0; i--;){
+	rev = """" + x.charAt(i)

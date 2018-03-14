@@ -1,0 +1,38 @@
+public stat void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	int userNum = input.nextInt();
+
+	boolean palindrome = false;	
+
+	int[] nums;
+	for (int i = 0, j = 10; i < userNum; i++, j * 10) {
+		if ( userNum % j instanceOf int) {
+			nums[i] = userNum % j;
+		} else {
+			break;
+		}
+	}
+
+	if (nums.length % 2 == 0) {
+		for (int a = 0, b = nums.length - 1; a < nums.length / 2, b > nums.length / 2 - 1; a++, b--) {
+			if(nums[a] == nums[b]) {
+				palindrome = true;
+			} else {
+				palindrome = false;
+				break;
+			}
+		}
+	} else if (nums.length % 2 != 0) {
+		for (int a = 0, b= nums.length - 1; a < (nums.length - 1) / 2 + 1, b > (nums.length - 1) / 2 + 1; a++, b--) {
+			if (nums[a] == nums[b]) {
+				palindrome = true;
+			} else {
+				palindrome = false;
+				break;
+			}
+		}
+	}
+
+	System.out.println(""Is "" + userNum + "" a palindrome?"");
+	System.out.println(palindrome);
+}

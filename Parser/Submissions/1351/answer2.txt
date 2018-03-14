@@ -1,0 +1,18 @@
+import java.util.Scanner;
+package rview;
+public class review{
+public static void main(String [] args) {
+Scanner in = new Scanner (System.in);
+System.out.println(""Sample Output"");
+System.out.println(""Enter a word"");
+String y = in.nextLine();
+	String a = ("""");
+	int i = p.length();
+	while (i>0){
+		a+= p.charAt(i-1);
+		i--;}
+System.out.println(""Is "" + y + "" a palindrome?);
+if(a.equals(y))
+	System.out.println(""True"")
+else 
+	System.out.println(""False"")}}

@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class StringPalindrome{
+	public static void main(String[] args){
+		//variables
+		String word; //string given by user
+		int length; //length counter of word
+		int counter = 0; //while loop counter
+		boolean palin = true; //checks if char at opposite positions are equal
+		Scanner sc = new Scanner(System.in);
+		
+		//ask user to enter a word
+		System.out.println(""Enter a word:"");
+		word = sc.next();
+		sc.close();
+		length = word.length-1;
+
+		//determine if palin is true or false
+		while(length > counter){
+			if(word.charAt(length) != word.charAt(counter)){
+				palin = false;
+				break;
+			}
+			length--;
+			counter++;
+		} 
+
+		//state whether the word is a palindrome
+		System.out.println(""Is "" + "" a palindrome?"");
+		System.out.println(palin);
+	}
+}

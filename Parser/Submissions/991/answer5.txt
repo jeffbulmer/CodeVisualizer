@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class BirthdayGuesser
+{
+	public static void main(String[] args)
+	throws InputMismatchException
+	{
+		Scanner keyboardScanner = new Scanner(System.in);
+		int randomBirthday = generateBirthday();
+		System.out.println(""Guess the year (between 1990 and 2017):"");
+		int guess += keyboardScanner.nextInt();
+		System.out.println(""Guess the month (as a number):"");
+		guess += 10000*(keyboardScanner.nextInt()%12);
+		System.out.println(""Guess the day (as a number):"");
+		guess += 1000000*(keyboardScanner.nextInt()%31);
+		System.out.print(""The correct date was "" + randomBirthday%1000);
+		System.out.print(""-"" + (randomBirthday/1000)%10 + ""-"");
+		System.out.println((randomBirthday/1000000)%10 + "" (yyyy-mm-dd)"");
+		if(guess > randomBirthday)
+		{
+			System.out.println(""Too late!"");
+		}
+		else if(guess < randomBirthday)
+		{
+			System.out.println(""Too early!"");
+		}
+		else
+		{
+			System.out.println(""You got it, wow!"");
+		}
+	}
+	
+	static int generateBirthday()
+	{
+		byte day = (byte)(31*Math.random());
+		byte month = (byte)(12*Math.random());
+		if(day > 29)
+		{
+			month += 1;
+			if(month > 11)
+			{
+				month = 1 + (byte)(11*Math.random());
+			}
+		}
+		if(day > 30)
+		{
+			day = 31;
+			month += (month + 1)%2;
+			if(month > 5)
+			{
+				if(month != 11)
+				{
+					month--;
+				}
+			}
+		}
+		short year = 1990 + (short)(27*Math.random());
+		
+		return (day*1000000) + (month*10000) + year;
+	}
+}

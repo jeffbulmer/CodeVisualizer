@@ -1,0 +1,74 @@
+//PLEASE NOTE THIS PORTION OF CODE WAS WRITTEN IN NOTEPAD DOCUMENT AND WASN'T COMPILED SO IT MAY CONTAIN ERRORS.
+//PLEASE DONT STRIKE, AS THIS WAS COPIED ONLY FOR THE SIMPLICITY. 
+
+import java.util.Scanner;
+
+public class QUIZ {
+
+	public static int reverse(int number) {
+		
+		//Return the reversal of an integer.
+		//Convert number into a string to allow for length calculations.
+		String convertedNum = """" + number;
+		
+		//Empty string variable waiting to store the reversed format of convertedNum.
+		String reversedNum = """";
+		
+		for (int i=0; i < convertedNum.length(); i++) {
+			
+			//Add the numbers from user's number and reverse them into an empty string.
+			reversedNum = reversedNum.concat("""" + (convertedNum.charAt((convertedNum.length() - 1) - i)));
+			
+		}
+		
+		//Finally, assign a variable to return the reversed number in the format of an integer (not a string).
+		int returnString = (String) Integer.parseInt(reversedNum);
+		
+		return returnString;
+		
+		
+	}
+	
+	public static boolean isPalindrome(int number) {
+		
+		//Return true if a number is a palindrome.
+		if (number == reverse(number)) {
+			return true;
+		}
+		
+		else {
+			return false;
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		//Initiate Scanner Object: 
+		Scanner grab = new Scanner(System.in);
+		
+		int userNumber; 
+		
+		//Get user input. 
+		System.out.println(""Enter a positive integer: "");
+		userNumber = grab.nextInt(); 
+		
+		//Output to the user whether their entered number is/isn't a palindrome.
+		if (isPalindrome(userNumber)) {
+			
+			System.out.println(userNumber + "" is a palindrome."");
+			
+		}
+		
+		else {
+			
+			System.out.println(userNumber + "" is not a palindrome."");
+			
+		}
+		
+		//Close Scanner Object: 
+		grab.close();
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+//This code was written using the textbox provided by the quiz, no copy or pasting was attempted. 
+//The programmer is assuming that this code was provided with an import statement of java.util.Scanner; and that a public main method was also provided. 
+
+Scanner grab = new Scanner(System.in);
+System.Out.println(""Enter a value for v: "");
+int v = grab.nextInt();
+System.Out.println(""Enter a value for c: "");
+int c = grab.nextInt();
+grab.close();
+
+double formula = Math.PI * (1/(Math.sqrt(1-((v*v)/(c*c)))));
+
+System.Out.println(""Value for v = "" + v + "" , c = "" + c + "" : "" + formula);

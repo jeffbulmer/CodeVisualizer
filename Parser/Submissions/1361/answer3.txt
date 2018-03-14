@@ -1,0 +1,6 @@
+Scanner in = new Scanner(System.in);
+sysout(""Enter v"");
+int v = in.nextInt;
+sysout(""Enter c:);
+int c = in.nextInt;
+sysout(""value for v = "" + v + "" value for c = "" + c + "" :"" + Math.PI/Math.sqrt(1-v*v/Math.pow(c,2))); 

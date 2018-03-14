@@ -1,0 +1,38 @@
+public class TestBankCard{
+	public static void main(String[] args){
+		BankCard card = new BankCard(100);
+		System.out.println(""Card initialized with "" + getMoney);
+	} 
+}
+public class BankCard{
+	//variables
+	private double money; //amount of money on card
+
+	//contructors
+	public BankCard(double money){
+		this.money = money;
+	}
+
+	//methods
+	public double getMoney(){
+		return money;
+	}
+	public void addMoney(double add){
+		money += add;
+	}
+	public void checkBalance(){
+		System.out.println(""Bank card has "" + getMoney());
+	}
+	public void buySomething(String obj, double price){
+		if( money >= price ){
+			System.out.println(""Buying "" + obj + "" for $"" + price);
+			money -= price;
+			checkBalance();
+		}	
+		else{
+			System.out.println(""Attempting to buy "" + obj + "" for $"" + price);
+			System.out.println(""Card declined. Please contact bank."");
+			checkBalance();
+		}
+	}
+}

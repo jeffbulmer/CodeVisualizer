@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class birthday {
+	public static void main(String[] args){
+		int year = 1990 + (int)(Math.random()*((2017 - 1990) + 1));
+		int month = (int)(Math.random()*12);
+		int day = (int)(Math.random()*30);
+		//Not all months have 30 days, but lets just do it this way for now since this is just a game
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println(""Guess the year (between 1990 and 2017): "");
+		int yearGuess = input.nextInt();
+		System.out.println(""Guess the month (as a number): "");
+		int monthGuess = input.nextInt();
+		System.out.println(""Guess the day (as a number): "");
+		int dayGuess = input.nextInt();
+		
+		if((year == yearGuess)&(month==monthGuess)&(day==dayGuess))
+			System.out.println(""You got it, wow!"");
+		//Too early if: year guess is too low, or year is right and month is too low, or year is right and month is right and day is too low
+		else if( (yearGuess>year) | ((yearGuess==year)&(monthGuess<month)) | ((yearGuess==year)&(monthGuess==month)&(dayGuess<day)) )//oh ya one-liner
+			System.out.println(""You were too late!"");
+		else
+			System.out.println(""You were too early!"");
+	}
+}

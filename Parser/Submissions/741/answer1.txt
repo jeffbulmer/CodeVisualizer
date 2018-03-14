@@ -1,0 +1,13 @@
+import java.util.Scanner;
+	public static void main(String[] args){
+		Scanner in=new Scanner(System.in);
+		System.out.println(""Enter a number:"");
+		int entered=in.nextInt(), copied=entered, reversed=0;
+		
+		while(copied!=0){
+		reversed=(10*reversed)+(copied%10);
+		copied=copied/10;
+
+		System.out.println(""Is ""+entered+"" a palindrom?"");
+		System.out.println((reversed==entered)?""true"":""false"");
+	}

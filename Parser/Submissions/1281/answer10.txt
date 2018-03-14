@@ -1,0 +1,49 @@
+package Q;
+
+public class BankCard {
+
+	private double balance = 0;
+	
+	public BankCard(double balance) {
+		this.balance = balance;
+		system.out.println(""BankCard initialized with "" + balance);
+	}
+
+	public void loadBalance(double balance) {
+		this.balance = balance;
+		system.out.println(""Loading BankCard with $"" + balance);
+		this.showBalance();
+	}
+	
+	public void buy(String item, double cost) {
+		if ((this.balance-=cost)<0) {
+			system.out.println(""Attempting to buy "" + item + "" for $"" + cost);
+			system.out.println(""Your card has been declined. Please contact bank.""); 
+			system.out.println(""Your card has $"" + this.balance);
+		} else {
+			this.balance -= cost;
+			system.out.println(""Buying "" + item + "" for $"" + cost);
+			this.showBalance();
+		}
+	}
+
+	public void showBalance() {
+		system.out.println(""BankCard now has $"" + this.balance);
+	}
+
+}
+
+public class Test {
+
+	public static main(String args[]) {
+		BankCard bc = new BankCard(100);
+		
+		bc.loadBalance(500);
+
+		bc.buy(""Chair"", 270);
+
+		bc.buy(""TV"", 800);	
+	
+	}
+
+}

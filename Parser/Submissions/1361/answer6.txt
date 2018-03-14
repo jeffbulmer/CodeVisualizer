@@ -1,0 +1,5 @@
+int[] a = new int[10];
+sysout(""the elements of generated array;"")
+for (i = 0; i<a.lenth()<i++){
+ar[i] = i;
+sysout(Math.sqrt(ar[i]);

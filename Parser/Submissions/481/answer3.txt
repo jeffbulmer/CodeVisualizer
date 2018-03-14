@@ -1,0 +1,12 @@
+import java.util.Scanner;
+public class Q3{
+	public static void main(String[] args){
+	Scanner in = new Scanner (System.in);
+	System.out.println(""Enter a value for v: "")
+	int v = in.nextInt();
+	System.out.println(""Enter a value for c: "")
+	int c = in.nextInt();
+	System.out.println(""Value for v = "" + v + "" , c = "" + c + "" : "" + Math.PI*1/ˬ?Math.sqtr(1-((v*v)/(c*c)))ˬ?);
+}
+}
+in.close();

@@ -1,0 +1,20 @@
+import java.util.Scanner;
+package review;
+public class review{
+public static void main(String [] args){
+Scanner in = new Scanner (system.in);
+System.out.println(""Sample Ouput"")
+System.out.println(""Enter a Number?"")
+int y = in.nextInt();
+String p = Integer.toString(y);
+String a = ("""");
+int i = p.length();
+while (i>0){
+a+= p.charAt(i-1);
+i--;}
+int c=Integer.parseInt(a);
+System.out.println(""Is "" + y  "" a palindrome?"")
+if( y==a)
+System.out.println(""True"")
+else
+System.out.println(""false"")}}

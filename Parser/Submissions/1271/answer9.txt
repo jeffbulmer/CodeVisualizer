@@ -1,0 +1,30 @@
+int[] array = new int[]{1,5,7,4,3,2,6};
+
+origarray = returna(array);
+
+while (checkSorted(origarray) == false){
+	mySort(origarray);
+}
+
+public static String returna(int[] array){
+String temp = """";
+for(int i = 0; i < array.length; i++){
+	temp = temp + array[i];
+}
+return temp;
+}
+
+public static int mySort(int[] array){
+Arrays.sort(array);
+}
+
+public static boolean checkSorted(String array){
+boolean check = false;
+for (int i = 0; i < array.length()-1; i++){
+	if(array.charAt(i) > array.charAt(i+1){
+	check = true;
+	}else{
+check = false;
+}
+}
+}

@@ -1,0 +1,37 @@
+include java.util.*;
+
+public static void main(String args[])
+{
+	Scanner in = new Scanner(System.in);
+	int userIn;
+	boolean same;
+	int digits = 0;
+	boolean count = true;
+	System.out.println(""Enter a number:"");
+	userIn = in.nextInt();
+	System.out.println(""Is "" + userIn + "" a palindrome?"");
+	for(int i = 1; count !=0; i*10)
+	{
+		if(userIn%i !=0)
+		{
+			count = true;
+			digits++;
+		}else{
+			count = false;
+		}
+	}
+
+	for (int c = 0; c<=digits;i++)
+	{
+		if(c==0){
+			if(userIn%1 != userIn%(userIn%10*digits){
+				same = false;
+			}
+		}else{
+			if(userIn%(10*c) == userIn%(10(digits-c))){
+			}else{
+				same = false;
+			}	
+		}
+	}
+	System.out.println(same);

@@ -1,0 +1,6 @@
+double [] array = new array [10]
+array [] = {0.0,1.0,1.4142135623730951,1.7320508075688772,2.0,2.2360679779979,2.449489742783178,2.6457513110645907,2.8284271247461903,3.0};
+System.out.println(""Sample output"");
+System.out.println(""Elements of the generated array:"");
+for(int i=0; i < array.length(); i++)
+System.out.println(array[i]);

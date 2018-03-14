@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Date {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		int year = 1990 + (int)(Math.random()*((2017 - 1990) + 1));
+		int month = 1 + (int)(Math.random()*((12-1)+1));
+		int day = 1 + (int)(Math.random()*((30-1)+1));
+
+		int yearg, monthg, dayg;
+
+		System.out.println(""Guess the year (between 1990 and 2017):"");
+		yearg = in.nextInt();
+		
+		System.out.println(""Guess the month (as a number):"");
+		monthg = in.nextInt();
+	
+		System.out.println(""Guess the day (as a number):"");
+		dayg = in.nextInt();
+	
+		System.out.println(""the correct date was ""+year+""-""+month+""-""+day+"" (yyyy-mm-dd)."");
+
+		if(yearg>year)
+			System.out.println(""You were too late!"");
+		else if(yearg<year)
+			System.out.println(""You were too early!"");
+		else if(monthg>month)
+			System.out.println(""You were too late!"");
+		else if (monthg<month)
+			System.out.println(""You were too early!"");
+		else if (dayg>day)
+			System.out.println(""You werer too late!"");
+		else if (dayg<day)
+			System.out.println(""You were too early!"");
+		else
+			System.out.println(""You got it, wow!"");
+	}
+}

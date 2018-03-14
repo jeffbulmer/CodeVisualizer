@@ -1,0 +1,14 @@
+import java .util.Scanner;
+public class Q4{
+public static void main(String[]args){
+Scanner in  = new Scanner(System.in);
+System.out.println(""Enter an interger number greater than 0: "");
+int n1 = in.nextInt();
+int odd = 0;
+for (i = 0;i<=n1;i++){
+if(n1%2==0)
+odd++;
+}
+System.out.println(""There are "" + odd + ""  odd Integers between 0 and "" + n1);
+}
+}

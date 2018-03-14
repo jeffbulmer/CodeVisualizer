@@ -1,0 +1,12 @@
+public static void main(String[] almostDone){
+//Assume Scanner was imported
+Scanner KoreanYogurtShop = new Scanner(System.in);
+System.out.println(""Enter a value 4 v :"");
+//Assume the user inputs real numbers
+int v??rit?? = KoreanYogurtShop.nextInt();
+System.out.println(""Entrer une valeur pour c : "");
+int pourquoiChangerLaLangue = KoreanYogurtShop.nextInt();
+///idk might work???
+System.out.print(""Value for v = ""+v??rit??+ "", c = ""+pourQuoiChangerLaLangue+"": ""+(3.14*(1/(Math.sqrt(1-(v??rit??*v??rit??/pourquoiCahngerLaLangue/pourquoiChangerLaLangue)))))); 
+
+}

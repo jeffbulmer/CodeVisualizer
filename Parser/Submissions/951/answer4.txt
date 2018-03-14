@@ -1,0 +1,15 @@
+import java.util.*;
+public class odd{
+public static void main(String []args){
+Scanner in = new Scanner(System.in);
+System.out.println(""Enter an integer greater than 0"");
+int number = in.nextInt();
+System.out.println(oddInt(number));
+}}
+
+public static int oddInt(int number){
+if (number%2==0)
+return number/2;
+else 
+return number/2 +1 
+}

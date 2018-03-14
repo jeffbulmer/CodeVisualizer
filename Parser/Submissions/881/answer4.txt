@@ -1,0 +1,3 @@
+Scanner in = new Scanner(System.in);
+int odds = (int)(in.nextInt()+1);
+System.out.println(odds);

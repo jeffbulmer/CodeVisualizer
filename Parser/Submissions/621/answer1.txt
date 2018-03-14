@@ -1,0 +1,11 @@
+my scanner is called ""in""
+boolean a=true;
+system.out.print(""enter a number"");
+String x=in.nextLine();
+for(int y=0;y<=x.length();y++;){
+if(x.charAt(y)!=x.charAt(x.length-y){a=false;}
+}
+system.out.print(""is it a palindrome?"")
+system.out.print(a)
+
+}

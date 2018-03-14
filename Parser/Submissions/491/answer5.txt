@@ -1,0 +1,28 @@
+int year = (int)(Math.random()* 28 + 1990;
+int month = (int)(Math.random()*12);
+int day = (int)(Math.random()*30);
+int totalTime = year+month+day;
+int yearguess;
+int monthguess;
+int dayguess;
+
+Scanner myscanner = new Scanner(System.in);
+System.out.println(""Guess the year (between 1990 and 2017):"");
+yearguess = myscanner.nextInt();
+System.out.println(""Guess the month (as a number)"");
+monthguess = myscanner.nextInt();
+System.out.println(""Guess the day (as a number)"");
+dayguess = myscanner.nextInt();
+
+int totalTimeGuess = yearguess + monthguess + dayguess;
+
+if (totalTime == totalTimeGuess){
+System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + ""(yyyy-mm-dd)"");
+System.out.println(""You got it, wow!"");
+}else if (totalTime < totalTimeGuess){
+System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + ""(yyyy-mm-dd)"");
+System.out.println(""You were too late!"");
+}else if (totalTime > totalTimeGuess){
+System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + ""(yyyy-mm-dd)"");
+System.out.println(""You were too early!"");
+}

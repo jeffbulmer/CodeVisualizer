@@ -1,0 +1,13 @@
+Scanner input = new Scanner(System.in);
+System.out.println(""Enter an integer greater than 0: "");
+int userIn = input.nextInt();
+int num = 0; //variable num to be used in while loop
+int count = 0; //variable count will keep track of number of odd integers
+if(userIn % 2 != 0) //if user input is an odd integer
+	count = 1; //include in count
+while(num < userIn) { //while num is less than user input
+	if(num % 2 != 0) //check if num is an odd integer
+		count++; //if it is then increment count
+	num++; //increment num
+}
+System.out.println(""There are ""+count+"" odd integers between 0 and ""+userIn);

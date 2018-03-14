@@ -1,0 +1,13 @@
+String word;
+String reverse = """";
+System.out.println(""Enter a word:"");
+Scanner myscanner = new Scanner(System.in);
+word = myscanner.nextLine();
+for(int i = word.length(); i >= 0; i--) {
+reverse = reverse + word.charAt(i);
+}
+System.out.println(""Is "" + word + "" a palindrome?"");
+if (reverse.equals(word))
+System.out.println(""true"");
+else
+System.out.println(""false"");

@@ -1,0 +1,27 @@
+package 1;
+import java.util.Scanner;
+public class part2 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String [] words = new String[5];
+		for(i = 0; i < words.length; i++){
+			System.out.println(""Enter a word: "")
+			words[i] = scan.nextLine();
+		}
+		int vowel = 0;
+		for (i = 0; i < words.length; i++)
+			switch( words.charAt( words[i].length() ) ){
+				case(a): vowel++; break;
+				case(A): vowel++; break;
+				case(e): vowel++; break;
+				case(E): vowel++; break;
+				case(i): vowel++; break;
+				case(I): vowel++; break;
+				case(o): vowel++; break;
+				case(O): vowel++; break;
+				case(u): vowel++; break;
+				case(U): vowel++; break;
+				default: break;
+			}
+		System.out.println(""Of the words you entered, "" + vowel + "" of them ended in a vowel.""
+}

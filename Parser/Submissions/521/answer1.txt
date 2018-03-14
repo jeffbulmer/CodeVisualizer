@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class palindrome{
+public static void main(String[] args){
+Scanner input=new Scanner(System.in);
+System.out.println(""Enter a number:"");
+int number=input.nextInt();
+int result=0;
+while(number !=0){
+int r=number%10;
+result=result*10+r;
+number=number/10;
+}
+System.out.println(""Is ""+number+"" a palindrome?"");
+if(number==result)
+System.out.println(""true"");
+else
+System.out.println(""false"");
+}
+}

@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class formula{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.println(""Enter a value for v: "");
+		double v = input.nextDouble();
+		System.out.println(""Enter a value for c: "");
+		double c = input.nextDouble();
+		
+		double answer = (Math.PI)*(1/Math.sqrt(1-(Math.pow(v,2)/Math.pow(c,2))));
+		System.out.println(""Value for v =  ""+v+"", c = ""+c+"": ""+answer);
+	}
+}

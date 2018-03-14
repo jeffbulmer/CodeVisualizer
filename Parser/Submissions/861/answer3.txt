@@ -1,0 +1,16 @@
+int v = 0;
+int c = 0;
+double math = 0;
+
+Scanner sc = new Scanner(System.in);
+
+System.out.println(""Enter a valuse for v: "");
+v = sc.nextInt();
+System.out.println(""Enter a value for c: "");
+v = sc.nextInt();
+
+math = Math.PI*(1/Math.sqrt(1-Math.pow(v, 2)/Math.pow(c, 2)));
+
+System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + math);
+
+sc.close();

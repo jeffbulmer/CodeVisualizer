@@ -1,0 +1,38 @@
+package 2{
+	public class Bank Card{
+		private double cash;
+		public Bank Card(double cash){
+			setCash(cash);
+		}
+		public void setCash(double cash){
+			if(cash >= 0)
+				this.cash = cash;
+			else
+				System.out.println(""Your card has been declined. Please contact the bank."");
+		}
+		public double getCash(){
+			return cash;
+		}
+		public void load(double amount){
+			setCash(getCash() + amount);
+		}
+		public void buy(double amount){
+				setCash(getCash() - amount);
+		}
+	}
+	public class Test{
+		public static void main(String[] args){
+			Bank Card bc = new Bank Card(100);
+			System.out.println(""Bank card initialized with $"" + getCash() );
+			System.out.println(""Loading bank card with $500"" );
+			bc.load(500);
+			System.out.println(""Bank card now has $"" + getCash() );
+			System.out.println(""Buying chair for $270."")
+			System.out.println(""Bank card now has $"" + getCash() );
+			System.out.println(""Attempting to buy TV for $800."");
+			bc.buy(800);
+			System.out.println(""Bank card now has $"" + getCash() );
+		}
+	}
+
+}

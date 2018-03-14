@@ -1,0 +1,27 @@
+//code by Cass Menchions
+import java.util.Scanner;
+
+public OddInt{
+	public static void main(String[] args){
+		//variables, objects
+		int num; //user inputted variable
+		int counter = 1; //counts number of odd integers
+		Scanner sc = new Scanner(System.in);
+
+		//ask user to input a number
+		System.out.println(""Enter an integer greater than 0:"");
+		num = sc.nextInt();
+		sc.close();
+
+		//find the number of odd integers between 0 and num
+		if(num == 1 || num == 2)
+			System.out.println(""There is 1 odd integer between 0 and "" + num);
+		else{
+			for(int i = 3; i <= num; i++){
+				if( i % 2 != 0)
+					counter++;
+			}
+			System.out.println(""There are "" + counter + "" odd integers between 0 & "" + num);
+		}
+	}
+}

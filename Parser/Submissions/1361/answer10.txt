@@ -1,0 +1,20 @@
+public BankCard{
+double money = 100;
+sysout(""Card is initialized with 100$"");
+buy(800);
+loadMoney(300);
+}
+public void loadMoney(double x){
+money = money+ x;
+sysout(x + ""$ has been loaded on your card"")}
+
+public void buy(double y){
+money = money - y;
+if(money<0){
+sysout(""the purchase had been declined. Contact your bank"")
+money = money +y;}
+else{
+sysout(""payment successful"");
+}
+sysout(""available amount: + money);}
+

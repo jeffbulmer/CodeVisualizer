@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class Palindrome {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.println(""Enter a number: "");
+		int originalNum = input.nextInt();
+		int num = originalNum;
+		int backwords = 0;
+		while(num != 0){
+			int remainder = num % 10;
+			backwords = (backwords*10)+remainder;
+			num = num/10;
+		}
+		if(originalNum==backwords)
+			System.out.println(""true"");
+		else
+			System.out.println(""false"");
+	}
+}

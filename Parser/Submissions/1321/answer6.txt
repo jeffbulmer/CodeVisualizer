@@ -1,0 +1,5 @@
+double[] sqrt = new double[10];
+for(int i = 0; i<length; i++){
+	sqrt[i] = Math.sqrt(i);
+	System.out.println(sqrt[i]);
+}

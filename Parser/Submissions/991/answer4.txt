@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class OddCatcher
+{
+	public static void main(String[] args)
+	throws InputMismatchException
+	{
+		Scanner keyboardScanner = new Scanner(System.in);
+		System.out.println(""Enter a number greater than 0:"");
+		int input = keyboardScanner.nextInt();
+		countOddNumbers(input);
+		keyboardScanner.close();
+	}
+	
+	static void countOddNumbers(int givenNumber)
+	{
+		if(givenNumber <= 0)
+		{
+			System.out.println(""ERROR: Not a number greater than 0!"");
+			return;
+		}
+		boolean odd = false;
+		int oddAmount = 0;
+		for(int i = 0;i <= givenNumber;i++)
+		{
+			if(odd)
+			{
+				oddAmount++;
+			}
+		}
+		System.out.println(""There are "" + oddAmount + "" odd numbers between 0 and "" + givenNumber + ""."");
+		return;
+	}
+}

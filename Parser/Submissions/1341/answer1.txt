@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+class Palindrome {
+public static void main( String args[] ) {
+
+System.out.println(""Enter an integer"");
+int number = new Scanner(System.in).nextInt(); 
+
+if(isPalindrome(integer)) {
+system.out.println(integer + ""is a palindrome"");
+} else {
+System.out.println(integer + "" is not a palindrome"");
+
+public boolean isPalindrome(int integer) {
+int p = integer;
+int reverse = 0;
+
+while ( p != 0 ) {
+int remainder = p % 10;
+reverse = reverse * 10 + remainder;
+p = p /10;
+}
+return integer == reverse;
+
+}
+
+}

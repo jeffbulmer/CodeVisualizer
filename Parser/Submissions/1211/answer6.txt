@@ -1,0 +1,6 @@
+int[] array = new int[10];
+System.out.println(""Elements of generated array: "");
+	for(int i = 0; i < 9; i++ ) {
+    		int square[i] = Math.sqrt(array[i]);
+		System.out.println(square);
+	}

@@ -1,0 +1,12 @@
+import java.util.Scanner;
+package review;
+public class review {
+public static void main(String [] args){
+Scanner in = new Scanner (System.in);
+System.out.println(""Sample Output:"");
+System.out.println(""Enter a Value for V:);
+double v = in.nextDouble();
+System.out.println(""Enter a Value for C:);
+double c = in.nextDouble();
+double f = ((Math.PI)*(1/(Math.sqrt(1-((Math.pow(v,2))/(Math.pow(c,2)));
+System.out.println(""The value for v = "" + v + "", c="" +c+ "":"" + f);}}

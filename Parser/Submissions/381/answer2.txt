@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+Scanner input = new Scanner(System.in);
+System.out.println(""Enter a word:"");
+String word = input.next(System.in);
+boolean isPalindrome = true;
+
+int i = word.length;
+int k = 0;
+while ((k < word.length) & (isPalindrome == true) {
+	if (char[k] != char[i - 1]) {
+		isPalindrome = false;
+		break;
+	}
+	else {
+		i--;
+		k++;
+	}
+}
+
+System.out.println(""Is "" + word + "" a palindrome?\n"" + isPalindrome);

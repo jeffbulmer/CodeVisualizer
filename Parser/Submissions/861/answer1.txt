@@ -1,0 +1,27 @@
+Int number = 0;
+int revnum = 0;
+in input = 0;
+
+Scanner sc = new Scanner(System.in);
+
+System.out.println(""Enter a number: "");
+input = sc.nextInt();
+number = input;
+
+while(number != 0){
+	revnum = revnum + (number % 10);
+	revnum = revnum * 10;
+	number = number / 10;
+}
+
+revnum = revnum / 10;
+
+System.out.println(""Is "" + number + "" a palindrome?"");
+
+if(input == revnum){
+	System.out.println(""true"");
+} else {
+	System.out.println(""false"");
+}
+
+sc.close();

@@ -1,0 +1,21 @@
+Scanner scanner = new Scanner(System.in);
+System.out.print(""Sample output\n"");
+int number = scanner.nextInt();
+
+int reverse = 0;
+int temp;
+while (number!=0){
+reverse *= 10;
+reverse += number%10;
+number = number/10;
+}
+
+temp = reverse
+
+System.out.printf(""Is %d a palindrome?"",number);
+
+if (number == reverse){
+System.out.print(""true"")
+}else{
+System.out.print(""false"")
+}

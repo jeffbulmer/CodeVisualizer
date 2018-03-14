@@ -1,0 +1,7 @@
+System.out.printIn(""Sample output\nElements of the generated array:"");
+double[] array = new double[10];
+
+for(int i = 0; i < array.length; i++){
+	array[i] = Math.sqrt(i);
+	System.out.print(array[i]);
+}

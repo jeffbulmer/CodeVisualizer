@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class palendrome{
+Scanner in=new Scanner(system.in);
+boolean a= true;
+system.out.print(""Type in a string to test if it is a palendrome"");
+String x=in.nextLine();
+int l=x.length();
+int ll=l/2;
+for(int y=0;y<=ll;y++){
+if(x.charAt(y)==x.charAt(l-y)){}
+else a=false;}
+system.out.print(""is "" x"" a palendrome?"")
+system.out.print(a);
+}

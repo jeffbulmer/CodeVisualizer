@@ -1,0 +1,21 @@
+package Q
+
+public class Q4 {
+
+import java.util.scanner;
+
+	public static main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		system.out.println(""Enter an integer number greater than 0"");
+		int x = in.nextInt();
+		int c = 0;
+
+		for (int i = 1; i<=x; i+=2) {
+		c++;
+		}
+
+		system.out.println(""There are "" + c + "" odd integers between 0 and "" + x);
+
+	
+	}
+}

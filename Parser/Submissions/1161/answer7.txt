@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public static void main (String[] args){
+String[] words = new String[5];
+Scanner s = new Scanner(System.in);
+for(int x = 0; x < 5; x ++){
+System.out.println(""Enter a word:"");
+words[x] = s.next();}
+System.out.println(checkVowel(words));
+}
+public static String checkVowel(String[] input){
+int counter = 0;
+String line = """";
+for(int x = 0; x < input.length; x++){
+char[] test = input[x].toCharArray();
+char finl = test[test.length - 1];
+if (finl == 'a' || finl == 'e' || finl == 'i' || finl == 'o' || finl == 'u'){
+counter++;}
+if(counter== 0){
+line = ""Of the words you entered, none end in vowels."";
+}
+else{
+line = ""Of the words you entered, "" + counter + "" end in a vowel."";
+}
+}
+return line;

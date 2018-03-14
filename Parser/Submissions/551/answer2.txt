@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class B{
+	public static void main(String args[]){
+		Scanner in = new Scanner(System.in);
+		System.out.println(""Enter a word: "");
+		String st=in.next();
+		boolean b = true;
+		for(int j=0, j<=st.length()/2,j++){
+		if( st.charAt(st.length()-1-j)==st.charAt(j))
+		else{b=false;
+			break; }   }
+		System.out.printf(""Is %s a palindrome?\n"",st);
+		System.out.println(b);
+
+}}

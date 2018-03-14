@@ -1,0 +1,6 @@
+Scanner in = new Scanner(System.in);
+System.out.println(""Enter a value for v: "");
+double v = in.nextdouble();
+System.out.println(""Enter a value for c: "");
+double c = in.nextdouble();
+System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + Math.pi*1/(Math.pow((1-v*v/c*c),0.5)));

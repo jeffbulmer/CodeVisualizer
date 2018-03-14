@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public Class Test{
+public static void main(String [] args){
+Scanner input = new Scanner(System.in);
+System.out.println(""Enter a numer: "");
+int x = input.nextInt();
+int y = x;
+int tenPower=10;
+int count =0;
+do{
+y=y/tenPower;
+count++;
+}while(y!=0);
+int r, l;
+r=x%Math.pow(10,count/2);
+if(count%2==0){
+l=x/Math.pow(10,count/2);
+}else{
+l=x/Math.pow(10,count/2+1)
+}
+System.out.println(""Is the number a palindrome?"");
+System.out.println(r==l);

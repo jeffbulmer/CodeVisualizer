@@ -1,0 +1,5 @@
+Scanner in = new Scanner(System.in);
+int a = in.nextInt();
+int b = in.nextInt();
+double c = 1/(Math.sqrt(1-Math.pow(a,2)/Math.pow(b,2)));
+System.out.println(""Value for a: "" + a + "", Value for b: "" + b + "":"" + c"");

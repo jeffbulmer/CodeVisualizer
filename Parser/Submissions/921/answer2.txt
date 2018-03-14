@@ -1,0 +1,8 @@
+Scanner input = new Scanner(System.in);
+System.out.println(""Enter a word:"");
+String[] string = input.nextLine;
+System.out.println(""Is "" + string + ""a palindrome?"");
+if (string.charAt(0)=string.charAtLast)
+System.out.println(""true"");
+else
+System.out.println(""false"");

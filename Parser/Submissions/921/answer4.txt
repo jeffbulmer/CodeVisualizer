@@ -1,0 +1,4 @@
+Scanner input = new Scanner(System.in);
+System.out.println(""Enter an integer number greater than 0: "");
+int value = input.nextInt();
+ 

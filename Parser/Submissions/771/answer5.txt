@@ -1,0 +1,20 @@
+Scanner grab = new Scanner(System.in);
+
+System.Out.println(""Guess the year (between 1990 and 2017):"");
+int userYearGuess = grab.nextInt();
+
+System.Out.println(""Guess the month (as a number): "");
+int userMonthGuess = grab.nextInt();
+
+System.Out.println(""Guess the day (as a number): "");
+int userDayGuess = grab.nextInt();
+
+int actualYear = (int) (Math.random * (2017-1990 + 1)) + 1990;
+int actualMonth = (int) (Math.random * (12-1) + 1) + 1;
+int actualDay = (int) (Math.random * (31-1) + 1) + 1;
+
+System.Out.println(""The correct date was "" + actualYear + ""-"" + actualMonth + ""-"" + actualDay + "" (yyyy-mm-dd)."");
+
+if (actualMonth == userMonthGuess && actualYear == userYearGuess && userDayGuess == actualDay){System.Out.println(""You got it!!"");}
+else if (userYearGuess > actualYear){System.Out.println(""You were too late."");}
+else if (userYearGuess < actualYear)(System.Out.println(""You were too early."");)

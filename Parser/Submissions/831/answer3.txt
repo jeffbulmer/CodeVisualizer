@@ -1,0 +1,9 @@
+import java.util.Scanner;
+public static void main(String[] args){
+	Scanner in = new Scanner(System.in);
+	sysout(""enter a value for v:"");
+	int v = in.nextInt();
+	sysout(""enter a value for c"");
+	int c = in.nextInt();
+	double r = Math.PI/sqrt(1-Math.pow(v,2)/Math.pow(c,2));
+	sysout(""Value for v = "" + v + "", c = "" + c + "": "" + r);

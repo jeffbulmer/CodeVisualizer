@@ -1,0 +1,9 @@
+import java.util.Scanner:
+
+	public static void main(String[] args){
+ 		System.out,println(""Enter an integer greater than 0:"");
+		int odd=in.nextInt();
+		int count=0;
+		for(int i=0; i<odd.length();i+2;){
+		count++;
+		Systme.out.println(""There are "",count,"" integers between 0 and "",odd); 

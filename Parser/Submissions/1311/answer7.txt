@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Q7 {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String [] w = new String[5];
+		int c = 0;
+		
+		for(int i=0;i<w.length;i++){
+			System.out.println(""Enter a word:"");
+			w[i] = in.nextLine();
+			if(EndVowel(w[i])){
+				c++;
+			}
+		}
+System.out.printf(""Of the words you entered, %d end in vowels."",c);
+	}
+	public static boolean EndVowel(String word){
+		char ch = word.charAt(word.length()-1);
+		if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+			return true;
+		else 
+			return false;
+		
+	}
+
+}

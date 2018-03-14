@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Palindrome {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println(""Enter a number: "");
+		int a = in.nextInt();
+		System.out.printf(""Is %d a palindrome?\n"", a);
+		if (isPalindrome(a)==true)
+			System.out.println(""true"");
+		else
+			System.out.println(""false"");
+		in.close();
+	}
+
+	public static boolean isPalindrome(int a) {
+		int b = 0, c = a;
+		while (c > 0) {
+			b = (b * 10) + (c % 10);
+			c = c / 10;
+		}
+		if (a == b)
+			return true;
+		else
+			return false;
+	}
+}

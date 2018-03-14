@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class wordwo {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println(""Enter a word: "");
+		String word = in.nextLine();
+		System.out.printf(""Is %s a palindrome?"",word);
+		System.out.println();
+		int i = 0;
+for(i < word.length()/2;i++)
+		{
+			if(s.charAt(i)==s.charAt(s.length()-i-1))
+				continue;
+			else
+				System.out.println(""false"");
+				break;
+		}
+	if( i==word.length()/2-1)
+		System.out.println(""true"");
+in.close();
+}
+}

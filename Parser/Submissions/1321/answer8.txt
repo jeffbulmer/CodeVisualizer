@@ -1,0 +1,25 @@
+Scanner in = new Scanner(System.in);
+System.out.println(""Enter the length of the triangle: "");
+
+int originalLength = in.nextInt();
+in changingLength = originalLength;
+
+int lines = (int)(Math.ceil(originalLength/2));
+
+for(int i = 0; i <= lines; i++) {
+	System.out.println();
+	
+	int spaces = (originalLength - changingLength) / 2;
+
+	for(int k = 0; k < spaces; k++) {
+		System.out.print("" "");
+	}
+
+	for(int j = 0; j < changingLength; j++) {
+		System.out.print(""V"");
+	}
+
+	changingLength -= 2;
+}
+
+in.close();

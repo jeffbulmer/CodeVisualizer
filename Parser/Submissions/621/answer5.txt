@@ -1,0 +1,22 @@
+my scanner is called ""in""
+do{
+int year =Math.random*27+1990;
+int month =Math.random*12;
+int day=Math.random*30;
+//I am assuming 30 days a month
+system.out.print(""Guess a date between 1990 and 2017,Enter year then month then day"");
+int yearqq = in.nextInt();
+int monthqq =in.nextInt();
+int dayqq= in.nextInt();
+
+if(yearqq>year){system.out.print (""Too late Try again""); continue;}
+if(yearqq<year){system.out.print(""Too early Try again""); continue;}
+
+if(monthqq>month){system.out.print(""Too late Try again""); continue;}
+if(monthqq<month){system.out.print(""Too early Try again""); continue;}
+
+if(dayqq>day){system.out.print(""Too late try again""); continue;}
+if(dayqq<day){system.out.print(""Too early try again""); continue}
+
+while(1>2);
+system.out.print(""Good job you beat the incredible odds and won!"");

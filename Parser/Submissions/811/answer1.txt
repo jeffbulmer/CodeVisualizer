@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class testst {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println(""Enter a number"");
+		int num = in.nextInt();
+		int digit = 0;
+		int numb = num;
+		while(numb > 0) {
+			numb = numb / 10;
+			digit++;
+		}
+		System.out.printf(""Is %d a palindrome?"",num);
+		System.out.println();
+	int numm = (int)(num/Math.pow(10, digit-1));
+	
+	for(int i =1;i<digit;i++)
+	{
+	numm=(int)numm+(int)(num%Math.pow(10, i))/(int)(Math.pow(10, i-1))*(int)(Math.pow(10, digit-i));
+	}
+	
+	if(num==numm)
+	System.out.println(""true"");
+	else
+	System.out.println(""false"");
+	in.close();
+
+}

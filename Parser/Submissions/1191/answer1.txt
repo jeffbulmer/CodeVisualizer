@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class NumPalindrome{
+	public static void main(String[] args){
+		//variables
+		int num; //user number
+		int palin; //copy of num
+		int reverse = 0; //reverse of num
+		Scanner sc = new Scanner(System.in);
+
+		//ask the user to enter a number
+		System.out.println(""Enter a number:"")
+		num = sc.nextInt();
+		sc.close();
+		palin = num;
+
+		//add value to reverse
+		while( palin != 0 ){
+			reverse = reverse * 10 + (palin % 10);
+			palin /10;
+		}
+
+		//state if num is a palindrome
+		System.out.println(""Is "" + num + "" a palindrome?"");
+		System.out.println( reverse == num );
+	}
+}

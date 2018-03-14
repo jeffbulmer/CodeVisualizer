@@ -1,0 +1,26 @@
+package Q;
+
+public class Q1 {
+
+import java.util.scanner;
+
+	public static main(String args[]) {
+		Scanner in = new Scanner(System.in);
+
+		system.out.println(""Enter a number: "")
+		int x = in.nextInt();
+		int y = 0;
+
+		while (y.length()<x.length()) {
+		y += (x%10);
+		}
+		
+
+		system.out.println(""Is "" + x + "" a palindrome?"")
+		if (y==x) {
+			system.out.println(""true""); }
+		else {
+			system.out.println(""false""); }
+	
+	}
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public static void main(String[] args) {
+	
+	// Initializing needed variables:
+	int count = 0;
+	
+	// Input:
+	Scanner input = new Scanner(System.in);
+	System.out.println(""Enter an integer number greateer than 0: "");
+	int number = input.nextInt();
+	input.close();
+	
+	// Counting odd numbers:
+	for(int i = 0; i <= number; i++) {
+		if( (i % 2) != 0) {
+			count++;
+		}
+	}
+	
+	// Showing result to user:
+	System.out.println(""There are "" + count + "" odd integers between 0 and "" + number);
+	
+}

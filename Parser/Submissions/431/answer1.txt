@@ -1,0 +1,14 @@
+Scanner input = new Scanner(System.in);
+System.out.println(""Enter a number : ""); //Prompt user for input
+int userIn = input.nextInt(); //Get user input
+int rev = 0; //Initialize variable rev that will be used to compare to userIn to see if userIn is a palindrome
+System.out.println(""Is ""+userIn+"" a palindrome?"");
+while(userIn != 0) {  //while loop will get the reverse of userIn by extracting the individual digits of userIn
+	int rem = userIn % 10; //variable rem stores the current remainder of userIn
+	rev = rev * 10 + rem; //update value of rev
+	userIn = userIn/10; //get next digits of userIn
+}
+if(rev == userIn)
+	System.out.println(""true"");
+else
+	System.out.println(""false"");

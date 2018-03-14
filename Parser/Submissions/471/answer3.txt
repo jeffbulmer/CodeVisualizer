@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public static void main(String[] args) {
+	
+	// Input:
+	Scanner input = new Scanner(System.in);
+	System.out.println(""Enter a value for v: "");
+	int v = input.nextInt();
+	System.out.println(""Enter a value for v: "");
+	int c = input.nextInt();
+	input.close();
+	
+	// Calculation & Result:
+	System.out.println( ""Value for v = "" + v + "", c = ""  + c + "": "" + (Math.PI * (1.0 / Math.pow(( 1.0 - ( Math.pow(v,2) / Math.pow(c,2) ) ), 0.5))));
+	
+}
