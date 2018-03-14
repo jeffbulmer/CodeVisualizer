@@ -12,7 +12,7 @@ red[rand2 ]= temp;
 
 }
 
-System.out.println(""sorted finally"");","class BankCard {
+System.out.println("sorted finally");","class BankCard {
 protected transient int value = 50;
 
 public BankCard(int value){

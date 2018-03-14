@@ -1,6 +1,6 @@
-system.out.println(""Enter a value for v:"")
+system.out.println("Enter a value for v:")
 Scanner in= new Scanner(System.in);
 int v= in.nextInt();
-system.out.println(""Enter a value for c"")
+system.out.println("Enter a value for c")
 int c =in.nextInt();
-system.out.println(""Value for v=""+v+"", c=""+c+"":""+(math.pi/(math.sqrt(1-(v*v)/(c*c))))
+system.out.println("Value for v="+v+", c="+c+":"+(math.pi/(math.sqrt(1-(v*v)/(c*c))))

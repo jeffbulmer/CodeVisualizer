@@ -1,5 +1,5 @@
-system.out.println("" Enter a value for c"");
-system.out.println(""Enter a value for v"");
+system.out.println(" Enter a value for c");
+system.out.println("Enter a value for v");
 Scanner input =  new scanner system (in);
 int value = input.nextInt();
-System.out.println(""value for v: ""+v+ "", c = "" + c + Math.PI.*1/Math.root(1-Math.sqrtˬ?v,2ˬ?/Math.sqrt(c,2))
+System.out.println("value for v: "+v+ ", c = " + c + Math.PI.*1/Math.root(1-Math.sqrt??v,2??/Math.sqrt(c,2))

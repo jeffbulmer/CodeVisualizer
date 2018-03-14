@@ -2,11 +2,11 @@ import java.util.Scanner;
 public class formula{
 public static void main(String[]args){
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter a value for v:"");
+System.out.println("Enter a value for v:");
 int v = in.nextInt();
-System.out.println(""Enter a value for c:"");
+System.out.println("Enter a value for c:");
 int c = in.nextInt();
-System.out.println(""Value for v = ""+v+"", c= ""+c+"": ""+valueof(v,c);
+System.out.println("Value for v = "+v+", c= "+c+": "+valueof(v,c);
 }}
 public static int valueOf(int v, int c){
 int value = Math.PI*(1/Math.sqrt(1-((v*v)/(c*c))));

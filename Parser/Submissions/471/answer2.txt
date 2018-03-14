@@ -7,7 +7,7 @@ public static void main(String[] args) {
 	
 	// Input:
 	Scanner input = new Scanner(System.in);
-	System.out.println(""Enter a word: "");
+	System.out.println("Enter a word: ");
 	String word = input.nextLine();
 	input.close();
 	
@@ -17,7 +17,7 @@ public static void main(String[] args) {
 	}
 
 	// Checking for palindrome:
-	System.out.println(""Is "" + word + "" a palindrome?"");
+	System.out.println("Is " + word + " a palindrome?");
 	return word.equals(reversed);
 	
 }

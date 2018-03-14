@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 Scanner input = new Scanner(System.in);
-System.out.println(""Enter a word:"");
+System.out.println("Enter a word:");
 String word = input.next(System.in);
 boolean isPalindrome = true;
 
@@ -18,4 +18,4 @@ while ((k < word.length) & (isPalindrome == true) {
 	}
 }
 
-System.out.println(""Is "" + word + "" a palindrome?\n"" + isPalindrome);
+System.out.println("Is " + word + " a palindrome?\n" + isPalindrome);

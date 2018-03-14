@@ -2,11 +2,11 @@ int year = rand.nextInt((2017-1990)+1)+1990;
 int day = rand.nextInt((31-1)+1;
 int month = rand.nextInt((12-1)+1;
 
-System.out.println(""Enter a year"");
+System.out.println("Enter a year");
 int guessyear = sc.nextInt();
-System.out.println(""Enter a month"");
+System.out.println("Enter a month");
 int guessmonth = sc.nextInt();
-System.out.println(""Enter a day""):
+System.out.println("Enter a day"):
 int guessday = sc.nextInt();
 
 if(guessyear == year)
@@ -23,19 +23,20 @@ else
 	boolean d = false;
 
 if(y == true&m==true&d==true)
-	System.out.println(""You guessed right"");
+	System.out.println("You guessed right");
 
 if(y==true&m==true&guessday>day)
-	System.out.println(""too high"");
+	System.out.println("too high");
 if(y==true&guessmonth>month)
-	System.out.println(""too high"");
+	System.out.println("too high");
 if(guessyear>year)
-	System.out.println(""too high"");
+	System.out.println("too high");
 
 if(y==true&m==true&guessday<day)
-	System.out.println(""too low"");
+	System.out.println("too low");
 if(y==true&guessmonth<month)
-	System.out.println(""too low"");
+	System.out.println("too low");
 if(guessyear<year)
-	System.out.println(""too low"");
+	System.out.println("too low");
+
 

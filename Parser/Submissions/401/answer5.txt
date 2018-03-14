@@ -6,21 +6,21 @@ int randomMonth = (int)(Math.random*12+1);
 int randomDate = (int)(Math.random*30+1);
 
 Scanner input = new Scanner(System.in);
-System.out.println(""Guess the year (between 1990 and 2017)"");
+System.out.println("Guess the year (between 1990 and 2017)");
 int year = input.nextInt();
 int month = input.nextInt();
 int date = input.nextInt();
-System.out.println(""The correct date was "" + randomYear + ""-"" + randomMonth + ""-"" + randomDate);
-String random = """" + randomYear+randomMonth+randomDate;
-String s = """" + year + month + date
+System.out.println("The correct date was " + randomYear + "-" + randomMonth + "-" + randomDate);
+String random = "" + randomYear+randomMonth+randomDate;
+String s = "" + year + month + date
 int x = Integer.parseInt(random);
 int y = Integer.parseInt(s);
 if(x>y)
-System.out.print(""You were too early."");
+System.out.print("You were too early.");
 else if(x<y)
-System.out.println(""You were too late!"");
+System.out.println("You were too late!");
 else
-System.out.println(""You got it, wow!"");
+System.out.println("You got it, wow!");
 
 }
 }

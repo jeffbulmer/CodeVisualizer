@@ -3,7 +3,7 @@ double balance;
 
 public BankCard(double amount) {
 this.setBalance(amount);
-System.out.println(""BankCard initialized with $"" + this.getBalance());
+System.out.println("BankCard initialized with $" + this.getBalance());
 }
 
 public void setBalance(double amount) {
@@ -16,15 +16,15 @@ return this.balance;
 
 public void loadCard(double amount) {
 this.balance = this.balance + amount;
-System.out.println(""Loading BankCard with $"" + amount + ""\nBankCard now has $"" + this.getBalance();
+System.out.println("Loading BankCard with $" + amount + "\nBankCard now has $" + this.getBalance();
 }
 
 public void buy(String item, double cost) {
 if (this.balance < cost) {
-	System.out.println(""Attempting to buy "" + item + "" for $"" + cost);
-	System.out.println(""Your card has been declined. Please contact Bank \n Your card has $"" this.getBalance());
+	System.out.println("Attempting to buy " + item + " for $" + cost);
+	System.out.println("Your card has been declined. Please contact Bank \n Your card has $" this.getBalance());
 	} else {
-	System.out.println(""Buying "" + item + "" for $"" + cost + ""\nBankcard now has $"" + this.getBalance());
+	System.out.println("Buying " + item + " for $" + cost + "\nBankcard now has $" + this.getBalance());
 	
 	}
 {

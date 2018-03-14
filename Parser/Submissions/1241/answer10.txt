@@ -4,22 +4,22 @@ public class BankCard{
 	//constructors
 	public BankCard(double value){
 		this.balance = value;
-		System.out.println(""BankCard initialized with $"" + value);
+		System.out.println("BankCard initialized with $" + value);
 	}
 	//methods
 	public static void printBalance(){
-		 System.out.println(""BankCard now has $"" + this.balance);
+		 System.out.println("BankCard now has $" + this.balance);
 	}
 	public static void load(double value){
 		this.balance += value;
-		System.out.println(""Loading BankCard with $"" + value);
+		System.out.println("Loading BankCard with $" + value);
 	}
 	public static void purchase(String item, double cost){
-		System.out.println(""Attempting to buy a(n) "" + item + "" for $"" + cost);
+		System.out.println("Attempting to buy a(n) " + item + " for $" + cost);
 		this.balance -= cost;
 		if(this.balance < 0){
 			this.balance += cost;
-			System.out.println(""Your card has been declined. Please contact bank."");
+			System.out.println("Your card has been declined. Please contact bank.");
 		}
 		else
 			continue;
@@ -31,9 +31,9 @@ public class Q5{
 	BankCard scotiabank = new BankCard(100);
 	scotiabank.load(500);
 	scotiabank.printBalance();
-	scotiabank.purchase(""Chair"", 270);
+	scotiabank.purchase("Chair", 270);
 	scotiabank.printBalance();
-	scotiabank.purchase(""TV"", 800);
+	scotiabank.purchase("TV", 800);
 	scotiabank.printBalance();
 	}
 }

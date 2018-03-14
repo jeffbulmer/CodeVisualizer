@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 Scanner in = new Scanner(System.In);
 
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 
 int num = in.nextInt();
 
@@ -24,5 +24,5 @@ for(int i =0; i < arr1.length; i++) {
 		match = false;
 	}
 }
-System.out.printf(""Is %d a palindrome?\n"", num);
+System.out.printf("Is %d a palindrome?\n", num);
 System.out.println(match);

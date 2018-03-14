@@ -1,4 +1,4 @@
 Scanner scanner = new Scanner(System.in);
-System.out.print(""Enter an integer number greater than 0: "");
+System.out.print("Enter an integer number greater than 0: ");
 double num = scanner.nextInt();
-System.out.print(""There are ""+Math.ceil(num/2)+"" odd integers between 0 and ""+((int)num));
+System.out.print("There are "+Math.ceil(num/2)+" odd integers between 0 and "+((int)num));

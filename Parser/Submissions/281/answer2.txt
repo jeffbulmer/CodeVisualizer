@@ -1,22 +1,22 @@
 public static void main(String [] args){
 	Scanner input = new Scanner(System.in);
 		
-		System.out.println(""Enter a word: "");
+		System.out.println("Enter a word: ");
 		String s = input.nextLine();
 		
-		System.out.println(""Is "" + s + "" a palindrome?"");
+		System.out.println("Is " + s + " a palindrome?");
 
-		String r = """";
+		String r = "";
 
 		for(int i = s.length(); i>=0; I--){
 			r = r + s.charAt(i);
 		}
 
 		if(s.equals(r))
-			System.out.println(""False"");
+			System.out.println("False");
 
 		else
-			System.out.println(""True"")	
+			System.out.println("True")	
 	
 
 	}

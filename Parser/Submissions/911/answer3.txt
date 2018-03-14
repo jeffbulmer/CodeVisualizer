@@ -2,10 +2,11 @@ import java.util.Scanner;
 public class Formula{
 public static void main(String[] args){
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter value for v"");
+System.out.println("Enter value for v");
 int v = in.nextint();
-System.out.println(""Enter value for c"");
+System.out.println("Enter value for c");
 int c = in.nextint();
 double final = Math.PI * ((1)/Math.sqrt(1-((v*v)/(c*c))));
-System.out.println(""Value for v = "" + v + ""value for c = "" + c + "":"" + final);
+System.out.println("Value for v = " + v + "value for c = " + c + ":" + final);
 }}
+

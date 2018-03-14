@@ -2,12 +2,12 @@ import java.util.Scanner;
 public class Odd {
 Scanner in= new scanner(System.in);
 public static void main(String[] args) {
-	System.out.println(""Enter an integer number greater than 0: "");
+	System.out.println("Enter an integer number greater than 0: ");
 	int num = in.nextInt();
 	int count= 0;
 	for (int i=0; i<=num; i++){
 		if (i%2==1) count++;
 	}
-	System.out.printf(""There are %d odd integers between 0 and %d"", count, num);
+	System.out.printf("There are %d odd integers between 0 and %d", count, num);
     }
 }  

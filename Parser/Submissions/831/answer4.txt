@@ -1,9 +1,10 @@
 import java.util.Scanner;
 public static void main(String[] args){
 Scanner in = new Scanner(System.in);
-sysout(""Enter an integer number greater than 0"");
+sysout("Enter an integer number greater than 0");
 int x = in.nextInt();
 int count = 0;
 for(int i = 0; i = x; i+=2)
 count++;
-sysout(""There are "" + count + "" odd integers between 0 and "" + x);
+sysout("There are " + count + " odd integers between 0 and " + x);
+

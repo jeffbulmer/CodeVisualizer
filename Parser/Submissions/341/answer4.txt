@@ -1,9 +1,9 @@
 Scanner scan = new Scanner(System.in);
-System.out.println(""Enter an integer number greater than 0: "");
+System.out.println("Enter an integer number greater than 0: ");
 int input = scan.nextInt();
 int count = input / 2;
 if (input % 2 == 1) {
 	count++;
 }
 
-System.out.println(""There are "" + count + "" odd integers between 0 and "" + input);
+System.out.println("There are " + count + " odd integers between 0 and " + input);

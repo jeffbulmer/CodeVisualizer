@@ -1,10 +1,10 @@
 import java.util.Scanner();
 Scanner input = new Scanner(System.in);
-System.out.println(""Enter an integer greater that 0: "");
+System.out.println("Enter an integer greater that 0: ");
 int value = input.nextInt();
 int count = 0;
 for(i=0; i<=value; i++){
 if(i%2=1){
 count++;}
 }
-System.out.printf(""There are %f odd integers between 0 and %f"", count, value);
+System.out.printf("There are %f odd integers between 0 and %f", count, value);

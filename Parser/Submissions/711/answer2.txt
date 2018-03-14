@@ -1,10 +1,10 @@
 import.util.Java Scanner;
 Scanner in = new Scanner();
-System.out.println(""Enter a word:"");
+System.out.println("Enter a word:");
 in String s = in.nextLine();
-System.out.println(""Is"" + s + ""a palindrome?"");
+System.out.println("Is" + s + "a palindrome?");
 if (){
-System.out.println(""True"");
+System.out.println("True");
 }
 else
-System.out.println(""False"");
+System.out.println("False");

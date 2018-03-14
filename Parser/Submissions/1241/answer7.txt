@@ -5,7 +5,7 @@ public class{
 		Scanner input = new Scanner(System.in);
 		int vowelendings = 0;
 		for(int i = 1; i <= 5; i++){
-			System.out.printf(""Enter a word: "");
+			System.out.printf("Enter a word: ");
 			String word = input.next();
 			if (vowelcheck(word) == true)
 				vowelendings++;

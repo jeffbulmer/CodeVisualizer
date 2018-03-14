@@ -1,5 +1,5 @@
 Scanner input= new Scanner(System.in);
-System.out.println(""Enter an integer number greater than 0"");
+System.out.println("Enter an integer number greater than 0");
 int n = input.nextInt();
 int i = n%2;
-System.out.println(""There are "" + i + ""odd integers between 0 and "" + n);
+System.out.println("There are " + i + "odd integers between 0 and " + n);

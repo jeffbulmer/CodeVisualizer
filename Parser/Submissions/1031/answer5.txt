@@ -2,12 +2,12 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {	
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		Scanner in = new Scanner(System.in);
 		int year = in.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		int month = in.nextInt();
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		int day = in.nextInt();
 
 		int ryear = random(1990, 2017);

@@ -702,8 +702,7 @@ public class TextProcessor {
 																					// String.
 										isString = true;
 									} else {
-										innerloop:
-										for (int k = 0; k < vars.size(); k++) {
+										innerloop: for (int k = 0; k < vars.size(); k++) {
 											if (fC.trim().equals(vars.get(k))) {
 												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
 													isString = true;
@@ -717,7 +716,7 @@ public class TextProcessor {
 												}
 											}
 										}
-										
+
 									}
 								}
 
@@ -729,8 +728,7 @@ public class TextProcessor {
 									}
 									errors.add("Variable assignment (=) on line " + lineIndex
 											+ ". This is a conditional statement, so this should be a comparison (==).");
-								}
-								else if(doubleSign.matcher(conditionParts[i]).find() && isString) {
+								} else if (doubleSign.matcher(conditionParts[i]).find() && isString) {
 									errors.add("Comparison (==) on line " + lineIndex
 											+ ", but this is a conditional statement on Strings, so this should be a comparison using .equals.");
 									isString = false;
@@ -745,93 +743,114 @@ public class TextProcessor {
 						Matcher matcher = pattern.matcher(line);
 						if (matcher.find()) {
 							String[] conditionParts = matcher.group().split(";");
-							if (conditionParts[0].contains("=")) { // check the
-																	// first
-																	// part of
-																	// the for
-																	// loop
-								if (conditionParts[0].trim().startsWith("boolean")) {
-									String pared = conditionParts[0].replaceAll("boolean", "");
-									Matcher getVar = Pattern.compile(".*(?=^([^=]+))").matcher(pared);
-									if (getVar.find()) {
-										vars.add(getVar.group().trim());
-										types.add("boolean");
-										levels.add(currLevel);
-									}
-									pared = conditionParts[0].replace(".*(?=^([^=]+))", "");
-									if (pared.trim().startsWith("==")) {
+							if (conditionParts.length < 3) {
+								String[] checkComma = matcher.group().split(",");
+								String[] checkColon = matcher.group().split(":");
+
+								if (checkComma.length == 3) {
+									errors.add("Wrong Separator used for for loop on line " + lineIndex
+											+ ". You've used commas (,), but should be using semi-colons (;)");
+								} else if (checkColon.length == 3) {
+									errors.add("Wrong Separator used for for loop on line " + lineIndex
+											+ ". You've used colons (:), but should be using semi-colons (;)");
+								} else {
+									errors.add("For loops must have 3 parts. Your for loop on line " + lineIndex
+											+ " has only " + Math.max(checkColon.length,
+													Math.max(conditionParts.length, checkComma.length)));
+								}
+							} else {
+								if (conditionParts[0].contains("=")) { // check
+																		// the
+																		// first
+																		// part
+																		// of
+																		// the
+																		// for
+																		// loop
+									if (conditionParts[0].trim().startsWith("boolean")) {
+										String pared = conditionParts[0].replaceAll("boolean", "");
+										Matcher getVar = Pattern.compile(".*(?=^([^=]+))").matcher(pared);
+										if (getVar.find()) {
+											vars.add(getVar.group().trim());
+											types.add("boolean");
+											levels.add(currLevel);
+										}
+										pared = conditionParts[0].replace(".*(?=^([^=]+))", "");
+										if (pared.trim().startsWith("==")) {
+											errors.add("Comparison (==) on line " + lineIndex
+													+ " within the first section of the for statement. This should be a variable assignment (=)");
+										} else {
+											pared = pared.replaceFirst("=", "");
+											if (singleSign.matcher(pared).find()) {
+												errors.add(
+														"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
+											}
+										}
+									} else if (conditionParts[0].contains("==")) {
 										errors.add("Comparison (==) on line " + lineIndex
 												+ " within the first section of the for statement. This should be a variable assignment (=)");
-									} else {
-										pared = pared.replaceFirst("=", "");
-										if (singleSign.matcher(pared).find()) {
-											errors.add(
-													"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
-										}
 									}
-								} else if (conditionParts[0].contains("==")) {
-									errors.add("Comparison (==) on line " + lineIndex
-											+ " within the first section of the for statement. This should be a variable assignment (=)");
 								}
-							}
-							if (conditionParts[1].contains("=")) {
-								Pattern firstComparator = pattern.compile(".*?(?==)");
-								Pattern secondComparator = pattern.compile("([^=]*)$");
-								boolean isString = false;
-								Matcher fCMatcher = firstComparator.matcher(conditionParts[1]);
-								Matcher sCMatcher = secondComparator.matcher(conditionParts[1]);
-								if (fCMatcher.find() && sCMatcher.find()) {
-									String fC = fCMatcher.group();
-									String sC = sCMatcher.group();
-									if (fC.contains("\"") || sC.contains("\"")) { // if
-																					// either
-																					// match
-																					// contains
-																					// quotes,
-																					// we
-																					// have
-																					// a
-																					// String.
-										isString = true;
-									} else {
-										innerloop:
-										for (int k = 0; k < vars.size(); k++) {
-											if (fC.trim().equals(vars.get(k))) {
-												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
-													isString = true;
-													break innerloop;
+								if (conditionParts[1].contains("=")) {
+									Pattern firstComparator = pattern.compile(".*?(?==)");
+									Pattern secondComparator = pattern.compile("([^=]*)$");
+									boolean isString = false;
+									Matcher fCMatcher = firstComparator.matcher(conditionParts[1]);
+									Matcher sCMatcher = secondComparator.matcher(conditionParts[1]);
+									if (fCMatcher.find() && sCMatcher.find()) {
+										String fC = fCMatcher.group();
+										String sC = sCMatcher.group();
+										if (fC.contains("\"") || sC.contains("\"")) { // if
+																						// either
+																						// match
+																						// contains
+																						// quotes,
+																						// we
+																						// have
+																						// a
+																						// String.
+											isString = true;
+										} else {
+											innerloop: for (int k = 0; k < vars.size(); k++) {
+												if (fC.trim().equals(vars.get(k))) {
+													if (types.get(k).equals("String")
+															|| types.get(k).equals("Scanner")) {
+														isString = true;
+														break innerloop;
+													}
 												}
-											}
-											if (sC.trim().equals(vars.get(k))) {
-												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
-													isString = true;
-													break innerloop;
+												if (sC.trim().equals(vars.get(k))) {
+													if (types.get(k).equals("String")
+															|| types.get(k).equals("Scanner")) {
+														isString = true;
+														break innerloop;
+													}
 												}
 											}
 										}
 									}
-								}
-								if (types.size() > 0 && types.get(types.size() - 1).equals("boolean")) {
-									String pared = conditionParts[1].replace(".*(?=^([^=]+))", "");
-									if (!(pared.trim().startsWith("==") || pared.trim().startsWith("!="))) {
+									if (types.size() > 0 && types.get(types.size() - 1).equals("boolean")) {
+										String pared = conditionParts[1].replace(".*(?=^([^=]+))", "");
+										if (!(pared.trim().startsWith("==") || pared.trim().startsWith("!="))) {
+											errors.add("Assignment (=) on line " + lineIndex
+													+ " in the second section of the for statement. This should be a comparison (==)");
+										} else {
+											pared = pared.substring(2);
+											if (singleSign.matcher(pared).find()) {
+												errors.add(
+														"Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
+											}
+										}
+									} else if (singleSign.matcher(conditionParts[1]).find() && !isString) {
 										errors.add("Assignment (=) on line " + lineIndex
 												+ " in the second section of the for statement. This should be a comparison (==)");
-									} else {
-										pared = pared.substring(2);
-										if (singleSign.matcher(pared).find()) {
-											errors.add(
-													"Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
-										}
+									} else if (singleSign.matcher(conditionParts[1]).find()) {
+										errors.add("Assignment (=) on line " + lineIndex
+												+ " in the second section of the for statement, and the comparators are Strings, so this should be .equals() .");
+									} else if (doubleSign.matcher(conditionParts[1]).find() && isString) {
+										errors.add("Comparison (==) on line " + lineIndex
+												+ " in the second section of the for statement, but the comparators are Strings, so this should be .equals() .");
 									}
-								} else if (singleSign.matcher(conditionParts[1]).find() && !isString) {
-									errors.add("Assignment (=) on line " + lineIndex
-											+ " in the second section of the for statement. This should be a comparison (==)");
-								} else if (singleSign.matcher(conditionParts[1]).find()) {
-									errors.add("Assignment (=) on line " + lineIndex
-											+ " in the second section of the for statement, and the comparators are Strings, so this should be .equals() .");
-								} else if(doubleSign.matcher(conditionParts[1]).find() && isString){
-									errors.add("Comparison (==) on line " + lineIndex
-											+ " in the second section of the for statement, but the comparators are Strings, so this should be .equals() .");
 								}
 							}
 						}

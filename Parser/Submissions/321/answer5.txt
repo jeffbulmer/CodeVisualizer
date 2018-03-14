@@ -3,32 +3,32 @@ public class rdatesgame{
 int date= (int)(Math.random()*30);
 int month=(int)(Math.random()*12);
 int year=(int)(Math.random()*27)+1990;
-System.out.println(""Guess the year(btn 1990-2017)"");
+System.out.println("Guess the year(btn 1990-2017)");
 int guessyr=scan.nextInt();
-System.out.println(""Guess the month(number)"");
+System.out.println("Guess the month(number)");
 int guessm=scan.nextInt();
-System.out.println(""Guess the date(number)"");
+System.out.println("Guess the date(number)");
 int guessdt=scan.nextInt();
 if(guessyr>year){
-System.out.println(""You were too late"");
+System.out.println("You were too late");
 }
 if(guessyr<year){
-System.out.println(""Your are too early"");
+System.out.println("Your are too early");
 }
 if(guessyr==year&&guessm<month){
-System.out.println(""Your are too early"");
+System.out.println("Your are too early");
 }
 if(guesyr==year&&guessm>month){
-System.out.println(""You were too late"");
+System.out.println("You were too late");
 }
 if(guessyr==year&&guessm==month&&guessdt<date){
-System.out.println(""You are too early"");
+System.out.println("You are too early");
 }
 if(guessyr==year&&guesm==month&&guessdt>date){
-System.out.println(""You are too late"");
+System.out.println("You are too late");
 }
 else{
-System.out.println(""You got it ! the date was""+date+""-""+month+""-""+year);
+System.out.println("You got it ! the date was"+date+"-"+month+"-"+year);
 }
 }
 }

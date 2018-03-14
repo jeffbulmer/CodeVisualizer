@@ -1,13 +1,13 @@
 public static void main(String [] args){
 	Scanner input = new Scanner(System.in);
 		
-		System.out.println(""Enter a number: "");
+		System.out.println("Enter a number: ");
 		int a = input.nextInt();
 		
 		int ispal = a;
 		int r = 0;		
 		
-		System.out.println(""Is "" + a + "" a palindrome?"");
+		System.out.println("Is " + a + " a palindrome?");
 		if( a.length%2 == 0){
 			while(ispal!=0){
 				int remainder=ispal %10;
@@ -16,8 +16,8 @@ public static void main(String [] args){
 					}
 				}
 		if(reverse == a)
-			System.out.println(""True"");
+			System.out.println("True");
 
 		else
-			System.out.println(""False"");
+			System.out.println("False");
 }

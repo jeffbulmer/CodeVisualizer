@@ -10,11 +10,11 @@ public class Birthdate{
 		Random rand = new Random();
 
 		//ask user for year, month, and day
-		System.out.println(""Guess the year (between 1990 & 2017):"");
+		System.out.println("Guess the year (between 1990 & 2017):");
 		userYear = sc.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		userMonth = sc.nextInt();
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		userDay = sc.nextInt();
 		sc.closer();
 
@@ -29,12 +29,12 @@ public class Birthdate{
 			randDay = rand.nextInt(31) + 1;
 
 		//compare user and generate date
-		System.out.println(""The correct date was "" + randYear + ""-"" + randMonth + ""-"" + randDay + ""(yyyy-mm-dd)."");
+		System.out.println("The correct date was " + randYear + "-" + randMonth + "-" + randDay + "(yyyy-mm-dd).");
 		if( userYear > randYear || (userYear == randYear && userMonth > randMonth) || (userYear == randYear && userMonth == randMonth && userDay > randDay)
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		else if( userYear == randYear && userMonth == randMonth && userDay == randDay )
-			System.out.println(""You got it right!"");
+			System.out.println("You got it right!");
 		else
-			System.out.println(""You were too early!"")
+			System.out.println("You were too early!")
 	}
 }

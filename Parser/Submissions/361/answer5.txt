@@ -9,11 +9,11 @@ else if (month == 2)
 else 
 	day = Math.random() * 30;
 
-System.out.println(""Guess the year (between 1990 and 2017"");
+System.out.println("Guess the year (between 1990 and 2017");
 int gYear = in.nextInt();
-System.out.println(""Guess the month (as num)"");
+System.out.println("Guess the month (as num)");
 int gMonth = in.nextInt();
-System.out.println(""Guess the day (as num)"");
+System.out.println("Guess the day (as num)");
 int gDay = in.nextInt();
 
 int compY = year * 100;
@@ -22,13 +22,14 @@ gYear *= 100;
 gDay /= 10;
 
 if((compY + compDay + month) < (gYear + gDay +gMonth))
-	system.out.println(""too early"");
+	system.out.println("too early");
 else if (((compY + compDay + month) > (gYear + gDay +gMonth))
-	system.out.println(""too late"");
+	system.out.println("too late");
 else 
-	system.out.println(""You got the right date!"");
+	system.out.println("You got the right date!");
 
-sysout.out.printf(""The right date was %d-%d-%d"",year,month,day);","int[] arr = new int[10];
+sysout.out.printf("The right date was %d-%d-%d",year,month,day);","int[] arr = new int[10];
 for(int i = 0; i < arr.length(),i++){
 	arr[i] = Math.sqrt(i);
 }
+

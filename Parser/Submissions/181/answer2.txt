@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main() {
 	public static void main(String[] args) {
 		Scanner stdin=new Scanner(System.in);
-		System.out.println(""Enter a word:"")
+		System.out.println("Enter a word:")
 		
 		String str=stdin.nextLine();
 		
@@ -14,10 +14,10 @@ public class Main() {
 				break;
 			}
 		
-		System.out.printf(""Is %s a palindrome?\n"",str);
+		System.out.printf("Is %s a palindrome?\n",str);
 		if(flag)
-			System.out.println(""true"");
+			System.out.println("true");
 		else
-			System.out.println(""false"");
+			System.out.println("false");
 	}
 }

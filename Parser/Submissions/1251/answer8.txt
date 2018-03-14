@@ -3,25 +3,25 @@ import java.util.Scanner;
 public class Q8{
 	public static void main (String []args){
 		Scanner input = new Scanner (System.in);
-		System.out.println(""Enter a length for the triangle: ""):
+		System.out.println("Enter a length for the triangle: "):
 		int x = input.nextInt();
 		if(x%2 == 0) printEven(x);
 		else printOdd(x);
 	}
 	public static void printOdd(int x){
 		for (int i = 0; i<x/2+1 ; i++){
-			for(int j = 0; j < i; j++) System.out.print("" "");
-			for(int k = i; k < x/2+1;k++ ) System.out.print(""V"");
-			for(int q = i ; q<x/2 ; q++) System.out.print(""V"");
+			for(int j = 0; j < i; j++) System.out.print(" ");
+			for(int k = i; k < x/2+1;k++ ) System.out.print("V");
+			for(int q = i ; q<x/2 ; q++) System.out.print("V");
 			System.out.println();
 		}
 	}
 
 	public static void printEven(int x){
 		for(int i = 0; i <x/2 ; i ++){
-			for(int j = 0; j < i ; j++) System.out.print("" "");
-			for(int k = i; k< x/2; k++) System.out.print(""V"");
-			for(int q = i ; q< x/2; q++) System.out.print(""V"")
+			for(int j = 0; j < i ; j++) System.out.print(" ");
+			for(int k = i; k< x/2; k++) System.out.print("V");
+			for(int q = i ; q< x/2; q++) System.out.print("V")
 			System.out.println();
 		}
 	}

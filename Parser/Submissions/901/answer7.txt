@@ -9,7 +9,7 @@ public class Vowels {
 		
 		//ask user to enter a word for each element in the array
 		for(int i = 0; i < array.length; i++) {
-			System.out.println(""Enter a word:"");
+			System.out.println("Enter a word:");
 			array[i] = sc.nextLine().toLowerCase();
 		}
 		sc.close();
@@ -21,6 +21,7 @@ public class Vowels {
 				counter++;
 		
 		//display how many words ended in vowels
-		System.out.println(""Out of the words you enetered, "" + counter + "" ended in vowels."");
+		System.out.println("Out of the words you enetered, " + counter + " ended in vowels.");
 	}
 }
+

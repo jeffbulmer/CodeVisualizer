@@ -1,5 +1,5 @@
 Scanner scanner = new Scanner	(System.in);
-System.out.println(""Enter a number:"");
+System.out.println("Enter a number:");
 int num = scanner.nextInt();
 
 int remain = 0;
@@ -11,8 +11,8 @@ sum=(sum*10)+remain;
 num = n/10;
 }
 
-System.out.println(""Is "" + num + ""a palindrome?"");
+System.out.println("Is " + num + "a palindrome?");
 if (temp==sum)
-System.out.println(""True"");
+System.out.println("True");
 else
-System.out.println(""False"");
+System.out.println("False");

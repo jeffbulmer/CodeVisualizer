@@ -9,7 +9,7 @@ public class NumPalindrome{
 		Scanner sc = new Scanner(System.in);
 
 		//ask the user to enter a number
-		System.out.println(""Enter a number:"")
+		System.out.println("Enter a number:")
 		num = sc.nextInt();
 		sc.close();
 		palin = num;
@@ -21,7 +21,7 @@ public class NumPalindrome{
 		}
 
 		//state if num is a palindrome
-		System.out.println(""Is "" + num + "" a palindrome?"");
+		System.out.println("Is " + num + " a palindrome?");
 		System.out.println( reverse == num );
 	}
 }

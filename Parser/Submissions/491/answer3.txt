@@ -4,12 +4,12 @@ double equation;
 
 Scanner myscanner = new Scanner(System.in); 
 
-System.out.println(""Enter a value for v:"");
+System.out.println("Enter a value for v:");
 v = myscanner.nextInt();
 
-System.out.println(""Enter a vale for c:"");
+System.out.println("Enter a vale for c:");
 c = myscanner.nextInt(); 
 
 equation = (Math.PI) * (1/(Math.sqrt(1-(Math.pow(v,2)/Math.pow(c,2)));
 
-System.out.println(""Value for v = "" + v + ""c = "" + c + "" : "" + equation);
+System.out.println("Value for v = " + v + "c = " + c + " : " + equation);

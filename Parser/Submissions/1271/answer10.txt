@@ -3,25 +3,25 @@ public class BankCard{
 
 	public BankCard(int value){
 		this.value = value;
-		System.out.print(""BankCard initialized with $"" + value);
+		System.out.print("BankCard initialized with $" + value);
 	}
 	public int getValue(){
 	return value;
-	System.out.print(""Your card has $"" + value);
+	System.out.print("Your card has $" + value);
 	}
 	public void addValue(value){
 	value = value + this.value;
-	System.out.print(""Loading BankCard with $"" + this.value);
-	System.out.print(""BankCard now has $"" + value);
+	System.out.print("Loading BankCard with $" + this.value);
+	System.out.print("BankCard now has $" + value);
 	}
 	public void removeValue(String item, value){
 	if(this.value < value){
 		value = value - this.value;
-		System.out.print(""Buying"" + item + ""for $"" + this.value);
-		System.out.print(""BankCard now has $"" + value);
+		System.out.print("Buying" + item + "for $" + this.value);
+		System.out.print("BankCard now has $" + value);
 	}else{
-	System.out.print(""Attempting to buy"" + item + ""for $"" + this.value);
-	System.out.print(""Your card has been declined. Please contact bank."");
+	System.out.print("Attempting to buy" + item + "for $" + this.value);
+	System.out.print("Your card has been declined. Please contact bank.");
 	}
 
 }
@@ -36,6 +36,7 @@ public class main{
 
 	}
 }
+
 
 
 

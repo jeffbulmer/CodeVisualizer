@@ -13,20 +13,20 @@ public class Q5 {
       else
             int day = 1 + (int)(Math.random() * 31);
 
-      System.out.println(""Guess the year (between 1990 and 2017):"");
+      System.out.println("Guess the year (between 1990 and 2017):");
       int y = in.nextInt();
-      System.out.println(""Guess the month (as a number):"");
+      System.out.println("Guess the month (as a number):");
       int m = in.nextInt();
-      System.out.println(""Guess the day (as a number):"");
+      System.out.println("Guess the day (as a number):");
       int d = in.nextInt();
       in.close();
 
-      System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + "" (yyyy-mm-dd)"");
+      System.out.println("The correct date was " + year + "-" + month + "-" + day + " (yyyy-mm-dd)");
       if (y == year && m == month && d == day)
-            System.out.println(""You got it, wow!"");
+            System.out.println("You got it, wow!");
       else if ( y > year || (y==year && m > month) || (y==year && m==month && d>day) )
-            System.out.println(""You were too late!"");
+            System.out.println("You were too late!");
       else
-            System.out.println(""You were too early!"");
+            System.out.println("You were too early!");
 
 }

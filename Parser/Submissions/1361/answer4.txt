@@ -3,4 +3,5 @@ int x = in.nextInt;
 int c;
 for(int = 0; i<x; i+=2) 
 c= i;
-sysout(""the number of odd numbers between c and ""+ x "" is "" + c);
+sysout("the number of odd numbers between c and "+ x " is " + c);
+

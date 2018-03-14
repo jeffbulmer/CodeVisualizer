@@ -6,11 +6,11 @@ public static void main(String[] args)
 {
 
 Scanner sc = new Scanner(System.in);
-		System.out.print(""Enter a number: "");
+		System.out.print("Enter a number: ");
 		int num = sc.nextInt();
 		int num2=0;
 		int num1 = num;
-		System.out.println(""Is "" + num + "" a palindrome?"");
+		System.out.println("Is " + num + " a palindrome?");
 		
 		while(num1%10>0)
 		{
@@ -20,16 +20,16 @@ Scanner sc = new Scanner(System.in);
 		}
 		
 		num2=num2/10;
-		//System.out.println(""Num2"" + num2 + ""Num"" + num);
+		//System.out.println("Num2" + num2 + "Num" + num);
 		
 		if(num2==num)
 		{
 			
-			System.out.println(""True"");
+			System.out.println("True");
 		}
 		else
 		{
-			System.out.println(""False"");
+			System.out.println("False");
 		}
 		
 	}

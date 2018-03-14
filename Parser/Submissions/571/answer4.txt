@@ -2,13 +2,13 @@ import java.util.Scanner;
 public class odds {
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
-		System.out.println(""Enter an integer number greater than 0: "");
+		System.out.println("Enter an integer number greater than 0: ");
 		int max = input.nextInt();
 		int odds = 0;
 		for(int x = 0; x<=max; x++){
 			if((x%2) == 1)
 				odds++;
 		}
-		System.out.println(""There are ""+odds+"" odd integers between 0 and ""+max);
+		System.out.println("There are "+odds+" odd integers between 0 and "+max);
 	}
 }

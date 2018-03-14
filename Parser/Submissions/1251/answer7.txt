@@ -7,12 +7,13 @@ public class Q7{
 		int vowel = 0;
 		char lastIndex ='a';
 		for(int i = 0; i < x.length ; i++){
-			System.out.println(""Enter a word: "");
+			System.out.println("Enter a word: ");
 			x[i] = input.nextLine();
 			lastIndex = x[i].charAt(x[i].length()-1);
 			if(lastIndex == 'a' || lastIndex == 'e' || lastIndex == 'i' || lastIndex == 'o' || lastIndex == 'u')
 				vowel++;
 		}
-		System.out.println(""Of the words you entered, "" + vowel + "" end in vowels."");
+		System.out.println("Of the words you entered, " + vowel + " end in vowels.");
 	}
 }
+

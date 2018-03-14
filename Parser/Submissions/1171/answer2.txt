@@ -2,13 +2,13 @@
 public static void main(String[] IAmBack4Moor){
 
 Scanner sc = new Scanner(System.in);
-System.out.println(""Enter a word Pweeze: "");
+System.out.println("Enter a word Pweeze: ");
 StringBuilder Bob = new StringBuilder(sc.next());
 StringBuilder notBob = new StringBuilder(Bob);
 Bob.reverse();
-system.out.println(""Is"" + notBob + "" a palindrome"")
+system.out.println("Is" + notBob + " a palindrome")
 //if we want to check for UpperCase letters, convert them both to string and use equalsIgnoreCase
-system.out.println((Bob.equals(notBob))?""true"":""false"");
+system.out.println((Bob.equals(notBob))?"true":"false");
 
 
 

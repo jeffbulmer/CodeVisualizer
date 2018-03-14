@@ -1,8 +1,9 @@
 final double PI=3.14;
 Scanner scan = new Scanner(System.in);
-System.out.println(""Enter a value for v:"");
+System.out.println("Enter a value for v:");
 int in1=scan.nextInt();
-System.out.println(""Enter a value for c:"");
+System.out.println("Enter a value for c:");
 int in2=scan.nextInt();
 double answer=PI/(Math.sqrt(1.0-(double)(v*v)/(double)(c*c)));
-System.out.println(""Value for v = ""+in1+"", c = ""+in2+"": ""+answer);
+System.out.println("Value for v = "+in1+", c = "+in2+": "+answer);
+

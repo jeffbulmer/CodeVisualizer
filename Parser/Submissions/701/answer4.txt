@@ -1,5 +1,5 @@
 Scanner in= new Scanner(System.in);
-System.out.println(""Enter an integer greater than 0);
+System.out.println("Enter an integer greater than 0);
 int num= in.nextInt();
 int count=0;
 

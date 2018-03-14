@@ -3,7 +3,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		System.out.println(""Enter a number: "");
+		System.out.println("Enter a number: ");
 		int p = input.nextInt();
 		String c = (char) p;
 		String d;
@@ -11,10 +11,10 @@ public class Test {
 			d += c.charAt(i);
 		}
 		int q = (int) d;
-		System.out.println(""Is "" + p + "" a palindrome?"")
+		System.out.println("Is " + p + " a palindrome?")
 		if(p = q)
-			System.out.println(""true"");
+			System.out.println("true");
 		else
-			System.out.printin(""false""):
+			System.out.printin("false"):
 	}
 }

@@ -16,24 +16,25 @@ public class GuessDate {
 			dr = 30;
 		}
 		int d = r.nextInt(dr);
-		int date = String.parseInt(String.format(""%04d%02d%02d"", y, m, d));
+		int date = String.parseInt(String.format("%04d%02d%02d", y, m, d));
 
 		Scanner s = new Scanner(System.in);
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		int iy = s.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		int im = s.nextInt();
-		System.out.println(""Guess the day (as a number):"");
-		int idate = String.parseInt(String.format(""%04d%02d%02d), iy, im, id);
+		System.out.println("Guess the day (as a number):");
+		int idate = String.parseInt(String.format("%04d%02d%02d), iy, im, id);
 
-		System.out.println(""The correct date was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
+		System.out.println("The correct date was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
 		if (date < idate) {
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		} else if (date > idate) {
-			System.out.println(""You were too old!"");
+			System.out.println("You were too old!");
 		} else {
-			System.out.println(""You got it, wow!"");
+			System.out.println("You got it, wow!");
 
 	}
 
 }
+

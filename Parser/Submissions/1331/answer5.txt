@@ -4,19 +4,19 @@ Scanner in = new Scanner(System.in);
 int ryear = 1990+Math.random()*28
 int rmonth = 1+Math.random()*12
 int rday = 1+Math.random()*31 //I am using the largest number of days in a month. The date may not exist in that certain month.
-System.out.println(""Guess the year (between 1990 and 2017): "");
+System.out.println("Guess the year (between 1990 and 2017): ");
 int gyear = in.nextInt();
-System.out.println(""Guess the month (as a number between 1-12): ""); //Assuming the user follows input instructions
+System.out.println("Guess the month (as a number between 1-12): "); //Assuming the user follows input instructions
 int gmonth = in.nextInt();
-System.out.println(""Guess the day (as a number between 1-31): ""); //Same as 2 lines above
+System.out.println("Guess the day (as a number between 1-31): "); //Same as 2 lines above
 int gday = in.nextInt();
 
-System.out.println(""The correct date was "" + ryear +""-""+ rmonth +""-""+ rday + "" (yyyy-mm-dd).""
+System.out.println("The correct date was " + ryear +"-"+ rmonth +"-"+ rday + " (yyyy-mm-dd)."
 
-String e = ""You were too early!"";
-String l = ""You were too late!"";
+String e = "You were too early!";
+String l = "You were too late!";
 if (ryear == gyear && rmonth == gmonth && rday == gday) {
-	System.out.println(""You got it, wow!"");
+	System.out.println("You got it, wow!");
 }
 else if (gyear < ryear) {System.out.println(e);}
 else if (gyear > ryear) {System.out.println(l);}
@@ -24,5 +24,5 @@ else if (gmonth < gyear) {System.out.println(e);}
 else if (gmonth > gyear) {System.out.println(l);}
 else if (gday < rday) {System.out.println(e);}
 else if (gday > rday) {System.out.println(l);}
-else System.out.println(""error"");
+else System.out.println("error");
 in.close();

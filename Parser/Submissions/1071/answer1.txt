@@ -5,7 +5,7 @@ public class Q1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println(""Enter a number"");
+		System.out.println("Enter a number");
 		int number = sc.nextInt();
 		int reverse = 0;
 
@@ -16,12 +16,12 @@ public class Q1 {
 
 		}
 	
-		System.out.println(""Is "" + number + "" a palindrome?"");
+		System.out.println("Is " + number + " a palindrome?");
 	
 		if (number == reverse) {
-			System.out.println(""true"");
+			System.out.println("true");
 		else
-			System.out.println(""false"");
+			System.out.println("false");
 		}
 
 		sc.close();

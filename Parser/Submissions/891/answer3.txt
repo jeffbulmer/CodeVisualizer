@@ -5,10 +5,11 @@ public class Math {
 
 	double v, c;
 
-	System.out.println(""Enter a value for v:"");
+	System.out.println("Enter a value for v:");
 	v = in.nextDouble();
-	System.out.println(""Enter a value for c:"");
+	System.out.println("Enter a value for c:");
 	c = in.nextDouble();
-	System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + (Math.PI * (1 / Math.sqrt(1 - (Math.pow(v , 	2) / Math.pow(c , 2))))));
+	System.out.println("Value for v = " + v + ", c = " + c + ": " + (Math.PI * (1 / Math.sqrt(1 - (Math.pow(v , 	2) / Math.pow(c , 2))))));
 	}
 }
+

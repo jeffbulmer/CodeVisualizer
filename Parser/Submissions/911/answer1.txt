@@ -2,19 +2,19 @@ import java.util.Scanner;
 public class Palindrome{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
-	System.out.println(""Enter a number: "");
+	System.out.println("Enter a number: ");
 	int x = in.nextint();
 	int forward = x;
 	int reverse;
-	System.out.println(""Is "" + x + "" a palindrome?"");
+	System.out.println("Is " + x + " a palindrome?");
 	while(x != 0){
 	int temp = x % 10;
 	reverse = (reverse * 10) + temp;
 	x = x / 10;
 	}
 	if(reverse == forward)
-		System.out.println(""True"");
+		System.out.println("True");
 	else
-	System.out.println(""False"");
+	System.out.println("False");
 		}
 }

@@ -5,24 +5,25 @@ Scanner in = new Scanner(System.in);
 int y = Math.random() * 2017 + 1990;
 int m = Math.random() * 12 + 0;
 int d = Math.random() * 31 + 0;
-System.out.println(""Guess the year"");
+System.out.println("Guess the year");
 int gy = in.nextint();
-System.out.println(""Guess the month"");
+System.out.println("Guess the month");
 int gm = in.nextint();
-System.out.println(""Guess the day"");
+System.out.println("Guess the day");
 int gd = in.nextint();
-System.out.println(""The correct date was "" + y + ""-"" + m + ""-"" + d); 
+System.out.println("The correct date was " + y + "-" + m + "-" + d); 
 if(gy < y || gm < m || gd < d);
-System.out.println(""You were too early!"");
+System.out.println("You were too early!");
 if(gy > y || gm > m || gd > d);
-System.out.println(""you were too late!"");
+System.out.println("you were too late!");
 if(gy == y && gm == m && gd == d)
-System.out.Println(""You got it, owowowow"");
+System.out.Println("You got it, owowowow");
 }}","public class Root{
 public static void main(String[] args){
 int[] x = new int[10];
-System.out.println(""Elements of the generated array:"");
+System.out.println("Elements of the generated array:");
 for(int i = 0; i<x.length(); i++){
 x[i] = Math.sqrt(i);
 System.out.println(x[i]);}
 }}
+

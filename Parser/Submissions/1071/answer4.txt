@@ -7,7 +7,7 @@ public class Q4 {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println(""Enter an integer number greater than 0:);
+		System.out.println("Enter an integer number greater than 0:);
 		int number = sc.nextInt();
 
 		for (int i = 0; i <= number; i++) {
@@ -15,7 +15,7 @@ public class Q4 {
 				count++;
 		}
 
-		System.out.println(""there are "" + count + "" odd integer between 0 and "" + number);
+		System.out.println("there are " + count + " odd integer between 0 and " + number);
 
 		sc.close();
 

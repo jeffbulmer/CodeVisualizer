@@ -3,7 +3,7 @@ public class OddIntegerCounter {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter an integer greater than 0:"");
+		System.out.println("Enter an integer greater than 0:");
 		int n = in.nextInt();
 		in.close();
 		int c = 0;
@@ -11,7 +11,7 @@ public class OddIntegerCounter {
 			if (i%2==1)
 				c++;
 		}
-		System.out.println(""There are ""+c+"" odd integers between 0 and ""+n);
+		System.out.println("There are "+c+" odd integers between 0 and "+n);
 		
 	}
 

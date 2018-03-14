@@ -4,9 +4,9 @@ public class forquiz {
 
 	public static void main(String args[]) {
 		Scanner in = new Scanner(System.in);
-		String s, reverse = """";
+		String s, reverse = "";
 
-		System.out.println(""Enter a string:"");
+		System.out.println("Enter a string:");
 		s = in.nextLine();
 
 		int length = s.length();
@@ -15,9 +15,9 @@ public class forquiz {
 			reverse = reverse + s.charAt(i);
 
 		if (s.equals(reverse))
-			System.out.println(s + "" is a palindrome"");
+			System.out.println(s + " is a palindrome");
 		else
-			System.out.println(s + "" is not a palindrome"");
+			System.out.println(s + " is not a palindrome");
 
 		in.close();
 	}

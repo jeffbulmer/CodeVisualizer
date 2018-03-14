@@ -12,29 +12,29 @@ public class Q5{
 			day = (int) (Math.random() *29);
 		else
 			day = (int) (Math.random() * 31);
-		System.out.printf(""Guess the year (between 1990 and 2017): "");
+		System.out.printf("Guess the year (between 1990 and 2017): ");
 		int guess_year = input.nextInt();
-		System.out.printf(""Guess the month (as a number): "");
+		System.out.printf("Guess the month (as a number): ");
 		int guess_month = input.nextInt();
-		System.out.printf(""Guess the day (as a number): "");
+		System.out.printf("Guess the day (as a number): ");
 		int guess_day = input.nextInt();
-		System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + "" (yyyy-mm-dd). "");
+		System.out.println("The correct date was " + year + "-" + month + "-" + day + " (yyyy-mm-dd). ");
 		if (guess_year > year)
-			System.out.println(""You were too late! "");
+			System.out.println("You were too late! ");
 		else if(guess_year < year)
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		else {
 			if (guess_month > month)
-				System.out.println(""You were too late!"");
+				System.out.println("You were too late!");
 			else if (guess_month < month)
-				System.out.println(""You were too early!"");
+				System.out.println("You were too early!");
 			else {
 				if (guess_day > day)
-					System.out.println(""You were too late!"");
+					System.out.println("You were too late!");
 				else if (guess_day < day))
-					System.out.println(""You were too early!"");
+					System.out.println("You were too early!");
 				else
-					System.out.println(""You got it, wow!"");
+					System.out.println("You got it, wow!");
 			}
 		}
 		

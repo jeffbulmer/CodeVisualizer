@@ -7,12 +7,12 @@ public class q3 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter the value for v: "");
+		System.out.println("Enter the value for v: ");
 		int v = in.nextInt();
-		System.out.println(""Enter the value of c: "");
+		System.out.println("Enter the value of c: ");
 		int c = in.nextInt();
 		double value = Math.PI*(1/Math.sqrt(1-(Math.pow(v, 2)*Math.pow(c, 2))));
-		System.out.printf(""Value of c = %d v = %d is: %f"",c,v,value);
+		System.out.printf("Value of c = %d v = %d is: %f",c,v,value);
 		
 
 	}

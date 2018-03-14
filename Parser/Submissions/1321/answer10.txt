@@ -14,7 +14,7 @@ public final class BlankCard {
 
 	public void spendMoney(double value){
 		if(this.money < value) {
-			System.out.println(""Your card has been declined. Please contact bank"");
+			System.out.println("Your card has been declined. Please contact bank");
 		} else {
 			setMoney(getMoney() - value);
 		}
@@ -24,21 +24,21 @@ public final class BlankCard {
 public class Test {
 	public static void main(String[] args) {
 		BankCard bc = new BankCard(100.0);
-		System.out.println(""Initialized BankCard with $100.0"");
+		System.out.println("Initialized BankCard with $100.0");
 		
-		System.out.println(""Loading card with $500.0"");
+		System.out.println("Loading card with $500.0");
 		bc.setMoney(bc.getMoney() + 500);
 
-		System.out.println(""BankCard now has "" + bc.getMoney());
+		System.out.println("BankCard now has " + bc.getMoney());
 		
-		System.out.println(""Buying chair for $270.0"");
+		System.out.println("Buying chair for $270.0");
 		bc.spendMoney(270);
 
-		System.out.println(""BankCard now has "" + bc.getMoney());
+		System.out.println("BankCard now has " + bc.getMoney());
 		
-		System.out.println(""Attempting to buy TV for $800"");
+		System.out.println("Attempting to buy TV for $800");
 		bc.spendMoney(800);
 
-		System.out.println(""Your card has "" + bc.getMoney());
+		System.out.println("Your card has " + bc.getMoney());
 	}
 }

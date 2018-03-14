@@ -5,11 +5,11 @@ public class Survey
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		System.out.print(""Guess the year (between 1990 and 2017)"");
+		System.out.print("Guess the year (between 1990 and 2017)");
 		int year = sc.nextInt();
-		System.out.print(""Guess the month (as a number)"");
+		System.out.print("Guess the month (as a number)");
 		int month = sc.nextInt();
-		System.out.print(""Guess the day (as a number)"");
+		System.out.print("Guess the day (as a number)");
 		int day = sc.nextInt();
 		
 		int realYear = 1990 + (int)(Math.random()*((2017-1990)+1));
@@ -29,37 +29,37 @@ public class Survey
 			realDay = (int)(Math.random()*31);
 		}
 		
-		System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd)"",realYear,realMonth,realDay);
+		System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd)",realYear,realMonth,realDay);
 		if(realYear-year>0)
 		{
-			System.out.println(""You are early!"");
+			System.out.println("You are early!");
 		}
 		else if(realYear-year<0)
 		{
-			System.out.println(""You are late!"");
+			System.out.println("You are late!");
 		}
 		else if(realYear==year)
 		{
 			if(realMonth-month>0)
 			{
-				System.out.println(""You are early!"");
+				System.out.println("You are early!");
 				
 			}
 			else if(realMonth-month<0)
 			{
-				System.out.println(""You are late!"");
+				System.out.println("You are late!");
 			}
 			else if(realDay-day>0)
 			{
-				System.out.println(""You are early!"");
+				System.out.println("You are early!");
 			}
 			else if(realDay-day<0)
 			{
-				System.out.println(""You are late!"");
+				System.out.println("You are late!");
 			}
 			else
 			{
-				System.out.println(""You are correct! Wow!"");
+				System.out.println("You are correct! Wow!");
 			}
 		}
 		

@@ -1,7 +1,7 @@
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter a word: "");
+System.out.println("Enter a word: ");
 String input = in.nextLine();
-System.out.println(""Is "" + input + "" a palindrome?"");
+System.out.println("Is " + input + " a palindrome?");
 boolean isTrue = false;
 for(int i = 0; i < input.length()/2; i++) {
 	if(input.substring(i,input.length()-i) { 

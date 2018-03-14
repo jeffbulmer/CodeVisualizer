@@ -7,11 +7,11 @@ public static void main(String[] args) {
 	boolean late = false;
 
 	Scanner input = new Scanner(System.in);
-	System.out.println(""Guess the year (between 1990 and 2017):"");
+	System.out.println("Guess the year (between 1990 and 2017):");
 	int userY = input.nextInt(();
-	System.out.println(""Guess the month (as a number):"");
+	System.out.println("Guess the month (as a number):");
 	int userM = input.nextInt();
-	System.out.println(""Guess the day (as a number):"");
+	System.out.println("Guess the day (as a number):");
 	int userD = input.nextInt();
 
 	if ( userY > y ) {
@@ -21,12 +21,12 @@ public static void main(String[] args) {
 	}
 
 	if (early == true) {
-		System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-		System.out.println(""You were too early!"");
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too early!");
 		System.exit(0);
 	} else if (late == true) {
-		System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-		System.out.println(""You were too late!"");
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too late!");
 		System.exit(0);
 	}
 
@@ -37,12 +37,12 @@ public static void main(String[] args) {
 	}
 
 	if (early == true) {
-		System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-		System.out.println(""You were too early!"");
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too early!");
 		System.exit(0);
 	} else if (late == true) {
-		System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-		System.out.println(""You were too late!"");
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too late!");
 		System.exit(0);
 	}
 
@@ -53,16 +53,16 @@ public static void main(String[] args) {
 	}
 
 	if (early == true) {
-		System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-		System.out.println(""You were too early!"");
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too early!");
 		System.exit(0);
 	} else if (late == true) {
-		System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-		System.out.println(""You were too late!"");
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too late!");
 		System.exit(0);
 	}
 
-	System.out.println(""The correct data was "" + y + ""-"" + m + ""-"" + d + "" (yyyy-mm-dd)."");
-	System.out.println(""You got it, wow!"");
+	System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+	System.out.println("You got it, wow!");
 	input.close();
 }

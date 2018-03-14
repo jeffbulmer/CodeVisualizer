@@ -1,5 +1,5 @@
 Scanner in = new Scanner(System.in);
-Sysout(""Enter a number:"");
+Sysout("Enter a number:");
 int x = in.nextInt;
 int rev = 0;
 for (; num!=0l ){
@@ -7,6 +7,6 @@ rev = rev *10;
 rev = rev+num%10;
 num = num/10;
 if(rev == num)
-sysout(""Your number is polindrome);
+sysout("Your number is polindrome);
 else
-sysout(""YOur number is not polindrome);
+sysout("YOur number is not polindrome);

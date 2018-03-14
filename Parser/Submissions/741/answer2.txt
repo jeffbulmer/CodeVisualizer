@@ -1,9 +1,9 @@
 import java.util.Scanner;
 public static void main(String[] args){
 Scanner in=new Scanner(System.in);
-System.out.println(""Enter a word:"");
+System.out.println("Enter a word:");
 String input=in.nextLine();
-System.out.println(""Is ""+input+"" a palindrome?"");
+System.out.println("Is "+input+" a palindrome?");
 boolean output=input.equals(new StringBuilder(input).reverse().toString());
 System.out.println(output);
 }

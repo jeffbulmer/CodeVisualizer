@@ -1,6 +1,6 @@
 import java.util.Scanner;
 Scanner in=new Scanner(System.in);
-System.out.println(""Enter a word:"");
+System.out.println("Enter a word:");
 String a=in.nextLine();
 int i=0,j=a.length();
 boolean p=false;
@@ -13,6 +13,6 @@ while((a.charAt(i)).equalsto(a.charAt(j))){
 		j--;i++;
 	}
 }	
-System.out.println(""Is ""+a+"" a palindrome?"");
+System.out.println("Is "+a+" a palindrome?");
 System.out.println(p);
 	

@@ -2,7 +2,7 @@ int input = 0;
 int count = 0;
 
 Scanner sc = new Scanner(System.in);
-System.out.println(""Enter an integer number greater than 0: "");
+System.out.println("Enter an integer number greater than 0: ");
 input = sc.nextInt();
 
 for(int i = 0; i <= input; i++){
@@ -11,5 +11,5 @@ for(int i = 0; i <= input; i++){
 	}
 }
 
-System.out.println(""There are "" + count + "" odd integers between 0 and "" + input);
+System.out.println("There are " + count + " odd integers between 0 and " + input);
 sc.close();

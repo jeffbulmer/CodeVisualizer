@@ -1,11 +1,11 @@
 import java.util.Scanner;
 public static void main (String[] args){
 Scanner s = new Scanner (System.in);
-System.out.println(""Enter a value of v:"");
+System.out.println("Enter a value of v:");
 int v = s.nextInt();
-System.out.println(""Enter a value for c:"");
+System.out.println("Enter a value for c:");
 int c = s.nextInt();
 double vOverC = (Math.pow(v,2) / Math.pow(c,2));
 double bottomHalf = Math.sqrt(1-vOverC);
-System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + (Math.PI * (1/bottomHalf)));
+System.out.println("Value for v = " + v + ", c = " + c + ": " + (Math.PI * (1/bottomHalf)));
 }

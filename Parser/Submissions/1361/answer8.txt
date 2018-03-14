@@ -1,7 +1,8 @@
 Scanner in= new Scanner(System.in);
 int x = in.nextInt();
 for(int j = 0; j>0; j++)
-sysout("""");
+sysout("");
 for(int i = x; i>0; i-=2)
-System.out.print("" V "");}
+System.out.print(" V ");}
+
 

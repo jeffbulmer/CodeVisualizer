@@ -5,7 +5,7 @@ public class Something{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println(""Enter an integer number greater than 0: "");
+		System.out.println("Enter an integer number greater than 0: ");
 		int n = in.nextInt();
 
 		int count = 0;
@@ -14,6 +14,6 @@ public class Something{
 			if(i % 2 != 0) count++;
 		}
 
-		System.out.printf(""There are %d odd integer(s) between 0 and %d"", count, n);
+		System.out.printf("There are %d odd integer(s) between 0 and %d", count, n);
 	}
 }

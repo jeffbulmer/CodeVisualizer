@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 Scanner input = new Scanner(System.in);
-System.out.println(""Enter a number:"");
+System.out.println("Enter a number:");
 int num = input.nextInt(System.in);
 boolean isPalindrome = true;
 
@@ -22,4 +22,5 @@ while ((isPalindrome == true) & (i >= 0)) {
 	}
 }
 
-System.out.println(""Is "" + num + "" a palindrome?\n"" + isPalindrome);
+System.out.println("Is " + num + " a palindrome?\n" + isPalindrome);
+

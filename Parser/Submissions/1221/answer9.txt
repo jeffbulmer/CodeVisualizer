@@ -5,12 +5,12 @@ public class RandomSortArray {
 	public static void main(String[] args) {
 		int[] a = {1,5,7,4,3,2,6};
 		int c=1;
-		System.out.println(""Elements in the original array: ""+arrayString(a));
+		System.out.println("Elements in the original array: "+arrayString(a));
 		do {
 			mySort(a);
-			System.out.println(""Elements after sorting iteration ""+ c++ +"": ""+arrayString(a));
+			System.out.println("Elements after sorting iteration "+ c++ +": "+arrayString(a));
 		} while (!checkSorted(a));
-	System.out.println(""The array is sorted!"");
+	System.out.println("The array is sorted!");
 	}
 	public static int[] mySort(int[] a){
 		int x,y;
@@ -29,7 +29,7 @@ public class RandomSortArray {
 		return false;
 	}
 	public static String arrayString(int[] a) {
-		String ar = """";
+		String ar = "";
 		for (int x: a)
 			ar=ar+x;
 		return ar;

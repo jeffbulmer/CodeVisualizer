@@ -2,11 +2,11 @@ import java.util.Scanner;
 public class Equation {
 Scanner in= new scanner(System.in);
 public static void main(String[] args) {
-	System.out.println(""Enter a value for v: "");
+	System.out.println("Enter a value for v: ");
 	double v = in.nextDouble();
-	System.out.println(""Enter a value for c: "")
+	System.out.println("Enter a value for c: ")
 	double c= in.nextDouble();
 	double equation= Math.PI*(1/Math.sqrt(1-Math.pow(v,2)/Math.pow(c,2)));
-	System.out.printf(""Value for v = %d, c = %d: %f"", v, c, equation);
+	System.out.printf("Value for v = %d, c = %d: %f", v, c, equation);
 	}
 }  

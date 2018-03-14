@@ -4,16 +4,16 @@ public class PalindromeWords
 	public static void main(String[] args)
 	{
 		Scanner keyboardScanner = new Scanner(System.in);
-		System.out.println(""Enter a Word:"");
+		System.out.println("Enter a Word:");
 		String input = keyboardScanner.nextLine();
-		System.out.println(""Is "" + input + "" a palindrome?"");
+		System.out.println("Is " + input + " a palindrome?");
 		System.out.println(checkString(input));
 		keyboardScanner.close();
 	}
 	
 	static boolean checkString(String givenWord)
 	{
-		String[] givenLetters = givenWord.split("" "").split("""");
+		String[] givenLetters = givenWord.split(" ").split("");
 		for(int i = 0;i < (givenWord.length() + 1)/2;i++)
 		{
 			String leftChar = givenLetters[i];

@@ -1,5 +1,5 @@
 int double[]=new double[10];
 for(int i =0;i<num.length;i++){
 num[i]=math.sqrt(i);
-system.out.printf(""%f\n"",num);
+system.out.printf("%f\n",num);
 }

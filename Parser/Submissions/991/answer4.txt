@@ -5,7 +5,7 @@ public class OddCatcher
 	throws InputMismatchException
 	{
 		Scanner keyboardScanner = new Scanner(System.in);
-		System.out.println(""Enter a number greater than 0:"");
+		System.out.println("Enter a number greater than 0:");
 		int input = keyboardScanner.nextInt();
 		countOddNumbers(input);
 		keyboardScanner.close();
@@ -15,7 +15,7 @@ public class OddCatcher
 	{
 		if(givenNumber <= 0)
 		{
-			System.out.println(""ERROR: Not a number greater than 0!"");
+			System.out.println("ERROR: Not a number greater than 0!");
 			return;
 		}
 		boolean odd = false;
@@ -27,7 +27,7 @@ public class OddCatcher
 				oddAmount++;
 			}
 		}
-		System.out.println(""There are "" + oddAmount + "" odd numbers between 0 and "" + givenNumber + ""."");
+		System.out.println("There are " + oddAmount + " odd numbers between 0 and " + givenNumber + ".");
 		return;
 	}
 }

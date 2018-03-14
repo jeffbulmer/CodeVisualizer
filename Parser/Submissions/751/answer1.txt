@@ -1,7 +1,7 @@
-system.out.printlnˬ?ÿ?Enter a number: ÿ݋̿;
+system.out.println??�?Enter a number: �??;
 Scanner input= input.nextInt();
-System.out.println(""Is "" + input +"" a palindrome?"");
+System.out.println("Is " + input +" a palindrome?");
 if(input=121&&input=4334)
-System.out.println(""true"");
+System.out.println("true");
 else
-System.out.println(""false"");
+System.out.println("false");

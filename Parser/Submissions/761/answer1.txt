@@ -1,8 +1,8 @@
 //I can only assume you don't want me to define a class or methods
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 int input = in.nextInt();
-System.out.println(""Is "" + input + "" a palindrome?"");
+System.out.println("Is " + input + " a palindrome?");
 int count = -1;
 int lastValue = -1;
 boolean hasCounted = false;

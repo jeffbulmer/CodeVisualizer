@@ -6,26 +6,26 @@ public class BirthdayGuesser
 	{
 		Scanner keyboardScanner = new Scanner(System.in);
 		int randomBirthday = generateBirthday();
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		int guess += keyboardScanner.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		guess += 10000*(keyboardScanner.nextInt()%12);
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		guess += 1000000*(keyboardScanner.nextInt()%31);
-		System.out.print(""The correct date was "" + randomBirthday%1000);
-		System.out.print(""-"" + (randomBirthday/1000)%10 + ""-"");
-		System.out.println((randomBirthday/1000000)%10 + "" (yyyy-mm-dd)"");
+		System.out.print("The correct date was " + randomBirthday%1000);
+		System.out.print("-" + (randomBirthday/1000)%10 + "-");
+		System.out.println((randomBirthday/1000000)%10 + " (yyyy-mm-dd)");
 		if(guess > randomBirthday)
 		{
-			System.out.println(""Too late!"");
+			System.out.println("Too late!");
 		}
 		else if(guess < randomBirthday)
 		{
-			System.out.println(""Too early!"");
+			System.out.println("Too early!");
 		}
 		else
 		{
-			System.out.println(""You got it, wow!"");
+			System.out.println("You got it, wow!");
 		}
 	}
 	

@@ -1,8 +1,9 @@
-system.out.println(""Guess the year (between 1990 and 2017)"");
+system.out.println("Guess the year (between 1990 and 2017)");
 Scanner input = new scanner system.in;
 int year= input.nextInt();
-system.out.println(""Guess the month(as a number)"");
+system.out.println("Guess the month(as a number)");
 int month= input.nextInt();
-system.out.print(""Guess the day(as a number)"");
+system.out.print("Guess the day(as a number)");
 int day = input,nextInt();
-system.out.print(""The correct date was "" + year +month+day);
+system.out.print("The correct date was " + year +month+day);
+

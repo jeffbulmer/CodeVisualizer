@@ -38,13 +38,13 @@ public class Sort{
 	}
 	public static void displayArray(int[] array, int counter){
 		if(counter == 0)
-			System.out.println(""Elements in the original array: "");
+			System.out.println("Elements in the original array: ");
 		else
-			System.out.println(""Elements after sorting iteration "" + counter + "": "");
+			System.out.println("Elements after sorting iteration " + counter + ": ");
 
 		for(int i = 0; i < array.length; i++)
 			System.out.print(array[i]);
 
-		System.out.print(""\n"");
+		System.out.print("\n");
 	}
 }

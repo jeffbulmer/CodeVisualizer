@@ -7,6 +7,7 @@ if (word.charAt(word.length()) == 'a' || word.charAt(word.length()) == 'e' || wo
 	}
 }
 if (result > 0)
-	System.out.println(""Of the words you entered, "" + result + "" end(s) in a vowel."");
+	System.out.println("Of the words you entered, " + result + " end(s) in a vowel.");
 else
-	System.out.println(""Of the words you entered, none end in vowels."");
+	System.out.println("Of the words you entered, none end in vowels.");
+

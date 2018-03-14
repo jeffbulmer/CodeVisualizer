@@ -7,7 +7,7 @@ public static void main(String[] args) {
 	
 	// Input:
 	Scanner input = new Scanner(System.in);
-	System.out.println(""Enter an integer number greateer than 0: "");
+	System.out.println("Enter an integer number greateer than 0: ");
 	int number = input.nextInt();
 	input.close();
 	
@@ -19,6 +19,6 @@ public static void main(String[] args) {
 	}
 	
 	// Showing result to user:
-	System.out.println(""There are "" + count + "" odd integers between 0 and "" + number);
+	System.out.println("There are " + count + " odd integers between 0 and " + number);
 	
 }

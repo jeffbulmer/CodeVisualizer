@@ -13,4 +13,5 @@ return arr
 Public void chechSorted(int[]arr)
 int[]arr2={1,2,3,4,5,6};
 if(Arrays.equals(arr,arr2)==true)
-system.out.println(""the array is sorted"")
+system.out.println("the array is sorted")
+

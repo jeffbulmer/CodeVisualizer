@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class Q3{
 	public static void main(String[] args){
 	Scanner input = new Scanner(System.in);
-	System.out.printf(""Enter a length for the triangle: "");
+	System.out.printf("Enter a length for the triangle: ");
 	int lenght = input.nextInt();
 	String vline = null;
 	for(int i = 0; i < length; i++){
-		vline += ""v"";
+		vline += "v";
 	}
 	System.out.println(vline);
 	String initialspaces = null;
@@ -16,7 +16,7 @@ public class Q3{
 		String newvline = null;
 		length = length -2;
 		for(int i = 0; i < length; i++)
-			newvline += ""v"";
+			newvline += "v";
 		System.out.println(initialspaces + newvline);
 	}
 }

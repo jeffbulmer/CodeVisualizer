@@ -3,24 +3,24 @@ public class Q1 {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a number:"");
+		System.out.println("Enter a number:");
 		int n = in.nextInt();
-		System.out.printf(""Is %d a palindorme?\n"",n);
+		System.out.printf("Is %d a palindorme?\n",n);
 	    int nlast = n%10;
 	    int nfirst1 = n/1000;
 	    int nfirst2 = n/100 - nfirst1*10;
 	    int n3 = n%100 - nlast;
 	    if(nfirst1!=0){
 	    	if(nfirst1 == nlast && nfirst2==n3){
-	    		System.out.println(""true"");
+	    		System.out.println("true");
 	    	}
-	    	else {System.out.println(""false"");}
+	    	else {System.out.println("false");}
 	    }
 	    if(nfirst1==0 && nfirst2!=0){
 	    	if(nfirst2==nlast)
-	    		System.out.println(""true"");
+	    		System.out.println("true");
 	    	else 
-	    		System.out.println(""false"");
+	    		System.out.println("false");
 	    }
 	    
 

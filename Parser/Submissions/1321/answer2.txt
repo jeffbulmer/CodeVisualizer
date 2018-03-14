@@ -1,16 +1,16 @@
 Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a word:"");
+		System.out.println("Enter a word:");
 		String word = in.nextLine();
 
-		String reversed = """";
+		String reversed = "";
 		
 		for(int i = word.length()-1; i >= 0; i--) {
 			reversed += word.charAt(i);
 		}
 		
-		System.out.printf(""Is %s a palindrome"", word);
+		System.out.printf("Is %s a palindrome", word);
 		if(reverse == word){
-			System.out.println(""True"");
+			System.out.println("True");
 		}else
-			System.out.println(""False"");
+			System.out.println("False");
 }

@@ -7,7 +7,7 @@ import java.util.scanner;
 	public static main(String args[]) {
 		Scanner in = new Scanner(System.in);
 
-		system.out.println(""Enter a number: "")
+		system.out.println("Enter a number: ")
 		int x = in.nextInt();
 		int y = 0;
 
@@ -16,11 +16,11 @@ import java.util.scanner;
 		}
 		
 
-		system.out.println(""Is "" + x + "" a palindrome?"")
+		system.out.println("Is " + x + " a palindrome?")
 		if (y==x) {
-			system.out.println(""true""); }
+			system.out.println("true"); }
 		else {
-			system.out.println(""false""); }
+			system.out.println("false"); }
 	
 	}
 }

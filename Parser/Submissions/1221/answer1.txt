@@ -2,16 +2,16 @@ import java.util.Scanner;
 public class Palindrome {
 	public static void main (String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a number:"");
+		System.out.println("Enter a number:");
 		int n = in.nextInt();
 		in.close();
-		System.out.println(""Is ""+n+"" a palindrome?"");
+		System.out.println("Is "+n+" a palindrome?");
 		System.out.println(isPalindrome(n));
 		
 	}
 	public static int reverse(int n) {
-		String ns = n+"""";
-		String inv = """";
+		String ns = n+"";
+		String inv = "";
 		for (int i=0; i< ns.length(); i++) {
 			inv = ns.charAt(i)+inv;
 		}

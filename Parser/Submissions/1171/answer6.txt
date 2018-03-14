@@ -7,8 +7,9 @@ String[] wordsThingsWhatever = new String[5];
 int soryer = 0;
 for(String re : words){
 String ro = re.susbtring(re.length()-2);
-if(ro.contains(""a"")||ro.contains(""o"")||ro.contains(""i"")||ro.contains(""u"")){
+if(ro.contains("a")||ro.contains("o")||ro.contains("i")||ro.contains("u")){
 soryer ++;}
 }
 
 return soryer
+

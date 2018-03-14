@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class A{
 	public static void main(String args[]){
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a number:"");
+		System.out.println("Enter a number:");
 		int i=in.nextInt();
 		int c=0;
 		for(c=0, i/Math.pow(10,c)>=10,c++){}
@@ -12,7 +12,7 @@ public class A{
 			else { b= false;
 				break;
 					}}
-		System.out.printf(""Is %d a palindrome?\n"", i);
+		System.out.printf("Is %d a palindrome?\n", i);
 		System.out.println(b);
 	}
 }

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 Scanner in = new Scanner(System.In);
 
-System.out.println(""Enter a word:"")
+System.out.println("Enter a word:")
 String word = in.nextLine().toLowercase();
 
 Char[] charArr = new Char[word.length()];
@@ -16,5 +16,5 @@ for(int i = 0; i < charArr.length(); i++){
 	if(!charArr[i].equals(charArr2[charArr.length()-1-i]))
 	match = false;
 }
-System.out.printf(""Is %s a palindrome?\n"", word);
+System.out.printf("Is %s a palindrome?\n", word);
 System.out.println(match);

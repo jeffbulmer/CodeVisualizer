@@ -2,15 +2,15 @@ int y = 1990 + ((int)Math.random*28);
 int m = (int)Math.random*12;
 int d = (int)Math.random*30;
 
-System.out.println(""guess the year"");
+System.out.println("guess the year");
 int gy = in.nextInt();
-System.out.println(""guess the month"");
+System.out.println("guess the month");
 int gm = in.nextInt();
-System.out.println(""guess the day"");
+System.out.println("guess the day");
 int gd = in.nextInt();
 
 if(y == gy && m == gm %% d == gd){
-	System.out.println(""You got it! wow!"");
+	System.out.println("You got it! wow!");
 } else {
-	System.out.println(""You weren't right."");
+	System.out.println("You weren't right.");
 }

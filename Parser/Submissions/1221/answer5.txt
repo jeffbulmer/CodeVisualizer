@@ -16,32 +16,32 @@ public class RandomBirthdayGuess {
 		else
 			d = -1;
 		
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		int yg = in.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		int mg = in.nextInt();
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		int dg = in.nextInt();
 		in.close();
-		System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd).\n"",y,m,d);
+		System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).\n",y,m,d);
 		
 		int yc = yg - y;
 		int mc = mg - m;
 		int dc = dg - d;
 		if (yc==0 & mc==0 & dc==0)
-			System.out.println(""You got it, wow!"");
+			System.out.println("You got it, wow!");
 		else if (yc==0 & mc==0 & dc>0)
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		else if (yc==0 & mc==0 & dc<0)
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		else if (yc==0 & mc>0)
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		else if (yc==0 & mc<0)
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		else if (yc>0)
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		else
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		
 	}
 

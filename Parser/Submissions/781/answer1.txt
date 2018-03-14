@@ -4,10 +4,10 @@ public class Q1 {
 
       public static void main(String[] args) {
             Scanner in = new Scanner(System.in);
-            System.out.println(""Enter a number:"");
+            System.out.println("Enter a number:");
             int num = in.nextInt();
             in.close();
-            System.out.println(""Is "" + num + "" a palindrome?\n"" + isPalindrome(num));
+            System.out.println("Is " + num + " a palindrome?\n" + isPalindrome(num));
       }
 
       public static boolean isPalindrome(int x) {

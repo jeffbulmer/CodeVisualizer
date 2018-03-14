@@ -6,7 +6,7 @@ public class Survey
 	{
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print(""Enter a word: "");
+		System.out.print("Enter a word: ");
 		String string = sc.nextLine();
 		int x = 0;
 		char[] Char = string.toCharArray();
@@ -21,18 +21,18 @@ public class Survey
 		
 		
 		
-		System.out.println(""Is "" + string + "" a palindrome?"");
+		System.out.println("Is " + string + " a palindrome?");
 		
 		
 		
 		if(string.equals(abc))
 		{
 			
-			System.out.println(""True"");
+			System.out.println("True");
 		}
 		else
 		{
-			System.out.println(""False"");
+			System.out.println("False");
 		}
 		
 	}

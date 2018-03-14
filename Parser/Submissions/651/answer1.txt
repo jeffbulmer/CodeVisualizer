@@ -1,3 +1,4 @@
 Scanner in =new Scanner(System.in);
-system.out.println(""Enter a number:"")
+system.out.println("Enter a number:")
 int num = in.nextInt();
+

@@ -5,13 +5,14 @@ public class Calculate {
 	public static void main(String[] args) {
 
 		Scanner s = new Scanner(System.in);
-		System.out.println(""Enter a value for v:"");
+		System.out.println("Enter a value for v:");
 		int v = s.nextInt();
-		System.out.println(""Enter a value for c:"");
+		System.out.println("Enter a value for c:");
 		int c = s.nextInt();
 		s.close();
-		System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + Math.PI / Math.sqrt(1 - Math.pow(v, 2) / Math.pow(c, 2)));
+		System.out.println("Value for v = " + v + ", c = " + c + ": " + Math.PI / Math.sqrt(1 - Math.pow(v, 2) / Math.pow(c, 2)));
 
 	}
 
 }
+

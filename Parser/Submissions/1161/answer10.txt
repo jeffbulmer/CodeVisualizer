@@ -2,20 +2,20 @@ public class bankCard{
 private int Money = 0;
 bankCard(int x){
 Money = x;
-System.out.println(""Bankcard initialized with $"" + x);
+System.out.println("Bankcard initialized with $" + x);
 }
 public void load(int x){
-System.out.println(""Loading Bankcard with $"" + x);
+System.out.println("Loading Bankcard with $" + x);
 Money = Money + x;
 }
 public void buy(int x){
 if (x > Money){
-System.out.println(""Attempting to buy item for $"" + x + ""\nYour card has been declined. Please contact bank.\nYour card has $"" + Money);
+System.out.println("Attempting to buy item for $" + x + "\nYour card has been declined. Please contact bank.\nYour card has $" + Money);
 }
 else{
-System.out.println(""Buying item for $"" + x);
+System.out.println("Buying item for $" + x);
 Money = Money - x;
-System.out.println(""Bankcard now has $"" + Money);}
+System.out.println("Bankcard now has $" + Money);}
 }
 
 }

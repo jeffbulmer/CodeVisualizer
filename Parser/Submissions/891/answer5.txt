@@ -10,30 +10,30 @@ public class Date {
 
 		int yearg, monthg, dayg;
 
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		yearg = in.nextInt();
 		
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		monthg = in.nextInt();
 	
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		dayg = in.nextInt();
 	
-		System.out.println(""the correct date was ""+year+""-""+month+""-""+day+"" (yyyy-mm-dd)."");
+		System.out.println("the correct date was "+year+"-"+month+"-"+day+" (yyyy-mm-dd).");
 
 		if(yearg>year)
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		else if(yearg<year)
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		else if(monthg>month)
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		else if (monthg<month)
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		else if (dayg>day)
-			System.out.println(""You werer too late!"");
+			System.out.println("You werer too late!");
 		else if (dayg<day)
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		else
-			System.out.println(""You got it, wow!"");
+			System.out.println("You got it, wow!");
 	}
 }

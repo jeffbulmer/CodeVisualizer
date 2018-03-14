@@ -11,7 +11,7 @@ public class StringPalindrome{
 		Scanner sc = new Scanner(System.in);
 
 		//ask use to enter a word
-		System.out.println(""Enter a word: "");
+		System.out.println("Enter a word: ");
 		word = sc.next();
 		sc.close();
 		length = word.length() - 1;
@@ -27,7 +27,7 @@ public class StringPalindrome{
 		}
 		
 		//state whether the word is a palindrome or not
-		System.out.println(""Is "" + word + "" a palindrome?"");
+		System.out.println("Is " + word + " a palindrome?");
 		System.out.println(palin);
 	}
 }

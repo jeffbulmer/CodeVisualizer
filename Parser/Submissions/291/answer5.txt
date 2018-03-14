@@ -26,34 +26,34 @@ public class GuessDate {
 
 		int day = 1 + (int) (Math.random() * (maxDay - 1));
 
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		int y = in.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		int m = in.nextInt();
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		int d =  in.nextInt();
 
-		System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd)."", year, month, day);
+		System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).", year, month, day);
 	
 		String s;
 		if (y > year)
-			s = ""late"";
+			s = "late";
 		if (y < year)
-			s = ""early"";
+			s = "early";
 		if (y == year) {
 			if (m > month)
-				s = ""late"";
+				s = "late";
 			if (m < month)
-				s = ""early"";
+				s = "early";
 			if (m == month) {
 				if (d > day)
-					s = ""late"";
+					s = "late";
 				if (d < day)
-					s = ""early"";
+					s = "early";
 				if (d == day)
-					s = ""Just Right"";
+					s = "Just Right";
 			}
 		}
-		System.out.println(""You were "" + s);	
+		System.out.println("You were " + s);	
 	}
 }

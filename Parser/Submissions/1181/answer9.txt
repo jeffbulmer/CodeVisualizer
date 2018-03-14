@@ -5,7 +5,7 @@ public abstract class Shape {
 	private String color;
 	private boolean filled;
 	//constructors
-	protected Shape(){this(""White"", true);}
+	protected Shape(){this("White", true);}
 	protected Shape(String color, boolean filled){
 		setColor(color);
 		setFilled(filled);
@@ -16,8 +16,9 @@ public abstract class Shape {
 	public boolean isFilled(){return filled;}
 	public void setFilled(boolean f){filled = f;}
 	public String toString(){
-		return ""Color: "" + color + "". "" + (filled? ""Filled. "":""Not filled. "");
+		return "Color: " + color + ". " + (filled? "Filled. ":"Not filled. ");
 	}
 	public abstract double getArea();
 	public abstract double getPerimeter();
 }
+

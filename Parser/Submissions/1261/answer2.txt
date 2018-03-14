@@ -1,11 +1,11 @@
-system.out.println(""Enter a number"");
+system.out.println("Enter a number");
 Scanner in= new Scanner(System.in);
 String st=in.nextString();
-system.out.println(""is ""+ st+"" a palindrome"")
+system.out.println("is "+ st+" a palindrome")
 pali(st);
 
 public bollean pali(String st);
-String r="""";
+String r="";
 for (int i = st.length-1; i>=0;i--)
 r+st.charAt(i);
 if(r==st)

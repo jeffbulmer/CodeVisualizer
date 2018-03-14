@@ -3,11 +3,11 @@ include java.util.*;
 public static void main(String args[]){
 Scanner in = new Scanner(System.in);
 int v,c;
-System.out.println(""Enter a value for v:"");
+System.out.println("Enter a value for v:");
 v = in.nextInt();
-System.out.println(""Enter a value for c:"");
+System.out.println("Enter a value for c:");
 c = in.nextInt();
-System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + (Math.PI* (1/(Math.sqrt(1/(Math.pow(v,2)/Math.pow(c,2))));
+System.out.println("Value for v = " + v + ", c = " + c + ": " + (Math.PI* (1/(Math.sqrt(1/(Math.pow(v,2)/Math.pow(c,2))));
 
 
 }

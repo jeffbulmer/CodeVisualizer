@@ -8,7 +8,7 @@ public static void main(String[] args) {
 	
 	// Input:
 	Scanner input = new Scanner(System.in);
-	System.out.println(""Enter a number: "");
+	System.out.println("Enter a number: ");
 	int number = input.nextInt();
 	input.close();
 	
@@ -20,7 +20,7 @@ public static void main(String[] args) {
 	}
 
 	// Checking for palindrome:
-	System.out.println(""Is "" + temp + "" a palindrome?"");
+	System.out.println("Is " + temp + " a palindrome?");
 	return (temp == reversed);
 	
 }

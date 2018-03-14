@@ -2,13 +2,13 @@ import java.util.Scanner;
 public static void main(String [] args){
 	final double PI = 3.14;
 	Scanner in = new Scanner(System.in);
-	System.out.print(""Enter a value for v: "");
+	System.out.print("Enter a value for v: ");
 	int v = in.nextInt();
-	System.out.print(""Enter a value for c: "");
+	System.out.print("Enter a value for c: ");
 	int c = in.nextInt();
 	
 	double answer = PI * (1/(Math.sqrt(1 - (Math.pow(v, 2) / Math.pow(c, 2)))));
 	
-	System.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + answer);
+	System.out.println("Value for v = " + v + ", c = " + c + ": " + answer);
 }
 	

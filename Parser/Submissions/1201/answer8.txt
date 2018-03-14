@@ -3,15 +3,15 @@ import java.util.Scanner;
 public class part2 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println(""Enter a length for the triangle: "");
+		System.out.println("Enter a length for the triangle: ");
 		int length = scan.nextInt();
-		String s = """";
+		String s = "";
 		for(i = (length +1)/2 ; i > 0; i -= 2){
 			System.out.print(s)
 			for(j=0; j<= i; j++)
 				System.out.print(V);
 			System.out.println()
-			s += ""  "";
+			s += "  ";
 		}
 }	
 }

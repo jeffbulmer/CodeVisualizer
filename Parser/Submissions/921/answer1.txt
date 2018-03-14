@@ -1,8 +1,9 @@
 Scanner input = new Scanner(System.in);
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 int[] value = input.nextInt();
-System.out.println(""Is "" + value + ""a palindrome?"");
+System.out.println("Is " + value + "a palindrome?");
 if(value[0] = value[].indexAtLast)
-System.out.println((""true"");
+System.out.println(("true");
 else
-System.out.println(""false"");
+System.out.println("false");
+

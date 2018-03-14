@@ -8,13 +8,13 @@ public class Vowels{
 
 		//ask user to enter a word for each element in the array
 		for(int i = 0; i < 5; i++){
-			System.out.println(""Enter a word"");
+			System.out.println("Enter a word");
 			array[i] = sc.nextLine().toLowerCase();	
 		}
 		sc.close();
 
 		//call vowelCount and state how many words ended in a vowel
-		System.out.println(""Out of the words you entered, "" + vowelCount(array) + "" ended in a vowels."");
+		System.out.println("Out of the words you entered, " + vowelCount(array) + " ended in a vowels.");
 	}
 	public static int vowelCount(String[] array){
 		int counter = 0;

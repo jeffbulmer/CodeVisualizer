@@ -1,5 +1,5 @@
 Scanner sc = new Scanner(System.in);
-System.out.println(""Enter a number:"");
+System.out.println("Enter a number:");
 int num = sc.nextInt();
 
 int pal = num;
@@ -10,6 +10,7 @@ while(num != 0) {
 	num = num/10;
 }
 if(pal == reversenum)
-	System.out.println(""True"");
+	System.out.println("True");
 else
-	System.out.println(""False"");
+	System.out.println("False");
+

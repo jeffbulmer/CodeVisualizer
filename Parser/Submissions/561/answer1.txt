@@ -2,7 +2,7 @@ import java.util.scanner;
 public class palendrome{
 Scanner in=new Scanner(system.in);
 boolean a=true;
-system.out.print(""type in your test number"");
+system.out.print("type in your test number");
 String x = in.nextLine();
 int l= x.length();
 int ll=l/2;
@@ -10,6 +10,6 @@ for(int y=0;y<=ll;y++){
 if(x.charAt(y)==x.charAt(l-y)){}
 else{boolean a=false}
 }
-system.out.print(""Is ""+x+"" a palindrome"")
+system.out.print("Is "+x+" a palindrome")
 system.out.print(a);
 }

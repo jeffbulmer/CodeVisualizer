@@ -28,46 +28,46 @@ public class GuessWt {
 					}
 			}
 		System.out.println(CorrDay);
-		System.out.println(""Guess the year (between 1990 and 2017)"");
+		System.out.println("Guess the year (between 1990 and 2017)");
 		int userYear = in.nextInt();
-		System.out.println(""Guess the month (as a number)"");
+		System.out.println("Guess the month (as a number)");
 		int userMon = in.nextInt();
-		System.out.println(""Guess the day (as a number)"");
+		System.out.println("Guess the day (as a number)");
 		int userDay = in.nextInt();
-		System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd)"", CorrYear, CorrMon, CorrDay);
+		System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd)", CorrYear, CorrMon, CorrDay);
 		System.out.println();
 		if(CorrYear==userYear) {
 			if(CorrMon==userMon)
 			{
 				if(CorrDay==userDay)
 				{
-					System.out.println(""You got it, wow!"");
+					System.out.println("You got it, wow!");
 				}
 				else if (userDay > CorrDay)
 				{
-					System.out.println(""You were too late!"");
+					System.out.println("You were too late!");
 				}
 				else if (userDay < CorrDay)
 				{
-					System.out.println(""You were too early!"");
+					System.out.println("You were too early!");
 				}
 			}
 			else if (userMon > CorrMon)
 			{
-				System.out.println(""You were too late!"");
+				System.out.println("You were too late!");
 			}
 			else if (userMon < CorrMon)
 			{
-				System.out.println(""You were too early!"");
+				System.out.println("You were too early!");
 			}
 		}
 		else if (userYear > CorrYear)
 		{
-			System.out.println(""You were too late!"");
+			System.out.println("You were too late!");
 		}
 		else if (userYear < CorrYear)
 		{
-			System.out.println(""You were too early!"");
+			System.out.println("You were too early!");
 		}
 in.close();		
 

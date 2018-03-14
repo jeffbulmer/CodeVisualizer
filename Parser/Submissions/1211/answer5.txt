@@ -1,10 +1,10 @@
 import java.util.Scanner;
 Scanner in = new Scanner(System.in);
-System.out.println(""Guess the year (between 1990 and 2017): "");
+System.out.println("Guess the year (between 1990 and 2017): ");
 int yearGuess = in.nextInt;
-System.out.println(""Guess the month (as a number): "");
+System.out.println("Guess the month (as a number): ");
 int monthGuess = in.nextInt;
-System.out.println(""Guess the day (as a number): "");
+System.out.println("Guess the day (as a number): ");
 int dayGuess = in.nextInt;
 
 int year = 1990 + (int)(Math.random() * 28);
@@ -12,19 +12,19 @@ int month = 1 + (int)(Math.random() * 12);
 int day = 1 + (int)(Math.random() * 32);
 
 if (year == yearGuess && month == monthGuess && day == dayGuess) {
-	System.out.println(""You got it, wow!"");
+	System.out.println("You got it, wow!");
 } else if (year > yearGuess) {
-System.out.println(""You were too early"");
+System.out.println("You were too early");
 	else if (year == yearGuess && month > monthGuess) {
-	System.out.println(""You were too early"");
+	System.out.println("You were too early");
 		else if (year == yearGuess && month == monthGuess && day > dayGuess) {
-		System.out.println(""You were too early""); 
+		System.out.println("You were too early"); 
 			else if (year < yearGuess) {
-			System.out.println(""You were too late"");
+			System.out.println("You were too late");
 				else if (year == yearGuess && month < monthGuess) {
-				System.out.println(""You were too late"");
+				System.out.println("You were too late");
 					else if (year == yearGuess && month == monthGuess && day < dayGuess) {
-					System.out.println(""You were too late""):
+					System.out.println("You were too late"):
 					}
 				}
 			}

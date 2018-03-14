@@ -3,9 +3,9 @@ public class Q3 {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a value for v:"");
+		System.out.println("Enter a value for v:");
 		double v = in.nextDouble();
-		System.out.println(""Enter a value for c"");
+		System.out.println("Enter a value for c");
 		double c =in.nextDouble();
 		double vSquare = Math.pow(v, 2);
 		double cSquare = Math.pow(c, 2);

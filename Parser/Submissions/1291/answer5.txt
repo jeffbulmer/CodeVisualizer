@@ -1,9 +1,9 @@
 Scanner in = new Scanner(System.in);
-System.out.println(""Guess the year (between 1990 and 2017):"");
+System.out.println("Guess the year (between 1990 and 2017):");
 int yGuess = in.nextInt();
-System.out.println(""Guess the month (as a number)"");
+System.out.println("Guess the month (as a number)");
 Int mGuess = in.nextInt();
-System.out.println(""Guess the day (as a number)"");
+System.out.println("Guess the day (as a number)");
 Int dGuess = in.nextInt();
 
 
@@ -20,11 +20,12 @@ if (month == 2)
 
 
 if(year < yGuess || (year == yGuess && month < mGuess) || (year == yGuess && month == mGuess && day < dGuess) )
-	System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + ""\nYou were too late"");
+	System.out.println("The correct date was " + year + "-" + month + "-" + day + "\nYou were too late");
 else if (year = yGuess && month == mGuess && day == dGuess)
-	System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + ""\nYou got it, wow!"");
+	System.out.println("The correct date was " + year + "-" + month + "-" + day + "\nYou got it, wow!");
 else
-	System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + ""\nYou were too early"");
+	System.out.println("The correct date was " + year + "-" + month + "-" + day + "\nYou were too early");
+
 
 
 

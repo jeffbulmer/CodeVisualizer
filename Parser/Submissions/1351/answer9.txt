@@ -2,9 +2,9 @@ import java.util.Arrays;
 int [] array = new array[7];
 array [] = { 1,5,7,4,3,2,6};
 for(int q = 0 ; q >-1; q++){
-System.out.println( ""Elements after sorting iteration"" + q + "":""+shuffle(array[]));
+System.out.println( "Elements after sorting iteration" + q + ":"+shuffle(array[]));
 if (Array.sort(array).equals(shuffle(array[])){
-System.out.println(""array is sorted""
+System.out.println("array is sorted"
 System.exit(1);}
 
 public static int [] shuffle(int Array []){

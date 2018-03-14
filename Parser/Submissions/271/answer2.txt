@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Test {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		System.out.println(""Enter a word:"");
+		System.out.println("Enter a word:");
 		String word = s.next();
-		System.out.println(""Is ""+word+"" a palindrome?"");
+		System.out.println("Is "+word+" a palindrome?");
 		for (int i = 0, y = word.length()-1; i < y; i++, y--) {
 			if (word.charAt(i) != word.charAt(y)) {
-				System.out.println(""false"")
+				System.out.println("false")
 			}
 		}
-		System.out.println(""true"")
+		System.out.println("true")
 	}
 }

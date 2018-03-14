@@ -8,18 +8,19 @@ public class Triangle {
 		Scanner sc = new Scanner(System.in);
 		
 		//ask user for triangle length
-		System.out.println(""Enter a length for the triangle:"");
+		System.out.println("Enter a length for the triangle:");
 		length = sc.nextInt();
 		sc.close();
 		
 		//make the triangle
 		for(int i = 0; i < length; length-= 2) {
 			for(int k = 0; k < counter; k++)
-				System.out.print("" "");
+				System.out.print(" ");
 			for(int k = 0; k <= length -1; k++)
-				System.out.print(""V"");
-			System.out.print(""\n"");
+				System.out.print("V");
+			System.out.print("\n");
 			counter++;
 		}
 	}
 }
+

@@ -6,7 +6,7 @@ if(amount>0)
 this.remain+=amount;}
 public void pay(int amount){
 if(amount>this.remain)
-system.out.println(""your card has been declined, please contact bank"")
+system.out.println("your card has been declined, please contact bank")
 else remain-=amount;
 }
 public double getremain(){return remain;}

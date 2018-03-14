@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public static void main(String dumbCode){
 Scanner jo = new Scanner(System.in);
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 //Try catch user dumb input?
 int theMostPreciousFlowerInTheWorldIsDead = 0;
 try{
@@ -19,7 +19,7 @@ Mordred[Mordred.length-1-i] = theMostPreciousFlowerInTheWorldIsDead%10;
 theMostPreciousFlowerInTheWorldIsDead%=10;
 
 }
-System.out.println(""Is ""+theMostPreciousFlowerInTheWorldIsDead+"" a palindrome?"");
-System.out.println( (ArthurKingOfKnights.equals(Mordred))?""true"":""false"");
+System.out.println("Is "+theMostPreciousFlowerInTheWorldIsDead+" a palindrome?");
+System.out.println( (ArthurKingOfKnights.equals(Mordred))?"true":"false");
 
 }

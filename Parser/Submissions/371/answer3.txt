@@ -1,9 +1,10 @@
 Scanner input = new Scanner(System.in);
-System,out.println(""Enter a value for v:"");
+System,out.println("Enter a value for v:");
 int v = input.nextInt();
-System.out.println(""Enter a value for c:"");
+System.out.println("Enter a value for c:");
 int c = input.nextInt();
 //calculation
-System.out.println(""Value for v = "" + Math.PI*(1/Math.sqrt(1-((v*v)/(c*c))))+ "", c = "" + Math.PI*(1/Math.sqrt(1-(v*v)/(c*c))));
+System.out.println("Value for v = " + Math.PI*(1/Math.sqrt(1-((v*v)/(c*c))))+ ", c = " + Math.PI*(1/Math.sqrt(1-(v*v)/(c*c))));
+
 
 

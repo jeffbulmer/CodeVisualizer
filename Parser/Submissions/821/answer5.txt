@@ -3,19 +3,19 @@ Scanner in = new Scanner(System.in);
 int year = 1990 +  Math.random()*27;
 int day = 1 + Math.random()*30;
 int month = 1 + Math.random()*11;
-System.out.println(""Guess the year (between 1990 and 2017):"");
+System.out.println("Guess the year (between 1990 and 2017):");
 int givenYear = in.nextInt();
-System.out.println(""Guess the month (as a number):"");
+System.out.println("Guess the month (as a number):");
 int givenMonth = in.nextInt();
-System.out.println(""Guess the day (as a number):"");
+System.out.println("Guess the day (as a number):");
 int givenDay = in.nextInt();
-System.out.println(""The correct date was "" + year + ""-""+month+""-""+day+"" (yyyy-mm-dd)."");
+System.out.println("The correct date was " + year + "-"+month+"-"+day+" (yyyy-mm-dd).");
 if(month == givenMonth && day == givenDay && Year == givenYear){
-System.out.println(""You got it, wow!"");
+System.out.println("You got it, wow!");
 }else if(month<givenmonth & day < givenDay & year < givenYear){
-System.out.println(""You were too early!"");
+System.out.println("You were too early!");
 }else{
-System.out.println(""You were too late!"");
+System.out.println("You were too late!");
  
 
  

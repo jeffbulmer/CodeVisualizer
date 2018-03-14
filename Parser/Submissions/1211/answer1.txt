@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 int num = in.nextInt;
-System.out.println(""Is "" + num + "" a palindrome?"");
+System.out.println("Is " + num + " a palindrome?");
 if (isPalindrome(num))
-        System.out.println(""true"");
+        System.out.println("true");
 else 
-        System.out.println(""false"");
+        System.out.println("false");
       
    

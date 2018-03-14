@@ -1,7 +1,7 @@
 Scanner input = new Scanner(System.in);
-System.out.println(""Enter a number"");
+System.out.println("Enter a number");
 int number = input.nextInt();
-System.out.println(""Is"" + number + ""a palindrome?"");
+System.out.println("Is" + number + "a palindrome?");
 //converting number to string
 String s = Integer.toString(number);
 for (int i = s.charAt(s.length-1); i>0; i--){
@@ -10,3 +10,4 @@ return true;
 else
 false;
 }
+

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println(""Enter an integer number greater than 0: "");
+		System.out.println("Enter an integer number greater than 0: ");
 		Scanner in = new Scanner(System.in);
 		int a = in.nextInt();
 		int count = 0;
@@ -15,7 +15,7 @@ public class Main {
 				count++;
 			}
 		}
-		System.out.println(""There are "" + count + "" odd integers between 0 and "" + a);
+		System.out.println("There are " + count + " odd integers between 0 and " + a);
 	}
 } 
 

@@ -1,7 +1,7 @@
 Scanner in = new Scanner(System.in);
 int wordsEndingInVowels = 0;
 for(int i = 0; i < 5; i++) {
-	System.out.println(""Enter a word: "");
+	System.out.println("Enter a word: ");
 	String word = in.nextLine().toLowerCase();
 	char lastChar = word.charAt(word.length() - 1);
 	if(char == 'a' || char == 'e' || char == 'i' || char == 'o' || char == 'u'){
@@ -10,7 +10,8 @@ for(int i = 0; i < 5; i++) {
 }
 
 if(wordsEndingInVowels > 0){
-	System.out.printf(""Of the words you entered, %d ends in a vowel"", wordsEndingInVowels);
+	System.out.printf("Of the words you entered, %d ends in a vowel", wordsEndingInVowels);
 } else {
-	System.out.println(""Of the words you entered, none end in vowels"");	
+	System.out.println("Of the words you entered, none end in vowels");	
 }
+

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class JavaClass {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		System.out.println(""Enter a number:"");
+		System.out.println("Enter a number:");
 		int pali = sc.nextInt();
 		int temp = pali;
 		int ilap = 0;
@@ -14,7 +14,7 @@ public class JavaClass {
 		}
 		if(ilap == pali)
 			isPali = true;
-		System.out.println(""Is "" + pali + "" a palindrome?"");
+		System.out.println("Is " + pali + " a palindrome?");
 		System.out.println(isPali);
 		sc.close();
 	}

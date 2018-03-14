@@ -3,16 +3,16 @@ import java.util.Scanner;
 public class 1{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a number: "");
+		System.out.println("Enter a number: ");
 		int num = in.nextInt();
-		System.out.println(""Is "" + num + "" a palindrome?"");
+		System.out.println("Is " + num + " a palindrome?");
 		int reverse =0;
 		while(num>0){
 			reverse += reverse * 10 + num%10;
 			num /10; 	
 		}
 		if(reverse=num)
-			System.out.println( num = ""is a palindrome."");
+			System.out.println( num = "is a palindrome.");
 		else
-			System.out.println( num = ""is not a palindrome."");
+			System.out.println( num = "is not a palindrome.");
 }

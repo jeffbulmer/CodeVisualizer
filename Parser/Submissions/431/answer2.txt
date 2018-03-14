@@ -1,16 +1,16 @@
 Scanner input = new Scanner(System.in);
-System.out.println(""Enter a word : "");
+System.out.println("Enter a word : ");
 String userIn = input.next();
-System.out.println(""Is ""+userIn+"" a palindrome?"");
+System.out.println("Is "+userIn+" a palindrome?");
 String rev = userIn;
 int revLength = rev.length() - 1;
-String digit = "" ""; //variable digit keeps track of current digit
-String rev1 = "" ""; //variable rev1 will be reverse of userIn
+String digit = " "; //variable digit keeps track of current digit
+String rev1 = " "; //variable rev1 will be reverse of userIn
 for(int i = 0 ; i <= revLength ; i++) { //use for loop to create reverse of userIn
-	digit = rev.charAt(revLength - i) + """"; //get digits of userIn in reverse order
+	digit = rev.charAt(revLength - i) + ""; //get digits of userIn in reverse order
 	rev1 += digit; //add to rev1
 }
 if(rev1 == userIn) //check if userIn is a palindrome
-	System.out.println(""true"");
+	System.out.println("true");
 else
-	System.out.println(""false"");
+	System.out.println("false");

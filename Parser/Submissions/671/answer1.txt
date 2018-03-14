@@ -1,9 +1,9 @@
 Scanner in= new Scanner(System.in);
 int rev, rem=0;
-System.out.println(""Enter a number"");
+System.out.println("Enter a number");
 int num= in.nextInt();
 int original=num;
-System.out.println(""Is "" + num + "" a palindrome?"");
+System.out.println("Is " + num + " a palindrome?");
 
 while(num!=0{
 rem=num%10;
@@ -11,6 +11,6 @@ rev=(rev*10)+rem;
 num=num/10;
 }
 if(original==rev)
-System.out.println(""true"");
+System.out.println("true");
 else
-System.out.println("" false"");
+System.out.println(" false");

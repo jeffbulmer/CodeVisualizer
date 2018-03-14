@@ -3,7 +3,7 @@ public class EquilateralTriangles {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.println(""Enter a length for the triangle:"");
+		System.out.println("Enter a length for the triangle:");
 		int n = in.nextInt();
 		in.close();
 		printTriangle(n);
@@ -12,16 +12,16 @@ public class EquilateralTriangles {
 	}
 	public static void line(int length) {
 		for (int i=0; i<length;i++) {
-			System.out.print(""V"");
+			System.out.print("V");
 		}
-		System.out.print(""\n"");
+		System.out.print("\n");
 	}
 	public static void printTriangle(int length) {
 		int c=1,d=1;
 		for(int i=length;i>0;i=i-2) {
 			line(i);
 			while (d>0) {
-				System.out.print("" "");
+				System.out.print(" ");
 				d--;
 			}
 			c++;

@@ -5,13 +5,13 @@ public class Calculate
 	throws InputMismatchException
 	{
 		Scanner keyboardScanner = new Scanner(System.in);
-		System.out.println(""Enter a value for v:"");
+		System.out.println("Enter a value for v:");
 		int givenV = keyboardScanner.nextInt();
-		System.out.println(""Enter a value for c:"");
+		System.out.println("Enter a value for c:");
 		int givenC = keyboardScanner.nextInt();
-		System.out.print(""Value for v = "" + givenV);
-		System.out.print(""c = "" + givenC);
-		System.out.println("": "" + calculateFormula(givenV, givenC));
+		System.out.print("Value for v = " + givenV);
+		System.out.print("c = " + givenC);
+		System.out.println(": " + calculateFormula(givenV, givenC));
 		keyboardScanner.close();
 	}
 	

@@ -1,9 +1,9 @@
 Scanner scanner = new Scanner(System.in);
-System.out.print(""Guess the year (between 1990 and 2017): "");
+System.out.print("Guess the year (between 1990 and 2017): ");
 int year = scanner.nextInt();
-System.out.print(""Guess the month (as a number): "");
+System.out.print("Guess the month (as a number): ");
 int month = scanner.nextInt();
-System.out.print(""Guess the day (as a number): "");
+System.out.print("Guess the day (as a number): ");
 int day = scanner.nextInt();
 
 int randYear = (int) (1990 + Math.random() * 18);
@@ -13,6 +13,7 @@ int flag = Integer.compare(year,randYear);
 if (flag==0) flag = Integer.compare(month,randMonth);
 if (flag==0) flag = Integer.compare(day,randDay);
 
-if(flag==-1) System.out.print(""You were too early!"");
-else if(flag==1) System.out.print(""You were too late!"");
-else System.out.print(""You got it, wow!"");
+if(flag==-1) System.out.print("You were too early!");
+else if(flag==1) System.out.print("You were too late!");
+else System.out.print("You got it, wow!");
+

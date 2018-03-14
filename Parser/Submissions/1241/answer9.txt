@@ -6,8 +6,8 @@ public class Q4{
 		while(torf != true) {
 			iteration++;
 			mysort(array);
-			System.out.println(""Elements after sorting iteration "" + iteration + "": "" + array[0] + array[1] + array[2] + array[3] + array[4] + array[5] + array[6]);
-		} System.out.println(""The array is sorted!"");
+			System.out.println("Elements after sorting iteration " + iteration + ": " + array[0] + array[1] + array[2] + array[3] + array[4] + array[5] + array[6]);
+		} System.out.println("The array is sorted!");
 		
 	}
 	public static int[] mysort(int[] array){

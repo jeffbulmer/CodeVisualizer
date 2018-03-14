@@ -1,8 +1,9 @@
 public static void main(String[] args) {
    Scanner input = new Scanner(System.in);
-   System.out.println(""Enter an integer number greater than 0:"");
+   System.out.println("Enter an integer number greater than 0:");
    int n = input.nextInt();
    int answer = (n % 2 == 0) ? n / 2 : n / 2 + 1;
-   System.out.println(""There are "" + answer + "" odd integers between 0 and "" + n);
+   System.out.println("There are " + answer + " odd integers between 0 and " + n);
    input.close();
 }
+

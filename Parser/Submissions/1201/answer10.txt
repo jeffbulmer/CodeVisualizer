@@ -8,7 +8,7 @@ package 2{
 			if(cash >= 0)
 				this.cash = cash;
 			else
-				System.out.println(""Your card has been declined. Please contact the bank."");
+				System.out.println("Your card has been declined. Please contact the bank.");
 		}
 		public double getCash(){
 			return cash;
@@ -23,15 +23,15 @@ package 2{
 	public class Test{
 		public static void main(String[] args){
 			Bank Card bc = new Bank Card(100);
-			System.out.println(""Bank card initialized with $"" + getCash() );
-			System.out.println(""Loading bank card with $500"" );
+			System.out.println("Bank card initialized with $" + getCash() );
+			System.out.println("Loading bank card with $500" );
 			bc.load(500);
-			System.out.println(""Bank card now has $"" + getCash() );
-			System.out.println(""Buying chair for $270."")
-			System.out.println(""Bank card now has $"" + getCash() );
-			System.out.println(""Attempting to buy TV for $800."");
+			System.out.println("Bank card now has $" + getCash() );
+			System.out.println("Buying chair for $270.")
+			System.out.println("Bank card now has $" + getCash() );
+			System.out.println("Attempting to buy TV for $800.");
 			bc.buy(800);
-			System.out.println(""Bank card now has $"" + getCash() );
+			System.out.println("Bank card now has $" + getCash() );
 		}
 	}
 

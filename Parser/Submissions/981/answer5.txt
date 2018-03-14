@@ -1,17 +1,18 @@
 Scanner in = new Scanner(System.in);
-sysout(""Guess the year (between 1990 and 2017)"");
+sysout("Guess the year (between 1990 and 2017)");
 int yy = in.nextln();
-sysout(""Guess the month (as a number)"");
+sysout("Guess the month (as a number)");
 int mm = in.nextln();
-sysout(""Guess the day (as a number)"");
+sysout("Guess the day (as a number)");
 int dd = in.nextln();
 int byy = (int)(1990 + Math.random() * 2018);
 int bmm = (int)(1 + Math.random()*13);
 int bdd = (int)(1 + Math.random()*32);
-sysout.printf(""The correct date was %d-%d-%d"", byy,bmm,bdd );
+sysout.printf("The correct date was %d-%d-%d", byy,bmm,bdd );
 if (yy*10000+mm*100+dd == byy*10000+bmm*100+bdd)
-	sysout(""You got it, wow!"");
+	sysout("You got it, wow!");
 if else (<)
-	sysout(""You were too early!"");
+	sysout("You were too early!");
  else
-	sysout(""You were too late!"");
+	sysout("You were too late!");
+

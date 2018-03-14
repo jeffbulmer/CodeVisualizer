@@ -3,10 +3,10 @@ int n = in.nextInt();
 System.out.println();
 for(int i  = 0; i < n; i++){
 	for(j = 0; j < i; j++){
-		System.out.print("" "");
+		System.out.print(" ");
 	}
 	for(int k = n; k > i; k--){
-		System.out.print(""V"");
+		System.out.print("V");
 	}
 	System.out.println();
 }

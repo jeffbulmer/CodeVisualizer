@@ -7,7 +7,7 @@ while (checkSorted(origarray) == false){
 }
 
 public static String returna(int[] array){
-String temp = """";
+String temp = "";
 for(int i = 0; i < array.length; i++){
 	temp = temp + array[i];
 }

@@ -5,7 +5,7 @@ public class part2 {
 		Scanner scan = new Scanner(System.in);
 		String [] words = new String[5];
 		for(i = 0; i < words.length; i++){
-			System.out.println(""Enter a word: "")
+			System.out.println("Enter a word: ")
 			words[i] = scan.nextLine();
 		}
 		int vowel = 0;
@@ -23,5 +23,5 @@ public class part2 {
 				case(U): vowel++; break;
 				default: break;
 			}
-		System.out.println(""Of the words you entered, "" + vowel + "" of them ended in a vowel.""
+		System.out.println("Of the words you entered, " + vowel + " of them ended in a vowel."
 }

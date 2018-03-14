@@ -4,7 +4,7 @@ in input = 0;
 
 Scanner sc = new Scanner(System.in);
 
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 input = sc.nextInt();
 number = input;
 
@@ -16,12 +16,12 @@ while(number != 0){
 
 revnum = revnum / 10;
 
-System.out.println(""Is "" + number + "" a palindrome?"");
+System.out.println("Is " + number + " a palindrome?");
 
 if(input == revnum){
-	System.out.println(""true"");
+	System.out.println("true");
 } else {
-	System.out.println(""false"");
+	System.out.println("false");
 }
 
 sc.close();

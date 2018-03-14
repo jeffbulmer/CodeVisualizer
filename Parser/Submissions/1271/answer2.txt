@@ -1,15 +1,16 @@
 Scanner scanner = new Scanner(System.in);
-System.out.print(""Sample output:\n"");
-System.out.print(""Enter a word""\n"");
+System.out.print("Sample output:\n");
+System.out.print("Enter a word"\n");
 String string = scanner.nextLine();
 
-String temp = """";
+String temp = "";
 
 for(int i = 0; i < string.length(); i++){
 temp = temp + number.charAt(string.length() - 1 -i);
 }
 
-System.out.printf(""Is %s a palindrome?\n"",string);
+System.out.printf("Is %s a palindrome?\n",string);
 
 System.out.print(string.equals(temp))
+
 

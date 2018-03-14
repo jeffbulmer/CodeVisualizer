@@ -7,9 +7,9 @@ public static void main(String args[])
 	boolean same;
 	int digits = 0;
 	boolean count = true;
-	System.out.println(""Enter a number:"");
+	System.out.println("Enter a number:");
 	userIn = in.nextInt();
-	System.out.println(""Is "" + userIn + "" a palindrome?"");
+	System.out.println("Is " + userIn + " a palindrome?");
 	for(int i = 1; count !=0; i*10)
 	{
 		if(userIn%i !=0)

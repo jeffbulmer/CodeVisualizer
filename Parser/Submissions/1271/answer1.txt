@@ -1,5 +1,5 @@
 Scanner scanner = new Scanner(System.in);
-System.out.print(""Sample output\n"");
+System.out.print("Sample output\n");
 int number = scanner.nextInt();
 
 int reverse = 0;
@@ -12,10 +12,11 @@ number = number/10;
 
 temp = reverse
 
-System.out.printf(""Is %d a palindrome?"",number);
+System.out.printf("Is %d a palindrome?",number);
 
 if (number == reverse){
-System.out.print(""true"")
+System.out.print("true")
 }else{
-System.out.print(""false"")
+System.out.print("false")
 }
+

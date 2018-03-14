@@ -1,9 +1,9 @@
 Scanner in = new Scanner(System.in);
-Sysout(""Enter a number: "");
+Sysout("Enter a number: ");
 String x = in.nextLine();
 int a = x.lenth;
 for(i = 0; i = a/2; i++){
 	if((int)x.charAt(i)-(int)x.charAt(a-1-i)))
-		sysout(""polindrome"");
+		sysout("polindrome");
 	else
-		sysout(""not polindrome"");
+		sysout("not polindrome");

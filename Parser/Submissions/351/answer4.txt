@@ -2,13 +2,13 @@ import java.util.*;
 public class oddsareout{
 public static void main(String args[]){
 Scanner scan=new Scanner(System.in);
-System.out.println(""Enter a positive integer"");
+System.out.println("Enter a positive integer");
 int num=scan.nextInt();int totalodds=0;
 for(int i=0;i<=num;i++){
 if(i%2!=0){
 totalodds++;
 }
 }
-System.out.println(""Total odds between 0 and ""+num+"" are ""+totalodds);
+System.out.println("Total odds between 0 and "+num+" are "+totalodds);
 }
 }

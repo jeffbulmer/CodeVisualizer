@@ -4,13 +4,13 @@ public class IsPalindrome {
 
 	public static void main(String args[]) {
 
-		System.out.println(""Enter a number:"");
+		System.out.println("Enter a number:");
 
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
 		scanner.close();
 
-		System.out.println(""Is "" + n + "" a palindrome?"");
+		System.out.println("Is " + n + " a palindrome?");
 
 		boolean b = true;
 		int l = (int) (Math.log10(n) + 1);

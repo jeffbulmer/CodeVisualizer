@@ -7,11 +7,11 @@ public class revisionquiz {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
-		System.out.print(""Enter a positive integer: "");
+		System.out.print("Enter a positive integer: ");
 		int num = in.nextInt();
 		in.nextLine();
 
-		System.out.printf(""Is %d a palindrome?"", num);
+		System.out.printf("Is %d a palindrome?", num);
 		System.out.println(isPalindrome(num, reverse(num)));
 
 		in.close();

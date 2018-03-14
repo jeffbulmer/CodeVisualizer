@@ -1,11 +1,11 @@
 Scanner scan = new Scanner(System.in);
-System.out.Println(""Enter a number:"");
+System.out.Println("Enter a number:");
 int input = scan.nextInt();
 int length=(int)(Math.log10(input)+1);
 int[] forwards=new int[length];
 int[] backwards=new int[length];
 
-System.out.Println(""Is ""+input+"" a palidrome?"");
+System.out.Println("Is "+input+" a palidrome?");
 
 
 for(int i=0;i<length;i++)
@@ -19,10 +19,10 @@ for(int i=0;i<length;i++)
 {
 	if(forwards[i]!=backwards[i])
 	{
-		System.out.println(""false"");
+		System.out.println("false");
 		palindrome=false;
 		break;
 	}
 }
 if(palindrome)
-System.out.println(""true"");
+System.out.println("true");

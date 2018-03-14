@@ -1,8 +1,8 @@
-system.out.println(""Enter an integer number greater than 0 :"");
+system.out.println("Enter an integer number greater than 0 :");
 Scanner in=new Scanner(System.in);
 int num= in.nextInt();
 int tim=0;
 for(int i=num; i>0;i--){
 if(i%2!=0)
 tim++;}
-system.out.println(""There are ""+tim+""odd integer between 0 and""+num);
+system.out.println("There are "+tim+"odd integer between 0 and"+num);

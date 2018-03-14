@@ -3,7 +3,7 @@ public class a {
 
 	public static void main(String[] args) {
 	Scanner keyboard= new Scanner (System.in);
-	System.out.println(""Enter a number:"");
+	System.out.println("Enter a number:");
 	int a= keyboard.nextInt();
 	int e=a;
 	int c;
@@ -16,12 +16,12 @@ public class a {
 	}
 	
 	if (a==b) {
-		System.out.println(""Does "" +a+ "" is a palindrome"");
-		System.out.println(""True"");	
+		System.out.println("Does " +a+ " is a palindrome");
+		System.out.println("True");	
 	}
 	else {
-		System.out.println(""Does ""+a+ "" is a palindrome"");
-		System.out.println(""Flase"");		
+		System.out.println("Does "+a+ " is a palindrome");
+		System.out.println("Flase");		
 	}
 
 }

@@ -1,15 +1,15 @@
 import java.util.Scanner(); //above the main method
 
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter a length for the triangle: "");
+System.out.println("Enter a length for the triangle: ");
 int base = in.nextInt();
 int spacecounter = 0;
 for(int i = base; i>0;i-=2) {
 	for(int j = 0; j < spacecounter; j++) {
-		System.out.print("" "");
+		System.out.print(" ");
 	}
 	for(int k = 0; k <i; k++) {
-		System.out.print(""V"");
+		System.out.print("V");
 	}
 	spacecounter++;
 	System.out.println();

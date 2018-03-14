@@ -1,9 +1,9 @@
 import java.util.Scanner;
 Scanner in = new Scanner(System.in);
 String[] array = new String[5];
-System.out.println(""Enter a word: "");
+System.out.println("Enter a word: ");
 for( int i=0; i < 5 ;i++) {
         array[i]=in.nextLine();
-	System.out.println(""Enter a word: "");
+	System.out.println("Enter a word: ");
 }
-System.out.println(""Of the words you entered, "" + count + ""ends in a vowel."");
+System.out.println("Of the words you entered, " + count + "ends in a vowel.");

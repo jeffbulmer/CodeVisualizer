@@ -3,7 +3,7 @@ int number;
 int reverse = 0;
 int digits;
 
-System.out.println(""Enter a number:"");
+System.out.println("Enter a number:");
 number = myscanner.nextInt();
 
 while (number!=0){
@@ -12,8 +12,8 @@ reverse = reverse * 10 + digits;
 number /= 10;
 }
 
-System.out.println(""Is "" + number + ""a palindrome?"");
+System.out.println("Is " + number + "a palindrome?");
 if (number == reverse)
-System.out.println(""true"");
+System.out.println("true");
 else
-System.out.println(""false"");
+System.out.println("false");

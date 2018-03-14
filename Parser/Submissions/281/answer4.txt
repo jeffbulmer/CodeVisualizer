@@ -3,7 +3,7 @@ public static void main(String[] args){
         
 	int counter = 0;
 
-	System.out.println(Enter an integer number greater than 0: "");
+	System.out.println(Enter an integer number greater than 0: ");
 	int a = in.nextInt();
   	
 	for(int i = 0; i<= a; i++){
@@ -11,5 +11,5 @@ public static void main(String[] args){
 			counter++;
 	}
 	
-	System.out.println(""There are "" + counter +  "" odd integers between 0 and "" + a);
+	System.out.println("There are " + counter +  " odd integers between 0 and " + a);
 }

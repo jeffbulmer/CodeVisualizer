@@ -2,11 +2,11 @@ import java.util.Scanner;
 public class birthdate{
 public static void main(String[] args){
 Scanner input=new Scanner(System.in);
-System.out.println(""Guess the year (between 1990 and 2017):"");
+System.out.println("Guess the year (between 1990 and 2017):");
 int year=input.nextInt();
-System.out.println(""Guess the month (as a number):"");
+System.out.println("Guess the month (as a number):");
 int month=input.nextInt();
-System.out.println(""Guess the day (as a number):"");
+System.out.println("Guess the day (as a number):");
 int day=input.nextInt();
 int yyyy=(int)(Math.random()*28+1990);
 int mm=(int)(Math.random()*12+1);
@@ -21,12 +21,12 @@ dd=(int)(Math.random()*29+1);
 else
 dd=(int)(Math.random()*28+1);
 }
-System.out.println(""The correct date was ""+yyyy+""-""+mm+""-""+dd+"" (yyyy-mm-dd)."");
+System.out.println("The correct date was "+yyyy+"-"+mm+"-"+dd+" (yyyy-mm-dd).");
 if(year==yyyy && month==mm && day=dd)
-System.out.println(""You got it, wow!"");
+System.out.println("You got it, wow!");
 if(year>yyyy | (year==yyyy && month>mm) | (year==yyyy && month==mm && day>dd))
-System.out.println(""You were too late!"");
+System.out.println("You were too late!");
 else
-System.out.println(""You were too early!"");
+System.out.println("You were too early!");
 }
 }

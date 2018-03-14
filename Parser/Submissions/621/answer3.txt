@@ -1,10 +1,11 @@
-my scanner is called ""in""
+my scanner is called "in"
 
-system.out.print(""Enter value for v"");
+system.out.print("Enter value for v");
 int v=in.nextInt();
-system.out.print(""Enter value for c"");
+system.out.print("Enter value for c");
 int c=in.nextInt();
 
 double x= Math.PI * 1/(Math.pow(1-(Math.pow(v,2)/Math.pow(c,2)),0.5));
-system.out.print(""The value for v=+""+v+"", c=""+c+"": ""+x);
+system.out.print("The value for v=+"+v+", c="+c+": "+x);
+
 

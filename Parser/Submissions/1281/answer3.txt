@@ -7,15 +7,15 @@ import java.util.scanner;
 	public static main(String args[]) {
 		Scanner in = new Scanner(System.in):
 	
-		system.out.println(""Enter a value for V"");
+		system.out.println("Enter a value for V");
 		int v = in.nextInt();
 
-		system.out.println(""Enter a value for C"");
+		system.out.println("Enter a value for C");
 		int c = in.nextInt();
 
 		double ans = (Math.PI*(1/(Math.sqrt(1-(Math.pow(v,2)/Math.pow(c,2))));
 
-		system.out.println(""Value for v = "" + v + "", c = "" + c + "": "" + ans);
+		system.out.println("Value for v = " + v + ", c = " + c + ": " + ans);
 
 	}
 }

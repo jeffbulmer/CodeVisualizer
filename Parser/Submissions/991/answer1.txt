@@ -5,9 +5,9 @@ public class Palindrome
 	throws InputMismatchException
 	{
 		Scanner keyboardScanner = new Scanner(System.in);
-		System.out.println(""Enter a Number:"");
+		System.out.println("Enter a Number:");
 		int input = keyboardScanner.nextInt();
-		System.out.println(""Is "" + input + "" a palindrome?"");
+		System.out.println("Is " + input + " a palindrome?");
 		System.out.println(checkInt(input));
 		keyboardScanner.close();
 	}

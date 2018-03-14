@@ -5,11 +5,11 @@ public class CLASS_NAME {
 		
 		Scanner in = new Scanner(System.in);
 
-		System.out.println(""Enter some numbers: "");
+		System.out.println("Enter some numbers: ");
 		int input = in.nextInt();
 		boolean isPalindrome = false;
 		
-		System.out.println(""Is "" + in + "" a palindrome?"");
+		System.out.println("Is " + in + " a palindrome?");
 		if (reverse(input) == input) {
 			isPalindrome = true;
 			System.out.println(isPalindrome);

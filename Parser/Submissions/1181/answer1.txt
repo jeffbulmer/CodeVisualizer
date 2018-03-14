@@ -7,11 +7,11 @@ public class q1 {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
-		System.out.print(""Enter a number: \n"");
+		System.out.print("Enter a number: \n");
 		int num = in.nextInt();
 		in.nextLine();
 
-		System.out.printf(""Is %d a palindrome?\n"", num);
+		System.out.printf("Is %d a palindrome?\n", num);
 		System.out.println(isPalindrome(num, reverse(num)));
 
 		in.close();
@@ -33,3 +33,4 @@ public class q1 {
 	}
 
 }
+

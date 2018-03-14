@@ -12,11 +12,11 @@ public class guessmate {
 		int day = rand.nextInt(30);
 		while(day == 0) day = rand.nextInt(30);		
 
-		System.out.println(""Guess the year (between 1990 and 2017)"");
+		System.out.println("Guess the year (between 1990 and 2017)");
 		int gYear = sc.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		int gMonth = sc.nextInt();
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		int gDay = sc.nextInt();
 		boolean late = false, early = false, exact = false;
 		if(gYear == year)
@@ -32,10 +32,10 @@ public class guessmate {
 		else if(gYear > year)
 			late = true;
 		else early = true;
-		System.out.println(""The correct date was "" + year + ""-"" + month + ""-"" + day + "" (yyyy-mm-dd)"");
-		if(exact) System.out.println(""You got it, wow!"");
-		if(late) System.out.println(""You were too late!"");
-		if(early) System.out.println(""You were too early!"");
+		System.out.println("The correct date was " + year + "-" + month + "-" + day + " (yyyy-mm-dd)");
+		if(exact) System.out.println("You got it, wow!");
+		if(late) System.out.println("You were too late!");
+		if(early) System.out.println("You were too early!");
 		sc.close();
 	}
 }

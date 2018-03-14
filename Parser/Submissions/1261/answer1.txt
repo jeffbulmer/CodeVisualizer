@@ -1,7 +1,7 @@
-system.out.println (""Enter a number:"");
+system.out.println ("Enter a number:");
 Scanner in = new Scanner(System.in);
 int num= in.nextInt();
-system.out.println(""is ""+ num+"" a palindrome?"")
+system.out.println("is "+ num+" a palindrome?")
 pali(num);
 
 public bollean pali(int num){
@@ -13,3 +13,4 @@ return true;
 else
 return false;
 }
+

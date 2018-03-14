@@ -1,19 +1,19 @@
 import util.Java Scanner;
-System.out.println(""Guess the year (between 1990 and 2017): "");
+System.out.println("Guess the year (between 1990 and 2017): ");
 Scanner in = new Scanner();
 int y = in.nextInt();
-System.out.println(""Guess the month (as a number): "");
+System.out.println("Guess the month (as a number): ");
 int m = in.nextInt();
-System.out.println(""Guess the day (as a number): ""):
+System.out.println("Guess the day (as a number): "):
 int d = in.nextInt();
 
 
 if (y>2000){
-System.out.pritnln(""The correct date was 2000-1-1,you were too late."");
+System.out.pritnln("The correct date was 2000-1-1,you were too late.");
 }
 
 else if (y< 2000)
-System.out.println(""The correct date was 2000-1-1, you were too early."");
+System.out.println("The correct date was 2000-1-1, you were too early.");
 
 else if (y = 2000; m = 1; d =1)
-System.out.println(""The correct date was 2000-1-1, you got it now!"");
+System.out.println("The correct date was 2000-1-1, you got it now!");

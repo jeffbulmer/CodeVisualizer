@@ -5,9 +5,9 @@ public class Something{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		
-		System.out.println(""Enter a value for v: "");
+		System.out.println("Enter a value for v: ");
 		int v = in.nextInt();
-		System.out.println(""Enter a value for c: "");
+		System.out.println("Enter a value for c: ");
 		int c = in.nextInt();
 
 		double insideR = 1 - (Math.pow(v, 2) / Math.pow(c, 2));
@@ -15,7 +15,7 @@ public class Something{
 
 		double ans = Math.PI / root;
 
-		System.out.printf(""Value for v = %d, c = %d: %f"", v, c, ans);
+		System.out.printf("Value for v = %d, c = %d: %f", v, c, ans);
 
 	}
 }

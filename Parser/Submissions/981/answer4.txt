@@ -1,9 +1,10 @@
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter an integer number greater than 0: "");
+System.out.println("Enter an integer number greater than 0: ");
 int num = in.nextln();
 int ct = 0;
 for(int  i = 0; i <=num; i++){
 	if( i%2 != 0)
 		ct++;
 }
-System.out.println(""There are "" + ct + "" odd integers between 0 and "" + num);
+System.out.println("There are " + ct + " odd integers between 0 and " + num);
+

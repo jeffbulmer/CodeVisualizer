@@ -1,15 +1,16 @@
 import java.util.scanner;
 Scanner in = new Scanner(System.in);
-System.out.println(""Enter a number"");
+System.out.println("Enter a number");
 int num = in.nextInt();
-System.out.println(""Is "" + num + ""a palindrome?"");
+System.out.println("Is " + num + "a palindrome?");
 int newNum;
 for(int i = 0; i<num.length;i++) {
 newNum +=num%10;
 }
 if(newNum == num)
-System.out.println(""True"");
+System.out.println("True");
 else
-System.out.println(""False"");
+System.out.println("False");
+
 
 

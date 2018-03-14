@@ -3,13 +3,13 @@ import java.util.Scanner;
 class Palindrome {
 public static void main( String args[] ) {
 
-System.out.println(""Enter an integer"");
+System.out.println("Enter an integer");
 int number = new Scanner(System.in).nextInt(); 
 
 if(isPalindrome(integer)) {
-system.out.println(integer + ""is a palindrome"");
+system.out.println(integer + "is a palindrome");
 } else {
-System.out.println(integer + "" is not a palindrome"");
+System.out.println(integer + " is not a palindrome");
 
 public boolean isPalindrome(int integer) {
 int p = integer;

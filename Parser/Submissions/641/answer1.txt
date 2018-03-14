@@ -3,7 +3,7 @@ import java.util.Arrays;
 public static void main(String[] args) {
 	Scanner in = new Scanner(System.in);
 	
-	System.out.print(""Enter a number: "");
+	System.out.print("Enter a number: ");
 	int num = in.nextInt();
 
 	int count = 0;
@@ -34,8 +34,9 @@ public static void main(String[] args) {
 		}
 	}
 
-	System.out.println(""Is "" + num + "" Palindrome?"");
+	System.out.println("Is " + num + " Palindrome?");
 	System.out.println(isPalindrome);
 }
+
 
 

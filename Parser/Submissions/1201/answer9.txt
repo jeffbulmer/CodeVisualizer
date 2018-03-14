@@ -19,10 +19,10 @@ public class part2 {
 	public static void main(String[] args) {
 		int ar = {1,5,7,4,3,2,6};
 		int count = 0;
-		System.out.println(""Elements in the original array: "" + Arrays.toString(ar) );
+		System.out.println("Elements in the original array: " + Arrays.toString(ar) );
 		while( !check.Sorted(ar) ) {
 			mysort(ar);
-			System.out.println(""Elements after sorting iteration "" + count + "": "" + Arrays.toString(ar) );
+			System.out.println("Elements after sorting iteration " + count + ": " + Arrays.toString(ar) );
 		}
-		System.out.println(""The array has been sorted!"");
+		System.out.println("The array has been sorted!");
 }	}

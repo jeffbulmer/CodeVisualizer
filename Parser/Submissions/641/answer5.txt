@@ -4,13 +4,13 @@ public class Something{
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 
-		System.out.println(""Guess the year(between 1990 and 2017): "");
+		System.out.println("Guess the year(between 1990 and 2017): ");
 		int gYear = in.nextInt();
 
-		System.out.println(""Guess the month (as a number): "")
+		System.out.println("Guess the month (as a number): ")
 		int gMonth = in.nextInt();
 
-		System.out.println(""Guess the day (as a number): "")
+		System.out.println("Guess the day (as a number): ")
 		int gDay = in.nextInt();
 
 		int year = 1990 + (int)(Math.random() * 28);
@@ -37,14 +37,14 @@ public class Something{
 		case 11: day = 1 + (int)(Math.random() * 30); break;
 		}
 
-		System.out.printf(""The correct date was %d-%d-%d(yyyy-mm-dd)"", year, month, day);
+		System.out.printf("The correct date was %d-%d-%d(yyyy-mm-dd)", year, month, day);
 		System.out.println();
 
-		String msg1 = ""You were too early!"";
-		String msg2 = ""You were too late!"";
-		String msg3 = ""You got it... wow!"";
+		String msg1 = "You were too early!";
+		String msg2 = "You were too late!";
+		String msg3 = "You got it... wow!";
 
-		String msg = """";
+		String msg = "";
 
 		if(year > gYear)
 			msg = msg1;

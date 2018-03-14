@@ -5,8 +5,9 @@ for(int i = num.length(); i > 0, i++){
 	bNum += Math.pow(num % i,i)
 }
  if(bNum == num)
-	System.out.println(""This is a palindrome"");
+	System.out.println("This is a palindrome");
 else
-	System.out.println(""This is not a palindrome"");
+	System.out.println("This is not a palindrome");
+
 
 

@@ -1,10 +1,11 @@
 Scanner scanner = new Scanner(System.in);
-System.out.print(""Sample output:\n"");
-System.out.print(""Enter a value for v:\n"");
+System.out.print("Sample output:\n");
+System.out.print("Enter a value for v:\n");
 double v = scanner.nextDouble();
-System.out.print(""Enter a value for c:\n"");
+System.out.print("Enter a value for c:\n");
 double c = scanner.nextDouble();
 
 double value = Math.PI * (1/(Math.sqrt(1 - (Math.pow(v, 2)/Math.pow(c, 2)))))
 
-System.out.printf(""Value for v = %s, c = %s: %s"",v,c,value);
+System.out.printf("Value for v = %s, c = %s: %s",v,c,value);
+
