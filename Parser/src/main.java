@@ -41,7 +41,7 @@ public class main {
 //						InputStream is = new FileInputStream(file);
 //						cleanQuotes(is, file);
 //						is.close();
-						TextProcessor tp = new TextProcessor(fileString);
+						TextProcessor tp = new TextProcessor(fileString, true);
 						userErrors[0] += tp.checkScanner().size();
 						userErrors[1] += tp.checkBracketCount().size();
 						userErrors[2] += tp.checkBracketMatch().size();
