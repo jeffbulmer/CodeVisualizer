@@ -78,11 +78,12 @@ public class AnimateFile extends Application {
 	int[] codeToAnimate;
 	String currentCode;
 	Timeline timeline;
-	Status status;
 	Slider slider;
-
+	Status status;
+	
 	static String prevPrint;
 	static String prevPrint2;
+	static int printCounter;
 
 	@Override
 	public void start(Stage pStage) {
@@ -144,10 +145,7 @@ public class AnimateFile extends Application {
 				status = timeline.getStatus();
 				codeToAnimate = readFile(file);
 				animationText.setText("");
-				prevPrint = "";
-				prevPrint2 = "";
 				bp.setBottom(makeMediaBar());
-
 			}
 		});
 		menuFileOpen.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
@@ -254,12 +252,6 @@ public class AnimateFile extends Application {
 		boolean isCapsOn = false;
 
 		for (int i = 0; i < keycodes.length; i++) {
-			String currPrint2 = i + ": " + keycodes[i] + ", cursor: " + cursor + ", current line: " + currentLine;
-			if (!currPrint2.equals(prevPrint2)) {
-				// sopl(currPrint2);
-				prevPrint2 = currPrint2;
-			}
-
 			if (keycodes[i] == 20) { // Caps Lock
 				isCapsOn = (isCapsOn) ? false : true;
 			} else if (keycodes[i] == 8) { // Backspace
@@ -286,14 +278,15 @@ public class AnimateFile extends Application {
 					cursor--;
 				}
 			} else if (keycodes[i] == 39) { // Right Arrow
+				sopl("YES, " + keycodes[i]);
 				if (cursor == res.get(currentLine).length() && currentLine == res.size()) {
 					continue;
-				} else if (cursor == res.get(currentLine).length()) {
+				} else if (++cursor < res.get(currentLine).length() - 1) {
+					continue;
+				} else {
 					currentLine++;
 					currentString = res.get(currentLine);
 					cursor = 0;
-				} else {
-					cursor++;
 				}
 			} else if (keycodes[i] == 38) { // Up Arrow
 				if (currentLine == 0) {
@@ -306,10 +299,9 @@ public class AnimateFile extends Application {
 					}
 				}
 			} else if (keycodes[i] == 40) { // Down Arrow
-				if (currentLine == res.size()) {
+				if (currentLine == res.size() - 1) {
 					cursor = res.get(currentLine).length();
 				} else {
-					// TODO: Fix this!
 					currentLine++;
 					currentString = res.get(currentLine);
 					if (cursor > res.get(currentLine).length()) {
@@ -419,6 +411,8 @@ public class AnimateFile extends Application {
 					currentString.insert(cursor++, ">");
 				} else if (keycodes[i] == 191) {
 					currentString.insert(cursor++, "?");
+				} else if (keycodes[i] == 9) {
+					currentString.insert(cursor++, "\t");
 				}
 			} else if (keycodes[i] == 48) { // Regular keys without Shift start here
 				currentString.insert(cursor++, "0");
@@ -456,6 +450,7 @@ public class AnimateFile extends Application {
 				char toInsert = isCapsOn ? 'E' : 'e';
 				currentString.insert(cursor++, toInsert);
 			} else if (keycodes[i] == 70) {
+				sopl("entered 70");
 				char toInsert = isCapsOn ? 'F' : 'f';
 				currentString.insert(cursor++, toInsert);
 			} else if (keycodes[i] == 71) {
@@ -540,8 +535,15 @@ public class AnimateFile extends Application {
 				currentString.insert(cursor++, ".");
 			} else if (keycodes[i] == 191) {
 				currentString.insert(cursor++, "/");
+			} else if (keycodes[i] == 9) {
+				currentString.insert(cursor++, "\t");
 			}
 			res.set(currentLine, currentString);
+			String currPrint2 = i + ": k" + keycodes[i] + ", cursor: " + cursor + ", res size: " + res.size()
+					+ ", current line: " + currentLine + ", current String: " + currentString;
+			//if (i > 55)
+				sopl(currPrint2);
+
 		}
 
 		String result = "";
@@ -549,10 +551,7 @@ public class AnimateFile extends Application {
 			result += res.get(i) + "\n";
 		}
 
-		if (!result.equals(prevPrint)) {
-			// sopl(result);
-			prevPrint = result;
-		}
+		sopl(result);
 		return result;
 
 	}
