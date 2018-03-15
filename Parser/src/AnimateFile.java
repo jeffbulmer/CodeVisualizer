@@ -53,7 +53,7 @@ import javafx.scene.text.Text;
  * AnimateFile.java: A program to animate keystroke data.
  * <p>
  * AnimateFile is a program to animate keystroke data, collected from Computer
- * Science students and the University of British Columbia Okanagan.
+ * Science students at the University of British Columbia Okanagan.
  * <p>
  * Attributes:<br>
  * 
@@ -63,7 +63,7 @@ import javafx.scene.text.Text;
  *         <p>
  * @version 1.0v<br>
  *          Date Created: 10/02/2018<br>
- *          Last Modified: 14/03/2018<br>
+ *          Last Modified: 15/03/2018<br>
  *          <p>
  * 
  * 
@@ -96,8 +96,6 @@ public class AnimateFile extends Application {
 		textArea.setContent(animationText);
 		textArea.setFitToWidth(true);
 		textArea.setFitToHeight(true);
-		// textArea = new VBox(animationText);
-		// textArea.setAlignment(Pos.TOP_LEFT);
 		bp.setCenter(textArea);
 		bp.setTop(makeMenuBar());
 		timeline = new Timeline();
@@ -172,41 +170,48 @@ public class AnimateFile extends Application {
 		mediaBar.setAlignment(Pos.CENTER);
 		mediaBar.setPadding(new Insets(5, 10, 5, 10));
 
+		/*
+		 * Create the slider bar at the bottom with a Listener.
+		 */
 		slider = new Slider(0, codeToAnimate.length, 0);
 		slider.setPrefWidth((.75) * pStage.getWidth());
 		currentCode = "";
-
 		slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
 				int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
+				// translateKeyCodes returns a String representation of the code at any given
+				// time.
 				currentCode = translateKeyCodes(codeToAnimateNow);
 				animationText.setText(currentCode);
 			}
 		});
 
+		/*
+		 * Create the Play button. Note that the Listener for the slider bar appears
+		 * again on the inside of the KeyFrame animation so that a user may slide to any
+		 * point in the animation while it's currently playing.
+		 */
 		final Button playButton = new Button(">");
-
 		playButton.setOnAction(e -> {
 			if (timeline.getStatus() == Status.RUNNING) {
 				playButton.setText("||");
 				timeline.pause();
 			} else {
 				playButton.setText("||");
-
-				// Create the KeyFrame animation
 				final IntegerProperty i = new SimpleIntegerProperty(0);
 				i.set(currentCode.length());
-
 				KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), event -> {
 					if (i.get() > codeToAnimate.length) {
+						// If we're at the end of the code, stop the animation.
 						timeline.stop();
 					} else {
 						int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, i.intValue() + 10);
+						// translateKeyCodes returns a String representation of the code at any given
+						// time.
 						currentCode = translateKeyCodes(codeToAnimateNow);
 						animationText.setText(currentCode);
 						slider.setValue(i.intValue());
 						i.set(i.get() + 1);
-
 						slider.valueProperty().addListener(new ChangeListener<Number>() {
 							public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
 								int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
@@ -228,56 +233,12 @@ public class AnimateFile extends Application {
 	}
 
 	/**
-	 * readFile is a method to read in a file from disk and return it in the form of
-	 * a String
+	 * translateKeycodes() is a method to take in an array of Javascript int values
+	 * and translate it into the String that is to be animated.
 	 * <p>
-	 * Note the portions of the code for this method came from the blog Java-Buddy
-	 * <p>
-	 * 
-	 * @web http://java-buddy.blogspot.com/
-	 * @param file
-	 *            The file to be read
-	 * @return String
-	 */
-	private int[] readFile(File file) {
-		StringBuilder stringBuffer = new StringBuilder();
-		BufferedReader bufferedReader = null;
-		try {
-			bufferedReader = new BufferedReader(new FileReader(file));
-			String text;
-			while ((text = bufferedReader.readLine()) != null) {
-				stringBuffer.append(text);
-			}
-
-		} catch (FileNotFoundException ex) {
-			Logger.getLogger(AnimateFile.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (IOException ex) {
-			Logger.getLogger(AnimateFile.class.getName()).log(Level.SEVERE, null, ex);
-		} finally {
-			try {
-				bufferedReader.close();
-			} catch (IOException ex) {
-				Logger.getLogger(AnimateFile.class.getName()).log(Level.SEVERE, null, ex);
-			}
-		}
-
-		String[] keycodeStrings = stringBuffer.toString().split(",");
-		int[] keycodes = new int[keycodeStrings.length];
-		for (int i = 0; i < keycodeStrings.length; i++) {
-			try {
-				keycodes[i] = Integer.valueOf(keycodeStrings[i]);
-			} catch (NumberFormatException e) {
-				System.err.println(e + ": The problem came from " + keycodeStrings[i]);
-				break;
-			}
-
-		}
-		return keycodes;
-	}
-
-	/**
-	 * translateKeycodes is a method to take in an array of Javascript Integer
-	 * values and translate it into the String that is to be animated
+	 * The method builds an ArrayList of StringBuilder objects, as this was the
+	 * easiest data structure to navigate when it came to considering arrow keys.
+	 * Each object is one line of input code, separated by the Enter keycode, 13.
 	 * 
 	 * @param keycodes
 	 *            int[]: The array of ints to be animated
@@ -285,26 +246,23 @@ public class AnimateFile extends Application {
 	 */
 	public static String translateKeyCodes(int[] keycodes) {
 
-		/*
-		 * The result is an ArrayList<String>
-		 */
-		StringBuilder currentString = new StringBuilder();
 		ArrayList<StringBuilder> res = new ArrayList<StringBuilder>();
+		StringBuilder currentString = new StringBuilder();
 		res.add(currentString);
-		int cursor = 0;
-		boolean isCapsOn = false;
 		int currentLine = 0;
+		int cursor = 0; // tracks the index within the currentLine
+		boolean isCapsOn = false;
 
 		for (int i = 0; i < keycodes.length; i++) {
 			String currPrint2 = i + ": " + keycodes[i] + ", cursor: " + cursor + ", current line: " + currentLine;
 			if (!currPrint2.equals(prevPrint2)) {
-				//sopl(currPrint2);
+				// sopl(currPrint2);
 				prevPrint2 = currPrint2;
 			}
 
-			if (keycodes[i] == 20) {
+			if (keycodes[i] == 20) { // Caps Lock
 				isCapsOn = (isCapsOn) ? false : true;
-			} else if (keycodes[i] == 8) {
+			} else if (keycodes[i] == 8) { // Backspace
 				if (cursor == 0 && currentLine == 0) {
 					continue;
 				} else if (cursor == 0) {
@@ -317,7 +275,7 @@ public class AnimateFile extends Application {
 				} else {
 					currentString.deleteCharAt(--cursor);
 				}
-			} else if (keycodes[i] == 37) {
+			} else if (keycodes[i] == 37) { // Left Arrow
 				if (cursor == 0 && currentLine == 0) {
 					continue;
 				} else if (cursor == 0) {
@@ -327,7 +285,7 @@ public class AnimateFile extends Application {
 				} else {
 					cursor--;
 				}
-			} else if (keycodes[i] == 39) {
+			} else if (keycodes[i] == 39) { // Right Arrow
 				if (cursor == res.get(currentLine).length() && currentLine == res.size()) {
 					continue;
 				} else if (cursor == res.get(currentLine).length()) {
@@ -337,16 +295,39 @@ public class AnimateFile extends Application {
 				} else {
 					cursor++;
 				}
-			} else if (keycodes[i] == 13) {
-				res.set(currentLine++, currentString);
+			} else if (keycodes[i] == 38) { // Up Arrow
+				if (currentLine == 0) {
+					cursor = 0;
+				} else {
+					currentLine--;
+					currentString = res.get(currentLine);
+					if (cursor > res.get(currentLine).length()) {
+						cursor = res.get(currentLine).length();
+					}
+				}
+			} else if (keycodes[i] == 40) { // Down Arrow
+				if (currentLine == res.size()) {
+					cursor = res.get(currentLine).length();
+				} else {
+					// TODO: Fix this!
+					currentLine++;
+					currentString = res.get(currentLine);
+					if (cursor > res.get(currentLine).length()) {
+						cursor = res.get(currentLine).length();
+					}
+				}
+			} else if (keycodes[i] == 13) { // Enter
+				String toAppend = currentString.substring(cursor);
+				res.set(currentLine++, currentString.delete(cursor, currentString.length()));
 				cursor = 0;
 				currentString = new StringBuilder();
-				res.add(currentString);
+				currentString.append(toAppend);
+				res.add(currentLine, currentString);
 				continue;
-			} else if (keycodes[i] == 32) {
+			} else if (keycodes[i] == 32) { // Space
 				currentString.insert(cursor++, " ");
-			} else if (keycodes.length > 1 && i > 1 && keycodes[i - 1] == 16) {
-				if (keycodes[i] == 49) {
+			} else if (keycodes.length > 1 && i > 0 && keycodes[i - 1] == 16) {
+				if (keycodes[i] == 49) { // Regular keys with Shift held down start here
 					currentString.insert(cursor++, "!");
 				} else if (keycodes[i] == 50) {
 					currentString.insert(cursor++, "@");
@@ -439,7 +420,7 @@ public class AnimateFile extends Application {
 				} else if (keycodes[i] == 191) {
 					currentString.insert(cursor++, "?");
 				}
-			} else if (keycodes[i] == 48) {
+			} else if (keycodes[i] == 48) { // Regular keys without Shift start here
 				currentString.insert(cursor++, "0");
 			} else if (keycodes[i] == 48) {
 				currentString.insert(cursor++, "1");
@@ -569,11 +550,59 @@ public class AnimateFile extends Application {
 		}
 
 		if (!result.equals(prevPrint)) {
-			sopl(result);
+			// sopl(result);
 			prevPrint = result;
 		}
 		return result;
 
+	}
+
+	/**
+	 * readFile is a method to read in a file from disk and return it in the form of
+	 * a String
+	 * <p>
+	 * Note the portions of the code for this method came from the blog Java-Buddy
+	 * <p>
+	 * 
+	 * @web http://java-buddy.blogspot.com/
+	 * @param file
+	 *            The file to be read
+	 * @return String
+	 */
+	private int[] readFile(File file) {
+		StringBuilder stringBuffer = new StringBuilder();
+		BufferedReader bufferedReader = null;
+		try {
+			bufferedReader = new BufferedReader(new FileReader(file));
+			String text;
+			while ((text = bufferedReader.readLine()) != null) {
+				stringBuffer.append(text);
+			}
+
+		} catch (FileNotFoundException ex) {
+			Logger.getLogger(AnimateFile.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IOException ex) {
+			Logger.getLogger(AnimateFile.class.getName()).log(Level.SEVERE, null, ex);
+		} finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException ex) {
+				Logger.getLogger(AnimateFile.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+
+		String[] keycodeStrings = stringBuffer.toString().split(",");
+		int[] keycodes = new int[keycodeStrings.length];
+		for (int i = 0; i < keycodeStrings.length; i++) {
+			try {
+				keycodes[i] = Integer.valueOf(keycodeStrings[i]);
+			} catch (NumberFormatException e) {
+				System.err.println(e + ": The problem came from " + keycodeStrings[i]);
+				break;
+			}
+
+		}
+		return keycodes;
 	}
 
 	/**
