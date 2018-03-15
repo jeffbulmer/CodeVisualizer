@@ -107,7 +107,7 @@ public class TextProcessor {
 	 * spaces. So, we can declare a number of spaces to look for here at each
 	 * indentation level.
 	 */
-	public List<Habit> checkScanner() throws FileNotFoundException {
+	public List<Habit> checkScanner(){
 		int open = 0;
 		List<String> scanners = new ArrayList<String>();
 		List<Integer> scannersPos = new ArrayList<Integer>();
@@ -162,7 +162,7 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkBracketCount() throws FileNotFoundException, IOException {
+	public List<Habit> checkBracketCount(){
 		ArrayList<Integer> parentheses = new ArrayList<Integer>();
 		ArrayList<Integer> square = new ArrayList<Integer>();
 		ArrayList<Integer> curly = new ArrayList<Integer>();
@@ -316,7 +316,7 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkBracketMatch() throws FileNotFoundException, IOException {
+	public List<Habit> checkBracketMatch(){
 		ArrayList<Character> lastBracket = new ArrayList<Character>();
 		ArrayList<Integer> lastBracketIndex = new ArrayList<Integer>();
 		ArrayList<Habit> errors = new ArrayList<Habit>();
@@ -458,7 +458,7 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkBadSemiColon() throws FileNotFoundException, IOException {
+	public List<Habit> checkBadSemiColon(){
 
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		Scanner scan = new Scanner(fileString);
@@ -514,7 +514,7 @@ public class TextProcessor {
 
 	}
 
-	public List<Habit> checkAssignment() throws FileNotFoundException {
+	public List<Habit> checkAssignment(){
 		int errorCount = 0;
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		ArrayList<String> vars = new ArrayList<String>();
@@ -817,7 +817,7 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkTabbing(int numSpaces) throws IOException { // #dablife #maverickmerch
+	public List<Habit> checkTabbing(int numSpaces){ // #dablife #maverickmerch
 												// #itslitfam
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		int errorCount = 0;
