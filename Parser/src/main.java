@@ -42,12 +42,12 @@ public class main {
 //						cleanQuotes(is, file);
 //						is.close();
 						TextProcessor tp = new TextProcessor(fileString);
-						userErrors[0] += tp.checkScanner();
-						userErrors[1] += tp.checkBracketCount();
-						userErrors[2] += tp.checkBracketMatch();
-						userErrors[3] += tp.checkBadSemiColon();
-						userErrors[4] += tp.checkAssignment();
-						userErrors[5] += tp.checkTabbing(4);
+						userErrors[0] += tp.checkScanner().size();
+						userErrors[1] += tp.checkBracketCount().size();
+						userErrors[2] += tp.checkBracketMatch().size();
+						userErrors[3] += tp.checkBadSemiColon().size();
+						userErrors[4] += tp.checkAssignment().size();
+						userErrors[5] += tp.checkTabbing(4).size();
 						System.out.println("");
 						countFiles++;
 						indexFiles++;

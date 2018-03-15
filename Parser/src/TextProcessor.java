@@ -94,10 +94,11 @@ public class TextProcessor {
 	 * spaces. So, we can declare a number of spaces to look for here at each
 	 * indentation level.
 	 */
-	public int checkScanner() {
+	public List<String[]> checkScanner() {
 		int open = 0;
 		List<String> scanners = new ArrayList<String>();
 		List<Integer> scannersPos = new ArrayList<Integer>();
+		List<String[]> errors = new ArrayList<String[]>();
 		int errorCount = 0;
 
 		try {
@@ -109,24 +110,10 @@ public class TextProcessor {
 				if (line.contains("new Scanner")) {
 					Matcher matcher = pattern.matcher(line);
 					if (matcher.find()) {
-						scanners.add(matcher.group(0).replace("Scanner", "").trim()); // sometimes,
-																						// the
-																						// capture
-																						// group
-																						// contains
-																						// the
-																						// full
-																						// declaration,
-																						// which
-																						// we
-																						// don't
-																						// need,
-																						// so
-																						// we
-																						// chop
-																						// it
-																						// away
-																						// here.
+						// sometimes, the capture group contains the full
+						// declaration, which we don't need, so we chop it away
+						// here.
+						scanners.add(matcher.group(0).replace("Scanner", "").trim());
 						scannersPos.add(lineIndex);
 						open++;
 					}
@@ -153,16 +140,26 @@ public class TextProcessor {
 			System.out.print("File not found.");
 		}
 		for (int i = 0; i < scanners.size(); i++) {
-			System.out.println("Scanner " + scanners.get(i) + " on line " + scannersPos.get(i) + " not closed");
+			String[] error = new String[2];
+			error[0] = scannersPos.get(i) + "";
+			error[1] = "Scanner " + scanners.get(i) + " on line " + scannersPos.get(i) + " not closed";
+			errors.add(error);
 			errorCount++;
 		}
-		return errorCount;
+		// errors is a list of two-place String arrays, with the format
+		// error[0] = lineNumber (as a String, though!)
+		// error[1] = error message
+		for (int i = 0; i < errors.size(); i++) {
+			System.out.println(errors.get(i)[1]);
+		}
+		return errors;
 	}
 
-	public int checkBracketCount() {
+	public List<String[]> checkBracketCount() {
 		ArrayList<Integer> parentheses = new ArrayList<Integer>();
 		ArrayList<Integer> square = new ArrayList<Integer>();
 		ArrayList<Integer> curly = new ArrayList<Integer>();
+		ArrayList<String[]> errors = new ArrayList<String[]>();
 		int quote = 0;
 		int apostrophe = 0;
 		int errorCount = 0;
@@ -280,25 +277,40 @@ public class TextProcessor {
 				lineIndex++;
 			}
 			for (int i = 0; i < parentheses.size(); i++) {
-				System.out.println("Unclosed parentheses on line " + parentheses.get(i));
+				String[] error = new String[2];
+				error[0] = parentheses.get(i) + "";
+				error[1] = "Unclosed parentheses on line " + parentheses.get(i);
+				errors.add(error);
 				errorCount++;
 			}
 			for (int i = 0; i < square.size(); i++) {
-				System.out.println("Unclosed square brackets on line " + square.get(i));
+				String[] error = new String[2];
+				error[0] = square.get(i) + "";
+				error[1] = "Unclosed square brackets on line " + square.get(i);
+				errors.add(error);
 				errorCount++;
 			}
 			for (int i = 0; i < curly.size(); i++) {
-				System.out.println("Unclosed curly brace on line " + curly.get(i));
+				String[] error = new String[2];
+				error[0] = curly.get(i) + "";
+				error[1] = "Unclosed curly brace on line " + curly.get(i);
+				errors.add(error);
 				errorCount++;
 			}
 
 			if (quote != 0) {
-				System.out.println("Unclosed quotation marks on line " + quote);
+				String[] error = new String[2];
+				error[0] = quote + "";
+				error[1] = "Unclosed quotation marks on line " + quote;
+				errors.add(error);
 				errorCount++;
 			}
 
 			if (apostrophe != 0) {
-				System.out.println("Unclosed apostrophes on line " + apostrophe);
+				String[] error = new String[2];
+				error[0] = apostrophe + "";
+				error[1] = "Unclosed apostrophes on line " + apostrophe;
+				errors.add(error);
 				errorCount++;
 			}
 			scan.close();
@@ -308,13 +320,16 @@ public class TextProcessor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return errorCount;
+		for (int i = 0; i < errors.size(); i++) {
+			System.out.println(errors.get(i)[1]);
+		}
+		return errors;
 	}
 
-	public int checkBracketMatch() {
+	public List<String[]> checkBracketMatch() {
 		ArrayList<Character> lastBracket = new ArrayList<Character>();
 		ArrayList<Integer> lastBracketIndex = new ArrayList<Integer>();
-		ArrayList<String> errors = new ArrayList<String>();
+		ArrayList<String[]> errors = new ArrayList<String[]>();
 		try {
 			Scanner scan = new Scanner(file);
 			int lineIndex = 1;
@@ -393,9 +408,12 @@ public class TextProcessor {
 							 * miscount, this may result in all subsequent
 							 * brackets being mismatched.
 							 */
-							errors.add("Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+							String[] error = new String[2];
+							error[0] = lineIndex + "";
+							error[1] = "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
 									+ " matching with ')' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
-									+ " and line " + lineIndex);
+									+ " and line " + lineIndex;
+							errors.add(error);
 						}
 						if (lastBracket.size() > 0) {
 							lastBracket.remove(lastBracket.size() - 1);
@@ -412,9 +430,12 @@ public class TextProcessor {
 									// it's a character
 						}
 						if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '[') {
-							errors.add("Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+							String[] error = new String[2];
+							error[0] = lineIndex + "";
+							error[1] = "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
 									+ " matching with ']' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
-									+ " and line " + lineIndex);
+									+ " and line " + lineIndex;
+							errors.add(error);
 						}
 						if (lastBracket.size() > 0) {
 							lastBracket.remove(lastBracket.size() - 1);
@@ -431,9 +452,12 @@ public class TextProcessor {
 									// it's a character
 						}
 						if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '{') {
-							errors.add("Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+							String[] error = new String[2];
+							error[0] = lineIndex + "";
+							error[1] = "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
 									+ "matching with '}' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
-									+ " and line " + lineIndex);
+									+ " and line " + lineIndex;
+							errors.add(error);
 						}
 						if (lastBracket.size() > 0) {
 							lastBracket.remove(lastBracket.size() - 1);
@@ -452,14 +476,14 @@ public class TextProcessor {
 			e.printStackTrace();
 		}
 		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i));
+			System.out.println(errors.get(i)[1]);
 		}
-		return errors.size();
+		return errors;
 	}
 
-	public int checkBadSemiColon() {
+	public List<String[]> checkBadSemiColon() {
 
-		ArrayList<String> errors = new ArrayList<String>();
+		ArrayList<String[]> errors = new ArrayList<String[]>();
 		try {
 			Scanner scan = new Scanner(file);
 			int lineIndex = 0;
@@ -496,8 +520,10 @@ public class TextProcessor {
 																										// matching
 																										// group.
 						if (line.length() > nextidx && line.charAt(nextidx) == ';') {
-							errors.add("Semi-colon after conditional statement on line " + lineIndex);
-
+							String[] error = new String[2];
+							error[0] = lineIndex + "";
+							error[1] = "Semi-colon after conditional statement on line " + lineIndex;
+							errors.add(error);
 						}
 					}
 				}
@@ -521,7 +547,10 @@ public class TextProcessor {
 						else if (line.charAt(line.indexOf(matcherLoop.group(i))) == 'w')
 							looptype = "while";
 						if (nextidx < line.length() && line.charAt(nextidx) == ';') {
-							errors.add("Semi-colon after " + looptype + " loop declaration on line " + lineIndex);
+							String[] error = new String[2];
+							error[0] = lineIndex + "";
+							error[1] = "Semi-colon after " + looptype + " loop declaration on line " + lineIndex;
+							errors.add(error);
 						}
 					}
 				}
@@ -535,15 +564,15 @@ public class TextProcessor {
 			e.printStackTrace();
 		}
 		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i));
+			System.out.println(errors.get(i)[1]);
 		}
-		return errors.size();
+		return errors;
 
 	}
 
-	public int checkAssignment() {
+	public List<String[]> checkAssignment() {
 		int errorCount = 0;
-		ArrayList<String> errors = new ArrayList<String>();
+		ArrayList<String[]> errors = new ArrayList<String[]>();
 		ArrayList<String> vars = new ArrayList<String>();
 		ArrayList<String> types = new ArrayList<String>();
 		ArrayList<Integer> levels = new ArrayList<Integer>();
@@ -588,31 +617,14 @@ public class TextProcessor {
 					}
 				}
 				if (line.contains("=")) {
-					Pattern pattern = Pattern.compile("(?<=\\().*(?=\\))"); // pattern
-																			// that
-																			// grabs
-																			// everything
-																			// within
-																			// parentheses.
-					Pattern singleSign = Pattern.compile("(?<!\\=|\\!|\\<|\\>|\\\'|\\\")=(?!=|\\\'|\\\")"); // pattern
-																											// that
-																											// grabs
-																											// every
-																											// instance
-																											// of
-																											// an
-																											// assignment
-																											// operator
-																											// (single
-																											// =)
+					// pattern that grabs everything  within parentheses.
+					Pattern pattern = Pattern.compile("(?<=\\().*(?=\\))"); 
+					// pattern that grabs every instance of an assignment operator (single =)
+					Pattern singleSign = Pattern.compile("(?<!\\=|\\!|\\<|\\>|\\\'|\\\")=(?!=|\\\'|\\\")"); 
 					Pattern doubleSign = Pattern.compile("==");
+					// gets the type of a variable
 					Pattern variableType = Pattern
-							.compile("((Scanner|int|String|char|double|Scanner|float|long|boolean)(\\[\\])*(?!At|Of))"); // gets
-					// the
-					// type
-					// of
-					// a
-					// variable
+							.compile("((Scanner|int|String|char|double|Scanner|float|long|boolean)(\\[\\])*(?!At|Of))"); 
 					Pattern variableName = Pattern.compile(".*?(?==)");
 					String trimmedLine = line.trim();
 					boolean loop = false;
@@ -642,21 +654,23 @@ public class TextProcessor {
 								.compile("(?<![^ ])" + vars.get(i).replaceAll("[\\[\\]]", "") + "(?![^ ])");
 						Matcher matchVar = varOnly.matcher(line);
 						if (matchVar.find()) {
-							if (line.contains("while") || line.contains("if") || line.contains("for")) { // loops
-																											// and
-																											// conditionals
-																											// handled
-																											// separately.
+							// loops and conditionals handled separately.
+							if (line.contains("while") || line.contains("if") || line.contains("for")) { 
 								continue;
 							}
 							line = line.substring(matchVar.end(0)).trim();
 							if (line.startsWith("==")) {
-								errors.add(
-										"Comparison on line " + lineIndex + ". This should be variable assignment (=)");
+								String[] error = new String[2];
+								error[0] = lineIndex+"";
+								error[1] = "Comparison on line " + lineIndex + ". This should be variable assignment (=)";
+								errors.add(error);
 							} else if (types.get(i).equals("boolean") && singleSign.matcher(line).groupCount() > 1) {
-								errors.add("Assignment (=) after the initial assignment of the boolean variable "
+								String[] error = new String[2];
+								error[0] = lineIndex+"";
+								error[1] = "Assignment (=) after the initial assignment of the boolean variable "
 										+ vars.get(i) + " on line " + lineIndex
-										+ ". This should be a comparison (==).");
+										+ ". This should be a comparison (==).";
+								errors.add(error);
 							}
 
 						}
@@ -722,15 +736,25 @@ public class TextProcessor {
 
 								if (singleSign.matcher(conditionParts[i]).find()) {
 									if (isString) {
-										errors.add("Variable assignment (=) on line " + lineIndex
-												+ ". This is a conditional statement on Strings, so this should be a comparison using .equals.");
+										String[] error = new String[2];
+										error[0] = lineIndex+"";
+										error[1] = "Variable assignment (=) on line " + lineIndex
+												+ ". This is a conditional statement on Strings, so this should be a comparison using .equals.";
+										errors.add(error);
 										isString = false;
+									} else {
+										String[] error = new String[2];
+										error[0] = lineIndex+"";
+										error[1] = "Variable assignment (=) on line " + lineIndex
+												+ ". This is a conditional statement, so this should be a comparison (==).";
+										errors.add(error);
 									}
-									errors.add("Variable assignment (=) on line " + lineIndex
-											+ ". This is a conditional statement, so this should be a comparison (==).");
 								} else if (doubleSign.matcher(conditionParts[i]).find() && isString) {
-									errors.add("Comparison (==) on line " + lineIndex
-											+ ", but this is a conditional statement on Strings, so this should be a comparison using .equals.");
+									String[] error = new String[2];
+									error[0] = lineIndex+"";
+									error[1] = "Comparison (==) on line " + lineIndex
+											+ ", but this is a conditional statement on Strings, so this should be a comparison using .equals.";
+									errors.add(error);
 									isString = false;
 								}
 							}
@@ -748,25 +772,28 @@ public class TextProcessor {
 								String[] checkColon = matcher.group().split(":");
 
 								if (checkComma.length == 3) {
-									errors.add("Wrong Separator used for for loop on line " + lineIndex
-											+ ". You've used commas (,), but should be using semi-colons (;)");
+									String[] error = new String[2];
+									error[0] = lineIndex+"";
+									error[1] ="Wrong Separator used for for loop on line " + lineIndex
+											+ ". You've used commas (,), but should be using semi-colons (;)";
+									errors.add(error);
 								} else if (checkColon.length == 3) {
-									errors.add("Wrong Separator used for for loop on line " + lineIndex
-											+ ". You've used colons (:), but should be using semi-colons (;)");
+									String[] error = new String[2];
+									error[0] = lineIndex+"";
+									error[1] ="Wrong Separator used for for loop on line " + lineIndex
+											+ ". You've used colons (:), but should be using semi-colons (;)";
+									errors.add(error);
 								} else {
-									errors.add("For loops must have 3 parts. Your for loop on line " + lineIndex
+									String[] error = new String[2];
+									error[0] = lineIndex+"";
+									error[1] ="For loops must have 3 parts. Your for loop on line " + lineIndex
 											+ " has only " + Math.max(checkColon.length,
-													Math.max(conditionParts.length, checkComma.length)));
+													Math.max(conditionParts.length, checkComma.length));
+									errors.add(error);
 								}
 							} else {
-								if (conditionParts[0].contains("=")) { // check
-																		// the
-																		// first
-																		// part
-																		// of
-																		// the
-																		// for
-																		// loop
+								// check the first part of the for loop
+								if (conditionParts[0].contains("=")) { 
 									if (conditionParts[0].trim().startsWith("boolean")) {
 										String pared = conditionParts[0].replaceAll("boolean", "");
 										Matcher getVar = Pattern.compile(".*(?=^([^=]+))").matcher(pared);
@@ -777,18 +804,26 @@ public class TextProcessor {
 										}
 										pared = conditionParts[0].replace(".*(?=^([^=]+))", "");
 										if (pared.trim().startsWith("==")) {
-											errors.add("Comparison (==) on line " + lineIndex
-													+ " within the first section of the for statement. This should be a variable assignment (=)");
+											String[] error = new String[2];
+											error[0] = lineIndex+"";
+											error[1] = "Comparison (==) on line " + lineIndex
+													+ " within the first section of the for statement. This should be a variable assignment (=)";
+											errors.add(error);
 										} else {
 											pared = pared.replaceFirst("=", "");
 											if (singleSign.matcher(pared).find()) {
-												errors.add(
-														"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
+												String[] error = new String[2];
+												error[0] = lineIndex+"";
+												error[1] = "Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).";
+												errors.add(error);
 											}
 										}
 									} else if (conditionParts[0].contains("==")) {
-										errors.add("Comparison (==) on line " + lineIndex
-												+ " within the first section of the for statement. This should be a variable assignment (=)");
+										String[] error = new String[2];
+										error[0] = lineIndex+"";
+										error[1] = "Comparison (==) on line " + lineIndex
+												+ " within the first section of the for statement. This should be a variable assignment (=)";
+										errors.add(error);
 									}
 								}
 								if (conditionParts[1].contains("=")) {
@@ -800,15 +835,8 @@ public class TextProcessor {
 									if (fCMatcher.find() && sCMatcher.find()) {
 										String fC = fCMatcher.group();
 										String sC = sCMatcher.group();
-										if (fC.contains("\"") || sC.contains("\"")) { // if
-																						// either
-																						// match
-																						// contains
-																						// quotes,
-																						// we
-																						// have
-																						// a
-																						// String.
+										// if  either match contains quotes, we have a String
+										if (fC.contains("\"") || sC.contains("\"")) { 
 											isString = true;
 										} else {
 											innerloop: for (int k = 0; k < vars.size(); k++) {
@@ -832,24 +860,38 @@ public class TextProcessor {
 									if (types.size() > 0 && types.get(types.size() - 1).equals("boolean")) {
 										String pared = conditionParts[1].replace(".*(?=^([^=]+))", "");
 										if (!(pared.trim().startsWith("==") || pared.trim().startsWith("!="))) {
-											errors.add("Assignment (=) on line " + lineIndex
-													+ " in the second section of the for statement. This should be a comparison (==)");
+											String[] error = new String[2];
+											error[0] = lineIndex+"";
+											error[1] ="Assignment (=) on line " + lineIndex
+													+ " in the second section of the for statement. This should be a comparison (==)";
+											errors.add(error);
 										} else {
 											pared = pared.substring(2);
 											if (singleSign.matcher(pared).find()) {
-												errors.add(
-														"Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
+												String[] error = new String[2];
+												error[0] = lineIndex+"";
+												error[1] = "Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).";
+												errors.add(error);
 											}
 										}
 									} else if (singleSign.matcher(conditionParts[1]).find() && !isString) {
-										errors.add("Assignment (=) on line " + lineIndex
-												+ " in the second section of the for statement. This should be a comparison (==)");
+										String[] error = new String[2];
+										error[0] = lineIndex+"";
+										error[1] = "Assignment (=) on line " + lineIndex
+												+ " in the second section of the for statement. This should be a comparison (==)";
+										errors.add(error);
 									} else if (singleSign.matcher(conditionParts[1]).find()) {
-										errors.add("Assignment (=) on line " + lineIndex
-												+ " in the second section of the for statement, and the comparators are Strings, so this should be .equals() .");
+										String[] error = new String[2];
+										error[0] = lineIndex+"";
+										error[1] = "Assignment (=) on line " + lineIndex
+												+ " in the second section of the for statement, and the comparators are Strings, so this should be .equals() .";
+										errors.add(error);
 									} else if (doubleSign.matcher(conditionParts[1]).find() && isString) {
-										errors.add("Comparison (==) on line " + lineIndex
-												+ " in the second section of the for statement, but the comparators are Strings, so this should be .equals() .");
+										String[] error = new String[2];
+										error[0] = lineIndex+"";
+										error[1] = "Comparison (==) on line " + lineIndex
+												+ " in the second section of the for statement, but the comparators are Strings, so this should be .equals() .";
+										errors.add(error);
 									}
 								}
 							}
@@ -863,15 +905,15 @@ public class TextProcessor {
 			System.out.print("File not found.");
 		}
 		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i));
+			System.out.println(errors.get(i)[1]);
 			errorCount++;
 		}
-		return errorCount;
+		return errors;
 	}
 
-	public int checkTabbing(int numSpaces) { // #dablife #maverickmerch
+	public List<String[]> checkTabbing(int numSpaces) { // #dablife #maverickmerch
 												// #itslitfam
-		ArrayList<String> errors = new ArrayList<String>();
+		ArrayList<String[]> errors = new ArrayList<String[]>();
 		int errorCount = 0;
 		int level = 0;
 		String opens = "{[(";
@@ -917,14 +959,23 @@ public class TextProcessor {
 				if (!line.startsWith(tabs) && !line.startsWith(spaces) && !commented) {
 
 					if (level != 1) {
-						errors.add("Incorrect indentation on line " + lineIndex + ". Should have " + level
-								+ " tabs (or " + numSpaces * level + " spaces)");
+						String[] error = new String[2];
+						error[0] = lineIndex+"";
+						error[1] ="Incorrect indentation on line " + lineIndex + ". Should have " + level
+								+ " tabs (or " + numSpaces * level + " spaces)";
+						errors.add(error);
 					} else if (numSpaces == 1) {
-						errors.add("Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
-								+ numSpaces + " space)");
+						String[] error = new String[2];
+						error[0] = lineIndex+"";
+						error[1] = "Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
+								+ numSpaces + " space)";
+						errors.add(error);
 					} else {
-						errors.add("Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
-								+ numSpaces + " spaces)");
+						String[] error = new String[2];
+						error[0] = lineIndex+"";
+						error[1] = "Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
+								+ numSpaces + " spaces)";
+						errors.add(error);
 					}
 				}
 				for (int i = 0; i < line.length(); i++) {
@@ -943,10 +994,10 @@ public class TextProcessor {
 
 		}
 		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i));
+			System.out.println(errors.get(i)[1]);
 			errorCount++;
 		}
-		return errorCount;
+		return errors;
 	}
 
 }

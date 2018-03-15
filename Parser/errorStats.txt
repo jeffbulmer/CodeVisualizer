@@ -189,7 +189,7 @@ Unclosed Scanners: 4
 Bracket Miscounts: 2
 Bracket Mismatches: 0
 Semi-Colons right after a loop or conditional: 0
-Switched Comparison and Assignment Operators: 3
+Switched Comparison and Assignment Operators: 2
 Misaligned tabbing/spacing: 12
 
 431
@@ -429,7 +429,7 @@ Unclosed Scanners: 0
 Bracket Miscounts: 3
 Bracket Mismatches: 0
 Semi-Colons right after a loop or conditional: 0
-Switched Comparison and Assignment Operators: 8
+Switched Comparison and Assignment Operators: 6
 Misaligned tabbing/spacing: 6
 
 761
@@ -842,7 +842,7 @@ Question 5: Unclosed Scanners: 228
 Bracket Miscounts: 149
 Bracket Mismatches: 24
 Semi-Colons right after a loop or conditional: 33
-Switched Comparison and Assignment Operators: 58
+Switched Comparison and Assignment Operators: 56
 Misaligned tabbing/spacing: 1144
 
 Question 6: Unclosed Scanners: 5
@@ -856,7 +856,7 @@ Question 7: Unclosed Scanners: 6
 Bracket Miscounts: 2
 Bracket Mismatches: 0
 Semi-Colons right after a loop or conditional: 0
-Switched Comparison and Assignment Operators: 3
+Switched Comparison and Assignment Operators: 2
 Misaligned tabbing/spacing: 26
 
 Question 8: Unclosed Scanners: 15
