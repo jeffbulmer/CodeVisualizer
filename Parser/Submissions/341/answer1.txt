@@ -1,5 +1,5 @@
 Scanner scan = new Scanner(System.in);
-System.out.println(""Enter a number: "");
+System.out.println("Enter a number: ");
 int input = scan.nextInt();
 int[] array = null;
 boolean done = false;
@@ -26,11 +26,11 @@ for (int i = 0; i < inputLength; i++) {
 
 for (int i = 0; i <= (inputLength / 2); i++) {
 	if (array[i] == array[(array.length - 1) - i] && i == (inputLength / 2)) {
-		System.out.println(finalCopy + "" is a palindrome"");
+		System.out.println(finalCopy + " is a palindrome");
 	} else if (array[i] == array[(array.length - 1) - i]) {
 		continue;
 	} else {
-		System.out.println(finalCopy + "" is not a palindrome"");
+		System.out.println(finalCopy + " is not a palindrome");
 		break;
 	}
 }

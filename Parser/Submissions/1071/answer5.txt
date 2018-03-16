@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Q5 {
+
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	int year = 1990 + (int) (Math.random() * 27);
+	int month = 1 + (int) (Math.random() + 11);
+	int day = 1 + (int) (Math.random() * 30);
+
+	System.out.println("Guess the year (between 1990 and 2017): ");
+	int year2 = sc.nextInt();
+
+	System.out.println("Guess the month (as a number): ");
+	int month2 = sc.nextInt();
+
+	System.out.println("Guess the day (as a number) ");
+	int day2 = sc.nextInt();
+
+	System.out.println("The correct date was " + year + "-" + month + "-" + day + "(yyyy-mm-dd).")
+
+	if year ==year2) {
+
+		if (month ==month2) { 
+
+			if (day == day2)
+				System.out.println("You got it, wow!");
+			else if (day < day2)
+				System.out.println("You were too late!");
+			else if (day > day2)
+				System.out.println("You were too early!);
+		}
+
+		else if (month < month2)
+			System.out.println("You were too late!");
+		else if (month > month2)
+			System.out.println("You were too early!");
+
+	else if (year < year2)
+		System.out.println("You were too late!");
+	else if (year > year2)
+		System.out.println("You were too early!");
+
+	sc. close();
+}
+}
+		

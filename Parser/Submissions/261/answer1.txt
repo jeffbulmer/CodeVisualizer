@@ -1,6 +1,6 @@
 import.java.util.Scanner;
 Scanner in=new Scanner(System.in);
-System.out.println (""Enter a number: "");
+System.out.println ("Enter a number: ");
 int num=in.nextInt();
 int digit=1; int d=0;
 while(num>digit){
@@ -22,6 +22,6 @@ while(n[i]==n[j]){
 		j--;i++;
 	}
 }
-System.out.println(""Is""+num+""a palindrome?"");
+System.out.println("Is"+num+"a palindrome?");
 System.out.println(p);
 			

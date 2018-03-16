@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Q4 {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter an integers greater than 0:");
+		int integer = in.nextInt();
+		int odd = 0;
+		for(int i = 0; i<=integer;i++){
+			if(i%2==1)
+				odd++;
+		
+		}
+		System.out.printf("there are %d odd integer between and %d",odd,integer);
+		in.close();
+
+	}
+
+}
+

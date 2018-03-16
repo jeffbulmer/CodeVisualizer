@@ -17,20 +17,20 @@ public class Main(){
 					D+=Math.random()*28;
 		
 		Scanner stdin=new Scanner(System.in);
-		System.out.println(""Guess the year (between 1990 and 2017):"");
+		System.out.println("Guess the year (between 1990 and 2017):");
 		int y=stdin.nextInt();
-		System.out.println(""Guess the month (as a number):"");
+		System.out.println("Guess the month (as a number):");
 		int m=stdin.nextInt();
-		System.out.println(""Guess the day (as a number):"");
+		System.out.println("Guess the day (as a number):");
 		int d=stdin.nextInt();
 		
-		System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd).\n"",Y,M,D);
+		System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).\n",Y,M,D);
 		if(Y==y&&M==m&&D==d)
-			System.out.println(""You got it wow!"");
+			System.out.println("You got it wow!");
 		else
 			if(y>Y||y==Y&&m>M||y==Y&&m==M&&d>D)
-				System.out.println(""You were too late!"");
+				System.out.println("You were too late!");
 			else
-				System.out.println(""You were too early"");
+				System.out.println("You were too early");
 	}
 }

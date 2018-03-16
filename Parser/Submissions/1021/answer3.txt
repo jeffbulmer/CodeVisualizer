@@ -1,0 +1,7 @@
+Scanner scanner = new Scanner();
+System.out.println("Enter a value for v:");
+int v = scanner.nextInt();
+System.out.println("Enter a value for c:");
+int c = scanner.nextInt();
+double result = 3.14 * (1 / Math.sqrt(1 - (v*v) / (c*c)));
+System.out.println("Value for v = " + v + ", c = " + c + ": " + result);

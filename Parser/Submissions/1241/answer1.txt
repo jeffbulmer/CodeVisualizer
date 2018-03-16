@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Q1{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter a number: ");
+		int num  = input.nextInt();
+		int temporary = num;
+		System.out.println("Is " + num + " a palindrome? ");
+		int backwards = 0;
+		while(temporary != 0){
+			backwards = (backwards*10) + (temporary%10);
+			temporary = temporary/10;
+		}
+		if (num == backwards)
+			System.out.println("true");
+		else
+			System.out.println("false");
+	}
+}

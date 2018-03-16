@@ -1,0 +1,1 @@
+The code in the above question also works for this problem because String letters and integers can both be initilized as strings and their parts can be considered Characters.

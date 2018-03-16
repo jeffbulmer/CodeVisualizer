@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Q5 {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int year = (int) (1990+Math.random()*27);
+		int month = (int)(1+Math.random()*12);
+		int day = (int)(1+Math.random()*31);
+		
+		System.out.println("Guess the year (between 1990 and 2017):");
+		int gyear = in.nextInt();
+		System.out.println("Guess the month (as a number)");
+		int gmonth = in.nextInt();
+		System.out.println("Guess the day (as a number):");
+		int gday =in.nextInt();
+		System.out.println("the correct date was "+year+"-"+month+"-"+day+" (yyyy-mm-dd)");	
+		
+		
+			if(gyear!=year&&gyear>year)
+				System.out.println("You were too late!");
+				 if(gyear==year&&gmonth!=month&&gmonth>month)
+					System.out.println("You were too late!");
+					 if(gyear==year&&gmonth==month&&gday!=day&&gday>day)
+						System.out.println("You were too late!");
+			
+			if(gyear!=year&&gyear<year)
+				System.out.println("You were too early!");
+				if(gyear==year&&gmonth!=month&&gmonth<month)
+					System.out.println("You were too early!");
+					if(gyear==year&&gmonth==month&&gday!=day&&gday<day)
+						System.out.println("You were too early!");			
+				
+		if(gyear==year&&gday==day&&gmonth==month)
+			System.out.println("You got it, wow!");
+		in.close();
+	}
+
+}

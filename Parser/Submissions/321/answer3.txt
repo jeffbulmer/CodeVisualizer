@@ -2,11 +2,11 @@ import java.util.*;
 public class formula{
 public static void main(String args[]){
 Scanner scan=new Scanner(System.in);
-System.out.println(""Enter a value for v:"");
+System.out.println("Enter a value for v:");
 int v=scan.nextInt();
-System.out.println(""Enter a value for c:"");
+System.out.println("Enter a value for c:");
 int c=scan.nextInt();
 double answer=Math.PI*(1/Math.sqrt(1-(Math.pow(v,2)/Math.pow(c,2))));
-System.out.println(""v= ""+v+"", c= ""+c+"" : ""+answer);
+System.out.println("v= "+v+", c= "+c+" : "+answer);
 }
 }

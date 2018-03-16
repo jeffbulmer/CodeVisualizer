@@ -1,0 +1,48 @@
+// Alex.Qin (35732156)
+import java.util.Scanner;
+public class Q5{
+	public static void main(String []args){
+		Scanner input = new Scanner (System.in);
+
+		int answerYear = 1990 +(int)(Math.random()*28);
+		int answerMonth = 1 + (int)(Math.random()*12);
+		int answerDate =0;
+		if(answerMonth == 1 || answerMonth == 3 || answerMonth == 5 || answerMonth == 7 || answerMonth == 8 || answerMonth == 10 || answerMonth == 12) 
+			answerDate = 1 + (int ) (Math.random()*31);
+		else if(answerMonth == 4 || answerMonth == 6 || answerMonth == 9 || answerMonth == 11)
+			answerDate = 1 + (int)(Math.random()*30);
+		else if (answerMonth == 2 && answerYear % 4 ==0)
+			answerDate = 1 + (int) (Math.random()*29);
+		else 
+			answerDate = 1+ (int) (Math.random()*28);
+
+		System.out.println("Guess the year (between 1990 and 2017): ");
+		int userYear = input.nextInt();
+		System.out.println("Guess the month (as a number): ");
+		int userMonth = input.nextInt();
+		System.out.println("Guess  the day ( as a number ) : ");
+		int userDate = input.nextInt();
+
+		System.out.println("The correct date was " + answerYear + "-" + answerMonth + "-" +answerDate + " (yyyy-mm-dd)");
+		
+		if(userYear< answerYear) System.out.println("You were too late!");
+		else if ( userYera> answerYear) System.out.println("You were too early!");
+
+		else if(userYear == answerYear){
+			if(userMonth < answerMonth)
+				System.out.println("You were too late!");
+			else if (userMonth > answerMonth)
+				System.out.println("You were too early");
+			else if (userMonth == answerMonth){
+				if(userDate < answerDate)
+					System.out.println("You were too late!");
+				else if( userDate >answerDate)
+					System.out.println("You were too early");
+				else if (userDate == answerDate)
+					System.out.println("You got it , wow");
+			}
+
+		}
+	}
+}
+

@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a number:");
+int num = input.nextInt(System.in);
+boolean isPalindrome = true;
+
+// determining the length of num
+int i = 1;
+while (num / Math.pow(10,i) >= 1) {
+	i++;
+}
+
+while ((isPalindrome == true) & (i >= 0)) {
+	if (num%10 != (num/(Math.pow(10,i) % 10)) {
+		isPalindrome = false;
+		break;
+	}
+	else {
+		(ground(num/10);
+		i --;
+	}
+}
+
+System.out.println("Is " + num + " a palindrome?\n" + isPalindrome);
+

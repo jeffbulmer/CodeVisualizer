@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class palindrome{
+public static void main(String[] args){
+Scanner input=new Scanner(System.in);
+System.out.println("Enter a word:");
+String s=input.nextline();
+String reverse="\"";
+for(int i=0;i<s.length();i++)
+reverse=s.charAt(i)+reverse;
+System.out.println("Is "+s+" a palindrome?");
+if(s.equals(reverse))
+System.out.println("true");
+else
+System.out.println("false");
+}
+}

@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Math {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+
+		System.out.println("Enter an integer number greater than 0:");
+		int a = in.nextInt();
+
+		int b = numberOfOdds(a);
+
+		System.out.println("There are " + b + " odd integers between 0 and " + a);
+	}
+	
+	public static int numberOfOdds(int a) {
+		int b = 0;
+		while (a > 0) {
+			if (a % 2 == 0)
+				a--;
+			else {
+				b++;
+				a--;
+			}
+		}
+		return b;
+	}
+}

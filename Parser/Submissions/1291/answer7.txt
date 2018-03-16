@@ -1,0 +1,13 @@
+Scanner in = new Scanner(System.in);
+int result = 0;
+for(int i = 0; i < 5; i++) {
+String word = in.nextLine();
+if (word.charAt(word.length()) == 'a' || word.charAt(word.length()) == 'e' || word.charAt(word.length() == 'i' || word.charAt(word.length() == 'o' || word.charAt(word.length() == 'u') {
+	result = result + 1;
+	}
+}
+if (result > 0)
+	System.out.println("Of the words you entered, " + result + " end(s) in a vowel.");
+else
+	System.out.println("Of the words you entered, none end in vowels.");
+

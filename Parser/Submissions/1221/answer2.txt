@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Palindrome2 {
+	public static void main (String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter a word:");
+		String w = in.next();
+		in.close();
+		System.out.println("Is "+w+" a palindrome?");
+		System.out.println(isPalindrome(w));
+		
+	}
+	public static String reverse(String n) {
+		String ns = n+"";
+		String inv = "";
+		for (int i=0; i< ns.length(); i++) {
+			inv = ns.charAt(i)+inv;
+		}
+		return inv;
+		
+	}
+	public static boolean isPalindrome(String w) {
+		boolean b=false;
+		String ninv = reverse(w);
+		if (w.compareToIgnoreCase(ninv)==0)
+			b = true;
+		return b;
+	}
+
+}

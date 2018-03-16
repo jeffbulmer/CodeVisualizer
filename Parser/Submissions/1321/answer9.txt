@@ -1,0 +1,16 @@
+int[] array = new int[] { 1, 5, 7, 4, 3, 2, 6 };
+
+long iteration = 0;
+
+for(int i = 0; i < array.length; i++){
+	iteration++;
+	for(int j = 0; j < array.length; j++){
+		if(array[i] < array[j]){
+			int temp = array[i];
+			array[i]  = array[j];
+			array[j] temp;
+		}
+	}
+	System.out.printf("\nElements are sorting iteration %d: %s", iteration, Arrays.toString(array));
+}
+System.out.println("\nArray is sorted");

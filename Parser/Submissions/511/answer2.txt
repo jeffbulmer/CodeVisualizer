@@ -1,0 +1,27 @@
+Scanner scan = new Scanner(System.in);
+System.out.Println("Enter a word:");
+String input = scan.next();
+int length=input.length();
+char[] forwards=input.toCharArray();
+char[] backwards=new char[length];
+
+System.out.Println("Is "+input+" a palidrome?");
+
+
+for(int i=0;i<length;i++)
+{
+	backwards[length-i-1]=forwards[i];
+}
+
+boolean palindrome=true;
+for(int i=0;i<length;i++)
+{
+	if(forwards[i]!=backwards[i])
+	{
+		System.out.println("false");
+		palindrome=false;
+		break;
+	}
+}
+if(palindrome)
+System.out.println("true");

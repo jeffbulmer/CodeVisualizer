@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class JavaClass {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
-		System.out.println(""Enter a value for v:"");
+		System.out.println("Enter a value for v:");
 		int v = sc.nextInt();
-		System.out.println(""Enter a value for c:"");
+		System.out.println("Enter a value for c:");
 		int c = sc.nextInt();
 		double calc = Math.PI * (1 / Math.sqrt(1 - (Math.pow(v, 2) / Math.pow(c, 2)));
-		System.out.println(Value for v = "" + v + "", c = "" + c + "": calc
+		System.out.println(Value for v = " + v + ", c = " + c + ": calc
 		sc.close();
 	}
 }

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+Scanner in = new Scanner(System.In);
+
+System.out.println("Enter an integer number greater than 0:");
+
+int num = in.nextInt();
+
+int n = 0;
+
+for(int i = 1, i <= num, i++) {
+	if (i % 2 != 0)
+		n++;
+}
+System.out.printf("There are %d odd integers between 0 and %d", n, num);

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Q2{
+	public static void main(String[] args){
+	Scanner in  = new Scanner (System.in);
+	System.out.println("Enter a word:");
+	String w1 = in.nextLine();
+	System.out.println("Is " + word + " a palindrome? ")
+	String w2;
+	while(int i = 0; i++)
+	w2 = w1.charAt(i) + w2;
+	if (w2.equals (w1))
+	System.out.println("true");
+	else	
+	System.out.println("false");
+}
+}
+in.close();
+

@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public static void main(String dumbCode){
+Scanner jo = new Scanner(System.in);
+System.out.println("Enter a number: ");
+//Try catch user dumb input?
+int theMostPreciousFlowerInTheWorldIsDead = 0;
+try{
+theMostPreciousFlowerInTheWorldIsDead = sc.nextInt();
+}catch(Exception e){
+e.printStackTrace();
+System.exit(-1);
+}
+int[] ArthurKingOfKnights = new int[Math.log10(theMostPreciousFlowerInTheWorldIsDead)+1];
+int[] Mordred = ArthurKingOfKnights.clone();
+for(int i =0; i <= Math.log10(theMostPreciousFlowerInTheWorldIsDead);i++){
+
+ArthurKingOfKnights[i] = theMostPreciousFlowerInTheWorldIsDead%10;
+Mordred[Mordred.length-1-i] = theMostPreciousFlowerInTheWorldIsDead%10;
+theMostPreciousFlowerInTheWorldIsDead%=10;
+
+}
+System.out.println("Is "+theMostPreciousFlowerInTheWorldIsDead+" a palindrome?");
+System.out.println( (ArthurKingOfKnights.equals(Mordred))?"true":"false");
+
+}

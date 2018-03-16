@@ -1,0 +1,28 @@
+import java.util.*
+public class birthdate{
+public static void main(String []args){
+Scanner in = new Scanner(System.in);
+System.out.println("Guess the year (between 1990 and 2017):");
+int uYear = in.nextInt();
+System.out.println("Guess the month(as a number):");
+int uMonth = in.nextInt();
+System.out.println("Guess the day (as a number):");
+int uDate = in.nextInt();
+int year = 1990;
+year += (int)(Math.random()*28);
+int month = (int)(Math.random()*12);
+int date = (int)(Math.random()*31);
+System.out.println("The correct date was "+year+"-"+month+"-"+date+"(yyyy-mm-dd).");
+checkDate(uYear,uMonth,uDate,year,month,date);
+}}
+
+public static void checkDate(int Uyear , int Umonth , int Udate,year,month,date){
+if(uYear == year&&uMonth ==month&&uDate==date)
+{
+System.out.println("You got it,wow!");
+}
+else
+{
+System.out.println("Sorry, incorrect");
+}
+}

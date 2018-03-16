@@ -1,0 +1,33 @@
+//Alex Qin (35732156)
+class BankCard{
+	double money = 100;
+	void saveMoney(double money){
+		this.money += money;
+	}
+	void costMoney(double money){
+		if(this.money<money){
+			System.out.println("Your card has been declined. Please contact bank. ");
+			System.out.println("Your cand has $" + this.balance());
+		}
+		else
+			this.money -= money;
+	}
+
+	double balance(){
+		return money;
+	}
+}
+public class Q10{
+	public static void main(String []args){
+		BankCard b = new BankCard();
+		System.out.println("BankCard initialized with $ " + b.money);
+		System.out.println("Loading BankCard with $500");
+		b.saveMoney(500);
+		System.out.println("BankCard now has $ " + b.balance());
+		System.out.println("Buying chair for $270");
+		b.costMoney(270);
+		System.out.println("BankCard now has $ " + b.balance())
+		System.out.println("Attempting to buy TV for $800");
+		b.costMoney(800);		
+	}
+}

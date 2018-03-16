@@ -1,0 +1,9 @@
+My scanner is called "in"
+
+system.out.print("Enter a number greater than zero");
+int x=in.nextInt();
+int odd=0;
+for(int y=1;y<=x;y++){
+if(y%2==0){odd++}}
+system.out.print("There are "+odd+" number of odd numbers")
+}

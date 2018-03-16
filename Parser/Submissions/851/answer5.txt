@@ -1,0 +1,68 @@
+public static void main(String[] args) {
+	int y = (int) (Math.random() * (2017 - 1989)) + 1989;
+	int m = (int) (Math.random() * (12 - 0)) + 0;
+	int d = (int) (Math.random() * (31 - 0)) + 0;
+
+	boolean early = false;
+	boolean late = false;
+
+	Scanner input = new Scanner(System.in);
+	System.out.println("Guess the year (between 1990 and 2017):");
+	int userY = input.nextInt(();
+	System.out.println("Guess the month (as a number):");
+	int userM = input.nextInt();
+	System.out.println("Guess the day (as a number):");
+	int userD = input.nextInt();
+
+	if ( userY > y ) {
+		late = true;
+	} else if (userY < y) {
+		early = true;
+	}
+
+	if (early == true) {
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too early!");
+		System.exit(0);
+	} else if (late == true) {
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too late!");
+		System.exit(0);
+	}
+
+	if (userM > m ) {
+		late = true;
+	} else if (userM < m) {
+		early = true;
+	}
+
+	if (early == true) {
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too early!");
+		System.exit(0);
+	} else if (late == true) {
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too late!");
+		System.exit(0);
+	}
+
+	if (userD > d) {
+		late = true;
+	} else if (userD	< d) {
+		early = true;
+	}
+
+	if (early == true) {
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too early!");
+		System.exit(0);
+	} else if (late == true) {
+		System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		System.out.println("You were too late!");
+		System.exit(0);
+	}
+
+	System.out.println("The correct data was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+	System.out.println("You got it, wow!");
+	input.close();
+}

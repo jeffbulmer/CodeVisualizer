@@ -8,28 +8,28 @@ public class Birthdate {
 			month= (int)(1 + Math.random()*12);
 			day= (int)(1 +Math.random()*30);
 
-			System.out.print(""Guess the year (between 1990 and 2017): "");
+			System.out.print("Guess the year (between 1990 and 2017): ");
 			int yearGuess= in.nextInt();
-			System.out.println(""Guess the month (as a number): "");
+			System.out.println("Guess the month (as a number): ");
 			int monthGuess= in.nextInt();
-			System.out.println(""Guess the day (as a number): "");
+			System.out.println("Guess the day (as a number): ");
 			int dayGuess = in.nextInt();
-			System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd).\n"", year, month, day);
+			System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).\n", year, month, day);
 			if (year>yearGuess) 
-				System.out.println(""You were too early!"");
+				System.out.println("You were too early!");
 			if (year<yearGuess) 
-				System.out.println(""You were too late!"");
+				System.out.println("You were too late!");
 			if(year==yearGuess) {
 				if (month>monthGuess) 
-					System.out.println(""You were too early!"");
+					System.out.println("You were too early!");
 				if (month<monthGuess) 
-					System.out.println(""You were too late!"");
+					System.out.println("You were too late!");
 				if (month==monthGuess) {
 					if (day>dayGuess) 
-						System.out.println(""You were too early!"");
+						System.out.println("You were too early!");
 					if (day<dayGuess) 
-						System.out.println(""You were too late!"");
+						System.out.println("You were too late!");
 					if (day==dayGuess) 
-						System.out.println(""You got it, wow!"");
+						System.out.println("You got it, wow!");
 				}
 			}

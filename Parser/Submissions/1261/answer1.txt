@@ -1,0 +1,16 @@
+system.out.println ("Enter a number:");
+Scanner in = new Scanner(System.in);
+int num= in.nextInt();
+system.out.println("is "+ num+" a palindrome?")
+pali(num);
+
+public bollean pali(int num){
+int num1=(num/100);
+int re=num%100;
+int num2=re%10;
+if(num1==num2)
+return true;
+else
+return false;
+}
+

@@ -1,0 +1,9 @@
+String [ ] s = new String [5];
+for(int i=0;i<5;i++){
+s[i]=input.nextLine();
+int v=0;
+int l= s[i].length;
+if (s[i].charAt(l) = "a"|"e"|"i"|"o"|"u")
+v++;
+}
+System.out.println("Of the words you entered, " + v +"end in vowels" );

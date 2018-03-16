@@ -4,7 +4,7 @@ public class NumOdd {
 
 		Scanner in = new Scanner(System.in);
 
-		System.out.println(""Enter a positive integer"");
+		System.out.println("Enter a positive integer");
 		int num = in.nextInt();
 		int count = 0;
 
@@ -12,7 +12,7 @@ public class NumOdd {
 			count++;
 		}
 		
-		System.out.printf(""There are %d odd integers between 0 and %d"", count, num); 
+		System.out.printf("There are %d odd integers between 0 and %d", count, num); 
 
 	}
 }

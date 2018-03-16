@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("Enter a value for v: ");
+		Scanner in = new Scanner(System.in);
+		int v = in.nextInt();
+		System.out.println("Enter a value for c: ");
+		int c = in.nextInt(); 
+		cSquared = Math.pow(c, 2);
+		vSqaured = Math.pow(v, 2); 
+		double answer = (Math.PI*(1/(Math.sqrt(1-(vSquared/cSquared)))));
+		System.out.println("Value for v = " + v + ", c = " + c + ": " + answer);
+	}
+}
+

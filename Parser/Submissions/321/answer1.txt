@@ -2,7 +2,7 @@ import java.util.*;
 public class pdrome {
 public static void main (String args[]){
 Scanner scan = new Scanner(System.in);
-System.out.println(""Enter any positive integer :"");
+System.out.println("Enter any positive integer :");
 int num=scan.nextInt();
 int tempo=num;int rem,sum;
 while(num>0){
@@ -11,10 +11,11 @@ sum=rem+(sum*10);
 num=num/10;
 }
 if(sum==tempo){
-System.out.println(""It is palindrome"");
+System.out.println("It is palindrome");
 }
 else{
-System.out.println(""Not a palindrome"");
+System.out.println("Not a palindrome");
 }
 }
 }
+

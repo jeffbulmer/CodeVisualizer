@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Palindrome
+{
+	public static void main(String[] args)
+	throws InputMismatchException
+	{
+		Scanner keyboardScanner = new Scanner(System.in);
+		System.out.println("Enter a Number:");
+		int input = keyboardScanner.nextInt();
+		System.out.println("Is " + input + " a palindrome?");
+		System.out.println(checkInt(input));
+		keyboardScanner.close();
+	}
+	
+	static boolean checkInt(int givenNumber)
+	{
+		int numberLength = 0;
+		while((int)(givenNumber/(Math.pow(10, numberLength))) > 0)
+		{
+			numberLength++;
+		}
+		for(int i = 0;i < (numberLength + 1)/2;i++)
+		{
+			byte leftDigit = (byte)((givenNumber/(Math.pow(10, numberLength - 1 - i)))%10);
+			byte rightDigit = (byte)((givenNumber/(Math.pow(10, i)))%10);
+			if(leftDigit != rightDigit)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+}

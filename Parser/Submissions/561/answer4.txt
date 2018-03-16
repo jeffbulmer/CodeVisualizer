@@ -1,0 +1,14 @@
+im going to skip the scanner importing and class declairing
+my scanner is called "in"
+
+do{
+system.out.print("Enter a number greater than 0:)
+int x=in.nextInt();
+}while(x<=0;)
+int even=0;
+int odd=0;
+for(int y=1;y<x;y++){
+if(y%2==0) odd++}
+system.out.print("There are "+odd+" odd integers between 0 and "+x)
+
+}

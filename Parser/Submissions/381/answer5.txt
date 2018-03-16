@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+// randomly generate year, month, date
+int year = 1990*Math.Random(2017);
+int month = Math.Random(12);
+int day;
+if (month == 2)
+	if ((year % 4 == 0) & (year % 100 != 0))
+		day = 29;
+	else day = 28;
+else if ((month == 4) | (month == 6) | (month == 9) | (month == 11))
+	day = 30;
+else (day = 31);
+
+// Guess and check
+Scanner input = new Scanner(System.in);
+System.out.println("Guess the year (between 1990 and 2017):");
+int uyear = input.nextInt(System.in);
+System.out.println("Guess the month (as a number):");
+int umonth = input.nextInt(System.in);
+System.out.println("Guess the day (as a number):");
+int uday =  input.nextInt(System.in);
+
+System.out.println("The correct date was " + year + "-" + month + "-" + day + "(yyyy-mm-dd).");
+if (uyear > year)
+	System.out.println("You were too late!");
+else if (uyear < year)
+	System.out.println("You were too early!");
+else if ((year == uyear) {
+	if (umonth < umonth)
+		System.out.println("You were too early!");
+	else if (umonth > month)
+		System.out.println("You were too late!);
+	else if (umonth == month) {
+		if (uday < day)
+			System.out.println("You were too early!");
+		else if (uday > day)
+			System.out.println("You were too late!");
+		else (System.out.println("You got it, wow!");
+	}
+}

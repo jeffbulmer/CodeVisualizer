@@ -1,0 +1,9 @@
+java.import.util.Scanner;
+public class formula{
+system.out.print("Enter a value for V);
+system.out.print("Enter a value for C);
+int v=in.nextInt();
+int c=in.nextInt();
+double answer=Math.PI*1/Math.sqrt(1-(Math.pow(v,2)/Math.pow(c,2));
+system.out.print("Value for v="+v+" and c="+c+" : "+answer);
+

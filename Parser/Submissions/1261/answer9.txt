@@ -1,0 +1,17 @@
+Int [] arr={1,5,7,4,3,2,6};
+public int[] mySort(int []arr){
+int temp=0;
+for(int i=0;i<arr.length;i++){
+Random r= new Random();
+int ran= r.nextInt(arr.length);
+int temp=arr[i];
+arr[i]=arr[ran];
+arr[ran]=temp;
+}
+return arr
+}
+Public void chechSorted(int[]arr)
+int[]arr2={1,2,3,4,5,6};
+if(Arrays.equals(arr,arr2)==true)
+system.out.println("the array is sorted")
+

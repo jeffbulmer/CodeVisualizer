@@ -1,0 +1,24 @@
+public class bank{
+private double remain;
+bank(){this.remain=100;}
+public void load(int amount){
+if(amount>0)
+this.remain+=amount;}
+public void pay(int amount){
+if(amount>this.remain)
+system.out.println("your card has been declined, please contact bank")
+else remain-=amount;
+}
+public double getremain(){return remain;}
+}
+
+public class tastbank{
+public static void main(String[] args){
+bank b=new bank();
+b.load(500);
+b.getremain();
+b.pay(270);
+b.getremain();
+b.pay(800);
+b.getreamin();
+}}

@@ -7,18 +7,18 @@ else
     randomDay = (int)(1+Math.random() * (28-1));
 
 Scanner in = new Scanner(System.in);
-System.out.println(""Guess the year..."");
+System.out.println("Guess the year...");
 int inputYear = in.nextInt();
-System.out.println(""guess the month..."");
+System.out.println("guess the month...");
 int inputMonth = in.nextInt();
-System.out.println(""guess the day..."");
+System.out.println("guess the day...");
 int inputDay = in.nextInt();
 
 if(inputYear < randomYear) {
-	System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd)."", randomYear, randomMonth, randomDay);
-	System.out.print(""\nYou were too early!"");
+	System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).", randomYear, randomMonth, randomDay);
+	System.out.print("\nYou were too early!");
 } else if(inputYear > randomYear) {
-	System.out.printf(""The correct date was %d-%d-%d (yyyy-mm-dd)."", randomYear, randomMonth, randomDay);
-	System.out.print(""\nYou were too late!"");
+	System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).", randomYear, randomMonth, randomDay);
+	System.out.print("\nYou were too late!");
 } else {
 	if(
