@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner (System.in) {
+		System.out.println("Enter an integer: ");
+		int num=in.nextInt();
+		int pal=0;
+			for(int i =num; i!=0; i /=0){
+				pal+pal*10*i%10:
+		if(num==pal)
+			System.out.println("It is a palindrome");
+		else
+			System.out.println("it is not a palindrome");
+}
+

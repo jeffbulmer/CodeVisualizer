@@ -1,0 +1,12 @@
+import java.util.Scanner;
+Scanner in = new Scanner (system.in);
+String [] array = new String [5];
+int counter = 0;
+for(int i = 0; i < array.length();i++){
+System.out.printlin("Enter a word")
+String y = in.nextLine();
+array [i] = y;
+if (charAt(y.length) == 'a'|| charAt(y.length)=='e'||charAt(y.length) == 'i'|| charAt(y.length)=='o'|| charAt(y.length)=='u')
+counter++;)
+}
+System.out.println("Of the words you entered, you have " + counter + "vowels");

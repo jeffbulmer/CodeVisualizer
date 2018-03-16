@@ -1,0 +1,28 @@
+int year=1990+(int)(math.random()*28);
+int month=1+(int)(math.random()12);
+int  day=1+(int)(math.random()31);
+system.out.println("Guess the year")
+Scanner in =new Scanner(System.in);
+int year1=in.nextInt();
+system.out.println("Guess the month");
+int month1= in.nextInt();
+system.out.println("Guess the day");
+int day1=in.nextInt();
+if(year1==year&&month==month1&&day==day1)
+system.out.println("the correct date was "+year+month+day+"you got it, wow!")
+else if(year1>year)
+system.out.println("the correct data was "+year+month+day"+"you were too late")
+else if(year1<year)
+system.out.println("the correct data was"+year+month+day+"you were too early")
+else if (year1==year&&month1>month)
+system.out.println("the correct data was"+year+month+day+"you were too late")
+else if (year1==year&&month1<month)
+system.out.println("the correct data was"+year+month+day+"you were too early")
+else if(year1==year&&month1==month&&day1>day)
+system.out.println("the correct data was"+year+month+day+"you were too late")
+else if (year1==year&&month1==month&&day1<day)
+system.out.println("the correct data was"+year+month+day+"your were too early")","int double[]=new double[10];
+for(int i =0;i<num.length;i++){
+num[i]=math.sqrt(i);
+system.out.printf("%f\n",num);
+}

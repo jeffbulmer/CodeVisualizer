@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Q2{
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter a word: ");
+		String word = input.next();
+		String backwards = null;
+		for (int n = word.length(); n > 0; n--)
+			backwards += word.charAt(n);
+		System.out.println("Is " + word + " a palindrome? ");
+		if (word == backwards)
+			System.out.println("true");
+		else
+			System.out.println("false");
+	}
+}

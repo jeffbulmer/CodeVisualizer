@@ -1,0 +1,39 @@
+Scanner input = new Scanner(System.in);
+System.out.println("Guess the year (between 1990 and 2017) : ");
+int guessYear = input.nextInt();
+System.out.println("Guess the month (as a number); ");
+int guessMonth = input.nextInt();
+System.out.println("Guess the day (as a number) ");
+int guessDay = input.nextInt();
+
+int randomYear = Math.random*2000;
+int randomMonth = Math.random*12;
+int randomDay = Math.random*30;
+
+if (guessYear= randomYear && guessMonth = randomMonth && guessDay == randomDay){
+	
+	System.out.println("you got it, wow!);
+}
+else{
+	if (guessYear> randomyear){
+		System.out.println("The correct date was " + randomYear + "-" + randomMonth + "-"+ randomYear);
+		System.out.println("You were too late!");
+	else
+		System.out.println("The correct date was " + randomYear + "-" + randomMonth + "-" + randomYear);	
+		System.out.println("You were too early!");
+	}
+if( guessMonth > randomMonth){
+		System.out.println("The correct date was " + randomYear + "-" + randomMonth + "-" + randomYear);
+		System.out.println("You were too late!");
+	else
+		System.out.println(The correct date was" + randomYear + "-" + randomMonth + "-" + randomYear);
+		System.out.println("You were too early!");
+	}
+if( guessDay> randomDay){
+		System.out.println(The correct date was " + randomYear + "-" + randomMonth + "-" + randomYear);
+		System.out.println("You were too late!");
+	else
+		System.out.println(The correct date was " + randomYear + "-" + randomMonth + "-" + randomYear);
+		System.out.println("You were too early!");
+
+}

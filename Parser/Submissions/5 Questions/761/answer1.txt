@@ -1,0 +1,36 @@
+//I can only assume you don't want me to define a class or methods
+Scanner in = new Scanner(System.in);
+System.out.println("Enter a number: ");
+int input = in.nextInt();
+System.out.println("Is " + input + " a palindrome?");
+int count = -1;
+int lastValue = -1;
+boolean hasCounted = false;
+while (!hasCounted)
+{
+	count++;
+	if (input%Math.pow(10, count) == lastValue)
+	{
+		hasCounted = true;
+	}
+	lastValue = input%Math.pow(10, count);
+}
+count--;
+int[] values = new int[count];
+for (int i = 0; i < count; i++)
+{
+	int num = input%Math.pow(10, i+1);
+	values[i] = num/Math.pow(10, i);
+	input -= num;
+}
+boolean isPalindrome = true;
+for (int i = 0; i < values.length/2; i++)
+{
+	if (values[i] != values[(values.length - 1) - i])
+	{
+		isPalindrome = false;
+		break;
+	}
+}
+System.out.println(isPalindrome);
+//That was way too complicated for the question :P

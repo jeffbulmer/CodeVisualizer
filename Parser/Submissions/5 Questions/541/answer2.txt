@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Survey 
+{
+	public static void main(String[] args)
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a word: ");
+		String string = sc.nextLine();
+		int x = 0;
+		char[] Char = string.toCharArray();
+		char[] Char2 = new char[Char.length];
+		for(int y = Char.length-1; y>=0;y--)
+		{
+			
+			Char2[x] = Char[y];
+			x++;
+		}
+		String abc = new String(Char2);
+		
+		
+		
+		System.out.println("Is " + string + " a palindrome?");
+		
+		
+		
+		if(string.equals(abc))
+		{
+			
+			System.out.println("True");
+		}
+		else
+		{
+			System.out.println("False");
+		}
+		
+	}
+
+}

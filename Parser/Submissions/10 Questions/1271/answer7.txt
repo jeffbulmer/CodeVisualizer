@@ -1,0 +1,23 @@
+Scanner scanner = new Scanner(System.in);
+String[] words = new String[5];
+
+for (int i = 0; i < words.length; i++){
+	System.out.printIn("Enter a word:");
+	words[i] = scanner.nextLine();
+}
+
+int vowels = 0;
+
+
+for (int i = 0; i < words.length; i++){
+	int temp = words[i].charAt(words[i].length()-1);
+	if((temp == "a" || temp == "e" || temp == "i" || temp == "o" || temp == "u"){
+		vowels = vowels +1;	
+	}
+}
+if (vowels > 0){
+System.out.printf("Of the words you entered, %s ends in vowels",vowels);
+}else{
+System.out.print("Of the words you entered, none end in vowels");
+}
+

@@ -1,0 +1,25 @@
+package default;
+import java.util.Scanner;
+public class Test {
+	public static void main(String[] args) {
+		int remainder;
+		int sum;
+		int reversed;
+		Scanner s = new Scanner (System.in);
+		System.out.println("Enter a number:");
+		int number = s.nextInt();
+		System.out.println("Is "+number+" a palindrome?");
+		while (number > 0) {
+			remainder = n%10;
+			sum = (sum*10)+remainder;
+			reversed = n / 10;
+		}
+		if (reversed == sum) {
+			System.out.println("true");
+		} else {
+			System.out.println("false");
+		}
+	}
+}
+
+

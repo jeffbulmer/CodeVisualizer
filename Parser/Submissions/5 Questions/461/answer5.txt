@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+pubic static void main(String[] args){
+	int year=(int)1990+Math.random()*28;
+	int month=(int)Math.random()*13;
+	int day=Math.random()*30;
+System.out.println("Guess the year(between 1990 and 2017)");
+int y=in.nextInt;
+System.out.println("Guess the month(as a number" );
+int m=in.nextInt;
+System.out.println("Guess the day(as a number" );
+int d=in.nextInt;
+if(y<year)
+System.out.println("Too early! the correct date is", year,"-",month,"-",day);
+else if(y==year&&m<month)
+System.out.println("Too early! the correct date is", year,"-",month,"-",day);
+else if(y==year&&m==month&&d<day)
+System.out.println("Too early! the correct date is ",year,"-",month,"-",day);
+else if(y>year)
+System.out.println("Too late! the correct date is ",year,"-",month,"-",day);
+else if(year==y&&m>month)
+System.out.println("Too late! the correct date is",year,"-",month,"-",day);
+else if(year==y&&month==m&&d>day)
+System.out.println("Too late! teh correct date is",year,"-",month,"-",day);
+else
+System.out.println("You got it, wow!")

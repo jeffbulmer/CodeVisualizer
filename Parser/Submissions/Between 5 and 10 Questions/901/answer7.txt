@@ -1,0 +1,27 @@
+import java.util.Scanner;
+//code by Cass Menchions
+public class Vowels {
+	public static void main(String[] args) {
+		//variables, objects
+		String[] array = new String[5];
+		int counter = 0; //counts vowels
+		Scanner sc = new Scanner(System.in);
+		
+		//ask user to enter a word for each element in the array
+		for(int i = 0; i < array.length; i++) {
+			System.out.println("Enter a word:");
+			array[i] = sc.nextLine().toLowerCase();
+		}
+		sc.close();
+		
+		//check to see which words end in vowels
+		for(int i = 0; i < array.length; i++) 
+			if(array[i].charAt(array[i].length()-1) == 'a' || array[i].charAt(array[i].length()-1) == 'i' || array[i].charAt(array[i].length()-1) == 'e' ||
+					array[i].charAt(array[i].length()-1) == 'o' || array[i].charAt(array[i].length()-1) == 'u')
+				counter++;
+		
+		//display how many words ended in vowels
+		System.out.println("Out of the words you enetered, " + counter + " ended in vowels.");
+	}
+}
+

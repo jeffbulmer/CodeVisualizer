@@ -1,0 +1,21 @@
+//code by Cass Menchions
+public class Array {
+	public static void main(String[] args) {
+		//variables
+		double[] array = new double[10];
+		double element = 0;
+		
+		//add elements to array 
+		for(int i = 0; i < array.length; i++){
+			array[i] = Math.sqrt(element);
+			element++;
+		}
+		
+		//display array
+		for(int i = 0; i < array.length; i++)
+			System.out.println(array[i]);
+
+	}
+
+}
+

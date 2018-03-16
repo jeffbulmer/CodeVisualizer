@@ -1,0 +1,8 @@
+Scanner scan = new Scanner(System.in);
+System.out.println("Enter a value for v: ");
+double v = scan.nextDouble();
+System.out.println("Enter a value for c: ");
+double c = scan.nextDouble();
+double ans = Math.PI*(1/(Math.Sqrt(1-(Math.Pow(v, 2)/Math.Pow(c, 2)))));
+System.out.println("Value for v = " + v = ", c = " + c + ": " + ans);
+

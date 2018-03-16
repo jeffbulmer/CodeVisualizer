@@ -1,0 +1,13 @@
+import java.util.*;
+public class PalindromeString {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a word");
+		String phrase = input.nextLine();
+		String reversedString = new StringBuilder(phrase).reverse().toString();
+		if(phrase.equals(reversedString))
+			System.out.println("true");
+		else
+			System.out.println("false");
+	}
+}

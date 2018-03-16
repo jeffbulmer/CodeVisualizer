@@ -1,0 +1,10 @@
+import java.util.Scanner;
+public static void main (String[] args){
+Scanner s = new Scanner (System.in);
+System.out.println("Enter an integer number greater than 0:");
+int x = s.nextInt();
+int y = x%2;
+y = y + x/2;
+System.out.println("There are " + y + " odd integers between 0 and " + x);
+
+}

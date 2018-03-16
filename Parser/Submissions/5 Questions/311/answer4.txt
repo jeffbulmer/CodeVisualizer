@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class raaaandom {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter an integer number greater than 0:");
+		int k = sc.nextInt();
+		int odds = 0;
+		for(int i = k; i > 0;i--){
+			if((i % 2) != 0) odds++;
+		}
+		System.out.println("There are " + odds + " odd integers between 0 and " + k);
+		sc.close();
+	}
+}

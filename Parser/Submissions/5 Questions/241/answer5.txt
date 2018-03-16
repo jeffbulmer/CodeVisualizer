@@ -1,0 +1,24 @@
+int randomYear = (int)(1990 + Math.random() * (2017-1990));
+int randomMonth = (int)(1 + Math.random() * (12-1));
+int randomDay;
+if(randomMonth != 2)
+    randomDay = randomMonth%2 == 0 ? (int)(1+Math.random() * (30-1)) : (int)(1+Math.random()*(31-1));
+else
+    randomDay = (int)(1+Math.random() * (28-1));
+
+Scanner in = new Scanner(System.in);
+System.out.println("Guess the year...");
+int inputYear = in.nextInt();
+System.out.println("guess the month...");
+int inputMonth = in.nextInt();
+System.out.println("guess the day...");
+int inputDay = in.nextInt();
+
+if(inputYear < randomYear) {
+	System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).", randomYear, randomMonth, randomDay);
+	System.out.print("\nYou were too early!");
+} else if(inputYear > randomYear) {
+	System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).", randomYear, randomMonth, randomDay);
+	System.out.print("\nYou were too late!");
+} else {
+	if(

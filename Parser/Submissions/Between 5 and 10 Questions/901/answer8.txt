@@ -1,0 +1,26 @@
+import java.util.Scanner;
+//code by Cass Menchions
+public class Triangle {
+	public static void main(String[] args) {
+		//variables, objects
+		int length;
+		int counter = 0;
+		Scanner sc = new Scanner(System.in);
+		
+		//ask user for triangle length
+		System.out.println("Enter a length for the triangle:");
+		length = sc.nextInt();
+		sc.close();
+		
+		//make the triangle
+		for(int i = 0; i < length; length-= 2) {
+			for(int k = 0; k < counter; k++)
+				System.out.print(" ");
+			for(int k = 0; k <= length -1; k++)
+				System.out.print("V");
+			System.out.print("\n");
+			counter++;
+		}
+	}
+}
+

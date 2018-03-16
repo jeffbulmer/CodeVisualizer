@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class MathStuff {
+
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter a value for v:");
+		double v = in.nextDouble();
+		System.out.println("Enter a value for c: ");
+		double c = in.nextDouble();
+	final double PI = 3.14;
+	double result=0;
+	result = PI * (1/Math.sqrt(1-(Math.pow(v, 2)/Math.pow(c, 2))));
+	System.out.printf("Value for v = %d, c = %d: %f", (int)v, (int)c, result);
+in.close();
+}
+

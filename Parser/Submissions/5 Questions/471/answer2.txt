@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public static void main(String[] args) {
+	
+	// Initializing needed variables:
+	String reversed;
+	
+	// Input:
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter a word: ");
+	String word = input.nextLine();
+	input.close();
+	
+	// Reversing the input:
+	for(int i = (word.length - 1); i >= 0; i--) {
+		reversed += word.charAt(i);
+	}
+
+	// Checking for palindrome:
+	System.out.println("Is " + word + " a palindrome?");
+	return word.equals(reversed);
+	
+}

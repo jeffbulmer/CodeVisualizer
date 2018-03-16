@@ -1,0 +1,10 @@
+Scanner in=new Scanner(System.in);
+String[] word=new String[5];
+int time=0;
+for(int i=0;i<word.length;i++){
+String i=in.nextString();
+if(i.charAt(i.length-1)==a||i.charAt(i.length-1)==e||i.charAt(i.length-1)==i||i.charAt(i.length-1)==o||i.charAt(i.length-1)==u)
+time++;
+}
+system.out.println("of the words you entered"+time+"end in vowels")
+

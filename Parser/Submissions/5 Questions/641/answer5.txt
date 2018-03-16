@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Something{
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+
+		System.out.println("Guess the year(between 1990 and 2017): ");
+		int gYear = in.nextInt();
+
+		System.out.println("Guess the month (as a number): ")
+		int gMonth = in.nextInt();
+
+		System.out.println("Guess the day (as a number): ")
+		int gDay = in.nextInt();
+
+		int year = 1990 + (int)(Math.random() * 28);
+		int month = 1 + (int)(Math.random()* 12);
+		int day = 0;
+
+		if(month == 2){
+			if(year % 4 == 0)
+				day = 1 + (int)(Math.random() * 29);
+			else
+				day = 1 + (int)(Math.random()* 28);
+
+		}else switch(month){
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12: day = 1 + (int)(Math.random() * 31); break;
+		case 4:
+		case 6:
+		case 9:
+		case 11: day = 1 + (int)(Math.random() * 30); break;
+		}
+
+		System.out.printf("The correct date was %d-%d-%d(yyyy-mm-dd)", year, month, day);
+		System.out.println();
+
+		String msg1 = "You were too early!";
+		String msg2 = "You were too late!";
+		String msg3 = "You got it... wow!";
+
+		String msg = "";
+
+		if(year > gYear)
+			msg = msg1;
+		else if(year < gYear)
+			msg = msg2;
+		else{
+			if(month > gMonth)
+				msg = msg1;
+			else if(month < gMonth)
+				msg = msg2;
+			else{
+				if(day > gDay)
+					msg = msg1;
+				else if(day < gDay)
+					msg = msg2;
+				else
+					msg = msg3;
+			}
+		}
+		System.out.println(msg);
+	}
+}

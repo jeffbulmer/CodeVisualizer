@@ -1,0 +1,7 @@
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a  value for v: ");
+int v = input.nextInt();
+System.out.println("Enter  a value for c: ");
+int c = input.nextInt();
+System.out.println("Value for v = " + v + " , c = " + c + " : " + Math.Pi*(1/(Math.sqrt(1-(v*v/c*c))));
+

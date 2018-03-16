@@ -1,0 +1,13 @@
+system.out.println("enter a length for the triangle");
+Scanner in=new Scanner(System.in);
+int num= in.nextInt();
+for(int i=1;i<=num;i++){
+for(j=1;j<=size;j++){
+if(i+j)<size){
+system.out.print("v");
+system.out.print("");
+}else{
+system.out.print("");
+}
+}
+system.out.println();

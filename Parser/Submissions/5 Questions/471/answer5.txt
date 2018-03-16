@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public static void main(String[] args) {
+	
+	// Inputs:
+	Scanner input = new Scanner(System.in);
+	System.out.println("Guess the year (between 1990 and 2017): ");
+	int yearGuess = input.nextInt();
+	System.out.println("Guess the month (as a number): ");
+	int monthGuess = input.nextInt();
+	System.out.println("Guess the day (as a number): ");
+	int dayGuess = input.nextInt();
+	input.close();
+
+	// Generating a random date:
+	do {
+		int year = Math.floor(Math.random() * 2017);
+	} while(year < 1990);
+
+	int month = Math.floor(Math.random() * 12);
+	int day = Math.floor(Math.random() * 31);
+
+	// Checking for accuracy:
+	System.out.println("The correct date was " + year + "-" + month + "-" + day + " (yyyy-mm-dd).");
+	if(year == yearGuess) {
+		if(month == monthGuess) {
+			if(day == dayGuess) {
+				System.out.println("You got it, wow!");
+			} else if(day < dayGuess) {
+				System.out.println("You were too late!");
+			} else {
+				System.out.println("You were too early!");
+			}
+		} else if(month < monthGuess) {
+			System.out.println("You were too late!");
+		} else {
+			System.out.println("You were too early!");
+		}
+	} else if(year < yearGuess) {
+		System.out.println("You were too late!");
+	} else {
+		System.out.println("You were too early!");
+	}
+	
+}

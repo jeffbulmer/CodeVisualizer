@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class Palindrome{
+public static void main(String[] args){
+Scanner in = new Scanner(System.in);
+System.out.print("Enter a number: ");
+int number = in.nextInt();
+
+while(number<=0){
+System.out.println("Invalid, try again");
+number = in.nextInt();
+}
+System.out.println("Is " +number+ " a Palindrome?");
+System.out.println(isPalindrome(number));
+
+public static boolean isPalindrome(int number){
+int digit1,digit2,digit3,digit4;
+for(int i=0; i<=9;i++)
+{
+if(number%i==0)
+{
+digit4=i;
+int threeNum = (number-digit4)/10;
+}
+if(threeNum%i==0)
+{
+digit3=i;
+int twoNum = (threeNum-digit3)/10;
+}
+if(twoNum%i==0)
+{
+digit2=i;
+int oneNum=(twoNum-digit2)/10;
+}
+if(oneNum5%i==0)
+{
+digit1=i;
+}
+}
+if(digit1==digit4 && digit2==digit3)
+{
+return true;
+}
+else
+{
+return false;
+}

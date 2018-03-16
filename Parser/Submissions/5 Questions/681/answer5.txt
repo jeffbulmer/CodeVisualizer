@@ -1,0 +1,40 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class GuessDate {
+
+	public static void main(String[] args) {
+
+		Random r = new Random();
+		int y = 1990 + r.nextInt(28);
+		int m = r.nextInt(12);
+		int dr = 31;
+		if (m == 2) {
+			dr = 28;
+		}
+		if (m == 4 || m == 6 || m == 9 || m == 11) {
+			dr = 30;
+		}
+		int d = r.nextInt(dr);
+		int date = String.parseInt(String.format("%04d%02d%02d", y, m, d));
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("Guess the year (between 1990 and 2017):");
+		int iy = s.nextInt();
+		System.out.println("Guess the month (as a number):");
+		int im = s.nextInt();
+		System.out.println("Guess the day (as a number):");
+		int idate = String.parseInt(String.format("%04d%02d%02d), iy, im, id);
+
+		System.out.println("The correct date was " + y + "-" + m + "-" + d + " (yyyy-mm-dd).");
+		if (date < idate) {
+			System.out.println("You were too early!");
+		} else if (date > idate) {
+			System.out.println("You were too old!");
+		} else {
+			System.out.println("You got it, wow!");
+
+	}
+
+}
+

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class CLASS_NAME4 {
+	public static void main(String[] args) {
+	
+	Scanner in = new Scanner(System.in);
+	
+	System.out.println("Enter an integer number greater than 0: ");
+	int input = in.nextInt();
+	
+	while (input < 0) {
+ 		System.out.println("Error. Enter an integer number greater than 0: ");
+		input = in.nextInt();
+	}
+	
+	int even = input/2; 
+	int odd = input - even;
+	
+	System.out.printlln("There are " + odd + " integers between 0 and " + input);
+	
+	}
+}

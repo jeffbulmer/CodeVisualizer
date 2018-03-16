@@ -1,0 +1,36 @@
+Random rand=new Random();
+Scanner scan = new Scanner(System.in);
+int year=1990+rand.nextInt(2018-1990);
+int month=1+rand.nextInt(12);
+int day = 1+rand.nextInt(31);
+switch (month) {
+case 4:
+case 6:
+case 9:
+case 11:
+int day = 1+rand.nextInt(30);
+break;
+case 2:
+if(year%4==0&&(year%100!=0||year%400==0))
+int day = 1+rand.nextInt(29);
+else
+int day = 1+rand.nextInt(28);
+break;
+}
+System.out.println("Guess the year (between 1990 and 2017):");
+year=year-scan.nextInt();
+System.out.println("Guess the month (as a number):");
+month=month-scan.nextInt();
+System.out.println("Guess the day (as a number):");
+day=day-scan.nextInt();
+
+System.out.println("The correct date was "+year+"-"+month+"-"+day+" (yyyy-mm-dd).");
+
+int compare=((year*1000+month)*100+day);
+if(compare==0)
+	System.out.println("You got it, wow!");
+else
+	if(compare<0)
+		System.out.println("You were too late!");
+		else
+			System.out.println("You were too early!");

@@ -1,0 +1,10 @@
+Scanner in = new Scanner(System.in);
+System.out.println("Enter a palindrome: ");
+String text = in.nextLine();
+StringBuilder reversed = new StringBuilder();
+for(char c : number.toCharArray())
+	reversed.append(c);
+if(reversed.toString().equals(number))
+	System.out.println("true");
+else
+	System.out.println("false");

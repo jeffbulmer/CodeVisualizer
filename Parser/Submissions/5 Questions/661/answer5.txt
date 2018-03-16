@@ -1,0 +1,47 @@
+include java.util.*;
+public static void main(String args[])
+{
+	boolean correct = false;
+	Scanner in = new Scanner(System.in);
+	int rYear = 1990+Math.random()*2018; 
+	int rMonth = 1 + Math.random()*13;
+	int rDay = 1+ Math.random()*31; // Accounting for different days in a month and leap years is too much work.
+	int uYear, uMonth, uDay;
+	System.out.println("Guess the year (between 1990 and 2017):");
+	uYear = in.nextInt();
+	System.out.println("Guess the month (as a number):");
+	uMonth = in.nextInt();
+	System.out.println("Guess the day (as a number):");
+	uDay = in.nextInt();
+	System.out.println("The correct date was "+rYear + "-" + rMonth + "-" + rDay + " (yyyy-mm-dd).");
+	if(rYear == uYear && rMonth == uMonth && rDay == uDay)
+	{
+		System.out.println("You got it, wow!");	
+	}else{
+		if(rYear != uYear)
+		{
+			if((rYear-uYear) > 0)
+			{
+				System.out.println("You were too early!");
+			} else{
+				System.out.println("You were too late!");
+			}
+		}else if(rMonth != uMonth)
+		{
+			if(rMonth-uMonth>0)
+			{
+				System.out.println("You were too early!");
+			}else{
+				System.out.println("You were too late!");
+			}
+		}else{
+			if(rDay-uDay>0)
+			{
+				System.out.println("You were too early!");
+			}else{
+				System.out.println("You were too late!");
+			}
+
+		}
+	}
+}

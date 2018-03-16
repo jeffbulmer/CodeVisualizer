@@ -1,0 +1,12 @@
+Scanner in= new Scanner(System.in);
+System.out.println("Enter an integer greater than 0);
+int num= in.nextInt();
+int count=0;
+
+for)=(int i=1; i<=num; i++){
+if(i%2==0)
+System.out.println(count);
+count++;
+}
+if(num%2!=0)
+System.out.println(num);

@@ -1,0 +1,9 @@
+Scanner in = new Scanner(System.in);
+System.out.println("Enter an integer number greater than 0: ");
+int limit = in.nextInt();
+int numOfOdds = 0;
+while(limit > 0) {
+	if(limit/2 != 0) 
+		numOfOdds++:
+}
+System.out.print("There are " + numOfOdds + " odd integers between 0 and " + limit);

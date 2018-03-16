@@ -1,0 +1,12 @@
+Scanner input = new Scanner(System.in);
+System.out.println(" Enter a number: ");
+int a = input.nextInt();
+int r = 0; int d;
+do {
+d = a%10;
+r = r*10+d;
+a/=10;} while (a != 0);
+System.out.println("Is " + a + " a palindrome?");
+if (d==a) System.out.println("True");
+else System.out.println("False");
+

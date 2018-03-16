@@ -1,0 +1,27 @@
+public class Q4{
+	public static void main(String[] args){
+		int[] array = {1,5,7,4,3,2,6};
+		boolean torf = false;
+		int iteration = 0;
+		while(torf != true) {
+			iteration++;
+			mysort(array);
+			System.out.println("Elements after sorting iteration " + iteration + ": " + array[0] + array[1] + array[2] + array[3] + array[4] + array[5] + array[6]);
+		} System.out.println("The array is sorted!");
+		
+	}
+	public static int[] mysort(int[] array){
+		for(int n = 0; n < array.length; n++)){
+			int randomindex = (int)(Math.random() * (array.length+1))
+			int temporary = array[n];
+			array[n] = array[random index];
+			array[randomindex] = temp;
+		} return array;
+	}
+	public static void checksorted(int[] array){
+		int[] sortedarray = {1,2,3,4,5,6,7};
+		if (array == sorted array)
+			return true;
+		else
+			return false;
+}

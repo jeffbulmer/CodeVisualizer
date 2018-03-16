@@ -1,0 +1,35 @@
+import java.util.Scanner;
+package review;
+public class review{
+Scanner in = new Scanner (System.in);
+System.out.println("Sample Output");
+int year =1990+(int) ((Math.random())*((2017-1990)+1));
+int m = (1+(Math.Random())*12);
+int day =0;
+if(m==1|m==3|m==5|m==7|m==9|m==11)
+	day = (1+(Math.random())*31);
+else if (m==2|m==4|m==6|m==8|m==10|m==12)
+	day = (1+(Math.random())*30);
+else
+	day = (1+(Math.random())*28);
+System.out.println("Guess the year (Between 1990 and 2017)");
+int yy= in.nextInt();
+System.out.println("Guess the month");
+int mm = in.nextInt();
+System.out.println("Guess the day");
+int dd = in. nextInt();
+System.out.println("The correct date was "+ year + "-"+m+"-"+day) 
+if (year>yy)
+	System.out.println("You were too early");
+else if (year == yy && m>mm)
+	System.out.println("You were too early");
+else if (year == yy && m==mm && day>dd)
+	System.out.println("you were too early");
+else if (year<yy)
+	System.out.println("You were too late");
+else if( year == yy && m<mm)
+	System.out.println("You were too late");
+else if (year == yy && m == mm && day<dd)
+	System.out.println("You were too late");
+else
+System.out.println("You got it, WOW");

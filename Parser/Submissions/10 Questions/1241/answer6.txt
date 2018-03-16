@@ -1,0 +1,12 @@
+public class Q1{
+	public static void main(String[] args){
+		double array = new double[10];
+		for(int i = 0; i < array.length(); i++){
+			array[i] = Math.sqrt(i);
+		}
+		System.out.println("Elements of the generated array: ");
+		for(int n = 0; n < array.length(); n++) {
+			System.out.println(array[n]);
+		}
+	}
+}

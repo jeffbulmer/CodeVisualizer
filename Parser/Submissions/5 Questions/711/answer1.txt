@@ -1,0 +1,11 @@
+import.util.Java Scanner;
+System.out.println("Enter an integer:");
+Scanner  in = new Scanner();
+int a = in.nextInt();
+System.out.println("Is" + a + "a palindrome?");
+if (int i =0; int i> j; i ++){
+
+System.out.println("True");
+}
+else
+System.out.println("False");

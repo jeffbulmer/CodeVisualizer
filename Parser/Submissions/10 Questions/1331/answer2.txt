@@ -1,0 +1,17 @@
+import java.util.Scanner; //this is above the main method
+
+System.out.println("Enter a word: ");
+Scanner in = new Scanner(System.in);
+String stest = in.nextLine();
+int testvalue = 0;
+for(int i = 0; i<stest.length/2;i++) {
+	if (stest.charAt(i) == stest.charAt(stest.length-1-i) {}
+	else 
+		testvalue++;
+}
+System.out.println("Is " + stest + " a palindrome?");
+if(testvalue>=1)
+	System.out.println("true");
+else
+	System.out.println("false");
+in.close();

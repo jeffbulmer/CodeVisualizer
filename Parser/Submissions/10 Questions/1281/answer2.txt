@@ -1,0 +1,25 @@
+package Q;
+
+public class Q2 {
+
+import java.util.scanner;
+
+	public static main(String args[]) {
+		Scannner in = new Scanner(System.in);
+		system.out.println("Enter a word: ")
+		String x = in.nextLine();
+		String y = "";
+			
+		for (int i = (x.length()-1); i>-1; i--) {
+		y += x.charAt(i);
+		}
+
+		system.out.println("Is " + x + " a palindrome?")
+		if (y.equals(x)) {
+		system.out.print("true");
+		} else {
+		system.out.print("false");
+		}
+			
+	}
+}

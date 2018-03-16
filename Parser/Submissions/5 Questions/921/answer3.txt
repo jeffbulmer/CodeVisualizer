@@ -1,0 +1,9 @@
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a value for v: ");
+int v = input.nextInt();
+System.out.println("Enter a value for c: ");
+int c = input.nextInt();
+int PI = 3.14;
+System.out.println("value for v = "+ v  +", c= " + c + ": " + PI * v * c);
+
+

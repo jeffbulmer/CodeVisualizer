@@ -1,0 +1,178 @@
+Errors per User:
+
+1161
+Unclosed Scanners: 7
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 108
+
+1191
+Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 0
+
+1201
+Unclosed Scanners: 7
+Bracket Miscounts: 9
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 10
+
+1211
+Unclosed Scanners: 6
+Bracket Miscounts: 2
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 2
+
+1221
+Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 1
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+
+1241
+Unclosed Scanners: 7
+Bracket Miscounts: 4
+Bracket Mismatches: 4
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 9
+
+1251
+Unclosed Scanners: 7
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 10
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 0
+
+1261
+Unclosed Scanners: 7
+Bracket Miscounts: 4
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 55
+
+1271
+Unclosed Scanners: 7
+Bracket Miscounts: 5
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 6
+Misaligned tabbing/spacing: 9
+
+1281
+Unclosed Scanners: 7
+Bracket Miscounts: 8
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 18
+
+1291
+Unclosed Scanners: 6
+Bracket Miscounts: 7
+Bracket Mismatches: 3
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 29
+
+1321
+Unclosed Scanners: 6
+Bracket Miscounts: 3
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 2
+
+1331
+Unclosed Scanners: 1
+Bracket Miscounts: 9
+Bracket Mismatches: 5
+Semi-Colons right after a loop or conditional: 7
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 21
+
+Errors per Question:
+
+Question 1: Unclosed Scanners: 10
+Bracket Miscounts: 4
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 1
+Switched Comparison and Assignment Operators: 3
+Misaligned tabbing/spacing: 25
+
+Question 2: Unclosed Scanners: 10
+Bracket Miscounts: 4
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 3
+Misaligned tabbing/spacing: 28
+
+Question 3: Unclosed Scanners: 10
+Bracket Miscounts: 6
+Bracket Mismatches: 3
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 16
+
+Question 4: Unclosed Scanners: 9
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 21
+
+Question 5: Unclosed Scanners: 10
+Bracket Miscounts: 6
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 8
+Switched Comparison and Assignment Operators: 3
+Misaligned tabbing/spacing: 52
+
+Question 6: Unclosed Scanners: 0
+Bracket Miscounts: 2
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 17
+
+Question 7: Unclosed Scanners: 10
+Bracket Miscounts: 12
+Bracket Mismatches: 4
+Semi-Colons right after a loop or conditional: 1
+Switched Comparison and Assignment Operators: 6
+Misaligned tabbing/spacing: 26
+
+Question 8: Unclosed Scanners: 9
+Bracket Miscounts: 3
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 6
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 26
+
+Question 9: Unclosed Scanners: 0
+Bracket Miscounts: 5
+Bracket Mismatches: 3
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 23
+
+Question 10: Unclosed Scanners: 0
+Bracket Miscounts: 8
+Bracket Mismatches: 5
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 29
+

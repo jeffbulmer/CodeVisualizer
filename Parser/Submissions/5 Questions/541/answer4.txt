@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Survey 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter an integer greater than 0: ");
+		int num = sc.nextInt();
+		int num1 = num;
+		int count = 0;
+		
+		while(num>0)
+		{
+			if(num%2==0)
+			{
+				
+			}
+			else
+			{
+				count++;
+			}
+			num--;
+		}
+		
+		System.out.println("There are " + count + " odd integers between 0 and " + num1);
+		
+	}
+
+}
+

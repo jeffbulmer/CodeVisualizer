@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+Scanner in = new Scanner();
+
+int[] date = new int[3];
+
+date[0] =  1990 + (int)(Math.random * 28);
+date[1] = 1 + (int)(Math.random * 12);
+date[2] = 1 + (int)(Math.random * 28);
+
+System.out.println("Guess the year (between 1990 and 2017):");
+int year = in.nextInt();
+
+System.out.println("Guess the month (as a number):");
+int month = in.nextint();
+
+System.out.println("Guess the day (as a number):");
+int day = in.nextInt();
+
+if (date[0] > year || date[1] > month || date[2] > day)
+	System.out.println("You were too late!");
+
+else if (date[0] < year || date[1] < month || date[2] < day)
+	System.out.println("You were too early!");
+else 
+	System.out.println("You got it, wow!");

@@ -1,0 +1,7 @@
+System.out.print("Enter a word: ");
+Scanner scanner = new Scanner(System.in);
+String word = scanner.next();
+System.out.printf("Is %s a palindrome?\n",word);
+String temp = "";
+for(int i=0;i<word.length();i++) temp[i] = word[word.length()-1-i];
+System.out.println(word.equals(temp));

@@ -1,0 +1,20 @@
+Scanner input = new Scanner (System.in);
+int year;
+for (year<=2017&&year>=1990 ){
+year = 2017*10*Math.random();
+}
+int month;
+for (month>0&&month<=12){
+month = 12*10*Math.random();
+}
+int day;
+for (day<=31&&day>0){
+day=31*10*Math.random();
+}
+System.out.printn("Guess the year(between 1990 and 2017): ");
+int YEAR =input.nextInt();
+System.out.println("Guess the month:");
+int MONTH = input.nextInt();
+System.out.println("Guess the day:");
+int DAY = input.nextInt();
+

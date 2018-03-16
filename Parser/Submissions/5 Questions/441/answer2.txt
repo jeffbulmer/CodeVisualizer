@@ -1,0 +1,8 @@
+System.out.println("Enter a word");
+String st =sc.next();
+String revstring == new StringBuilder(st).reverse().toString();
+if(st == revstring)
+	System.out.println("true");
+else
+	System.out.println("false");
+

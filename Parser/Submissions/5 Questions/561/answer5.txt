@@ -1,0 +1,41 @@
+im skipping the scanner importation and class making. My scanner is called "in";
+
+int year = Math.random()*27+1990;
+int month=Math.random()*12;
+int day= Math.random()*30;
+
+do{  system.out.print("Guess the date between 1990 and 2017");
+int yearq =in.nextInt();
+int monthq=in.nextInt();
+int dayq=in.nextInt();
+
+if(yearq>year){system.out.print("Wrong, Too late"); continue;}
+if(yearq<year){system.out.print("Wrong, Too early");  continue;}
+
+if(monthq>month){system.out.print("Wrong too late"); continue;}
+if(monthq<month){system.out.print("Wrong too early"); continue;}
+
+if(dayq>day){system.out.print("Wrong too late"); continue;}
+if(dayq<day){system.out.print("Wrong too early"); continue;}
+
+break;}while (1>2)
+
+system.out.print("You did it awsome!");}
+
+
+
+//it made more sense to allow the user more trys to guess it so i made it so that they would have to guess untill they were correct.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

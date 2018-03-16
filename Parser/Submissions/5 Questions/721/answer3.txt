@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+Scanner in = new Scanner(System.In);
+
+System.out.println("Enter a value for v:");
+int v = in.nextInt();
+
+System.out.println("Enter a value for c:");
+int c = in.nextInt();
+
+double answer = Math.PI * 1 / (Math.sqrt(1 - ((v*v)/(c*c))));
+
+System.out.printf("Value for v = %d, c = %d: %f\n", v, c, answer);
