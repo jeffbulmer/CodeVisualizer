@@ -13,18 +13,19 @@ import java.nio.file.Paths;
 public class main {
 
 	final static int numQuestions = 10;
-	final static int numErrors = 6;
+	final static int numErrors = 8;
 
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
 		String[] folders2Check = { "5 Questions", "10 Questions" };
-		PrintWriter[] errorstats = {new PrintWriter(new File("errorStats "+folders2Check[0]+".txt")), new PrintWriter(new File("errorStats "+folders2Check[1]+".txt"))};
+		PrintWriter[] errorstats = { new PrintWriter(new File("errorStats " + folders2Check[0] + ".txt")),
+				new PrintWriter(new File("errorStats " + folders2Check[1] + ".txt")) };
 		int indexFolders = 1;
 		for (int x = 0; x < folders2Check.length; x++) {
 			int countFolders = 0;
 			String epu = "Errors per User:\n";
 			String epq = "Errors per Question:\n";
-			int[][] errors = new int[numQuestions][numErrors];
+			int[][] errors = new int[numQuestions][numErrors-1];
 			System.out.println(folders2Check[x]);
 			String initDirString = "Submissions\\" + folders2Check[x];
 			while (countFolders < Files.list(Paths.get(initDirString)).count()) {
@@ -46,15 +47,24 @@ public class main {
 							// cleanQuotes(is, file);
 							// is.close();
 							TextProcessor tp = new TextProcessor(fileString, true);
-							int[] thisRun = {tp.checkScanner().size(), tp.checkBracketCount().size(), tp.checkBracketMatch().size(), tp.checkBadSemiColon().size(),tp.checkAssignment().size(),tp.checkTabbing(4).size()};
+							int[] thisRun = { tp.checkScanner().size(), tp.checkBracketCount().size(),
+									tp.checkBracketMatch().size(), tp.checkBadSemiColon().size(),
+									tp.checkAssignment().size(), tp.checkTabbing(4).size(), tp.getCodeAmount() };
 							userErrors[0] += thisRun[0];
 							userErrors[1] += thisRun[1];
 							userErrors[2] += thisRun[2];
 							userErrors[3] += thisRun[3];
 							userErrors[4] += thisRun[4];
 							userErrors[5] += thisRun[5];
-							for(int i = 0; i < userErrors.length; i++){
-								errors[indexFiles-1][i] += thisRun[i];
+							userErrors[6] += thisRun[6]; // total cumulative
+															// number of lines
+															// written
+							userErrors[7] = tp.associateConfidence(indexFolders, "Submissions\\confidence.csv", "Submissions\\submissions.csv");
+							for (int i = 0; i < userErrors.length; i++) {
+								if(i == 7){
+									continue;
+								}
+								errors[indexFiles - 1][i] += thisRun[i];
 							}
 							System.out.println("");
 							countFiles++;
@@ -64,6 +74,7 @@ public class main {
 							indexFiles++;
 						}
 					}
+					double cumulativeErrors = 0.0;
 					for (int i = 0; i < userErrors.length; i++) {
 						switch (i) {
 						case 0:
@@ -84,8 +95,25 @@ public class main {
 						case 5:
 							epu += "Misaligned tabbing/spacing: ";
 							break;
+						case 6:
+							epu += "Lines written: " + userErrors[i] + "\n";
+							epu += "Average number of errors per line: ";
+							break;
+						case 7:
+							epu += "Associated Confidence Value: " + userErrors[i] + "\n";
+							break;
 						}
-						epu += "" + userErrors[i] + "\n";
+						if (i == 6) {
+							if (cumulativeErrors != 0)
+								epu += "" + cumulativeErrors / userErrors[i] + "\n";
+							else
+								epu += "0\n";
+						} else if (i == 7) {
+							continue;
+						} else {
+							epu += "" + userErrors[i] + "\n";
+							cumulativeErrors += userErrors[i];
+						}
 
 					}
 
@@ -95,35 +123,48 @@ public class main {
 					indexFolders++;
 				}
 			}
-		for (int i = 0; i < errors.length; i++) {
-			epq += "\nQuestion " + (i + 1) + ": ";
-			for (int j = 0; j < errors[i].length; j++) {
-				switch (j) {
-				case 0:
-					epq += "Unclosed Scanners: ";
-					break;
-				case 1:
-					epq += "Bracket Miscounts: ";
-					break;
-				case 2:
-					epq += "Bracket Mismatches: ";
-					break;
-				case 3:
-					epq += "Semi-Colons right after a loop or conditional: ";
-					break;
-				case 4:
-					epq += "Switched Comparison and Assignment Operators: ";
-					break;
-				case 5:
-					epq += "Misaligned tabbing/spacing: ";
-					break;
+			for (int i = 0; i < errors.length; i++) {
+				double cumulativeErrors = 0.0;
+				epq += "\nQuestion " + (i + 1) + ": ";
+				for (int j = 0; j < errors[i].length; j++) {
+					switch (j) {
+					case 0:
+						epq += "Unclosed Scanners: ";
+						break;
+					case 1:
+						epq += "Bracket Miscounts: ";
+						break;
+					case 2:
+						epq += "Bracket Mismatches: ";
+						break;
+					case 3:
+						epq += "Semi-Colons right after a loop or conditional: ";
+						break;
+					case 4:
+						epq += "Switched Comparison and Assignment Operators: ";
+						break;
+					case 5:
+						epq += "Misaligned tabbing/spacing: ";
+						break;
+					case 6:
+						epq += "Lines Written: " + errors[i][j] + "\n";
+						epq += "Average number of errors per line: ";
+						break;
+					}
+					if (j == 6) {
+						if (cumulativeErrors != 0)
+							epq += cumulativeErrors / errors[i][j] + "\n";
+						else
+							epq += "0\n";
+					} else {
+						epq += errors[i][j] + "\n";
+						cumulativeErrors += errors[i][j];
+					}
 				}
-				epq += errors[i][j] + "\n";
 			}
-		}
-		errorstats[x].println(epu);
-		errorstats[x].println(epq);
-		errorstats[x].close();
+			errorstats[x].println(epu);
+			errorstats[x].println(epq);
+			errorstats[x].close();
 		}
 		// for(int i =0; i < Files.list(Paths.get("Submissions")).count(); i++){
 		// String dirString = "Submissions\\"+(171+10*i);
