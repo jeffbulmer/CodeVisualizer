@@ -36,6 +36,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -75,15 +76,17 @@ public class AnimateFile extends Application {
 	BorderPane bp;
 	ScrollPane textArea;
 	Text animationText;
-	int[] codeToAnimate;
-	String currentCode;
 	Timeline timeline;
 	Slider slider;
 	Status status;
-	
-	static String prevPrint;
-	static String prevPrint2;
-	static int printCounter;
+
+	TextProcessor tp;
+
+	File file;
+	boolean isKeystrokeFile;
+	int[] codeToAnimate;
+	String currentCode;
+	int totalCurrentLines;
 
 	@Override
 	public void start(Stage pStage) {
@@ -102,7 +105,7 @@ public class AnimateFile extends Application {
 		timeline = new Timeline();
 		pStage.setScene(scene);
 		pStage.setTitle("Show me the words");
-		// pStage.setMaximized(true);
+		pStage.setMaximized(true);
 		pStage.show();
 
 	}
@@ -126,9 +129,11 @@ public class AnimateFile extends Application {
 		});
 		menuFileExit.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCombination.CONTROL_DOWN));
 
-		MenuItem menuFileOpen = new MenuItem("Open");
-		menuFileOpen.setOnAction(e -> {
+		// Open a file that is filled with keystroke data
+		MenuItem menuFileOpenKeystroke = new MenuItem("Open Keystroke File");
+		menuFileOpenKeystroke.setOnAction(e -> {
 			FileChooser fileChooser = new FileChooser();
+			isKeystrokeFile = true;
 
 			// Set extension filter
 			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
@@ -141,16 +146,44 @@ public class AnimateFile extends Application {
 
 			// What to do when a file is opened
 			if (file != null) {
+				totalCurrentLines = 0;
 				timeline = new Timeline();
 				status = timeline.getStatus();
-				codeToAnimate = readFile(file);
+				readFile(file);
 				animationText.setText("");
 				bp.setBottom(makeMediaBar());
 			}
 		});
-		menuFileOpen.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
+		// menuFileOpenKeystroke.setAccelerator(new KeyCodeCombination(KeyCode.O,
+		// KeyCombination.CONTROL_DOWN));
 
-		menuFile.getItems().addAll(menuFileOpen, menuFileExit);
+		MenuItem menuFileOpenText = new MenuItem("Open Text File");
+		menuFileOpenText.setOnAction(e -> {
+			FileChooser fileChooser = new FileChooser();
+			isKeystrokeFile = false;
+
+			// Set extension filter
+			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+			fileChooser.getExtensionFilters().add(extFilter);
+
+			// Show open file dialog
+			File file = fileChooser.showOpenDialog(pStage);
+
+			// Clear whatever is already happening
+
+			// What to do when a file is opened
+			if (file != null) {
+				totalCurrentLines = 0;
+				timeline = new Timeline();
+				status = timeline.getStatus();
+				readFile(file);
+				animationText.setText("");
+				bp.setBottom(makeMediaBar());
+			}
+		});
+		menuFileOpenText.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
+
+		menuFile.getItems().addAll(menuFileOpenKeystroke, menuFileOpenText, menuFileExit);
 		menuBar.getMenus().addAll(menuFile);
 
 		vb.getChildren().add(menuBar);
@@ -169,64 +202,69 @@ public class AnimateFile extends Application {
 		mediaBar.setPadding(new Insets(5, 10, 5, 10));
 
 		/*
-		 * Create the slider bar at the bottom with a Listener.
+		 * Create the slider bar at the bottom with a Listener if this is a
+		 * KeystrokeFile
 		 */
-		slider = new Slider(0, codeToAnimate.length, 0);
-		slider.setPrefWidth((.75) * pStage.getWidth());
-		currentCode = "";
-		slider.valueProperty().addListener(new ChangeListener<Number>() {
-			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
-				// translateKeyCodes returns a String representation of the code at any given
-				// time.
-				currentCode = translateKeyCodes(codeToAnimateNow);
-				animationText.setText(currentCode);
-			}
-		});
+		if (isKeystrokeFile) {
+			slider = new Slider(0, codeToAnimate.length, 0);
+			slider.setPrefWidth((.75) * pStage.getWidth());
+			currentCode = "";
+			slider.valueProperty().addListener(new ChangeListener<Number>() {
+				public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+					int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
+					// translateKeyCodes returns a String representation of the code at any given
+					// time.
+					currentCode = translateKeyCodes(codeToAnimateNow);
+					animationText.setText(currentCode);
+					tp = new TextProcessor(currentCode, false);
+				}
+			});
 
-		/*
-		 * Create the Play button. Note that the Listener for the slider bar appears
-		 * again on the inside of the KeyFrame animation so that a user may slide to any
-		 * point in the animation while it's currently playing.
-		 */
-		final Button playButton = new Button(">");
-		playButton.setOnAction(e -> {
-			if (timeline.getStatus() == Status.RUNNING) {
-				playButton.setText("||");
-				timeline.pause();
-			} else {
-				playButton.setText("||");
-				final IntegerProperty i = new SimpleIntegerProperty(0);
-				i.set(currentCode.length());
-				KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), event -> {
-					if (i.get() > codeToAnimate.length) {
-						// If we're at the end of the code, stop the animation.
-						timeline.stop();
-					} else {
-						int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, i.intValue() + 10);
-						// translateKeyCodes returns a String representation of the code at any given
-						// time.
-						currentCode = translateKeyCodes(codeToAnimateNow);
-						animationText.setText(currentCode);
-						slider.setValue(i.intValue());
-						i.set(i.get() + 1);
-						slider.valueProperty().addListener(new ChangeListener<Number>() {
-							public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-								int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
-								currentCode = translateKeyCodes(codeToAnimateNow);
-								animationText.setText(currentCode);
-								i.set(new_val.intValue());
-							}
-						});
-					}
-				});
-				timeline.getKeyFrames().add(keyFrame);
-				timeline.setCycleCount(Animation.INDEFINITE);
-				timeline.play();
-			}
-		});
+			/*
+			 * Create the Play button. Note that the Listener for the slider bar appears
+			 * again on the inside of the KeyFrame animation so that a user may slide to any
+			 * point in the animation while it's currently playing.
+			 */
+			final Button playButton = new Button(">");
+			playButton.setOnAction(e -> {
+				if (timeline.getStatus() == Status.RUNNING) {
+					playButton.setText("||");
+					timeline.pause();
+				} else {
+					playButton.setText("||");
+					final IntegerProperty i = new SimpleIntegerProperty(0);
+					i.set(currentCode.length());
+					KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), event -> {
+						if (i.get() > codeToAnimate.length) {
+							// If we're at the end of the code, stop the animation.
+							timeline.stop();
+						} else {
+							int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, i.intValue() + 10);
+							// translateKeyCodes returns a String representation of the code at any given
+							// time.
+							currentCode = translateKeyCodes(codeToAnimateNow);
+							animationText.setText(currentCode);
+							slider.setValue(i.intValue());
+							i.set(i.get() + 1);
+							slider.valueProperty().addListener(new ChangeListener<Number>() {
+								public void changed(ObservableValue<? extends Number> ov, Number old_val,
+										Number new_val) {
+									int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
+									currentCode = translateKeyCodes(codeToAnimateNow);
+									animationText.setText(currentCode);
+									i.set(new_val.intValue());
+								}
+							});
+						}
+					});
+					timeline.getKeyFrames().add(keyFrame);
+					timeline.setCycleCount(Animation.INDEFINITE);
+					timeline.play();
+				}
+			});
 
-		mediaBar.getChildren().addAll(playButton, slider);
+			mediaBar.getChildren().addAll(playButton, slider);
+		}
 		return mediaBar;
 	}
 
@@ -541,7 +579,7 @@ public class AnimateFile extends Application {
 			res.set(currentLine, currentString);
 			String currPrint2 = i + ": k" + keycodes[i] + ", cursor: " + cursor + ", res size: " + res.size()
 					+ ", current line: " + currentLine + ", current String: " + currentString;
-			//if (i > 55)
+			if (i > 55)
 				sopl(currPrint2);
 
 		}
@@ -557,8 +595,8 @@ public class AnimateFile extends Application {
 	}
 
 	/**
-	 * readFile is a method to read in a file from disk and return it in the form of
-	 * a String
+	 * readFile is a method to read in a file from disk and use it to instantiate
+	 * either the codeToAnimate or currentCode vars.
 	 * <p>
 	 * Note the portions of the code for this method came from the blog Java-Buddy
 	 * <p>
@@ -566,16 +604,21 @@ public class AnimateFile extends Application {
 	 * @web http://java-buddy.blogspot.com/
 	 * @param file
 	 *            The file to be read
-	 * @return String
 	 */
-	private int[] readFile(File file) {
+	private void readFile(File file) {
 		StringBuilder stringBuffer = new StringBuilder();
 		BufferedReader bufferedReader = null;
+		String lineSeparator = System.getProperty("line.separator");
 		try {
 			bufferedReader = new BufferedReader(new FileReader(file));
 			String text;
 			while ((text = bufferedReader.readLine()) != null) {
-				stringBuffer.append(text);
+				if (isKeystrokeFile)
+					stringBuffer.append(text);
+				else {
+					stringBuffer.append(text + lineSeparator);
+					totalCurrentLines++;
+				}
 			}
 
 		} catch (FileNotFoundException ex) {
@@ -590,18 +633,28 @@ public class AnimateFile extends Application {
 			}
 		}
 
-		String[] keycodeStrings = stringBuffer.toString().split(",");
-		int[] keycodes = new int[keycodeStrings.length];
-		for (int i = 0; i < keycodeStrings.length; i++) {
-			try {
-				keycodes[i] = Integer.valueOf(keycodeStrings[i]);
-			} catch (NumberFormatException e) {
-				System.err.println(e + ": The problem came from " + keycodeStrings[i]);
-				break;
-			}
+		/*
+		 * If it's a Keystroke File, instantiate the codeToAnimate array;<br> else, it's
+		 * a text file, and we instantiate currentCode to have that text.
+		 */
+		if (isKeystrokeFile) {
+			String[] keycodeStrings = stringBuffer.toString().split(",");
+			int[] keycodes = new int[keycodeStrings.length];
+			for (int i = 0; i < keycodeStrings.length; i++) {
+				try {
+					keycodes[i] = Integer.valueOf(keycodeStrings[i]);
+				} catch (NumberFormatException e) {
+					System.err.println(e + ": The problem came from " + keycodeStrings[i]);
+					break;
+				}
 
+			}
+			codeToAnimate = keycodes;
+		} else {
+			currentCode = stringBuffer.toString();
+			sopl(currentCode);
+			sopl("lines: " + totalCurrentLines);
 		}
-		return keycodes;
 	}
 
 	/**
