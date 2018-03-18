@@ -17,10 +17,13 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.layout.BorderPane;
@@ -64,7 +67,7 @@ import javafx.scene.text.Text;
  *         <p>
  * @version 1.0v<br>
  *          Date Created: 10/02/2018<br>
- *          Last Modified: 15/03/2018<br>
+ *          Last Modified: 19/03/2018<br>
  *          <p>
  * 
  * 
@@ -74,13 +77,18 @@ public class AnimateFile extends Application {
 
 	Stage pStage;
 	BorderPane bp;
+
+	ScrollPane lineNumbersArea;
+	Text lineNumbers;
 	ScrollPane textArea;
 	Text animationText;
+	TextProcessor tp;
+	ScrollPane errorArea;
+	Text errorText;
+
 	Timeline timeline;
 	Slider slider;
 	Status status;
-
-	TextProcessor tp;
 
 	File file;
 	boolean isKeystrokeFile;
@@ -94,15 +102,42 @@ public class AnimateFile extends Application {
 		this.pStage = pStage;
 		bp = new BorderPane();
 		Scene scene = new Scene(bp, 500, 300);
+		double widthLineNums = (Screen.getPrimary().getVisualBounds().getWidth()) / 40;
+		double widthTextError = ((Screen.getPrimary().getVisualBounds().getWidth()) / 2) - (widthLineNums / 2);
+
+		lineNumbers = new Text();
+		lineNumbers.setFont(Font.font(18));
+		lineNumbersArea = new ScrollPane();
+		lineNumbersArea.setContent(lineNumbers);
+		lineNumbersArea.setPadding(new Insets(10, 5, 5, 5));
+		lineNumbersArea.setPrefWidth(widthLineNums);
+
 		animationText = new Text();
+		animationText.setFont(Font.font(18));
 		textArea = new ScrollPane();
 		textArea.getStyleClass().add("noborder-scroll-pane");
 		textArea.setContent(animationText);
+		textArea.setPadding(new Insets(10, 10, 10, 10));
 		textArea.setFitToWidth(true);
 		textArea.setFitToHeight(true);
+		textArea.setPrefWidth(widthTextError);
+
+		errorText = new Text();
+		errorText.setFont(Font.font(18));
+		errorArea = new ScrollPane();
+		errorArea.getStyleClass().add("noborder-scroll-pane");
+		errorArea.setContent(errorText);
+		errorArea.setPadding(new Insets(10, 10, 10, 10));
+		errorArea.setFitToWidth(true);
+		errorArea.setFitToHeight(true);
+		errorArea.setPrefWidth(widthTextError);
+
+		bp.setLeft(lineNumbersArea);
 		bp.setCenter(textArea);
+		bp.setRight(errorArea);
 		bp.setTop(makeMenuBar());
 		timeline = new Timeline();
+
 		pStage.setScene(scene);
 		pStage.setTitle("Show me the words");
 		pStage.setMaximized(true);
@@ -177,7 +212,12 @@ public class AnimateFile extends Application {
 				timeline = new Timeline();
 				status = timeline.getStatus();
 				readFile(file);
-				animationText.setText("");
+				animationText.setText(currentCode);
+				String lines = "";
+				for (int i = 0; i < totalCurrentLines; i++) {
+					lines += (i + 1) + "\n";
+				}
+				lineNumbers.setText(lines);
 				bp.setBottom(makeMediaBar());
 			}
 		});
