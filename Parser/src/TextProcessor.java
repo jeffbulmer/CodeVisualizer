@@ -131,7 +131,7 @@ public class TextProcessor {
 					open++;
 				}
 			}
-			currentIndex += line.length();
+			currentIndex += line.length() + 1;
 			int[] removals = new int[scanners.size()];
 			int j = 0;
 			for (int i = 0; i < scanners.size(); i++) {
@@ -345,6 +345,7 @@ public class TextProcessor {
 		int currentIndex = 0;
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
+			int lineLength = line.length();
 			if (line.replaceAll("(\\s|\n)", "").startsWith("/*"))
 				commented = true;
 			if (line.replaceAll("(\\s|\n)", "").startsWith("*/") || line.replaceAll("(\\s|\n)", "").endsWith("*/"))
@@ -473,7 +474,7 @@ public class TextProcessor {
 				}
 			}
 			lineIndex++;
-			currentIndex += line.length();
+			currentIndex += lineLength + 1;
 		}
 		scan.close();
 		// for (int i = 0; i < errors.size(); i++) {

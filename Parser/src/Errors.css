@@ -1,11 +1,17 @@
 
 #scanner {
-	-fx-background-color: yellow;
+	-rtfx-background-color: yellow;
 	-fx-fill: red;
 }
 
 #bracketcount {
-	-fx-background-color: yellow;
+	-rtfx-background-color: yellow;
 	-fx-fill: magenta;
+	-fx-font-weight: bold;
+}
+
+#bracketmismatch {
+	-rtfx-background-color: yellow;
+	-fx-fill: orange;
 	-fx-font-weight: bold;
 }

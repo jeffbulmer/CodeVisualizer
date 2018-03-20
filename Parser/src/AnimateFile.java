@@ -326,8 +326,6 @@ public class AnimateFile extends Application {
 				for (Habit h : bracketCountErrors) {
 					int start = h.getStart();
 					int end = h.getEnd();
-					sopl("start: " + start + ", end: " + end);
-					sopl(h.getErrorMessage());
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, end + 1));
 					text1.setFont(Font.font(20));
@@ -355,17 +353,64 @@ public class AnimateFile extends Application {
 				});
 			}
 
+			if (!isBracketMismatchError) {
+				bracketMismatch.setDisable(true);
+			} else {
+				bracketMismatch.setDisable(false);
+				ArrayList<Habit> bracketMismatchErrors = tp.checkBracketMatch();
+				TextFlow tf = new TextFlow();
+
+				int current = 0;
+				for (Habit h : bracketMismatchErrors) {
+					int start = h.getStart();
+					int end = h.getEnd();
+					// sopl("start: " + start + ", end: " + end);
+					// sopl(h.getErrorMessage());
+					Text text1 = new Text(currentCode.substring(current, start));
+					Text text2 = new Text(currentCode.substring(start, start + 1));
+					Text text4 = new Text(currentCode.substring(start + 1, end));
+					Text text5 = new Text(currentCode.substring(end, end + 1));
+
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
+					text4.setFont(Font.font(20));
+					text5.setFont(Font.font(20));
+					text2.setId("bracketmismatch");
+					text5.setId("bracketmismatch");
+					
+					tf.getChildren().addAll(text1, text2, text4, text5);
+					current = end + 1;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(20));
+				tf.getChildren().add(text3);
+
+				bracketMismatch.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (bracketMismatch.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(bracketMismatch))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+						} else {
+							textArea.setContent(animationText);
+						}
+					}
+				});
+			}
+
 		}
 
-		
-		//sopl(tp.checkBracketMatch().get(0).getErrorMessage());
-		//sopl(tp.checkBracketMatch().get(0).getStart() + " " + tp.checkBracketMatch().get(0).getEnd());
-		
+		// sopl(tp.checkBracketMatch().get(0).getErrorMessage());
+		// sopl(tp.checkBracketMatch().get(0).getStart() + " " +
+		// tp.checkBracketMatch().get(0).getEnd());
+
 		for (CheckBox e : errors) {
 			e.setFont(Font.font(20));
 			e.setStyle("-fx-faint-focus-color: transparent;");
 		}
-	
+
 		errorPanel.getChildren().addAll(errors);
 		return errorPanel;
 	}
