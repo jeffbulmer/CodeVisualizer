@@ -1,24 +1,18 @@
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -29,8 +23,6 @@ import javafx.util.Duration;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -39,7 +31,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,9 +39,6 @@ import javafx.animation.*;
 import javafx.animation.Animation.Status;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -82,7 +71,6 @@ public class AnimateFile extends Application {
 	Text lineNumbers;
 	ScrollPane textArea;
 	Text animationText;
-	TextProcessor tp;
 	ScrollPane errorArea;
 	Text errorText;
 
@@ -95,6 +83,8 @@ public class AnimateFile extends Application {
 	int[] codeToAnimate;
 	String currentCode;
 	int totalCurrentLines;
+	TextProcessor tp;
+	double widthTextError;
 
 	@Override
 	public void start(Stage pStage) {
@@ -103,7 +93,7 @@ public class AnimateFile extends Application {
 		bp = new BorderPane();
 		Scene scene = new Scene(bp, 500, 300);
 		double widthLineNums = (Screen.getPrimary().getVisualBounds().getWidth()) / 40;
-		double widthTextError = ((Screen.getPrimary().getVisualBounds().getWidth()) / 2) - (widthLineNums / 2);
+		widthTextError = ((Screen.getPrimary().getVisualBounds().getWidth()) / 2) - (widthLineNums / 2);
 
 		lineNumbers = new Text();
 		lineNumbers.setFont(Font.font(18));
@@ -122,19 +112,9 @@ public class AnimateFile extends Application {
 		textArea.setFitToHeight(true);
 		textArea.setPrefWidth(widthTextError);
 
-		errorText = new Text();
-		errorText.setFont(Font.font(18));
-		errorArea = new ScrollPane();
-		errorArea.getStyleClass().add("noborder-scroll-pane");
-		errorArea.setContent(errorText);
-		errorArea.setPadding(new Insets(10, 10, 10, 10));
-		errorArea.setFitToWidth(true);
-		errorArea.setFitToHeight(true);
-		errorArea.setPrefWidth(widthTextError);
-
 		bp.setLeft(lineNumbersArea);
 		bp.setCenter(textArea);
-		bp.setRight(errorArea);
+		bp.setRight(makeErrorPanel());
 		bp.setTop(makeMenuBar());
 		timeline = new Timeline();
 
@@ -218,6 +198,7 @@ public class AnimateFile extends Application {
 					lines += (i + 1) + "\n";
 				}
 				lineNumbers.setText(lines);
+				bp.setRight(makeErrorPanel());
 				bp.setBottom(makeMediaBar());
 			}
 		});
@@ -229,6 +210,89 @@ public class AnimateFile extends Application {
 		vb.getChildren().add(menuBar);
 
 		return vb;
+	}
+
+	public VBox makeErrorPanel() {
+		VBox errorPanel = new VBox(10);
+		errorPanel.setPadding(new Insets(10, 10, 10, 50));
+		errorPanel.setAlignment(Pos.TOP_LEFT);
+		errorPanel.setPrefWidth(widthTextError);
+
+		CheckBox scanner;
+		CheckBox bracketCount;
+		CheckBox bracketMismatch;
+		CheckBox semicolon;
+		CheckBox comparison;
+		CheckBox whitespace;
+
+		if (currentCode == null) {
+			scanner = new CheckBox("Unclosed Scanners \t\t\t (0)");
+			bracketCount = new CheckBox("Bracket Miscounts \t\t\t (0)");
+			bracketMismatch = new CheckBox("Bracket Mismatches \t\t (0)");
+			semicolon = new CheckBox("Misplaced Semi-colons \t\t (0)");
+			comparison = new CheckBox("Comparison vs. Assignment \t (0)");
+			whitespace = new CheckBox("Misaligned Whitespace \t\t (0)");
+		} else {
+			tp = new TextProcessor(currentCode, false);
+			boolean isScannerError = (tp.checkScanner().size() > 0) ? false : true;
+			boolean isBracketCountError = (tp.checkScanner().size() > 0) ? false : true;
+			boolean isBracketMismatchError = (tp.checkScanner().size() > 0) ? false : true;
+			boolean isSemicolonError = (tp.checkScanner().size() > 0) ? false : true;
+			boolean isComparisonError = (tp.checkScanner().size() > 0) ? false : true;
+			boolean isWhitespaceError = (tp.checkScanner().size() > 0) ? false : true;
+
+			scanner = new CheckBox("Unclosed Scanners \t\t\t (" + tp.checkScanner().size() + ")");
+			bracketCount = new CheckBox("Bracket Miscounts \t\t\t (" + tp.checkBracketCount().size() + ")");
+			bracketMismatch = new CheckBox("Bracket Mismatches \t\t (" + tp.checkBracketMatch().size() + ")");
+			semicolon = new CheckBox("Misplaced Semi-colons \t\t (" + tp.checkBadSemiColon().size() + ")");
+			comparison = new CheckBox("Comparison vs. Assignment \t (" + tp.checkAssignment().size() + ")");
+			whitespace = new CheckBox("Misaligned Whitespace \t\t (" + tp.checkTabbing(4).size() + ")");
+
+			if (!isScannerError) {
+				scanner.setDisable(true);
+			} else {
+				scanner.setDisable(false);
+				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						ArrayList<Habit> scannerErrors = tp.checkScanner();
+						for (int i = 0; i < scannerErrors.size(); i++) {
+							//TODO: highlight error text
+						}
+					}
+				});
+			}
+
+			if (!isBracketMismatchError) {
+				bracketMismatch.setDisable(true);
+			} else {
+				bracketMismatch.setDisable(false);
+				bracketMismatch.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+
+					}
+				});
+			}
+		}
+
+		ArrayList<CheckBox> errors = new ArrayList<CheckBox>();
+		errors.add(scanner);
+		errors.add(bracketCount);
+		errors.add(bracketMismatch);
+		errors.add(semicolon);
+		errors.add(comparison);
+		errors.add(whitespace);
+
+		for (CheckBox e : errors) {
+			e.setFont(Font.font(18));
+			// e.setPadding(new Insets(10, 10, 10, 50));
+			e.setStyle("-fx-faint-focus-color: transparent;");
+		}
+
+		// ArrayList<Habit> scanners = (ArrayList)tp.checkScanner();
+		// sopl(scanners.size());
+
+		errorPanel.getChildren().addAll(errors);
+		return errorPanel;
 	}
 
 	/**
@@ -356,7 +420,7 @@ public class AnimateFile extends Application {
 					cursor--;
 				}
 			} else if (keycodes[i] == 39) { // Right Arrow
-				sopl("YES, " + keycodes[i]);
+				// sopl("YES, " + keycodes[i]);
 				if (cursor == res.get(currentLine).length() && currentLine == res.size()) {
 					continue;
 				} else if (++cursor < res.get(currentLine).length() - 1) {
@@ -528,7 +592,7 @@ public class AnimateFile extends Application {
 				char toInsert = isCapsOn ? 'E' : 'e';
 				currentString.insert(cursor++, toInsert);
 			} else if (keycodes[i] == 70) {
-				sopl("entered 70");
+				// sopl("entered 70");
 				char toInsert = isCapsOn ? 'F' : 'f';
 				currentString.insert(cursor++, toInsert);
 			} else if (keycodes[i] == 71) {
@@ -692,8 +756,6 @@ public class AnimateFile extends Application {
 			codeToAnimate = keycodes;
 		} else {
 			currentCode = stringBuffer.toString();
-			sopl(currentCode);
-			sopl("lines: " + totalCurrentLines);
 		}
 	}
 
