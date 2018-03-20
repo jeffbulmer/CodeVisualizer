@@ -34,6 +34,14 @@ public class Habit {
 		return errorMessage;
 	}
 	
+	public int getStart() {
+		return positionStart;
+	}
+	
+	public int getEnd() {
+		return positionEnd;
+	}
+	
 	public int[] getPositions(){
 		int[] positions = new int[2];
 		positions[0] = positionStart;

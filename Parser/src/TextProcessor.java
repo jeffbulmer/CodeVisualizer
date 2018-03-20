@@ -17,10 +17,9 @@ public class TextProcessor {
 	}
 
 	public TextProcessor(String fileText, boolean isFile) {
-		if(isFile){
+		if (isFile) {
 			loadFile(fileText);
-		}
-		else {
+		} else {
 			fileString = fileText;
 		}
 	}
@@ -31,9 +30,9 @@ public class TextProcessor {
 
 		try {
 			Scanner scan = new Scanner(file);
-			StringBuilder fileContents = new StringBuilder((int)file.length());
+			StringBuilder fileContents = new StringBuilder((int) file.length());
 			String lineSeparator = System.getProperty("line.separator");
-			while(scan.hasNextLine()) {
+			while (scan.hasNextLine()) {
 				fileContents.append(scan.nextLine() + lineSeparator);
 			}
 			fileString = fileContents.toString();
@@ -46,73 +45,73 @@ public class TextProcessor {
 	}
 
 	/*
-	 * The following methods process an input text and check for various bad
-	 * habits or errors The checks performed are as follows:
+	 * The following methods process an input text and check for various bad habits
+	 * or errors The checks performed are as follows:
 	 * 
-	 * checkScanner(): This method checks the code for open scanners. It does
-	 * this by parsing through the code and identifying all opened scanners by
-	 * name. It then checks for instances where .close is called from those same
-	 * scanners. If a scanner is declared, but no .close() is found to be called
-	 * from that scanner, then the method will end by displaying a message
-	 * noting that the scanner was opened, but not closed. Additionally, the
-	 * line on which the scanner is first opened will be displayed.
+	 * checkScanner(): This method checks the code for open scanners. It does this
+	 * by parsing through the code and identifying all opened scanners by name. It
+	 * then checks for instances where .close is called from those same scanners. If
+	 * a scanner is declared, but no .close() is found to be called from that
+	 * scanner, then the method will end by displaying a message noting that the
+	 * scanner was opened, but not closed. Additionally, the line on which the
+	 * scanner is first opened will be displayed.
 	 * 
 	 * checkBracketCount(): This method checks for open brackets, quotes and
-	 * apostrophes. The methodology is similar to checkScanner. If the method
-	 * finds one of the possible brackets it's searching for, it adds the
-	 * lineIndex to a list, and removes the line index of the last instance if
-	 * it finds a closed bracket. In the case of quotes and apostrophes, it
-	 * keeps the line number as an integer, resetting it if it ever finds a
-	 * second instance (which would indicate the closing of quotes or
-	 * apostrophes) Note that this method ONLY checks the count, so it will not
-	 * find cases where {} is used where [] should be used, or where "" is used
-	 * instead of '', etc. This requires an additional method.
+	 * apostrophes. The methodology is similar to checkScanner. If the method finds
+	 * one of the possible brackets it's searching for, it adds the lineIndex to a
+	 * list, and removes the line index of the last instance if it finds a closed
+	 * bracket. In the case of quotes and apostrophes, it keeps the line number as
+	 * an integer, resetting it if it ever finds a second instance (which would
+	 * indicate the closing of quotes or apostrophes) Note that this method ONLY
+	 * checks the count, so it will not find cases where {} is used where [] should
+	 * be used, or where "" is used instead of '', etc. This requires an additional
+	 * method.
 	 * 
 	 * checkBracketMatch(): This method finds instances where '(','{','[' are
-	 * mismatched. It does this by keeping a list of opened brackets in LIFO
-	 * order, and then checking the last element anytime a bracket is closed. If
-	 * a mismatch is found, the error is noted, and the last bracket removed, to
-	 * avoid showing one bracket mismatching with multiple others at once.
+	 * mismatched. It does this by keeping a list of opened brackets in LIFO order,
+	 * and then checking the last element anytime a bracket is closed. If a mismatch
+	 * is found, the error is noted, and the last bracket removed, to avoid showing
+	 * one bracket mismatching with multiple others at once.
 	 * 
-	 * checkBadSemiColon(): This method finds occurrences of semi-colons
-	 * immediately following a conditional (if) statement, or a loop
-	 * declaration. It does this by finding if statements and loop declarations,
-	 * and then checking if the next character is a semi-colon. checking the
-	 * next character is sufficient if all whitespaces are removed from the line
-	 * first.
+	 * checkBadSemiColon(): This method finds occurrences of semi-colons immediately
+	 * following a conditional (if) statement, or a loop declaration. It does this
+	 * by finding if statements and loop declarations, and then checking if the next
+	 * character is a semi-colon. checking the next character is sufficient if all
+	 * whitespaces are removed from the line first.
 	 * 
-	 * checkAssignment(): This method checks for cases where a comparison
-	 * operator ("==") was used instead of an assignment operator ("="), and
-	 * vice-versa. In order to do this, it checks all variables in scope to see
-	 * if they are mistakenly being compared to a value instead of assigned a
-	 * value. Booleans are handled specially, since "==" CAN occur in the
-	 * assignment of a boolean. It then checks conditionals, and loop
-	 * declarations, to ensure that variables are not being assigned, but are
-	 * actually being compared. Here, for-loops are handled separately, since
-	 * for loops may contain both a comparison, and an assignment, or multiple
-	 * comparisons, if a boolean is used, which is legal (it just doesn't
-	 * typically occur).
+	 * checkAssignment(): This method checks for cases where a comparison operator
+	 * ("==") was used instead of an assignment operator ("="), and vice-versa. In
+	 * order to do this, it checks all variables in scope to see if they are
+	 * mistakenly being compared to a value instead of assigned a value. Booleans
+	 * are handled specially, since "==" CAN occur in the assignment of a boolean.
+	 * It then checks conditionals, and loop declarations, to ensure that variables
+	 * are not being assigned, but are actually being compared. Here, for-loops are
+	 * handled separately, since for loops may contain both a comparison, and an
+	 * assignment, or multiple comparisons, if a boolean is used, which is legal (it
+	 * just doesn't typically occur).
 	 * 
 	 * checkTabbing(): Takes integer parameter numSpaces This method checks that
-	 * every line begins with the appropriate number of tabs/spaces. It does
-	 * this by finding open brackets, and incrementing a level variable every
-	 * time brackets are opened, and decrementing the same variable any time
-	 * brackets are closed. For the sake of this method, we assume the brackets
-	 * are correct (i.e. not mismatched). That's a different error, and
-	 * shouldn't technically affect indentation conventions. Additionally, an
-	 * extra tab/set of spaces is added if a loop is started, but no bracket is
-	 * opened. This is the case of a single-line loop (works with conditionals,
-	 * too). The numSpaces parameter exists because some people use spaces
-	 * instead of tabs for indentation, but not everyone uses the same number of
-	 * spaces. So, we can declare a number of spaces to look for here at each
-	 * indentation level.
+	 * every line begins with the appropriate number of tabs/spaces. It does this by
+	 * finding open brackets, and incrementing a level variable every time brackets
+	 * are opened, and decrementing the same variable any time brackets are closed.
+	 * For the sake of this method, we assume the brackets are correct (i.e. not
+	 * mismatched). That's a different error, and shouldn't technically affect
+	 * indentation conventions. Additionally, an extra tab/set of spaces is added if
+	 * a loop is started, but no bracket is opened. This is the case of a
+	 * single-line loop (works with conditionals, too). The numSpaces parameter
+	 * exists because some people use spaces instead of tabs for indentation, but
+	 * not everyone uses the same number of spaces. So, we can declare a number of
+	 * spaces to look for here at each indentation level.
 	 */
-	public ArrayList<Habit> checkScanner(){
+	public ArrayList<Habit> checkScanner() {
 		int open = 0;
-		List<String> scanners = new ArrayList<String>();
-		List<Integer> scannersPos = new ArrayList<Integer>();
+		ArrayList<String> scanners = new ArrayList<String>();
+		ArrayList<Integer> scannersPos = new ArrayList<Integer>();
+		ArrayList<Integer> scannerStart = new ArrayList<Integer>();
+		ArrayList<Integer> scannerEnd = new ArrayList<Integer>();
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		int errorCount = 0;
+		int currentIndex = 0;
 
 		Scanner scan = new Scanner(fileString);
 		int lineIndex = 0;
@@ -127,9 +126,12 @@ public class TextProcessor {
 					// here.
 					scanners.add(matcher.group(0).replace("Scanner", "").trim());
 					scannersPos.add(lineIndex);
+					scannerStart.add(currentIndex);
+					scannerEnd.add(currentIndex + line.length());
 					open++;
 				}
 			}
+			currentIndex += line.length();
 			int[] removals = new int[scanners.size()];
 			int j = 0;
 			for (int i = 0; i < scanners.size(); i++) {
@@ -143,30 +145,37 @@ public class TextProcessor {
 			for (int k = j - 1; k >= 0; k--) {
 				scanners.remove(removals[k]);
 				scannersPos.remove(removals[k]);
+				scannerStart.remove(removals[k]);
+				scannerEnd.remove(removals[k]);
 				open--;
 			}
 			lineIndex++;
 		}
 		scan.close();
 		for (int i = 0; i < scanners.size(); i++) {
-			Habit error = new Habit(scannersPos.get(i), "Scanner " + scanners.get(i) + " on line " + scannersPos.get(i) + " not closed");
+			Habit error = new Habit(scannersPos.get(i),
+					"Scanner " + scanners.get(i) + " on line " + scannersPos.get(i) + " not closed",
+					scannerStart.get(i), scannerEnd.get(i));
 			errors.add(error);
 			errorCount++;
 		}
 		// errors is a list of two-place String arrays, with the format
 		// error[0] = lineNumber (as a String, though!)
 		// error[1] = error message
-		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i).getErrorMessage());
-		}
+		// for (int i = 0; i < errors.size(); i++) {
+		// System.out.println(errors.get(i).getErrorMessage());
+		// }
 		return errors;
 	}
 
-	public ArrayList<Habit> checkBracketCount(){
+	public ArrayList<Habit> checkBracketCount() {
 		ArrayList<Integer> parentheses = new ArrayList<Integer>();
 		ArrayList<Integer> square = new ArrayList<Integer>();
 		ArrayList<Integer> curly = new ArrayList<Integer>();
 		ArrayList<Habit> errors = new ArrayList<Habit>();
+		ArrayList<Integer> parenPos = new ArrayList<Integer>();
+		ArrayList<Integer> squarePos = new ArrayList<Integer>();
+		ArrayList<Integer> curlyPos = new ArrayList<Integer>();
 		int quote = 0;
 		int apostrophe = 0;
 		int errorCount = 0;
@@ -175,6 +184,7 @@ public class TextProcessor {
 		int lineIndex = 1;
 		boolean quoted = false;
 		boolean commented = false;
+		int currentIndex = 0;
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
 			if (line.replaceAll("(\\s|\n)", "").startsWith("/*"))
@@ -191,76 +201,78 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					parentheses.add(lineIndex);
+					parenPos.add(i + currentIndex);
 					break;
 				case '[':
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					square.add(lineIndex);
+					squarePos.add(i + currentIndex);
 					break;
 				case '{':
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					curly.add(lineIndex);
+					curlyPos.add(i + currentIndex);
 					break;
 				case ')':
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
-					if (parentheses.size() > 0)
+					if (parentheses.size() > 0) {
 						parentheses.remove(parentheses.size() - 1);
+						parenPos.remove(parenPos.size() - 1);
+					}
 					break;
 				case ']':
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
-					if (square.size() > 0)
+					if (square.size() > 0) {
 						square.remove(square.size() - 1);
+						squarePos.remove(squarePos.size() - 1);
+					}
 					break;
 				case '}':
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
-					if (curly.size() > 0)
+					if (curly.size() > 0) {
 						curly.remove(curly.size() - 1);
+						curlyPos.remove(curlyPos.size() - 1);
+					}
 					break;
 				case '"':
 					if (i != 0 && line.charAt(i - 1) == '\\')
 						break;
-					else if (i != 0 && i != line.length() && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'')
+					else if (i != 0 && i != line.length() && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'')
 						break;
 					if (quote == 0) {
 						quote = lineIndex;
@@ -281,19 +293,23 @@ public class TextProcessor {
 				}
 			}
 			lineIndex++;
+			currentIndex += line.length();
 		}
 		for (int i = 0; i < parentheses.size(); i++) {
-			Habit error = new Habit(parentheses.get(i), "Unclosed parentheses on line " + parentheses.get(i));
+			Habit error = new Habit(parentheses.get(i), "Unclosed parentheses on line " + parentheses.get(i),
+					parenPos.get(i), parenPos.get(i));
 			errors.add(error);
 			errorCount++;
 		}
 		for (int i = 0; i < square.size(); i++) {
-			Habit error = new Habit(square.get(i), "Unclosed square brackets on line " + square.get(i));
+			Habit error = new Habit(square.get(i), "Unclosed square brackets on line " + square.get(i),
+					squarePos.get(i), squarePos.get(i));
 			errors.add(error);
 			errorCount++;
 		}
 		for (int i = 0; i < curly.size(); i++) {
-			Habit error = new Habit(curly.get(i),"Unclosed curly brace on line " + curly.get(i));
+			Habit error = new Habit(curly.get(i), "Unclosed curly brace on line " + curly.get(i), curlyPos.get(i),
+					curlyPos.get(i));
 			errors.add(error);
 			errorCount++;
 		}
@@ -310,13 +326,13 @@ public class TextProcessor {
 			errorCount++;
 		}
 		scan.close();
-		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i).getErrorMessage());
-		}
+		// for (int i = 0; i < errors.size(); i++) {
+		// System.out.println(errors.get(i).getErrorMessage());
+		// }
 		return errors;
 	}
 
-	public ArrayList<Habit> checkBracketMatch(){
+	public ArrayList<Habit> checkBracketMatch() {
 		ArrayList<Character> lastBracket = new ArrayList<Character>();
 		ArrayList<Integer> lastBracketIndex = new ArrayList<Integer>();
 		ArrayList<Habit> errors = new ArrayList<Habit>();
@@ -346,8 +362,7 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -358,8 +373,7 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -370,8 +384,7 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -382,24 +395,22 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '(') {
 						/*
-						 * If the found closing bracket does not match the
-						 * bracket type of the last opening bracket, we have
-						 * a mismatch. In this case, note the mismatch, and
-						 * remove the last bracket from the list of
-						 * brackets. Note that, in the case of a bracket
-						 * miscount, this may result in all subsequent
-						 * brackets being mismatched.
+						 * If the found closing bracket does not match the bracket type of the last
+						 * opening bracket, we have a mismatch. In this case, note the mismatch, and
+						 * remove the last bracket from the list of brackets. Note that, in the case of
+						 * a bracket miscount, this may result in all subsequent brackets being
+						 * mismatched.
 						 */
-						Habit error = new Habit(lineIndex, "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
-								+ " matching with ')' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
-								+ " and line " + lineIndex);
+						Habit error = new Habit(lineIndex,
+								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+										+ " matching with ')' on line "
+										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
@@ -411,15 +422,15 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '[') {
-						Habit error = new Habit(lineIndex, "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
-								+ " matching with ']' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
-								+ " and line " + lineIndex);
+						Habit error = new Habit(lineIndex,
+								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+										+ " matching with ']' on line "
+										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
@@ -431,15 +442,15 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
-							&& line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '{') {
-						Habit error = new Habit(lineIndex, "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
-								+ "matching with '}' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
-								+ " and line " + lineIndex);
+						Habit error = new Habit(lineIndex,
+								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+										+ "matching with '}' on line "
+										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
@@ -452,29 +463,31 @@ public class TextProcessor {
 			lineIndex++;
 		}
 		scan.close();
-		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i).getErrorMessage());
-		}
+		// for (int i = 0; i < errors.size(); i++) {
+		// System.out.println(errors.get(i).getErrorMessage());
+		// }
 		return errors;
 	}
 
-	public ArrayList<Habit> checkBadSemiColon(){
+	public ArrayList<Habit> checkBadSemiColon() {
 
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		Scanner scan = new Scanner(fileString);
 		int lineIndex = 0;
 		while (scan.hasNextLine()) {
-			// removes all whitespace characters and newlines within a line (there shouldn't be any newlines anyway)
-			String line = scan.nextLine().replaceAll("(\\s|\n)", ""); 
+			// removes all whitespace characters and newlines within a line (there shouldn't
+			// be any newlines anyway)
+			String line = scan.nextLine().replaceAll("(\\s|\n)", "");
 			Pattern patternIf = Pattern.compile("if\\(.*\\)"); // finds if
 																// statements.
 			Matcher matcherIf = patternIf.matcher(line);
 			if (matcherIf.find()) {
 				for (int i = 0; i <= matcherIf.groupCount(); i++) {
 					// finds the index of the first character after the matching group.
-					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length(); 
+					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length();
 					if (line.length() > nextidx && line.charAt(nextidx) == ';') {
-						Habit error = new Habit(lineIndex,  "Semi-colon after conditional statement on line " + lineIndex);
+						Habit error = new Habit(lineIndex,
+								"Semi-colon after conditional statement on line " + lineIndex);
 						errors.add(error);
 					}
 				}
@@ -499,7 +512,8 @@ public class TextProcessor {
 					else if (line.charAt(line.indexOf(matcherLoop.group(i))) == 'w')
 						looptype = "while";
 					if (nextidx < line.length() && line.charAt(nextidx) == ';') {
-						Habit error = new Habit(lineIndex, "Semi-colon after " + looptype + " loop declaration on line " + lineIndex);
+						Habit error = new Habit(lineIndex,
+								"Semi-colon after " + looptype + " loop declaration on line " + lineIndex);
 						errors.add(error);
 					}
 				}
@@ -514,7 +528,7 @@ public class TextProcessor {
 
 	}
 
-	public ArrayList<Habit> checkAssignment(){
+	public ArrayList<Habit> checkAssignment() {
 		int errorCount = 0;
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		ArrayList<String> vars = new ArrayList<String>();
@@ -560,14 +574,14 @@ public class TextProcessor {
 				}
 			}
 			if (line.contains("=")) {
-				// pattern that grabs everything  within parentheses.
-				Pattern pattern = Pattern.compile("(?<=\\().*(?=\\))"); 
+				// pattern that grabs everything within parentheses.
+				Pattern pattern = Pattern.compile("(?<=\\().*(?=\\))");
 				// pattern that grabs every instance of an assignment operator (single =)
-				Pattern singleSign = Pattern.compile("(?<!\\=|\\!|\\<|\\>|\\\'|\\\")=(?!=|\\\'|\\\")"); 
+				Pattern singleSign = Pattern.compile("(?<!\\=|\\!|\\<|\\>|\\\'|\\\")=(?!=|\\\'|\\\")");
 				Pattern doubleSign = Pattern.compile("==");
 				// gets the type of a variable
 				Pattern variableType = Pattern
-						.compile("((Scanner|int|String|char|double|Scanner|float|long|boolean)(\\[\\])*(?!At|Of))"); 
+						.compile("((Scanner|int|String|char|double|Scanner|float|long|boolean)(\\[\\])*(?!At|Of))");
 				Pattern variableName = Pattern.compile(".*?(?==)");
 				String trimmedLine = line.trim();
 				boolean loop = false;
@@ -598,17 +612,18 @@ public class TextProcessor {
 					Matcher matchVar = varOnly.matcher(line);
 					if (matchVar.find()) {
 						// loops and conditionals handled separately.
-						if (line.contains("while") || line.contains("if") || line.contains("for")) { 
+						if (line.contains("while") || line.contains("if") || line.contains("for")) {
 							continue;
 						}
 						line = line.substring(matchVar.end(0)).trim();
 						if (line.startsWith("==")) {
-							Habit error = new Habit(lineIndex, "Comparison on line " + lineIndex + ". This should be variable assignment (=)");
+							Habit error = new Habit(lineIndex,
+									"Comparison on line " + lineIndex + ". This should be variable assignment (=)");
 							errors.add(error);
 						} else if (types.get(i).equals("boolean") && singleSign.matcher(line).groupCount() > 1) {
-							Habit error = new Habit(lineIndex, "Assignment (=) after the initial assignment of the boolean variable "
-									+ vars.get(i) + " on line " + lineIndex
-									+ ". This should be a comparison (==).");
+							Habit error = new Habit(lineIndex,
+									"Assignment (=) after the initial assignment of the boolean variable " + vars.get(i)
+											+ " on line " + lineIndex + ". This should be a comparison (==).");
 							errors.add(error);
 						}
 
@@ -685,7 +700,8 @@ public class TextProcessor {
 									errors.add(error);
 								}
 							} else if (doubleSign.matcher(conditionParts[i]).find() && isString) {
-								Habit error = new Habit(lineIndex, "Comparison (==) on line " + lineIndex + ", but this is a conditional statement on Strings, so this should be a comparison using .equals.");
+								Habit error = new Habit(lineIndex, "Comparison (==) on line " + lineIndex
+										+ ", but this is a conditional statement on Strings, so this should be a comparison using .equals.");
 								errors.add(error);
 								isString = false;
 							}
@@ -704,21 +720,23 @@ public class TextProcessor {
 							String[] checkColon = matcher.group().split(":");
 
 							if (checkComma.length == 3) {
-								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line " + lineIndex + ". You've used commas (,), but should be using semi-colons (;)");
+								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line "
+										+ lineIndex + ". You've used commas (,), but should be using semi-colons (;)");
 								errors.add(error);
 							} else if (checkColon.length == 3) {
-								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line " + lineIndex
-										+ ". You've used colons (:), but should be using semi-colons (;)");
+								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line "
+										+ lineIndex + ". You've used colons (:), but should be using semi-colons (;)");
 								errors.add(error);
 							} else {
-								Habit error = new Habit(lineIndex, "For loops must have 3 parts. Your for loop on line " + lineIndex
-										+ " has only " + Math.max(checkColon.length,
-												Math.max(conditionParts.length, checkComma.length)));
+								Habit error = new Habit(lineIndex,
+										"For loops must have 3 parts. Your for loop on line " + lineIndex + " has only "
+												+ Math.max(checkColon.length,
+														Math.max(conditionParts.length, checkComma.length)));
 								errors.add(error);
 							}
 						} else {
 							// check the first part of the for loop
-							if (conditionParts[0].contains("=")) { 
+							if (conditionParts[0].contains("=")) {
 								if (conditionParts[0].trim().startsWith("boolean")) {
 									String pared = conditionParts[0].replaceAll("boolean", "");
 									Matcher getVar = Pattern.compile(".*(?=^([^=]+))").matcher(pared);
@@ -729,13 +747,14 @@ public class TextProcessor {
 									}
 									pared = conditionParts[0].replace(".*(?=^([^=]+))", "");
 									if (pared.trim().startsWith("==")) {
-										Habit error = new Habit (lineIndex, "Comparison (==) on line " + lineIndex
+										Habit error = new Habit(lineIndex, "Comparison (==) on line " + lineIndex
 												+ " within the first section of the for statement. This should be a variable assignment (=)");
 										errors.add(error);
 									} else {
 										pared = pared.replaceFirst("=", "");
 										if (singleSign.matcher(pared).find()) {
-											Habit error = new Habit(lineIndex,"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
+											Habit error = new Habit(lineIndex,
+													"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
 											errors.add(error);
 										}
 									}
@@ -754,21 +773,19 @@ public class TextProcessor {
 								if (fCMatcher.find() && sCMatcher.find()) {
 									String fC = fCMatcher.group();
 									String sC = sCMatcher.group();
-									// if  either match contains quotes, we have a String
-									if (fC.contains("\"") || sC.contains("\"")) { 
+									// if either match contains quotes, we have a String
+									if (fC.contains("\"") || sC.contains("\"")) {
 										isString = true;
 									} else {
 										innerloop: for (int k = 0; k < vars.size(); k++) {
 											if (fC.trim().equals(vars.get(k))) {
-												if (types.get(k).equals("String")
-														|| types.get(k).equals("Scanner")) {
+												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
 													isString = true;
 													break innerloop;
 												}
 											}
 											if (sC.trim().equals(vars.get(k))) {
-												if (types.get(k).equals("String")
-														|| types.get(k).equals("Scanner")) {
+												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
 													isString = true;
 													break innerloop;
 												}
@@ -785,7 +802,8 @@ public class TextProcessor {
 									} else {
 										pared = pared.substring(2);
 										if (singleSign.matcher(pared).find()) {
-											Habit error = new Habit(lineIndex, "Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
+											Habit error = new Habit(lineIndex,
+													"Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
 											errors.add(error);
 										}
 									}
@@ -810,15 +828,15 @@ public class TextProcessor {
 			lineIndex++;
 		}
 		scan.close();
-		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i).getErrorMessage());
-			errorCount++;
-		}
+		// for (int i = 0; i < errors.size(); i++) {
+		// System.out.println(errors.get(i).getErrorMessage());
+		// errorCount++;
+		// }
 		return errors;
 	}
 
-	public ArrayList<Habit> checkTabbing(int numSpaces){ // #dablife #maverickmerch
-												// #itslitfam
+	public ArrayList<Habit> checkTabbing(int numSpaces) { // #dablife #maverickmerch
+		// #itslitfam
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		int errorCount = 0;
 		int level = 0;
@@ -864,16 +882,16 @@ public class TextProcessor {
 			if (!line.startsWith(tabs) && !line.startsWith(spaces) && !commented) {
 
 				if (level != 1) {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have " + level
-							+ " tabs (or " + numSpaces * level + " spaces)");
+					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
+							+ level + " tabs (or " + numSpaces * level + " spaces)");
 					errors.add(error);
 				} else if (numSpaces == 1) {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
-							+ numSpaces + " space)");
+					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
+							+ level + " tab (or " + numSpaces + " space)");
 					errors.add(error);
 				} else {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
-							+ numSpaces + " spaces)");
+					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
+							+ level + " tab (or " + numSpaces + " spaces)");
 					errors.add(error);
 				}
 			}
@@ -889,10 +907,10 @@ public class TextProcessor {
 			}
 			lineIndex++;
 		}
-		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i).getErrorMessage());
-			errorCount++;
-		}
+		// for (int i = 0; i < errors.size(); i++) {
+		// System.out.println(errors.get(i).getErrorMessage());
+		// errorCount++;
+		// }
 		return errors;
 	}
 

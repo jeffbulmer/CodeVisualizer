@@ -23,6 +23,8 @@ import javafx.util.Duration;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -41,6 +43,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+
+import org.fxmisc.richtext.TextExt;
 
 /**
  * AnimateFile.java: A program to animate keystroke data.
@@ -86,12 +91,20 @@ public class AnimateFile extends Application {
 	TextProcessor tp;
 	double widthTextError;
 
+	boolean isScannerOn;
+	boolean isBracketCountOn;
+	boolean isBracketMismatchOn;
+	boolean isSemicolonOn;
+	boolean isComparisonOn;
+	boolean isWhitespaceOn;
+
 	@Override
 	public void start(Stage pStage) {
 		// Instantiate vars and build the scene
 		this.pStage = pStage;
 		bp = new BorderPane();
 		Scene scene = new Scene(bp, 500, 300);
+		scene.getStylesheets().add("Errors.css");
 		double widthLineNums = (Screen.getPrimary().getVisualBounds().getWidth()) / 40;
 		widthTextError = ((Screen.getPrimary().getVisualBounds().getWidth()) / 2) - (widthLineNums / 2);
 
@@ -224,6 +237,7 @@ public class AnimateFile extends Application {
 		CheckBox semicolon;
 		CheckBox comparison;
 		CheckBox whitespace;
+		ArrayList<CheckBox> errors = new ArrayList<CheckBox>();
 
 		if (currentCode == null) {
 			scanner = new CheckBox("Unclosed Scanners \t\t\t (0)");
@@ -232,14 +246,22 @@ public class AnimateFile extends Application {
 			semicolon = new CheckBox("Misplaced Semi-colons \t\t (0)");
 			comparison = new CheckBox("Comparison vs. Assignment \t (0)");
 			whitespace = new CheckBox("Misaligned Whitespace \t\t (0)");
+
+			errors.add(scanner);
+			errors.add(bracketCount);
+			errors.add(bracketMismatch);
+			errors.add(semicolon);
+			errors.add(comparison);
+			errors.add(whitespace);
+
 		} else {
 			tp = new TextProcessor(currentCode, false);
-			boolean isScannerError = (tp.checkScanner().size() > 0) ? false : true;
-			boolean isBracketCountError = (tp.checkScanner().size() > 0) ? false : true;
-			boolean isBracketMismatchError = (tp.checkScanner().size() > 0) ? false : true;
-			boolean isSemicolonError = (tp.checkScanner().size() > 0) ? false : true;
-			boolean isComparisonError = (tp.checkScanner().size() > 0) ? false : true;
-			boolean isWhitespaceError = (tp.checkScanner().size() > 0) ? false : true;
+			boolean isScannerError = (tp.checkScanner().size() == 0) ? false : true;
+			boolean isBracketCountError = (tp.checkBracketCount().size() == 0) ? false : true;
+			boolean isBracketMismatchError = (tp.checkBracketMatch().size() == 0) ? false : true;
+			boolean isSemicolonError = (tp.checkBadSemiColon().size() == 0) ? false : true;
+			boolean isComparisonError = (tp.checkAssignment().size() == 0) ? false : true;
+			boolean isWhitespaceError = (tp.checkTabbing(4).size() == 0) ? false : true;
 
 			scanner = new CheckBox("Unclosed Scanners \t\t\t (" + tp.checkScanner().size() + ")");
 			bracketCount = new CheckBox("Bracket Miscounts \t\t\t (" + tp.checkBracketCount().size() + ")");
@@ -248,39 +270,90 @@ public class AnimateFile extends Application {
 			comparison = new CheckBox("Comparison vs. Assignment \t (" + tp.checkAssignment().size() + ")");
 			whitespace = new CheckBox("Misaligned Whitespace \t\t (" + tp.checkTabbing(4).size() + ")");
 
+			errors.add(scanner);
+			errors.add(bracketCount);
+			errors.add(bracketMismatch);
+			errors.add(semicolon);
+			errors.add(comparison);
+			errors.add(whitespace);
+
 			if (!isScannerError) {
 				scanner.setDisable(true);
 			} else {
 				scanner.setDisable(false);
+				ArrayList<Habit> scannerErrors = tp.checkScanner();
+				TextFlow tf = new TextFlow();
+
+				int current = 0;
+				for (Habit h : scannerErrors) {
+					int start = h.getStart();
+					int end = h.getEnd();
+					Text text1 = new Text(currentCode.substring(current, start));
+					Text text2 = new Text(currentCode.substring(start, end + 2));
+					text1.setFont(Font.font(18));
+					text2.setFont(Font.font(18));
+					text2.setId("scanner");
+					tf.getChildren().addAll(text1, text2);
+					current = end + 2;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(18));
+				tf.getChildren().add(text3);
+
 				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
 					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
-						ArrayList<Habit> scannerErrors = tp.checkScanner();
-						for (int i = 0; i < scannerErrors.size(); i++) {
-							//TODO: highlight error text
+						if (scanner.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(scanner))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+						} else {
+							textArea.setContent(animationText);
+						}
+					}
+				});
+			}
+			
+			if (!isScannerError) {
+				scanner.setDisable(true);
+			} else {
+				scanner.setDisable(false);
+				ArrayList<Habit> scannerErrors = tp.checkScanner();
+				TextFlow tf = new TextFlow();
+
+				int current = 0;
+				for (Habit h : scannerErrors) {
+					int start = h.getStart();
+					int end = h.getEnd();
+					Text text1 = new Text(currentCode.substring(current, start));
+					Text text2 = new Text(currentCode.substring(start, end + 2));
+					text1.setFont(Font.font(18));
+					text2.setFont(Font.font(18));
+					text2.setId("scanner");
+					tf.getChildren().addAll(text1, text2);
+					current = end + 2;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(18));
+				tf.getChildren().add(text3);
+
+				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (scanner.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(scanner))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+						} else {
+							textArea.setContent(animationText);
 						}
 					}
 				});
 			}
 
-			if (!isBracketMismatchError) {
-				bracketMismatch.setDisable(true);
-			} else {
-				bracketMismatch.setDisable(false);
-				bracketMismatch.selectedProperty().addListener(new ChangeListener<Boolean>() {
-					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
-
-					}
-				});
-			}
 		}
-
-		ArrayList<CheckBox> errors = new ArrayList<CheckBox>();
-		errors.add(scanner);
-		errors.add(bracketCount);
-		errors.add(bracketMismatch);
-		errors.add(semicolon);
-		errors.add(comparison);
-		errors.add(whitespace);
 
 		for (CheckBox e : errors) {
 			e.setFont(Font.font(18));
