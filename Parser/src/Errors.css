@@ -1,6 +1,11 @@
 
-
 #scanner {
 	-fx-background-color: yellow;
 	-fx-fill: red;
+}
+
+#bracketcount {
+	-fx-background-color: yellow;
+	-fx-fill: magenta;
+	-fx-font-weight: bold;
 }

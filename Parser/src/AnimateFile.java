@@ -89,7 +89,7 @@ public class AnimateFile extends Application {
 	String currentCode;
 	int totalCurrentLines;
 	TextProcessor tp;
-	double widthTextError;
+	double widthText;
 
 	boolean isScannerOn;
 	boolean isBracketCountOn;
@@ -106,24 +106,24 @@ public class AnimateFile extends Application {
 		Scene scene = new Scene(bp, 500, 300);
 		scene.getStylesheets().add("Errors.css");
 		double widthLineNums = (Screen.getPrimary().getVisualBounds().getWidth()) / 40;
-		widthTextError = ((Screen.getPrimary().getVisualBounds().getWidth()) / 2) - (widthLineNums / 2);
+		widthText = ((Screen.getPrimary().getVisualBounds().getWidth()) / 3) - (widthLineNums / 3);
 
 		lineNumbers = new Text();
-		lineNumbers.setFont(Font.font(18));
+		lineNumbers.setFont(Font.font(20));
 		lineNumbersArea = new ScrollPane();
 		lineNumbersArea.setContent(lineNumbers);
 		lineNumbersArea.setPadding(new Insets(10, 5, 5, 5));
 		lineNumbersArea.setPrefWidth(widthLineNums);
 
 		animationText = new Text();
-		animationText.setFont(Font.font(18));
+		animationText.setFont(Font.font(20));
 		textArea = new ScrollPane();
 		textArea.getStyleClass().add("noborder-scroll-pane");
 		textArea.setContent(animationText);
 		textArea.setPadding(new Insets(10, 10, 10, 10));
 		textArea.setFitToWidth(true);
 		textArea.setFitToHeight(true);
-		textArea.setPrefWidth(widthTextError);
+		textArea.setPrefWidth(widthText * 2);
 
 		bp.setLeft(lineNumbersArea);
 		bp.setCenter(textArea);
@@ -227,9 +227,9 @@ public class AnimateFile extends Application {
 
 	public VBox makeErrorPanel() {
 		VBox errorPanel = new VBox(10);
-		errorPanel.setPadding(new Insets(10, 10, 10, 50));
+		errorPanel.setPadding(new Insets(40, 10, 10, 50));
 		errorPanel.setAlignment(Pos.TOP_LEFT);
-		errorPanel.setPrefWidth(widthTextError);
+		errorPanel.setPrefWidth(widthText);
 
 		CheckBox scanner;
 		CheckBox bracketCount;
@@ -290,14 +290,14 @@ public class AnimateFile extends Application {
 					int end = h.getEnd();
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, end + 2));
-					text1.setFont(Font.font(18));
-					text2.setFont(Font.font(18));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
 					text2.setId("scanner");
 					tf.getChildren().addAll(text1, text2);
 					current = end + 2;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(18));
+				text3.setFont(Font.font(20));
 				tf.getChildren().add(text3);
 
 				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -314,35 +314,37 @@ public class AnimateFile extends Application {
 					}
 				});
 			}
-			
-			if (!isScannerError) {
-				scanner.setDisable(true);
+
+			if (!isBracketCountError) {
+				bracketCount.setDisable(true);
 			} else {
-				scanner.setDisable(false);
-				ArrayList<Habit> scannerErrors = tp.checkScanner();
+				bracketCount.setDisable(false);
+				ArrayList<Habit> bracketCountErrors = tp.checkBracketCount();
 				TextFlow tf = new TextFlow();
 
 				int current = 0;
-				for (Habit h : scannerErrors) {
+				for (Habit h : bracketCountErrors) {
 					int start = h.getStart();
 					int end = h.getEnd();
+					sopl("start: " + start + ", end: " + end);
+					sopl(h.getErrorMessage());
 					Text text1 = new Text(currentCode.substring(current, start));
-					Text text2 = new Text(currentCode.substring(start, end + 2));
-					text1.setFont(Font.font(18));
-					text2.setFont(Font.font(18));
-					text2.setId("scanner");
+					Text text2 = new Text(currentCode.substring(start, end + 1));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
+					text2.setId("bracketcount");
 					tf.getChildren().addAll(text1, text2);
-					current = end + 2;
+					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(18));
+				text3.setFont(Font.font(20));
 				tf.getChildren().add(text3);
 
-				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
+				bracketCount.selectedProperty().addListener(new ChangeListener<Boolean>() {
 					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
-						if (scanner.isSelected()) {
+						if (bracketCount.isSelected()) {
 							for (int i = 0; i < errors.size(); i++) {
-								if (!errors.get(i).equals(scanner))
+								if (!errors.get(i).equals(bracketCount))
 									errors.get(i).setSelected(false);
 							}
 							textArea.setContent(tf);
@@ -355,15 +357,15 @@ public class AnimateFile extends Application {
 
 		}
 
+		
+		//sopl(tp.checkBracketMatch().get(0).getErrorMessage());
+		//sopl(tp.checkBracketMatch().get(0).getStart() + " " + tp.checkBracketMatch().get(0).getEnd());
+		
 		for (CheckBox e : errors) {
-			e.setFont(Font.font(18));
-			// e.setPadding(new Insets(10, 10, 10, 50));
+			e.setFont(Font.font(20));
 			e.setStyle("-fx-faint-focus-color: transparent;");
 		}
-
-		// ArrayList<Habit> scanners = (ArrayList)tp.checkScanner();
-		// sopl(scanners.size());
-
+	
 		errorPanel.getChildren().addAll(errors);
 		return errorPanel;
 	}

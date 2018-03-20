@@ -187,6 +187,7 @@ public class TextProcessor {
 		int currentIndex = 0;
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
+			int lineLength = line.length();
 			if (line.replaceAll("(\\s|\n)", "").startsWith("/*"))
 				commented = true;
 			if (line.replaceAll("(\\s|\n)", "").startsWith("*/") || line.replaceAll("(\\s|\n)", "").endsWith("*/"))
@@ -293,7 +294,7 @@ public class TextProcessor {
 				}
 			}
 			lineIndex++;
-			currentIndex += line.length();
+			currentIndex += lineLength + 1;
 		}
 		for (int i = 0; i < parentheses.size(); i++) {
 			Habit error = new Habit(parentheses.get(i), "Unclosed parentheses on line " + parentheses.get(i),
@@ -335,11 +336,13 @@ public class TextProcessor {
 	public ArrayList<Habit> checkBracketMatch() {
 		ArrayList<Character> lastBracket = new ArrayList<Character>();
 		ArrayList<Integer> lastBracketIndex = new ArrayList<Integer>();
+		ArrayList<Integer> lastBracketStart = new ArrayList<Integer>();
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		Scanner scan = new Scanner(fileString);
 		int lineIndex = 1;
 		boolean quoted = false;
 		boolean commented = false;
+		int currentIndex = 0;
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
 			if (line.replaceAll("(\\s|\n)", "").startsWith("/*"))
@@ -368,6 +371,7 @@ public class TextProcessor {
 					}
 					lastBracket.add('(');
 					lastBracketIndex.add(lineIndex);
+					lastBracketStart.add(i + currentIndex);
 					break;
 				case '[':
 					if (quoted) {
@@ -379,6 +383,7 @@ public class TextProcessor {
 					}
 					lastBracket.add('[');
 					lastBracketIndex.add(lineIndex);
+					lastBracketStart.add(i + currentIndex);
 					break;
 				case '{':
 					if (quoted) {
@@ -390,6 +395,7 @@ public class TextProcessor {
 					}
 					lastBracket.add('{');
 					lastBracketIndex.add(lineIndex);
+					lastBracketStart.add(i + currentIndex);
 					break;
 				case ')':
 					if (quoted) {
@@ -410,12 +416,14 @@ public class TextProcessor {
 						Habit error = new Habit(lineIndex,
 								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
 										+ " matching with ')' on line "
-										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
+										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex,
+								lastBracketStart.get(lastBracketStart.size() - 1), (i + currentIndex));
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
 						lastBracket.remove(lastBracket.size() - 1);
 						lastBracketIndex.remove(lastBracketIndex.size() - 1);
+						lastBracketStart.remove(lastBracketStart.size() - 1);
 					}
 					break;
 				case ']':
@@ -430,12 +438,14 @@ public class TextProcessor {
 						Habit error = new Habit(lineIndex,
 								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
 										+ " matching with ']' on line "
-										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
+										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex,
+								lastBracketStart.get(lastBracketStart.size() - 1), (i + currentIndex));
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
 						lastBracket.remove(lastBracket.size() - 1);
 						lastBracketIndex.remove(lastBracketIndex.size() - 1);
+						lastBracketStart.remove(lastBracketStart.size() - 1);
 					}
 					break;
 				case '}':
@@ -450,17 +460,20 @@ public class TextProcessor {
 						Habit error = new Habit(lineIndex,
 								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
 										+ "matching with '}' on line "
-										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
+										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex,
+								lastBracketStart.get(lastBracketStart.size() - 1), (i + currentIndex));
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
 						lastBracket.remove(lastBracket.size() - 1);
 						lastBracketIndex.remove(lastBracketIndex.size() - 1);
+						lastBracketStart.remove(lastBracketStart.size() - 1);
 					}
 					break;
 				}
 			}
 			lineIndex++;
+			currentIndex += line.length();
 		}
 		scan.close();
 		// for (int i = 0; i < errors.size(); i++) {
@@ -472,12 +485,16 @@ public class TextProcessor {
 	public ArrayList<Habit> checkBadSemiColon() {
 
 		ArrayList<Habit> errors = new ArrayList<Habit>();
+		ArrayList<Habit> errorPos = new ArrayList<Habit>();
 		Scanner scan = new Scanner(fileString);
 		int lineIndex = 0;
+		int currentIndex = 0;
 		while (scan.hasNextLine()) {
 			// removes all whitespace characters and newlines within a line (there shouldn't
 			// be any newlines anyway)
-			String line = scan.nextLine().replaceAll("(\\s|\n)", "");
+			String line = scan.nextLine();
+			int lineLength = line.length();
+			line = line.replaceAll("(\\s|\n)", "");
 			Pattern patternIf = Pattern.compile("if\\(.*\\)"); // finds if
 																// statements.
 			Matcher matcherIf = patternIf.matcher(line);
@@ -487,7 +504,8 @@ public class TextProcessor {
 					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length();
 					if (line.length() > nextidx && line.charAt(nextidx) == ';') {
 						Habit error = new Habit(lineIndex,
-								"Semi-colon after conditional statement on line " + lineIndex);
+								"Semi-colon after conditional statement on line " + lineIndex, i + currentIndex,
+								i + currentIndex);
 						errors.add(error);
 					}
 				}
@@ -513,12 +531,13 @@ public class TextProcessor {
 						looptype = "while";
 					if (nextidx < line.length() && line.charAt(nextidx) == ';') {
 						Habit error = new Habit(lineIndex,
-								"Semi-colon after " + looptype + " loop declaration on line " + lineIndex);
+								"Semi-colon after " + looptype + " loop declaration on line " + lineIndex, i + currentIndex, i + currentIndex);
 						errors.add(error);
 					}
 				}
 			}
 			lineIndex++;
+			currentIndex += lineLength;
 		}
 		scan.close();
 		for (int i = 0; i < errors.size(); i++) {
