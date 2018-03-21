@@ -33,6 +33,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -182,8 +183,7 @@ public class AnimateFile extends Application {
 				bp.setBottom(makeMediaBar());
 			}
 		});
-		// menuFileOpenKeystroke.setAccelerator(new KeyCodeCombination(KeyCode.O,
-		// KeyCombination.CONTROL_DOWN));
+		menuFileOpenKeystroke.setAccelerator(new KeyCodeCombination(KeyCode.K, KeyCombination.CONTROL_DOWN));
 
 		MenuItem menuFileOpenText = new MenuItem("Open Text File");
 		menuFileOpenText.setOnAction(e -> {
@@ -289,12 +289,12 @@ public class AnimateFile extends Application {
 					int start = h.getStart();
 					int end = h.getEnd();
 					Text text1 = new Text(currentCode.substring(current, start));
-					Text text2 = new Text(currentCode.substring(start, end + 2));
+					Text text2 = new Text(currentCode.substring(start, end + 1));
 					text1.setFont(Font.font(20));
 					text2.setFont(Font.font(20));
 					text2.setId("scanner");
 					tf.getChildren().addAll(text1, text2);
-					current = end + 2;
+					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
 				text3.setFont(Font.font(20));
@@ -322,17 +322,20 @@ public class AnimateFile extends Application {
 				ArrayList<Habit> bracketCountErrors = tp.checkBracketCount();
 				TextFlow tf = new TextFlow();
 
-				int current = 0;
+				ArrayList<Integer> parenPos = new ArrayList<Integer>();
 				for (Habit h : bracketCountErrors) {
-					int start = h.getStart();
-					int end = h.getEnd();
-					Text text1 = new Text(currentCode.substring(current, start));
-					Text text2 = new Text(currentCode.substring(start, end + 1));
+					parenPos.add(h.getStart());
+				}
+				Collections.sort(parenPos);
+				int current = 0;
+				for (int i = 0; i < parenPos.size(); i++) {
+					Text text1 = new Text(currentCode.substring(current, parenPos.get(i)));
+					Text text2 = new Text(currentCode.substring(parenPos.get(i), parenPos.get(i) + 1));
 					text1.setFont(Font.font(20));
 					text2.setFont(Font.font(20));
 					text2.setId("bracketcount");
 					tf.getChildren().addAll(text1, text2);
-					current = end + 1;
+					current = parenPos.get(i) + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
 				text3.setFont(Font.font(20));
@@ -364,8 +367,6 @@ public class AnimateFile extends Application {
 				for (Habit h : bracketMismatchErrors) {
 					int start = h.getStart();
 					int end = h.getEnd();
-					// sopl("start: " + start + ", end: " + end);
-					// sopl(h.getErrorMessage());
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, start + 1));
 					Text text4 = new Text(currentCode.substring(start + 1, end));
@@ -377,7 +378,7 @@ public class AnimateFile extends Application {
 					text5.setFont(Font.font(20));
 					text2.setId("bracketmismatch");
 					text5.setId("bracketmismatch");
-					
+
 					tf.getChildren().addAll(text1, text2, text4, text5);
 					current = end + 1;
 				}
@@ -400,11 +401,122 @@ public class AnimateFile extends Application {
 				});
 			}
 
-		}
+			if (!isSemicolonError) {
+				semicolon.setDisable(true);
+			} else {
+				semicolon.setDisable(false);
+				ArrayList<Habit> semicolonErrors = tp.checkBadSemiColon();
+				TextFlow tf = new TextFlow();
 
-		// sopl(tp.checkBracketMatch().get(0).getErrorMessage());
-		// sopl(tp.checkBracketMatch().get(0).getStart() + " " +
-		// tp.checkBracketMatch().get(0).getEnd());
+				int current = 0;
+				for (Habit h : semicolonErrors) {
+					int start = h.getStart();
+					int end = h.getEnd();
+					Text text1 = new Text(currentCode.substring(current, start));
+					Text text2 = new Text(currentCode.substring(start, end + 1));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
+					text2.setId("semicolon");
+					tf.getChildren().addAll(text1, text2);
+					current = end + 1;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(20));
+				tf.getChildren().add(text3);
+
+				semicolon.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (semicolon.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(semicolon))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+						} else {
+							textArea.setContent(animationText);
+						}
+					}
+				});
+			}
+
+			if (!isComparisonError) {
+				comparison.setDisable(true);
+			} else {
+				comparison.setDisable(false);
+				ArrayList<Habit> comparisonErrors = tp.checkAssignment();
+				TextFlow tf = new TextFlow();
+
+				// int current = 0;
+				// for (Habit h : comparisonErrors) {
+				// int start = h.getStart();
+				// int end = h.getEnd();
+				// Text text1 = new Text(currentCode.substring(current, start));
+				// Text text2 = new Text(currentCode.substring(start, end + 1));
+				// text1.setFont(Font.font(20));
+				// text2.setFont(Font.font(20));
+				// text2.setId("semicolon");
+				// tf.getChildren().addAll(text1, text2);
+				// current = end + 1;
+				// sopl(h.getErrorMessage());
+				// }
+				// Text text3 = new Text(currentCode.substring(current));
+				// text3.setFont(Font.font(20));
+				// tf.getChildren().add(text3);
+
+				comparison.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (comparison.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(comparison))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(animationText);
+						} else {
+							textArea.setContent(animationText);
+						}
+					}
+				});
+			}
+
+			if (!isWhitespaceError) {
+				whitespace.setDisable(true);
+			} else {
+				whitespace.setDisable(false);
+				ArrayList<Habit> whitespaceErrors = tp.checkTabbing(4);
+				TextFlow tf = new TextFlow();
+
+				int current = 0;
+				// for (Habit h : whitespaceErrors) {
+				// int start = h.getStart();
+				// int end = h.getEnd();
+				// Text text1 = new Text(currentCode.substring(current, start));
+				// Text text2 = new Text(currentCode.substring(start, end + 1));
+				// text1.setFont(Font.font(20));
+				// text2.setFont(Font.font(20));
+				// text2.setId("semicolon");
+				// tf.getChildren().addAll(text1, text2);
+				// current = end + 1;
+				// }
+				// Text text3 = new Text(currentCode.substring(current));
+				// text3.setFont(Font.font(20));
+				// tf.getChildren().add(text3);
+
+				whitespace.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (whitespace.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(whitespace))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(animationText);
+						} else {
+							textArea.setContent(animationText);
+						}
+					}
+				});
+			}
+
+		}
 
 		for (CheckBox e : errors) {
 			e.setFont(Font.font(20));
@@ -429,66 +541,69 @@ public class AnimateFile extends Application {
 		 * Create the slider bar at the bottom with a Listener if this is a
 		 * KeystrokeFile
 		 */
-		if (isKeystrokeFile) {
+		// if (isKeystrokeFile) {
+		if (codeToAnimate == null) {
+			slider = new Slider(0, pStage.getWidth(), 0);
+		} else {
 			slider = new Slider(0, codeToAnimate.length, 0);
-			slider.setPrefWidth((.75) * pStage.getWidth());
-			currentCode = "";
-			slider.valueProperty().addListener(new ChangeListener<Number>() {
-				public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-					int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
-					// translateKeyCodes returns a String representation of the code at any given
-					// time.
-					currentCode = translateKeyCodes(codeToAnimateNow);
-					animationText.setText(currentCode);
-					tp = new TextProcessor(currentCode, false);
-				}
-			});
-
-			/*
-			 * Create the Play button. Note that the Listener for the slider bar appears
-			 * again on the inside of the KeyFrame animation so that a user may slide to any
-			 * point in the animation while it's currently playing.
-			 */
-			final Button playButton = new Button(">");
-			playButton.setOnAction(e -> {
-				if (timeline.getStatus() == Status.RUNNING) {
-					playButton.setText("||");
-					timeline.pause();
-				} else {
-					playButton.setText("||");
-					final IntegerProperty i = new SimpleIntegerProperty(0);
-					i.set(currentCode.length());
-					KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), event -> {
-						if (i.get() > codeToAnimate.length) {
-							// If we're at the end of the code, stop the animation.
-							timeline.stop();
-						} else {
-							int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, i.intValue() + 10);
-							// translateKeyCodes returns a String representation of the code at any given
-							// time.
-							currentCode = translateKeyCodes(codeToAnimateNow);
-							animationText.setText(currentCode);
-							slider.setValue(i.intValue());
-							i.set(i.get() + 1);
-							slider.valueProperty().addListener(new ChangeListener<Number>() {
-								public void changed(ObservableValue<? extends Number> ov, Number old_val,
-										Number new_val) {
-									int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
-									currentCode = translateKeyCodes(codeToAnimateNow);
-									animationText.setText(currentCode);
-									i.set(new_val.intValue());
-								}
-							});
-						}
-					});
-					timeline.getKeyFrames().add(keyFrame);
-					timeline.setCycleCount(Animation.INDEFINITE);
-					timeline.play();
-				}
-			});
-
-			mediaBar.getChildren().addAll(playButton, slider);
 		}
+		slider.setPrefWidth((.75) * pStage.getWidth());
+		currentCode = "";
+		slider.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
+				// translateKeyCodes returns a String representation of the code at any given
+				// time.
+				currentCode = translateKeyCodes(codeToAnimateNow);
+				animationText.setText(currentCode);
+				tp = new TextProcessor(currentCode, false);
+			}
+		});
+
+		/*
+		 * Create the Play button. Note that the Listener for the slider bar appears
+		 * again on the inside of the KeyFrame animation so that a user may slide to any
+		 * point in the animation while it's currently playing.
+		 */
+		final Button playButton = new Button(">");
+		playButton.setOnAction(e -> {
+			if (timeline.getStatus() == Status.RUNNING) {
+				playButton.setText("||");
+				timeline.pause();
+			} else {
+				playButton.setText("||");
+				final IntegerProperty i = new SimpleIntegerProperty(0);
+				i.set(currentCode.length());
+				KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), event -> {
+					if (i.get() > codeToAnimate.length) {
+						// If we're at the end of the code, stop the animation.
+						timeline.stop();
+					} else {
+						int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, i.intValue() + 10);
+						// translateKeyCodes returns a String representation of the code at any given
+						// time.
+						currentCode = translateKeyCodes(codeToAnimateNow);
+						animationText.setText(currentCode);
+						slider.setValue(i.intValue());
+						i.set(i.get() + 1);
+						slider.valueProperty().addListener(new ChangeListener<Number>() {
+							public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+								int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
+								currentCode = translateKeyCodes(codeToAnimateNow);
+								animationText.setText(currentCode);
+								i.set(new_val.intValue());
+							}
+						});
+					}
+				});
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.setCycleCount(Animation.INDEFINITE);
+				timeline.play();
+			}
+		});
+
+		mediaBar.getChildren().addAll(playButton, slider);
+		// }
 		return mediaBar;
 	}
 

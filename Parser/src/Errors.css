@@ -15,3 +15,9 @@
 	-fx-fill: orange;
 	-fx-font-weight: bold;
 }
+
+#semicolon {
+	-rtfx-background-color: yellow;
+	-fx-fill: green;
+	-fx-font-weight: bold;
+}

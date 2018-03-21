@@ -538,7 +538,7 @@ public class TextProcessor {
 				}
 			}
 			lineIndex++;
-			currentIndex += lineLength;
+			currentIndex += lineLength + 1;
 		}
 		scan.close();
 		for (int i = 0; i < errors.size(); i++) {
