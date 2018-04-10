@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public static void main(String[] args) {
+	
+	// Initializing needed variables:
+	int temp;
+	int reversed = 0;
+	
+	// Input:
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter a number: ");
+	int number = input.nextInt();
+	input.close();
+	
+	// Reversing the input:
+	temp = input;
+	while(input != 0) {
+		reversed = (reversed * 10) + (input % 10);
+		input = input / 10;
+	}
+
+	// Checking for palindrome:
+	System.out.println("Is " + temp + " a palindrome?");
+	return (temp == reversed);
+	
+}

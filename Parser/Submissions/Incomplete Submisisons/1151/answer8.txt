@@ -1,0 +1,4 @@
+Scanner scan = new Scanner(System.in);
+System.out.println("Enter a length for the triangle: ");
+int x = scan.nextInt();
+

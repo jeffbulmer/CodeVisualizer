@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Oddy {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter an integer number greater than 0: ");
+		int num = in.nextInt();
+		int count =0;
+		for(int i =0; i <=num; i++)
+		{
+			if(i%2!=0)
+				count++;
+			
+		}
+		System.out.printf("There are %d odd integers between 0 and %d", count, num);
+in.close();	
+}
+}

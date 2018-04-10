@@ -1,0 +1,59 @@
+import java.util.Scanner;
+public class GuessDate {
+	public static void main (String[] args) {
+
+		Scanner in = new Scanner(System.in);
+
+		int year = 1990 + (int) (Math.random() * (2017 - 1990));
+		int month = 1 + (int) (Math.random() * (12 - 1));
+		int maxDay;
+
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+			maxDay = 31;
+		if (month == 4 || month == 6 || month == 9 || month == 11)
+			maxDay = 30;
+		if (month == 2)
+			if (year % 4 == 0) 
+				if (year % 100 == 0) 
+					if (year % 400 == 0) 
+						maxDay = 29;
+					else
+						maxDay = 28;
+				else
+					maxDay = 29;
+			else
+				maxDay = 28;
+
+		int day = 1 + (int) (Math.random() * (maxDay - 1));
+
+		System.out.println("Guess the year (between 1990 and 2017):");
+		int y = in.nextInt();
+		System.out.println("Guess the month (as a number):");
+		int m = in.nextInt();
+		System.out.println("Guess the day (as a number):");
+		int d =  in.nextInt();
+
+		System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).", year, month, day);
+	
+		String s;
+		if (y > year)
+			s = "late";
+		if (y < year)
+			s = "early";
+		if (y == year) {
+			if (m > month)
+				s = "late";
+			if (m < month)
+				s = "early";
+			if (m == month) {
+				if (d > day)
+					s = "late";
+				if (d < day)
+					s = "early";
+				if (d == day)
+					s = "Just Right";
+			}
+		}
+		System.out.println("You were " + s);	
+	}
+}

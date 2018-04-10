@@ -1,0 +1,6 @@
+double[] roots = new double[10];
+System.out.println("Elements of the generated array: ")
+for(int i = 0; i<roots.length();i++) {
+	roots[i] = Math.sqrt(i);
+	System.out.println(roots[i]);
+}

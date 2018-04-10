@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Birthdate {
+	
+	public static void main(String[] args) {
+		Scanner in= new Scanner(System.in);
+			int year, month, day;
+			year= (int)(1990 + Math.random()*28);
+			month= (int)(1 + Math.random()*12);
+			day= (int)(1 +Math.random()*30);
+
+			System.out.print("Guess the year (between 1990 and 2017): ");
+			int yearGuess= in.nextInt();
+			System.out.println("Guess the month (as a number): ");
+			int monthGuess= in.nextInt();
+			System.out.println("Guess the day (as a number): ");
+			int dayGuess = in.nextInt();
+			System.out.printf("The correct date was %d-%d-%d (yyyy-mm-dd).\n", year, month, day);
+			if (year>yearGuess) 
+				System.out.println("You were too early!");
+			if (year<yearGuess) 
+				System.out.println("You were too late!");
+			if(year==yearGuess) {
+				if (month>monthGuess) 
+					System.out.println("You were too early!");
+				if (month<monthGuess) 
+					System.out.println("You were too late!");
+				if (month==monthGuess) {
+					if (day>dayGuess) 
+						System.out.println("You were too early!");
+					if (day<dayGuess) 
+						System.out.println("You were too late!");
+					if (day==dayGuess) 
+						System.out.println("You got it, wow!");
+				}
+			}

@@ -1,0 +1,6 @@
+Scanner scanner = new Scanner(System.in);
+System.out.print("Enter a value for v: ");
+double v = scanner.nextDouble();
+System.out.print("Enter a value for c: ");
+double c = scanner.nextDouble();
+System.out.print("Value for v = %f, c = %f: %f",v,c,Math.PI / Math.sqrt ( 1 - Math.pow(v/c,2) ));

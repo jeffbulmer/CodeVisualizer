@@ -1,0 +1,44 @@
+public class BankCard {
+	private double money;
+	
+	BankCard(double money) {
+		this.money = money;
+	}
+	BankCard(){
+		this(0);
+	}
+	public double viewBalance() {
+		return money;
+	}
+	public void withdraw(double money) {
+		if (this.money>=money)
+			this.money = this.money - money;
+		else
+			System.out.println("Your card has been declined. Please contact bank.");
+	}
+	public void deposit(double money) {
+		this.money = this.money + money;
+	}
+}
+
+
+public class BankCardUsed {
+
+	public static void main(String[] args) {
+		BankCard c = new BankCard(100);
+		System.out.println("BankCard initialized with $"+c.viewBalance());
+		System.out.println("Loading BankCard with $500");
+		c.deposit(500);
+		System.out.println("BankCard now has $"+c.viewBalance());
+		System.out.println("Buying Chair for $270.");
+		c.withdraw(270);
+		System.out.println("BankCard now has $"+c.viewBalance());
+		System.out.println("Attempting to buy TV for $800");
+		c.withdraw(800);
+		System.out.println("Your card has $"+c.viewBalance());
+		
+
+	}
+
+}
+

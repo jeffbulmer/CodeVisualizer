@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class CLASS_NAME {
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+
+		System.out.println("Enter some numbers: ");
+		int input = in.nextInt();
+		boolean isPalindrome = false;
+		
+		System.out.println("Is " + in + " a palindrome?");
+		if (reverse(input) == input) {
+			isPalindrome = true;
+			System.out.println(isPalindrome);
+		}
+		else
+			System.out.println(isPalindrome);
+	}
+
+public static int reverse(int input) {
+	
+	int out = 0;
+	
+	if(input < 10)
+		return (out = input);
+	else if (input < 100) { 
+		int tenth = input / 10;
+		int one = input % 10;
+		return out = one*10 + tenth;
+		}
+	else if (input < 1000) {
+		int hundredth = input / 100;
+		int tenth = (input % 100) / 10;
+		int one = (input % 100) % 10;
+		return out = (one * 100) + (tenth * 10) + hundredth;
+		}
+	else if (input < 10000) {
+		int thousandth = input / 1000;
+		int hundredth = (input % 1000) / 100;
+		int tenth = input % 100 / 10;
+		int one = input % 10;
+		return out = (one * 1000) + (tenth * 100) + (hundredth * 10) + thousandth;
+		}
+	}
+}

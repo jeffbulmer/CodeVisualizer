@@ -1,0 +1,33 @@
+int y=1990+Math.random()*2018;
+int m=1+Math.random()*13;
+int d=0;
+if((m==4)||(m==6)||(m==9)||(m==11)){
+	d=1+Math.random()*31;
+}else if((m==2)&&((y%4==0)&&(y%400!=0))){
+	d=1+Math.random()*30;
+}else if((m==2)&&(!((y%4==0)&&(y%400!=0)))){
+	d=1+Math.random()*29;
+}else
+	d=1+Math.random()*32;
+System.out.println("Guess a year(between 1990 and 2017");
+int Y=in.nextInt();
+System.out.println("Guess a month(as a number)");
+int M=in.nextInt();
+System.out.println("Guess a day(as a number)");
+int D=in.nextInt();
+System.out.println("The correct date was "+y+"-"+m+"-"+d+" (yyyy=mm=dd)");
+if(Y<y)
+	System.out.println("You were too early!");
+else if(Y>y)
+	System.out.println("You were too late!");
+else if((Y==y)&&(M<m))
+	System.out.println("You were too early!");
+else if((Y==y)&&(M>m))
+	System.out.println("You were too late!");
+else if ((Y==y)&&(M==m)&&(D<d))
+	System.out.println("You were too early!");
+else if((Y==y)&&(M==m)&&(D>d))
+	System.out.println("Your were too late!");
+else if ((Y==y)&&(M==m)&&(D==d))
+	System.out.println("You got it ! wow!");
+	

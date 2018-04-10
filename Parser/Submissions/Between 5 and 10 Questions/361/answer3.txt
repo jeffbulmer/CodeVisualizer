@@ -1,0 +1,7 @@
+// Import scanner here, name it in
+System.out.println("Enter v");
+double v = in.nextDouble();
+System.out.println("Enter c");
+double c = in.nextDouble();
+double formula = Math.PI() * 1 / Math.sqrt(1 - (v*v / c*c));
+System.out.printf("v is %f, c is %f: %f",v,c,formula);		

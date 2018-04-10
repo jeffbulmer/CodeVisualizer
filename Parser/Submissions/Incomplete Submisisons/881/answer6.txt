@@ -1,0 +1,4 @@
+double[] ar = new double[10];
+for(int i = 0; i < ar.length; i++){
+	ar[i] = Math.sqrt(ar);
+}

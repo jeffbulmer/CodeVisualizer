@@ -1,0 +1,27 @@
+import.java.util.Scanner;
+Scanner in=new Scanner(System.in);
+System.out.println ("Enter a number: ");
+int num=in.nextInt();
+int digit=1; int d=0;
+while(num>digit){
+	digit *=10;
+	d+=1;
+}
+int n[]=new int[d];
+for(int i=0;i<d;i++){
+	n[i]=num%digit;
+	digit /=10;
+}
+boolean p=false; int i=0,j=d-1;
+while(n[i]==n[j]){
+	if((i=j-1)&&(d%2==0)){
+		p=true;
+	}else if((i=j-2)&&(d%2==1)){
+		p=true;
+	}else{
+		j--;i++;
+	}
+}
+System.out.println("Is"+num+"a palindrome?");
+System.out.println(p);
+			

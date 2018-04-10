@@ -1,0 +1,9 @@
+Scanner s = new Scanner(System.in);
+int v, c;
+System.out.printf("Enter a value for v: %n");
+v = s.nextInt();
+System.out.printf("Enter a value for c: %n");
+c = s.nextInt();
+double result = Math.PI / (Math.sqrt(1 - (v * v)/(c * c)));
+System.out.printf("Value for v = %d, c = %d: %f%n", v, c, result);
+s.close();

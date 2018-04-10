@@ -1,0 +1,5 @@
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a number:");
+int n = input.nextInt();
+System.out.println("Is "+ n + "a palindrome?");
+

@@ -1,0 +1,38 @@
+Scanner in= new Scanner(System.in);
+int year = (int)(Math.random()*2017-1990) + 1990);
+int month= (int)(Math.random()*12+(1));
+int day= (int)(Math.random()*12+31(1));
+
+System.out.println("Guess the year (between 1990 and 2017):");
+int yearGuess= in.nextInt();
+System.out.println("Guess the month: ");
+int monthGuess=ini.nextInt();
+System.out.println("Guess the day: ");
+int dayGuess= in.nextInt();
+
+System.out.println("The correct date was " + (year) + "-" + (month) +"-"+(day) + "(yyyy-mm-dd)" );
+
+if(year>yearGuess)
+System.out.println("You were too early!");
+else if(year<yearGuess)
+System.out.println("You were too late!");
+
+else if(year==yearGuess{
+
+if(month>monthGuess)
+System.out.println("You were too early!");
+else if(month<monthGuess)
+System.out.println("You were too late!");
+
+else if(month==monthGuess){
+
+if(day>dayGuess)
+System.out.println("You were too early!");
+else if(day<dayGuess)
+System.out.println("You were too late!");
+
+else if(day==dayGuess)
+System.out.println("You got it, wow!");
+
+}
+}

@@ -1,0 +1,36 @@
+package Q:
+
+public class Q1 {
+
+import java.util.scanner;
+
+	public static main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		int year = 1990+(int)Math.random*27;
+		int month = 1+(int)Math.random*11;
+		int day = 1+(int)Math.random*29;
+
+		system.out.println("Guess the year (between 1990 and 2017):");
+		int gYear = in.nextInt();
+	
+		system.out.println("Guess the month (as a number):");
+		int gMonth = in.nextInt();
+
+		system.out.println("Guess the day (as a number):");
+		int gDAy = in.nextInt();
+		
+		system.out.println("The correct date was " + year + "-" + month + "-" + day + " (yyyy-mm-dd)");
+		if ((gYear==year)&&(gMonth==month)&&(gDay==day)) {
+		system.out.println("You got it. wow!"); 
+		} else { if ((gYear>year)||(gMonth>month)||(gDay>day)) {
+		system.out.println("You were too late!");
+		} else { if ((gYear<year)||(gMonth<month)||(gDay<day)) {
+		system.out.println("You were too early!");
+		}
+		}		
+
+	}
+
+
+
+}

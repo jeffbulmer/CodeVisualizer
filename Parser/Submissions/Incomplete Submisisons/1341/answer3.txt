@@ -1,0 +1,14 @@
+( defined class and main )
+Scanner input = new Scanner(System.in);
+final double PI = 3.14;
+System.out.println("Enter value for v:")
+int v = input.nextInt();
+
+System.out.println("Enter value for c:")
+int c = input.nextInt();
+
+int a1 = (v * v) / (c * c)
+int a2 = Math.pow((1 - a1 ), 1/2 );
+int a3 = PI * ( 1 / a2 )
+
+System.out.println("Value for v =" + v + ", c = " + c " : " + a3 );

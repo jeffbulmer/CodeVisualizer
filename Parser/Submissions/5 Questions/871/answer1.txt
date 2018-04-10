@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Q1{
+public static void main(String[]args){
+Scanner in = new Scanner(System.in);
+System.out.println("Enter a numebr: ");
+int n1 = in.nextIne();
+System.out.println("Is " + n1 + " a parlindrome?" );
+String r1 = " ";
+while(n1%10>10){
+r1+= n1%10;
+n1=n1/10;
+}
+int re = Interger.parseInt(re);
+if(n1==re)
+System.out.printIn("true");
+else
+System.out.printIn("false");
+}
+}
+in.close;

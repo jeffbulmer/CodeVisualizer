@@ -1,0 +1,34 @@
+int year = 0;
+int month = 0;
+int day = 0;
+int gYear = 0;
+int gMonth = 0;
+int gDay = 0;
+
+Random random = new Random();
+Scanner sc = new Scanner(System.in);
+
+year = random.nextInt(2017 - 1990 + 1) + 1990;
+month = random.nextInt(12) + 1;
+day = random.nextInt(31) + 1;
+
+System.out.println("Guess the year (between 1990 and 2017): ");
+gYear = sc.nextInt();
+System.out.println("Guess the month (as a number): ");
+gMonth = sc.nextInt();
+System.out.println("Guess the day (as a number): ");
+gDay = sc.nextInt();
+
+System.out.println("The correct date was " + year + "-" + month + "-" + day + " (yyyy-mm-dd).");
+
+GregorianCalender date = new GregorianCalender(year, month, date);
+GregorianCalender gDate = new GregorianCalender(gYear, gMonth, gDate);
+
+if(date.getTime().equals(gDate.getTime()))
+	System.out.println("You guessed right! Nice.");
+if(date.getTime().after(gDate.getTime()))
+	System.out.println("You were early.");
+if(date.getTime().befor(gDate.getTime()));
+	System.out.println("You were late.");
+
+sc.close();

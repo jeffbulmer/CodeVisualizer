@@ -1,0 +1,11 @@
+Scanner in = new Scanner(System.in);
+String x = in.nextLIne;
+String rev = "";
+for(int i = x.length; i<0; i--){
+rev = ""+x.charAt[i];
+}
+if(x.equals(rev))
+sysout("your word is polindrome");
+else
+sysout( "your word is not polindrome");
+

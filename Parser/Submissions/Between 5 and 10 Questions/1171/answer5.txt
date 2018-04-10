@@ -1,0 +1,47 @@
+//Wow congrats on guessing after 3 tries! 3 chance over what? 27*365 possibilities? pretty good, better than most binary searches!
+//assume Random is imported
+public static void main(String[] Finale){
+Random rose = new Random();
+int rome = rose.nextInt(28)+1990;
+int rass = rose.nextInt(12)+1;
+//this one is a pain
+
+int day = 0;
+switch(rass){
+case 1:
+case 3:
+ case 5:
+ case 7: 
+case 8:
+ case 10:
+ case 12: day = rose.nextInt(31)+1;
+break;
+case 4:
+case 6:
+case 9:
+case 11: day = rose.nextInt(30)+1;
+break;
+default:if(rome%4 == 0){
+day = rose.nextInt(29)+1}else{
+day = rose.nextInt(28)
+}
+
+}
+//I'm gonna be lazy with the inputs
+
+System.out.println("year:");
+Scanner sc = new Scanner(System.in);
+int ye = sc.nextInt();
+System.out.println("months:");
+int mo = sc.nextInt();
+System.out.println("Dey:");
+int da = sc.nextInt();
+System.out.printf("RiteAnswer wuz y:%d m:%d: %d", rome,rass,day);
+if(ye == rome && mo == rass && day == da){
+System.out.println("Yep matches");
+}else if(1.0*ye*365.24*30.42+1.0*mo*30.42+da> 1.0*rome*365.24*30.42+ 1.0*rass*30.42)
+System.out.println("2 Big");
+
+}else{
+System.out,println("2 Smoll");
+}

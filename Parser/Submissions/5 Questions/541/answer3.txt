@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Survey
+{
+public static void main(String[] args)
+{
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter a value for v: ");
+int v = sc.nextInt();
+
+System.out.print("Enter a value for c: ");
+int c = sc.nextInt():
+
+double output = Math.PI*(1/(Math.sqrt(1-((v^2)/(c^2)))));
+System.out.println("Output is : " + output);
+}
+}
+

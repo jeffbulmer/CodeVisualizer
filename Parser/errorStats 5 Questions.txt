@@ -1,0 +1,809 @@
+Errors per User:
+
+171
+Unclosed Scanners: 0
+Bracket Miscounts: 2
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 49
+Lines written: 102
+Average number of errors per line: 0.5098039215686274
+Associated Confidence Value: 38
+
+181
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 116
+Average number of errors per line: 0.04310344827586207
+Associated Confidence Value: 40
+
+191
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 2
+Lines written: 81
+Average number of errors per line: 0.1111111111111111
+Associated Confidence Value: 30
+
+201
+Unclosed Scanners: 5
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 93
+Average number of errors per line: 0.06451612903225806
+Associated Confidence Value: 40
+
+211
+Unclosed Scanners: 5
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 93
+Average number of errors per line: 0.06451612903225806
+Associated Confidence Value: 40
+
+221
+Unclosed Scanners: 2
+Bracket Miscounts: 6
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 34
+Lines written: 92
+Average number of errors per line: 0.45652173913043476
+Associated Confidence Value: 33
+
+231
+Unclosed Scanners: 0
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 4
+Lines written: 83
+Average number of errors per line: 0.07228915662650602
+Associated Confidence Value: 40
+
+241
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 59
+Average number of errors per line: 0.11864406779661017
+Associated Confidence Value: 40
+
+251
+Unclosed Scanners: 1
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 20
+Lines written: 63
+Average number of errors per line: 0.3492063492063492
+Associated Confidence Value: 30
+
+261
+Unclosed Scanners: 3
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 4
+Misaligned tabbing/spacing: 0
+Lines written: 101
+Average number of errors per line: 0.06930693069306931
+Associated Confidence Value: 30
+
+271
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 1
+Lines written: 94
+Average number of errors per line: 0.10638297872340426
+Associated Confidence Value: 38
+
+281
+Unclosed Scanners: 5
+Bracket Miscounts: 6
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 3
+Lines written: 116
+Average number of errors per line: 0.1206896551724138
+Associated Confidence Value: 31
+
+291
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 0
+Lines written: 144
+Average number of errors per line: 0.041666666666666664
+Associated Confidence Value: 40
+
+311
+Unclosed Scanners: 0
+Bracket Miscounts: 6
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 3
+Misaligned tabbing/spacing: 8
+Lines written: 105
+Average number of errors per line: 0.18095238095238095
+Associated Confidence Value: 40
+
+321
+Unclosed Scanners: 4
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 57
+Lines written: 99
+Average number of errors per line: 0.6161616161616161
+Associated Confidence Value: 32
+
+331
+Unclosed Scanners: 4
+Bracket Miscounts: 5
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 31
+Lines written: 164
+Average number of errors per line: 0.25
+Associated Confidence Value: 29
+
+351
+Unclosed Scanners: 4
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 58
+Lines written: 103
+Average number of errors per line: 0.6019417475728155
+Associated Confidence Value: 30
+
+371
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 14
+Lines written: 84
+Average number of errors per line: 0.2976190476190476
+Associated Confidence Value: 30
+
+381
+Unclosed Scanners: 5
+Bracket Miscounts: 8
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 15
+Lines written: 118
+Average number of errors per line: 0.2457627118644068
+Associated Confidence Value: 31
+
+401
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 1
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 70
+Lines written: 101
+Average number of errors per line: 0.7821782178217822
+Associated Confidence Value: 34
+
+431
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 3
+Lines written: 74
+Average number of errors per line: 0.12162162162162163
+Associated Confidence Value: 37
+
+451
+Unclosed Scanners: 4
+Bracket Miscounts: 11
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 39
+Lines written: 77
+Average number of errors per line: 0.7402597402597403
+Associated Confidence Value: 27
+
+461
+Unclosed Scanners: 3
+Bracket Miscounts: 10
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 28
+Lines written: 76
+Average number of errors per line: 0.5394736842105263
+Associated Confidence Value: 29
+
+471
+Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 134
+Average number of errors per line: 0.014925373134328358
+Associated Confidence Value: 40
+
+481
+Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 66
+Lines written: 105
+Average number of errors per line: 0.6476190476190476
+Associated Confidence Value: 30
+
+491
+Unclosed Scanners: 5
+Bracket Miscounts: 3
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 29
+Lines written: 87
+Average number of errors per line: 0.42528735632183906
+Associated Confidence Value: 24
+
+501
+Unclosed Scanners: 5
+Bracket Miscounts: 3
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 1
+Lines written: 92
+Average number of errors per line: 0.11956521739130435
+Associated Confidence Value: 32
+
+511
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 18
+Lines written: 104
+Average number of errors per line: 0.23076923076923078
+Associated Confidence Value: 40
+
+521
+Unclosed Scanners: 5
+Bracket Miscounts: 1
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 4
+Misaligned tabbing/spacing: 78
+Lines written: 96
+Average number of errors per line: 0.9270833333333334
+Associated Confidence Value: 29
+
+531
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 0
+Lines written: 91
+Average number of errors per line: 0.07692307692307693
+Associated Confidence Value: 33
+
+541
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 18
+Lines written: 196
+Average number of errors per line: 0.11734693877551021
+Associated Confidence Value: 37
+
+551
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 3
+Misaligned tabbing/spacing: 9
+Lines written: 86
+Average number of errors per line: 0.19767441860465115
+Associated Confidence Value: 30
+
+561
+Unclosed Scanners: 2
+Bracket Miscounts: 5
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 45
+Lines written: 93
+Average number of errors per line: 0.5591397849462365
+Associated Confidence Value: 33
+
+571
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 84
+Average number of errors per line: 0.05952380952380952
+Associated Confidence Value: 36
+
+591
+Unclosed Scanners: 5
+Bracket Miscounts: 4
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 2
+Lines written: 62
+Average number of errors per line: 0.20967741935483872
+Associated Confidence Value: 30
+
+621
+Unclosed Scanners: 0
+Bracket Miscounts: 2
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 1
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 19
+Lines written: 54
+Average number of errors per line: 0.42592592592592593
+Associated Confidence Value: 33
+
+641
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 0
+Lines written: 171
+Average number of errors per line: 0.04093567251461988
+Associated Confidence Value: 34
+
+661
+Unclosed Scanners: 5
+Bracket Miscounts: 5
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 12
+Lines written: 135
+Average number of errors per line: 0.1925925925925926
+Associated Confidence Value: 33
+
+671
+Unclosed Scanners: 5
+Bracket Miscounts: 4
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 31
+Lines written: 86
+Average number of errors per line: 0.46511627906976744
+Associated Confidence Value: 33
+
+681
+Unclosed Scanners: 1
+Bracket Miscounts: 5
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 132
+Average number of errors per line: 0.045454545454545456
+Associated Confidence Value: 39
+
+691
+Unclosed Scanners: 2
+Bracket Miscounts: 1
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 3
+Misaligned tabbing/spacing: 16
+Lines written: 88
+Average number of errors per line: 0.26136363636363635
+Associated Confidence Value: 39
+
+701
+Unclosed Scanners: 5
+Bracket Miscounts: 4
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 30
+Lines written: 87
+Average number of errors per line: 0.4482758620689655
+Associated Confidence Value: 34
+
+711
+Unclosed Scanners: 3
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 4
+Lines written: 68
+Average number of errors per line: 0.1323529411764706
+Associated Confidence Value: 20
+
+721
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 0
+Lines written: 102
+Average number of errors per line: 0.058823529411764705
+Associated Confidence Value: 32
+
+741
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 4
+Misaligned tabbing/spacing: 18
+Lines written: 63
+Average number of errors per line: 0.4603174603174603
+Associated Confidence Value: 29
+
+751
+Unclosed Scanners: 0
+Bracket Miscounts: 3
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 6
+Misaligned tabbing/spacing: 6
+Lines written: 37
+Average number of errors per line: 0.40540540540540543
+Associated Confidence Value: 22
+
+761
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 8
+Lines written: 95
+Average number of errors per line: 0.1368421052631579
+Associated Confidence Value: 40
+
+771
+Unclosed Scanners: 1
+Bracket Miscounts: 1
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 2
+Misaligned tabbing/spacing: 2
+Lines written: 193
+Average number of errors per line: 0.03626943005181347
+Associated Confidence Value: 35
+
+781
+Unclosed Scanners: 0
+Bracket Miscounts: 2
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 113
+Average number of errors per line: 0.02654867256637168
+Associated Confidence Value: 31
+
+811
+Unclosed Scanners: 0
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 14
+Lines written: 164
+Average number of errors per line: 0.0975609756097561
+Associated Confidence Value: 29
+
+821
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 8
+Lines written: 69
+Average number of errors per line: 0.21739130434782608
+Associated Confidence Value: 37
+
+851
+Unclosed Scanners: 1
+Bracket Miscounts: 2
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 9
+Lines written: 163
+Average number of errors per line: 0.08588957055214724
+Associated Confidence Value: 32
+
+861
+Unclosed Scanners: 0
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines written: 109
+Average number of errors per line: 0.009174311926605505
+Associated Confidence Value: 32
+
+871
+Unclosed Scanners: 4
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 77
+Lines written: 95
+Average number of errors per line: 0.8631578947368421
+Associated Confidence Value: 20
+
+891
+Unclosed Scanners: 2
+Bracket Miscounts: 4
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 12
+Lines written: 139
+Average number of errors per line: 0.12949640287769784
+Associated Confidence Value: 34
+
+911
+Unclosed Scanners: 4
+Bracket Miscounts: 1
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 65
+Lines written: 90
+Average number of errors per line: 0.8111111111111111
+Associated Confidence Value: 39
+
+921
+Unclosed Scanners: 5
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 5
+Misaligned tabbing/spacing: 5
+Lines written: 51
+Average number of errors per line: 0.3137254901960784
+Associated Confidence Value: 22
+
+941
+Unclosed Scanners: 5
+Bracket Miscounts: 1
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 4
+Misaligned tabbing/spacing: 0
+Lines written: 46
+Average number of errors per line: 0.21739130434782608
+Associated Confidence Value: 40
+
+951
+Unclosed Scanners: 5
+Bracket Miscounts: 5
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 83
+Lines written: 128
+Average number of errors per line: 0.734375
+Associated Confidence Value: 34
+
+981
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 2
+Lines written: 50
+Average number of errors per line: 0.14
+Associated Confidence Value: 23
+
+991
+Unclosed Scanners: 5
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 1
+Lines written: 176
+Average number of errors per line: 0.03409090909090909
+Associated Confidence Value: 37
+
+1021
+Unclosed Scanners: 5
+Bracket Miscounts: 4
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 11
+Lines written: 86
+Average number of errors per line: 0.23255813953488372
+Associated Confidence Value: 40
+
+1041
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 2
+Lines written: 68
+Average number of errors per line: 0.1323529411764706
+Associated Confidence Value: 30
+
+1051
+Unclosed Scanners: 5
+Bracket Miscounts: 2
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 2
+Lines written: 68
+Average number of errors per line: 0.1323529411764706
+Associated Confidence Value: 30
+
+1071
+Unclosed Scanners: 1
+Bracket Miscounts: 11
+Bracket Mismatches: 1
+Semi-Colons right after a loop or conditional: 1
+Switched Comparison and Assignment Operators: 1
+Misaligned tabbing/spacing: 27
+Lines written: 144
+Average number of errors per line: 0.2916666666666667
+Associated Confidence Value: 30
+
+Errors per Question:
+
+Question 1: Unclosed Scanners: 50
+Bracket Miscounts: 25
+Bracket Mismatches: 6
+Semi-Colons right after a loop or conditional: 2
+Switched Comparison and Assignment Operators: 15
+Misaligned tabbing/spacing: 228
+Lines Written: 1478
+Average number of errors per line: 0.22056833558863329
+
+Question 2: Unclosed Scanners: 47
+Bracket Miscounts: 28
+Bracket Mismatches: 4
+Semi-Colons right after a loop or conditional: 3
+Switched Comparison and Assignment Operators: 13
+Misaligned tabbing/spacing: 210
+Lines Written: 1165
+Average number of errors per line: 0.26180257510729615
+
+Question 3: Unclosed Scanners: 44
+Bracket Miscounts: 29
+Bracket Mismatches: 7
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 147
+Lines Written: 778
+Average number of errors per line: 0.2917737789203085
+
+Question 4: Unclosed Scanners: 44
+Bracket Miscounts: 18
+Bracket Mismatches: 2
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 8
+Misaligned tabbing/spacing: 153
+Lines Written: 885
+Average number of errors per line: 0.2542372881355932
+
+Question 5: Unclosed Scanners: 46
+Bracket Miscounts: 49
+Bracket Mismatches: 4
+Semi-Colons right after a loop or conditional: 4
+Switched Comparison and Assignment Operators: 24
+Misaligned tabbing/spacing: 426
+Lines Written: 2220
+Average number of errors per line: 0.2490990990990991
+
+Question 6: Unclosed Scanners: 0
+Bracket Miscounts: 3
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 2
+Lines Written: 8
+Average number of errors per line: 0.625
+
+Question 7: Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines Written: 1
+Average number of errors per line: 0
+
+Question 8: Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines Written: 1
+Average number of errors per line: 0
+
+Question 9: Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines Written: 1
+Average number of errors per line: 0
+
+Question 10: Unclosed Scanners: 0
+Bracket Miscounts: 0
+Bracket Mismatches: 0
+Semi-Colons right after a loop or conditional: 0
+Switched Comparison and Assignment Operators: 0
+Misaligned tabbing/spacing: 0
+Lines Written: 1
+Average number of errors per line: 0
+

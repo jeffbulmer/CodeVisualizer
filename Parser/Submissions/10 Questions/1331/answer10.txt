@@ -1,0 +1,42 @@
+//BankCard Class starts here
+public class BankCard {
+	private double money;
+
+	public void setmoney(double money) {this.money = money;}
+	public double getmoney() {return money;}
+
+	public BankCard() {
+	setmoney(100);
+	System.out.println("BankCard initialized with $"+getmoney();
+	}
+	
+	public BankCard(double money) {
+		setmoney(money);
+		System.out.println("BankCard initialized with $"+getmoney();
+	}
+
+	public void loadMoney(double load) {
+		System.out.println("Loading BankCard with $"+load);
+		setmoney(getmoney()+load);
+		System.out.println("BankCard now has $"+getmoney();
+	}
+
+	public void useMoney(double use, String buyObject) {
+		System.out.println("Attempting to buy "+buyObject+" for $"+use);
+		if(use > getmoney())
+			System.out.println("Your card has been declined. Place contact your bank.");
+		else {
+			setmoney(getmoney()-use);
+			System.out.println("Your card has $"+getmoney());
+		}
+	}
+}
+//Main class starts here
+public class Main {
+	public static void main(String[] args) {
+		BankCard bc1 = new BankCard(100);
+		bc1.loadMoney(500);
+		bc1.useMoney(330,"Chair");
+		bc1.useMoney(800,"TV");
+	}	
+}

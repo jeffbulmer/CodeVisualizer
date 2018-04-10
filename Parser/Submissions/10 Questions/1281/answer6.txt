@@ -1,0 +1,16 @@
+package Q;
+
+public class Q1 {
+
+	public static main (String args[]) {
+		double[] ar = new double[10];
+	
+		system.out.println("Elements of the generated array: ");
+
+		for (int i = 0; i<ar.length(); i++) {
+		ar[i] = Math.sqrt(i);
+		system.out.println(i);
+		}
+
+	}
+}

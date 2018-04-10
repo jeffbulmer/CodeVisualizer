@@ -1,0 +1,12 @@
+Scanner input = new Scanner(System.in);
+System.out.println("Enter a word:");
+String s = input.nextLine();
+System.out.println("Is " + s + " a palindrome?");
+
+for (int i=s.charAt(s.length-1); s>0; s--){
+if(i==s.charAt(0){ 
+return true;
+}
+else{
+return false;
+}

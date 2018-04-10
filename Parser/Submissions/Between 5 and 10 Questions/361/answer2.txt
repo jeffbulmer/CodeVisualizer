@@ -1,0 +1,9 @@
+//assume we have the word, called word as a String
+String bWord;
+for(int i = 0; i < word.length(),i++){
+	bWord = word.CharacterAt(i) + bWord;
+}
+if(word.equals(bWord)
+	System.out.println("This is a palindrome")
+else
+	System.out.println("This is not a palindrome")

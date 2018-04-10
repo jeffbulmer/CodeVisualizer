@@ -1,0 +1,6 @@
+public void {
+
+    Scanner in = new Scanner(System.in);
+    sopl("go");
+
+}

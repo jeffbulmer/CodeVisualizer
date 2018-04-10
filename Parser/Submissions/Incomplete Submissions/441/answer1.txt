@@ -1,0 +1,16 @@
+Scanner sc = new Scanner(System.in);
+System.out.println("Enter a number:");
+int num = sc.nextInt();
+
+int pal = num;
+int reversenum = 0;
+while(num != 0) {
+	int x = num%10;
+	reversenum = reverse*10+x;
+	num = num/10;
+}
+if(pal == reversenum)
+	System.out.println("True");
+else
+	System.out.println("False");
+

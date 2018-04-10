@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,62 @@ public class TextProcessor {
 			rval = false;
 		}
 		return rval;
+	}
+	
+	/*
+	 * getCodeAmount: gets the number of lines in the input text. This can then
+	 * be used to determine how many errors were made per line (on average)
+	 * 
+	 * associateConfidence: This method associates each submission with a
+	 * self-reported confidence value. This method takes a submission number, as
+	 * well as the full filenames of the confidence csv file, and the
+	 * submissions csv file. This method is very format-specific, by which I
+	 * mean it will only work for the exact formatting of data used in our data
+	 * collection, and the exact way these files are stored. don't worry,
+	 * though, you shouldn't have to ever call this for any reason, other than
+	 * the time I already called it in the main method.
+	 */
+	public int getCodeAmount() {
+		Scanner scan = new Scanner(fileString);
+		int numOfLines = 0;
+		while (scan.hasNextLine()) {
+			scan.nextLine();
+			numOfLines++;
+		}
+		return numOfLines;
+	}
+
+	public int associateConfidence(int submission, String confidenceFile, String submissionsFile) {
+		BufferedReader cbr = null;
+		BufferedReader sbr = null;
+		String line = "";
+		String[] relSub = {};
+		int totalScore = 0;
+		try {
+			sbr = new BufferedReader(new FileReader(submissionsFile));
+			while ((line = sbr.readLine()) != null) {
+				relSub = line.split(",");
+				if (relSub.length >= 2 && relSub[0].equals(new String(submission + ""))) {
+					// System.out.println(""+submission);
+					// System.out.println(relSub[1]);
+					break;
+				}
+			}
+			cbr = new BufferedReader(new FileReader(confidenceFile));
+			while ((line = cbr.readLine()) != null) {
+				String[] confidence = line.split(",");
+				// System.out.println("Submission ID: "+relSub[1]);
+				// System.out.println("Confidence ID: "+confidence[0]);
+				if (relSub.length >= 2 && relSub[1].equals(confidence[0])) {
+					// System.out.println(line);
+					totalScore = Integer.parseInt(confidence[confidence.length - 2]);
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return totalScore;
+
 	}
 
 	/*
@@ -491,18 +549,16 @@ public class TextProcessor {
 		int lineIndex = 0;
 		int currentIndex = 0;
 		while (scan.hasNextLine()) {
-			// removes all whitespace characters and newlines within a line (there shouldn't
-			// be any newlines anyway)
-			String line = scan.nextLine();
-			int lineLength = line.length();
-			line = line.replaceAll("(\\s|\n)", "");
-			Pattern patternIf = Pattern.compile("if\\(.*\\)"); // finds if
+			// removes all whitespace characters and newlines within a line (there shouldn't be any newlines anyway)
+			String line = scan.nextLine().replaceAll("(\\s|\n)", ""); 
+			Pattern patternIf = Pattern.compile("if\\(.*?\\)"); // finds if
 																// statements.
 			Matcher matcherIf = patternIf.matcher(line);
 			if (matcherIf.find()) {
 				for (int i = 0; i <= matcherIf.groupCount(); i++) {
 					// finds the index of the first character after the matching group.
-					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length();
+					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length(); 
+//					System.out.println(line.substring(line.indexOf(matcherIf.group(i)), nextidx));
 					if (line.length() > nextidx && line.charAt(nextidx) == ';') {
 						Habit error = new Habit(lineIndex,
 								"Semi-colon after conditional statement on line " + lineIndex, i + currentIndex,
@@ -511,11 +567,13 @@ public class TextProcessor {
 					}
 				}
 			}
-			Pattern patternLoop = Pattern.compile("(for\\(.*\\)|while\\(.*\\))"); // finds
+			//Pattern methods = Pattern.compile("(\\..*?\\(\\))");
+			Pattern patternLoop = Pattern.compile("(for\\(.*?\\)|while\\(.*?\\))"); // finds
 																					// while
 																					// and
 																					// for
 																					// loops
+			line = line.replaceFirst("(\\..*?\\(\\))", "");
 			Matcher matcherLoop = patternLoop.matcher(line);
 			if (matcherLoop.find()) {
 				for (int i = 0; i <= matcherLoop.groupCount(); i++) {

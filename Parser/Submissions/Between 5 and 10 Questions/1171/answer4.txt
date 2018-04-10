@@ -1,0 +1,4 @@
+//Do I really need to write a whole program fo this??? like pweeze just use this sudo code:
+/*
+int NumOfOdd = ((input-1)/2)+1; //that's all you need really!
+*/

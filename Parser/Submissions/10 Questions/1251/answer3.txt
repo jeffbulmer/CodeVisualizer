@@ -1,0 +1,17 @@
+// Alex.Qin (35732156)
+import java.util.Scanner;
+public class Q3 {
+	public static void main (String []args){
+		Scanner input = new Scanner (System.in);
+		System.out.println("Enter a value for v: ");
+		int v = input.nextInt();
+		System.out.println("Enter a value for c: ");
+		int c = input.nextInt();
+		
+		double x = Math.PI * ( 1 / Math.sqrt(  1- (((double)v)/c) * ((double)v)/c)  );
+
+		System.out.println("Value for v = " + v +", c = " + c + " : " + x);
+	}
+}
+
+
