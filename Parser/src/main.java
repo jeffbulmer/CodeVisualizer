@@ -16,6 +16,18 @@ public class main {
 	final static int numErrors = 8;
 
 	public static void main(String[] args) throws IOException {
+		boolean test = false;
+		if(test){
+			TextProcessor tp = new TextProcessor("testDocument.txt", true);
+			tp.checkScanner();
+			tp.checkBracketCount();
+			tp.checkBracketMatch();
+			tp.checkBadSemiColon();
+			tp.checkAssignment(); 
+			tp.checkTabbing(4); 
+			tp.getCodeAmount();
+		} else {
+			
 		System.out.println(System.getProperty("user.dir"));
 		String[] folders2Check = { "5 Questions", "10 Questions" };
 		PrintWriter[] errorstats = { new PrintWriter(new File("errorStats " + folders2Check[0] + ".txt")),
@@ -165,6 +177,7 @@ public class main {
 			errorstats[x].println(epu);
 			errorstats[x].println(epq);
 			errorstats[x].close();
+		}
 		}
 		// for(int i =0; i < Files.list(Paths.get("Submissions")).count(); i++){
 		// String dirString = "Submissions\\"+(171+10*i);

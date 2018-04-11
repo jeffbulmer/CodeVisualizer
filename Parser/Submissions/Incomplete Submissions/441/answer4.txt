@@ -1,0 +1,7 @@
+System.out.println("Enter an integer greater than 0:");
+int x = sc.nextInt();
+if(x%2 = 0)
+	int odd = x/2;
+else
+	int odd = x/2+1;
+System.out.println("There are this many odd integers between 0 and your chosen number: "+odd);

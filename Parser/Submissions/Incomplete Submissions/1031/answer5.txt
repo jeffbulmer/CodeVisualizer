@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {	
+		System.out.println("Guess the year (between 1990 and 2017):");
+		Scanner in = new Scanner(System.in);
+		int year = in.nextInt();
+		System.out.println("Guess the month (as a number):");
+		int month = in.nextInt();
+		System.out.println("Guess the day (as a number):");
+		int day = in.nextInt();
+
+		int ryear = random(1990, 2017);
+		int rmonth = random(1, 12);
+		int rday = random(1, 30); 
+
+		if (ryear > year)
+				
+
+		
+
+	public static int random(int start, int end) {
+		return start + (int)Math.round(Math.random() * (end - start));
+	}

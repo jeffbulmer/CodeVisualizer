@@ -10,7 +10,7 @@ import java.util.scanner;
 		String x = in.nextLine();
 		String y = "";
 			
-		for (int i = (x.length()-1); i>-1; i--) {
+		for (int i = x.length(); i>-1; i--) {
 		y += x.charAt(i);
 		}
 

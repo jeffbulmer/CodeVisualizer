@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
-import javax.sound.sampled.Line;
-
 import java.util.regex.Matcher;
 
 public class TextProcessor {
@@ -22,9 +19,10 @@ public class TextProcessor {
 	}
 
 	public TextProcessor(String fileText, boolean isFile) {
-		if (isFile) {
+		if(isFile){
 			loadFile(fileText);
-		} else {
+		}
+		else {
 			fileString = fileText;
 		}
 	}
@@ -35,9 +33,9 @@ public class TextProcessor {
 
 		try {
 			Scanner scan = new Scanner(file);
-			StringBuilder fileContents = new StringBuilder((int) file.length());
+			StringBuilder fileContents = new StringBuilder((int)file.length());
 			String lineSeparator = System.getProperty("line.separator");
-			while (scan.hasNextLine()) {
+			while(scan.hasNextLine()) {
 				fileContents.append(scan.nextLine() + lineSeparator);
 			}
 			fileString = fileContents.toString();
@@ -48,7 +46,7 @@ public class TextProcessor {
 		}
 		return rval;
 	}
-
+	
 	/*
 	 * getCodeAmount: gets the number of lines in the input text. This can then
 	 * be used to determine how many errors were made per line (on average)
@@ -167,7 +165,7 @@ public class TextProcessor {
 	 * spaces. So, we can declare a number of spaces to look for here at each
 	 * indentation level.
 	 */
-	public List<Habit> checkScanner() {
+	public List<Habit> checkScanner(){
 		int open = 0;
 		List<String> scanners = new ArrayList<String>();
 		List<Integer> scannersPos = new ArrayList<Integer>();
@@ -209,8 +207,7 @@ public class TextProcessor {
 		}
 		scan.close();
 		for (int i = 0; i < scanners.size(); i++) {
-			Habit error = new Habit(scannersPos.get(i),
-					"Scanner " + scanners.get(i) + " on line " + scannersPos.get(i) + " not closed");
+			Habit error = new Habit(scannersPos.get(i), "Scanner " + scanners.get(i) + " on line " + scannersPos.get(i) + " not closed");
 			errors.add(error);
 			errorCount++;
 		}
@@ -223,7 +220,7 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkBracketCount() {
+	public List<Habit> checkBracketCount(){
 		ArrayList<Integer> parentheses = new ArrayList<Integer>();
 		ArrayList<Integer> square = new ArrayList<Integer>();
 		ArrayList<Integer> curly = new ArrayList<Integer>();
@@ -252,7 +249,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -262,7 +260,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -272,7 +271,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -282,7 +282,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -293,7 +294,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -304,7 +306,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -314,7 +317,8 @@ public class TextProcessor {
 				case '"':
 					if (i != 0 && line.charAt(i - 1) == '\\')
 						break;
-					else if (i != 0 && i != line.length() && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'')
+					else if (i != 0 && i != line.length() && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'')
 						break;
 					if (quote == 0) {
 						quote = lineIndex;
@@ -347,7 +351,7 @@ public class TextProcessor {
 			errorCount++;
 		}
 		for (int i = 0; i < curly.size(); i++) {
-			Habit error = new Habit(curly.get(i), "Unclosed curly brace on line " + curly.get(i));
+			Habit error = new Habit(curly.get(i),"Unclosed curly brace on line " + curly.get(i));
 			errors.add(error);
 			errorCount++;
 		}
@@ -370,7 +374,7 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkBracketMatch() {
+	public List<Habit> checkBracketMatch(){
 		ArrayList<Character> lastBracket = new ArrayList<Character>();
 		ArrayList<Integer> lastBracketIndex = new ArrayList<Integer>();
 		ArrayList<Habit> errors = new ArrayList<Habit>();
@@ -400,7 +404,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -411,7 +416,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -422,7 +428,8 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
@@ -433,23 +440,24 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '(') {
 						/*
 						 * If the found closing bracket does not match the
-						 * bracket type of the last opening bracket, we have a
-						 * mismatch. In this case, note the mismatch, and remove
-						 * the last bracket from the list of brackets. Note
-						 * that, in the case of a bracket miscount, this may
-						 * result in all subsequent brackets being mismatched.
+						 * bracket type of the last opening bracket, we have
+						 * a mismatch. In this case, note the mismatch, and
+						 * remove the last bracket from the list of
+						 * brackets. Note that, in the case of a bracket
+						 * miscount, this may result in all subsequent
+						 * brackets being mismatched.
 						 */
-						Habit error = new Habit(lineIndex,
-								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
-										+ " matching with ')' on line "
-										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
+						Habit error = new Habit(lineIndex, "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+								+ " matching with ')' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
+								+ " and line " + lineIndex);
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
@@ -461,15 +469,15 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '[') {
-						Habit error = new Habit(lineIndex,
-								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
-										+ " matching with ']' on line "
-										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
+						Habit error = new Habit(lineIndex, "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+								+ " matching with ']' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
+								+ " and line " + lineIndex);
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
@@ -481,15 +489,15 @@ public class TextProcessor {
 					if (quoted) {
 						break;
 					}
-					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\'' && line.charAt(i + 1) == '\'') {
+					if (i != 0 && i != line.length() - 1 && line.charAt(i - 1) == '\''
+							&& line.charAt(i + 1) == '\'') {
 						break; // if the bracket is enclosed by apostrophes,
 								// it's a character
 					}
 					if (lastBracket.size() > 0 && lastBracket.get(lastBracket.size() - 1) != '{') {
-						Habit error = new Habit(lineIndex,
-								"Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
-										+ "matching with '}' on line "
-										+ lastBracketIndex.get(lastBracketIndex.size() - 1) + " and line " + lineIndex);
+						Habit error = new Habit(lineIndex, "Bracket Mismatch: " + lastBracket.get(lastBracket.size() - 1)
+								+ "matching with '}' on line " + lastBracketIndex.get(lastBracketIndex.size() - 1)
+								+ " and line " + lineIndex);
 						errors.add(error);
 					}
 					if (lastBracket.size() > 0) {
@@ -508,35 +516,35 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkBadSemiColon() {
+	public List<Habit> checkBadSemiColon(){
 
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		Scanner scan = new Scanner(fileString);
 		int lineIndex = 0;
 		while (scan.hasNextLine()) {
-			// removes all whitespace characters and newlines within a line
-			// (there shouldn't be any newlines anyway)
-			String line = scan.nextLine().replaceAll("(\\s|\n)", "");
-			Pattern patternIf = Pattern.compile("if\\(.*\\)"); // finds if
+			// removes all whitespace characters and newlines within a line (there shouldn't be any newlines anyway)
+			String line = scan.nextLine().replaceAll("(\\s|\n)", ""); 
+			Pattern patternIf = Pattern.compile("if\\(.*?\\)"); // finds if
 																// statements.
 			Matcher matcherIf = patternIf.matcher(line);
 			if (matcherIf.find()) {
 				for (int i = 0; i <= matcherIf.groupCount(); i++) {
-					// finds the index of the first character after the matching
-					// group.
-					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length();
+					// finds the index of the first character after the matching group.
+					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length(); 
+//					System.out.println(line.substring(line.indexOf(matcherIf.group(i)), nextidx));
 					if (line.length() > nextidx && line.charAt(nextidx) == ';') {
-						Habit error = new Habit(lineIndex,
-								"Semi-colon after conditional statement on line " + lineIndex);
+						Habit error = new Habit(lineIndex,  "Semi-colon after conditional statement on line " + lineIndex);
 						errors.add(error);
 					}
 				}
 			}
-			Pattern patternLoop = Pattern.compile("(for\\(.*\\)|while\\(.*\\))"); // finds
+			//Pattern methods = Pattern.compile("(\\..*?\\(\\))");
+			Pattern patternLoop = Pattern.compile("(for\\(.*?\\)|while\\(.*?\\))"); // finds
 																					// while
 																					// and
 																					// for
 																					// loops
+			line = line.replaceFirst("(\\..*?\\(\\))", "");
 			Matcher matcherLoop = patternLoop.matcher(line);
 			if (matcherLoop.find()) {
 				for (int i = 0; i <= matcherLoop.groupCount(); i++) {
@@ -552,8 +560,7 @@ public class TextProcessor {
 					else if (line.charAt(line.indexOf(matcherLoop.group(i))) == 'w')
 						looptype = "while";
 					if (nextidx < line.length() && line.charAt(nextidx) == ';') {
-						Habit error = new Habit(lineIndex,
-								"Semi-colon after " + looptype + " loop declaration on line " + lineIndex);
+						Habit error = new Habit(lineIndex, "Semi-colon after " + looptype + " loop declaration on line " + lineIndex);
 						errors.add(error);
 					}
 				}
@@ -568,7 +575,7 @@ public class TextProcessor {
 
 	}
 
-	public List<Habit> checkAssignment() {
+	public List<Habit> checkAssignment(){
 		int errorCount = 0;
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		ArrayList<String> vars = new ArrayList<String>();
@@ -614,15 +621,14 @@ public class TextProcessor {
 				}
 			}
 			if (line.contains("=")) {
-				// pattern that grabs everything within parentheses.
-				Pattern pattern = Pattern.compile("(?<=\\().*(?=\\))");
-				// pattern that grabs every instance of an assignment operator
-				// (single =)
-				Pattern singleSign = Pattern.compile("(?<!\\=|\\!|\\<|\\>|\\\'|\\\")=(?!=|\\\'|\\\")");
+				// pattern that grabs everything  within parentheses.
+				Pattern pattern = Pattern.compile("(?<=\\().*(?=\\))"); 
+				// pattern that grabs every instance of an assignment operator (single =)
+				Pattern singleSign = Pattern.compile("(?<!\\=|\\!|\\<|\\>|\\\'|\\\")=(?!=|\\\'|\\\")"); 
 				Pattern doubleSign = Pattern.compile("==");
 				// gets the type of a variable
 				Pattern variableType = Pattern
-						.compile("((Scanner|int|String|char|double|Scanner|float|long|boolean)(\\[\\])*(?!At|Of))");
+						.compile("((Scanner|int|String|char|double|Scanner|float|long|boolean)(\\[\\])*(?!At|Of))"); 
 				Pattern variableName = Pattern.compile(".*?(?==)");
 				String trimmedLine = line.trim();
 				boolean loop = false;
@@ -653,18 +659,17 @@ public class TextProcessor {
 					Matcher matchVar = varOnly.matcher(line);
 					if (matchVar.find()) {
 						// loops and conditionals handled separately.
-						if (line.contains("while") || line.contains("if") || line.contains("for")) {
+						if (line.contains("while") || line.contains("if") || line.contains("for")) { 
 							continue;
 						}
 						line = line.substring(matchVar.end(0)).trim();
 						if (line.startsWith("==")) {
-							Habit error = new Habit(lineIndex,
-									"Comparison on line " + lineIndex + ". This should be variable assignment (=)");
+							Habit error = new Habit(lineIndex, "Comparison on line " + lineIndex + ". This should be variable assignment (=)");
 							errors.add(error);
 						} else if (types.get(i).equals("boolean") && singleSign.matcher(line).groupCount() > 1) {
-							Habit error = new Habit(lineIndex,
-									"Assignment (=) after the initial assignment of the boolean variable " + vars.get(i)
-											+ " on line " + lineIndex + ". This should be a comparison (==).");
+							Habit error = new Habit(lineIndex, "Assignment (=) after the initial assignment of the boolean variable "
+									+ vars.get(i) + " on line " + lineIndex
+									+ ". This should be a comparison (==).");
 							errors.add(error);
 						}
 
@@ -741,8 +746,7 @@ public class TextProcessor {
 									errors.add(error);
 								}
 							} else if (doubleSign.matcher(conditionParts[i]).find() && isString) {
-								Habit error = new Habit(lineIndex, "Comparison (==) on line " + lineIndex
-										+ ", but this is a conditional statement on Strings, so this should be a comparison using .equals.");
+								Habit error = new Habit(lineIndex, "Comparison (==) on line " + lineIndex + ", but this is a conditional statement on Strings, so this should be a comparison using .equals.");
 								errors.add(error);
 								isString = false;
 							}
@@ -761,23 +765,21 @@ public class TextProcessor {
 							String[] checkColon = matcher.group().split(":");
 
 							if (checkComma.length == 3) {
-								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line "
-										+ lineIndex + ". You've used commas (,), but should be using semi-colons (;)");
+								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line " + lineIndex + ". You've used commas (,), but should be using semi-colons (;)");
 								errors.add(error);
 							} else if (checkColon.length == 3) {
-								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line "
-										+ lineIndex + ". You've used colons (:), but should be using semi-colons (;)");
+								Habit error = new Habit(lineIndex, "Wrong Separator used for for loop on line " + lineIndex
+										+ ". You've used colons (:), but should be using semi-colons (;)");
 								errors.add(error);
 							} else {
-								Habit error = new Habit(lineIndex,
-										"For loops must have 3 parts. Your for loop on line " + lineIndex + " has only "
-												+ Math.max(checkColon.length,
-														Math.max(conditionParts.length, checkComma.length)));
+								Habit error = new Habit(lineIndex, "For loops must have 3 parts. Your for loop on line " + lineIndex
+										+ " has only " + Math.max(checkColon.length,
+												Math.max(conditionParts.length, checkComma.length)));
 								errors.add(error);
 							}
 						} else {
 							// check the first part of the for loop
-							if (conditionParts[0].contains("=")) {
+							if (conditionParts[0].contains("=")) { 
 								if (conditionParts[0].trim().startsWith("boolean")) {
 									String pared = conditionParts[0].replaceAll("boolean", "");
 									Matcher getVar = Pattern.compile(".*(?=^([^=]+))").matcher(pared);
@@ -788,14 +790,13 @@ public class TextProcessor {
 									}
 									pared = conditionParts[0].replace(".*(?=^([^=]+))", "");
 									if (pared.trim().startsWith("==")) {
-										Habit error = new Habit(lineIndex, "Comparison (==) on line " + lineIndex
+										Habit error = new Habit (lineIndex, "Comparison (==) on line " + lineIndex
 												+ " within the first section of the for statement. This should be a variable assignment (=)");
 										errors.add(error);
 									} else {
 										pared = pared.replaceFirst("=", "");
 										if (singleSign.matcher(pared).find()) {
-											Habit error = new Habit(lineIndex,
-													"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
+											Habit error = new Habit(lineIndex,"Variable assignment (=) within the definition of initial boolean statement. This should be a comparison (==).");
 											errors.add(error);
 										}
 									}
@@ -814,20 +815,21 @@ public class TextProcessor {
 								if (fCMatcher.find() && sCMatcher.find()) {
 									String fC = fCMatcher.group();
 									String sC = sCMatcher.group();
-									// if either match contains quotes, we have
-									// a String
-									if (fC.contains("\"") || sC.contains("\"")) {
+									// if  either match contains quotes, we have a String
+									if (fC.contains("\"") || sC.contains("\"")) { 
 										isString = true;
 									} else {
 										innerloop: for (int k = 0; k < vars.size(); k++) {
 											if (fC.trim().equals(vars.get(k))) {
-												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
+												if (types.get(k).equals("String")
+														|| types.get(k).equals("Scanner")) {
 													isString = true;
 													break innerloop;
 												}
 											}
 											if (sC.trim().equals(vars.get(k))) {
-												if (types.get(k).equals("String") || types.get(k).equals("Scanner")) {
+												if (types.get(k).equals("String")
+														|| types.get(k).equals("Scanner")) {
 													isString = true;
 													break innerloop;
 												}
@@ -844,8 +846,7 @@ public class TextProcessor {
 									} else {
 										pared = pared.substring(2);
 										if (singleSign.matcher(pared).find()) {
-											Habit error = new Habit(lineIndex,
-													"Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
+											Habit error = new Habit(lineIndex, "Variable assignment (=) within the definition of compared boolean statement. This should be a comparison (==).");
 											errors.add(error);
 										}
 									}
@@ -877,8 +878,8 @@ public class TextProcessor {
 		return errors;
 	}
 
-	public List<Habit> checkTabbing(int numSpaces) { // #dablife #maverickmerch
-		// #itslitfam
+	public List<Habit> checkTabbing(int numSpaces){ // #dablife #maverickmerch
+												// #itslitfam
 		ArrayList<Habit> errors = new ArrayList<Habit>();
 		int errorCount = 0;
 		int level = 0;
@@ -924,16 +925,16 @@ public class TextProcessor {
 			if (!line.startsWith(tabs) && !line.startsWith(spaces) && !commented) {
 
 				if (level != 1) {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
-							+ level + " tabs (or " + numSpaces * level + " spaces)");
+					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have " + level
+							+ " tabs (or " + numSpaces * level + " spaces)");
 					errors.add(error);
 				} else if (numSpaces == 1) {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
-							+ level + " tab (or " + numSpaces + " space)");
+					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
+							+ numSpaces + " space)");
 					errors.add(error);
 				} else {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
-							+ level + " tab (or " + numSpaces + " spaces)");
+					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have " + level + " tab (or "
+							+ numSpaces + " spaces)");
 					errors.add(error);
 				}
 			}
