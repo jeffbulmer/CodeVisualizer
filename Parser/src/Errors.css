@@ -1,6 +1,10 @@
 
 #scanner {
-	-rtfx-background-color: yellow;
+	-fx-background-color: rgba(255, 0, 0, 0.4);
+}
+
+#scannerError {
+	-fx-background-color: yellow;
 	-fx-fill: red;
 }
 

@@ -179,8 +179,9 @@ public class AnimateFile extends Application {
 				timeline = new Timeline();
 				status = timeline.getStatus();
 				readFile(file);
-				animationText.setText("");
 				bp.setBottom(makeMediaBar());
+				animationText.setText("");
+				
 			}
 		});
 		menuFileOpenKeystroke.setAccelerator(new KeyCodeCombination(KeyCode.K, KeyCombination.CONTROL_DOWN));
@@ -211,8 +212,9 @@ public class AnimateFile extends Application {
 					lines += (i + 1) + "\n";
 				}
 				lineNumbers.setText(lines);
+				//bp.setBottom(makeMediaBar());
 				bp.setRight(makeErrorPanel());
-				bp.setBottom(makeMediaBar());
+				
 			}
 		});
 		menuFileOpenText.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
@@ -240,12 +242,12 @@ public class AnimateFile extends Application {
 		ArrayList<CheckBox> errors = new ArrayList<CheckBox>();
 
 		if (currentCode == null) {
-			scanner = new CheckBox("Unclosed Scanners \t\t\t (0)");
-			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t\t\t (0)");
-			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t\t (0)");
-			semicolon = new CheckBox("Misplaced Semi-colons \t\t (0)");
-			comparison = new CheckBox("Comparison vs. Assignment \t (0)");
-			whitespace = new CheckBox("Misaligned Whitespace \t\t (0)");
+			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (0)");
+			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (0)");
+			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t (0)");
+			semicolon = new CheckBox("Misplaced Semi-colons \t\t\t (0)");
+			comparison = new CheckBox("Comparison vs. Assignment \t\t (0)");
+			whitespace = new CheckBox("Misaligned Whitespace \t\t\t (0)");
 
 			errors.add(scanner);
 			errors.add(bracketCount);
@@ -263,12 +265,12 @@ public class AnimateFile extends Application {
 			boolean isComparisonError = (tp.checkAssignment().size() == 0) ? false : true;
 			boolean isWhitespaceError = (tp.checkTabbing(4).size() == 0) ? false : true;
 
-			scanner = new CheckBox("Unclosed Scanners \t\t\t (" + tp.checkScanner().size() + ")");
-			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t\t\t (" + tp.checkBracketCount().size() + ")");
-			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t\t (" + tp.checkBracketMatch().size() + ")");
-			semicolon = new CheckBox("Misplaced Semi-colons \t\t (" + tp.checkBadSemiColon().size() + ")");
-			comparison = new CheckBox("Comparison vs. Assignment \t (" + tp.checkAssignment().size() + ")");
-			whitespace = new CheckBox("Misaligned Whitespace \t\t (" + tp.checkTabbing(4).size() + ")");
+			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (" + tp.checkScanner().size() + ")");
+			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (" + tp.checkBracketCount().size() + ")");
+			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t (" + tp.checkBracketMatch().size() + ")");
+			semicolon = new CheckBox("Misplaced Semi-colons \t\t\t (" + tp.checkBadSemiColon().size() + ")");
+			comparison = new CheckBox("Comparison vs. Assignment \t\t (" + tp.checkAssignment().size() + ")");
+			whitespace = new CheckBox("Misaligned Whitespace \t\t\t (" + tp.checkTabbing(4).size() + ")");
 
 			errors.add(scanner);
 			errors.add(bracketCount);
@@ -292,7 +294,7 @@ public class AnimateFile extends Application {
 					Text text2 = new Text(currentCode.substring(start, end + 1));
 					text1.setFont(Font.font(16));
 					text2.setFont(Font.font(16));
-					text2.setId("scanner");
+					text2.setId("scannerError");
 					tf.getChildren().addAll(text1, text2);
 					current = end + 1;
 				}
@@ -308,6 +310,7 @@ public class AnimateFile extends Application {
 									errors.get(i).setSelected(false);
 							}
 							textArea.setContent(tf);
+							scanner.setId("scanner");
 						} else {
 							textArea.setContent(animationText);
 						}
