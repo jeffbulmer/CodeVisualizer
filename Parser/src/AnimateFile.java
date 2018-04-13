@@ -110,14 +110,14 @@ public class AnimateFile extends Application {
 		widthText = ((Screen.getPrimary().getVisualBounds().getWidth()) / 3) - (widthLineNums / 3);
 
 		lineNumbers = new Text();
-		lineNumbers.setFont(Font.font(16));
+		lineNumbers.setFont(Font.font(20));
 		lineNumbersArea = new ScrollPane();
 		lineNumbersArea.setContent(lineNumbers);
 		lineNumbersArea.setPadding(new Insets(10, 5, 5, 5));
 		lineNumbersArea.setPrefWidth(widthLineNums);
 
 		animationText = new Text();
-		animationText.setFont(Font.font(16));
+		animationText.setFont(Font.font(20));
 		textArea = new ScrollPane();
 		textArea.getStyleClass().add("noborder-scroll-pane");
 		textArea.setContent(animationText);
@@ -212,7 +212,7 @@ public class AnimateFile extends Application {
 					lines += (i + 1) + "\n";
 				}
 				lineNumbers.setText(lines);
-				//bp.setBottom(makeMediaBar());
+				bp.setBottom(makeMediaBar());
 				bp.setRight(makeErrorPanel());
 				
 			}
@@ -292,14 +292,14 @@ public class AnimateFile extends Application {
 					int end = h.getEnd();
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, end + 1));
-					text1.setFont(Font.font(16));
-					text2.setFont(Font.font(16));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
 					text2.setId("scannerError");
 					tf.getChildren().addAll(text1, text2);
 					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(16));
+				text3.setFont(Font.font(20));
 				tf.getChildren().add(text3);
 
 				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -334,14 +334,14 @@ public class AnimateFile extends Application {
 				for (int i = 0; i < parenPos.size(); i++) {
 					Text text1 = new Text(currentCode.substring(current, parenPos.get(i)));
 					Text text2 = new Text(currentCode.substring(parenPos.get(i), parenPos.get(i) + 1));
-					text1.setFont(Font.font(16));
-					text2.setFont(Font.font(16));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
 					text2.setId("bracketcount");
 					tf.getChildren().addAll(text1, text2);
 					current = parenPos.get(i) + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(16));
+				text3.setFont(Font.font(20));
 				tf.getChildren().add(text3);
 
 				bracketCount.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -375,10 +375,10 @@ public class AnimateFile extends Application {
 					Text text4 = new Text(currentCode.substring(start + 1, end));
 					Text text5 = new Text(currentCode.substring(end, end + 1));
 
-					text1.setFont(Font.font(16));
-					text2.setFont(Font.font(16));
-					text4.setFont(Font.font(16));
-					text5.setFont(Font.font(16));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
+					text4.setFont(Font.font(20));
+					text5.setFont(Font.font(20));
 					text2.setId("bracketmismatch");
 					text5.setId("bracketmismatch");
 
@@ -386,7 +386,7 @@ public class AnimateFile extends Application {
 					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(16));
+				text3.setFont(Font.font(20));
 				tf.getChildren().add(text3);
 
 				bracketMismatch.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -417,14 +417,14 @@ public class AnimateFile extends Application {
 					int end = h.getEnd();
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, end + 1));
-					text1.setFont(Font.font(16));
-					text2.setFont(Font.font(16));
+					text1.setFont(Font.font(20));
+					text2.setFont(Font.font(20));
 					text2.setId("semicolon");
 					tf.getChildren().addAll(text1, text2);
 					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(16));
+				text3.setFont(Font.font(20));
 				tf.getChildren().add(text3);
 
 				semicolon.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -455,15 +455,15 @@ public class AnimateFile extends Application {
 				// int end = h.getEnd();
 				// Text text1 = new Text(currentCode.substring(current, start));
 				// Text text2 = new Text(currentCode.substring(start, end + 1));
-				// text1.setFont(Font.font(16));
-				// text2.setFont(Font.font(16));
+				// text1.setFont(Font.font(20));
+				// text2.setFont(Font.font(20));
 				// text2.setId("semicolon");
 				// tf.getChildren().addAll(text1, text2);
 				// current = end + 1;
 				// sopl(h.getErrorMessage());
 				// }
 				// Text text3 = new Text(currentCode.substring(current));
-				// text3.setFont(Font.font(16));
+				// text3.setFont(Font.font(20));
 				// tf.getChildren().add(text3);
 
 				comparison.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -494,14 +494,14 @@ public class AnimateFile extends Application {
 				// int end = h.getEnd();
 				// Text text1 = new Text(currentCode.substring(current, start));
 				// Text text2 = new Text(currentCode.substring(start, end + 1));
-				// text1.setFont(Font.font(16));
-				// text2.setFont(Font.font(16));
+				// text1.setFont(Font.font(20));
+				// text2.setFont(Font.font(20));
 				// text2.setId("semicolon");
 				// tf.getChildren().addAll(text1, text2);
 				// current = end + 1;
 				// }
 				// Text text3 = new Text(currentCode.substring(current));
-				// text3.setFont(Font.font(16));
+				// text3.setFont(Font.font(20));
 				// tf.getChildren().add(text3);
 
 				whitespace.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -522,7 +522,7 @@ public class AnimateFile extends Application {
 		}
 
 		for (CheckBox e : errors) {
-			e.setFont(Font.font(16));
+			e.setFont(Font.font(20));
 			e.setStyle("-fx-faint-focus-color: transparent;");
 		}
 
@@ -551,6 +551,7 @@ public class AnimateFile extends Application {
 			slider = new Slider(0, codeToAnimate.length, 0);
 		}
 		slider.setPrefWidth((.75) * pStage.getWidth());
+		/*
 		currentCode = "";
 		slider.valueProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
@@ -562,6 +563,7 @@ public class AnimateFile extends Application {
 				tp = new TextProcessor(currentCode, false);
 			}
 		});
+		*/
 
 		/*
 		 * Create the Play button. Note that the Listener for the slider bar appears
@@ -569,6 +571,7 @@ public class AnimateFile extends Application {
 		 * point in the animation while it's currently playing.
 		 */
 		final Button playButton = new Button(">");
+		/*
 		playButton.setOnAction(e -> {
 			if (timeline.getStatus() == Status.RUNNING) {
 				playButton.setText("||");
@@ -604,6 +607,7 @@ public class AnimateFile extends Application {
 				timeline.play();
 			}
 		});
+		*/
 
 		mediaBar.getChildren().addAll(playButton, slider);
 		// }
