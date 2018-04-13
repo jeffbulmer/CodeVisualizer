@@ -596,7 +596,7 @@ public class TextProcessor {
 				}
 			}
 			lineIndex++;
-			currentIndex += lineLength + 1;
+			currentIndex += lineIndex + 1;
 		}
 		scan.close();
 		for (int i = 0; i < errors.size(); i++) {

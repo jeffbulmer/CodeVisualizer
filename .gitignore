@@ -1,1 +1,3 @@
-Parser/bin*
+Parser/bin/*
+*.class
+

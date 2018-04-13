@@ -110,14 +110,14 @@ public class AnimateFile extends Application {
 		widthText = ((Screen.getPrimary().getVisualBounds().getWidth()) / 3) - (widthLineNums / 3);
 
 		lineNumbers = new Text();
-		lineNumbers.setFont(Font.font(20));
+		lineNumbers.setFont(Font.font(16));
 		lineNumbersArea = new ScrollPane();
 		lineNumbersArea.setContent(lineNumbers);
 		lineNumbersArea.setPadding(new Insets(10, 5, 5, 5));
 		lineNumbersArea.setPrefWidth(widthLineNums);
 
 		animationText = new Text();
-		animationText.setFont(Font.font(20));
+		animationText.setFont(Font.font(16));
 		textArea = new ScrollPane();
 		textArea.getStyleClass().add("noborder-scroll-pane");
 		textArea.setContent(animationText);
@@ -241,8 +241,8 @@ public class AnimateFile extends Application {
 
 		if (currentCode == null) {
 			scanner = new CheckBox("Unclosed Scanners \t\t\t (0)");
-			bracketCount = new CheckBox("Bracket Miscounts \t\t\t (0)");
-			bracketMismatch = new CheckBox("Bracket Mismatches \t\t (0)");
+			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t\t\t (0)");
+			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t\t (0)");
 			semicolon = new CheckBox("Misplaced Semi-colons \t\t (0)");
 			comparison = new CheckBox("Comparison vs. Assignment \t (0)");
 			whitespace = new CheckBox("Misaligned Whitespace \t\t (0)");
@@ -264,8 +264,8 @@ public class AnimateFile extends Application {
 			boolean isWhitespaceError = (tp.checkTabbing(4).size() == 0) ? false : true;
 
 			scanner = new CheckBox("Unclosed Scanners \t\t\t (" + tp.checkScanner().size() + ")");
-			bracketCount = new CheckBox("Bracket Miscounts \t\t\t (" + tp.checkBracketCount().size() + ")");
-			bracketMismatch = new CheckBox("Bracket Mismatches \t\t (" + tp.checkBracketMatch().size() + ")");
+			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t\t\t (" + tp.checkBracketCount().size() + ")");
+			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t\t (" + tp.checkBracketMatch().size() + ")");
 			semicolon = new CheckBox("Misplaced Semi-colons \t\t (" + tp.checkBadSemiColon().size() + ")");
 			comparison = new CheckBox("Comparison vs. Assignment \t (" + tp.checkAssignment().size() + ")");
 			whitespace = new CheckBox("Misaligned Whitespace \t\t (" + tp.checkTabbing(4).size() + ")");
@@ -290,14 +290,14 @@ public class AnimateFile extends Application {
 					int end = h.getEnd();
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, end + 1));
-					text1.setFont(Font.font(20));
-					text2.setFont(Font.font(20));
+					text1.setFont(Font.font(16));
+					text2.setFont(Font.font(16));
 					text2.setId("scanner");
 					tf.getChildren().addAll(text1, text2);
 					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(20));
+				text3.setFont(Font.font(16));
 				tf.getChildren().add(text3);
 
 				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -331,14 +331,14 @@ public class AnimateFile extends Application {
 				for (int i = 0; i < parenPos.size(); i++) {
 					Text text1 = new Text(currentCode.substring(current, parenPos.get(i)));
 					Text text2 = new Text(currentCode.substring(parenPos.get(i), parenPos.get(i) + 1));
-					text1.setFont(Font.font(20));
-					text2.setFont(Font.font(20));
+					text1.setFont(Font.font(16));
+					text2.setFont(Font.font(16));
 					text2.setId("bracketcount");
 					tf.getChildren().addAll(text1, text2);
 					current = parenPos.get(i) + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(20));
+				text3.setFont(Font.font(16));
 				tf.getChildren().add(text3);
 
 				bracketCount.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -372,10 +372,10 @@ public class AnimateFile extends Application {
 					Text text4 = new Text(currentCode.substring(start + 1, end));
 					Text text5 = new Text(currentCode.substring(end, end + 1));
 
-					text1.setFont(Font.font(20));
-					text2.setFont(Font.font(20));
-					text4.setFont(Font.font(20));
-					text5.setFont(Font.font(20));
+					text1.setFont(Font.font(16));
+					text2.setFont(Font.font(16));
+					text4.setFont(Font.font(16));
+					text5.setFont(Font.font(16));
 					text2.setId("bracketmismatch");
 					text5.setId("bracketmismatch");
 
@@ -383,7 +383,7 @@ public class AnimateFile extends Application {
 					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(20));
+				text3.setFont(Font.font(16));
 				tf.getChildren().add(text3);
 
 				bracketMismatch.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -414,14 +414,14 @@ public class AnimateFile extends Application {
 					int end = h.getEnd();
 					Text text1 = new Text(currentCode.substring(current, start));
 					Text text2 = new Text(currentCode.substring(start, end + 1));
-					text1.setFont(Font.font(20));
-					text2.setFont(Font.font(20));
+					text1.setFont(Font.font(16));
+					text2.setFont(Font.font(16));
 					text2.setId("semicolon");
 					tf.getChildren().addAll(text1, text2);
 					current = end + 1;
 				}
 				Text text3 = new Text(currentCode.substring(current));
-				text3.setFont(Font.font(20));
+				text3.setFont(Font.font(16));
 				tf.getChildren().add(text3);
 
 				semicolon.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -452,15 +452,15 @@ public class AnimateFile extends Application {
 				// int end = h.getEnd();
 				// Text text1 = new Text(currentCode.substring(current, start));
 				// Text text2 = new Text(currentCode.substring(start, end + 1));
-				// text1.setFont(Font.font(20));
-				// text2.setFont(Font.font(20));
+				// text1.setFont(Font.font(16));
+				// text2.setFont(Font.font(16));
 				// text2.setId("semicolon");
 				// tf.getChildren().addAll(text1, text2);
 				// current = end + 1;
 				// sopl(h.getErrorMessage());
 				// }
 				// Text text3 = new Text(currentCode.substring(current));
-				// text3.setFont(Font.font(20));
+				// text3.setFont(Font.font(16));
 				// tf.getChildren().add(text3);
 
 				comparison.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -491,14 +491,14 @@ public class AnimateFile extends Application {
 				// int end = h.getEnd();
 				// Text text1 = new Text(currentCode.substring(current, start));
 				// Text text2 = new Text(currentCode.substring(start, end + 1));
-				// text1.setFont(Font.font(20));
-				// text2.setFont(Font.font(20));
+				// text1.setFont(Font.font(16));
+				// text2.setFont(Font.font(16));
 				// text2.setId("semicolon");
 				// tf.getChildren().addAll(text1, text2);
 				// current = end + 1;
 				// }
 				// Text text3 = new Text(currentCode.substring(current));
-				// text3.setFont(Font.font(20));
+				// text3.setFont(Font.font(16));
 				// tf.getChildren().add(text3);
 
 				whitespace.selectedProperty().addListener(new ChangeListener<Boolean>() {
@@ -519,7 +519,7 @@ public class AnimateFile extends Application {
 		}
 
 		for (CheckBox e : errors) {
-			e.setFont(Font.font(20));
+			e.setFont(Font.font(16));
 			e.setStyle("-fx-faint-focus-color: transparent;");
 		}
 
