@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="Parser/src"/>
+	<classpathentry kind="lib" path="/home/angie/Work/BowenHui/JeffBulmer/CodeVisualizer/richtextfx-0.8.2.jar"/>
 	<classpathentry kind="output" path="Parser/bin"/>
 </classpath>
