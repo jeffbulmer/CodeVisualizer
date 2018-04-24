@@ -8,6 +8,19 @@
 	-fx-fill: red;
 }
 
+#whitespaceError {
+	-fx-fill: rgba(3, 186, 51, 1.0);
+	-fx-font-weight: bold;
+}
+
+#whitespace {
+	-fx-background-color: rgba(3, 186, 51, 0.4);
+}
+
+#miscount {
+	-fx-background-color: rgba(255, 0, 255, 0.4);
+}
+
 #bracketcount {
 	-rtfx-background-color: yellow;
 	-fx-fill: magenta;

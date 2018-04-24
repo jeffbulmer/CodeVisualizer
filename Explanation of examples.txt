@@ -1,0 +1,9 @@
+Example 2:
+ This example shows how the visualizer picks up Tabulation errors, which are not caught by the compiler
+ 
+Example 3:
+	This example shows a case where an if-statement will not work because the comparison is wrong. This is because the solution attempts to compare a variable with a String using "==" operator. For this reason, it is picked up as an error where the program is using the wrong operator for equality. One interpretation is that this is a misunderstanding of how booleans work, and can be addressed by simply using .equals(). However, my interpretation is that this is actually a misunderstanding of basic types, as it shows the user first casting a character to an integer (look at the line above), then comparing that to a single character, initialized as a String. In this case, the way to address the problem would be to explain the difference between an integer and a character, and then a character and a String. 
+	
+Example 3b: 
+	I actually have no idea what's going on in this example, but please take a look at it. It's possible this could function as a useful thing for use case 3, I just don't fully know what to make of it. My guess is that the student doesn't understand else-if statements. In this case, the last line should only print if none of the other lines do. However, the last line (as written) should print everytime. Here, I would address this by explaining else-if statements.
+	HOWEVER, this could also be an example (actually, is a very clear example) of a student not understanding do-while loops. This do while loop doesn't actually end (the brackets aren't in the right spot), but if it did, it would run once (while 1>2 is always false). In this case, there's absolutely no reason for a loop, since the code only runs a single time, so why even have one? I could then address this by explaining first, when loops are needed, then explaining the specific uses of a do-while loop.

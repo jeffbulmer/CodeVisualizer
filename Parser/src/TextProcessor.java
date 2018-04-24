@@ -960,15 +960,15 @@ public class TextProcessor {
 			if (!line.startsWith(tabs) && !line.startsWith(spaces) && !commented) {
 
 				if (level != 1) {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
+					Habit error = new Habit(lineIndex, "Line " + lineIndex + ":\t"
 							+ level + " tabs (or " + numSpaces * level + " spaces)");
 					errors.add(error);
 				} else if (numSpaces == 1) {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
+					Habit error = new Habit(lineIndex, "Line " + lineIndex + ":\t"
 							+ level + " tab (or " + numSpaces + " space)");
 					errors.add(error);
 				} else {
-					Habit error = new Habit(lineIndex, "Incorrect indentation on line " + lineIndex + ". Should have "
+					Habit error = new Habit(lineIndex, "Line " + lineIndex + ":\t"
 							+ level + " tab (or " + numSpaces + " spaces)");
 					errors.add(error);
 				}
