@@ -119,7 +119,7 @@ public class AnimateFile extends Application {
 
 		animationText = new Text();
 		animationText.setFont(Font.font(18));
-		animationText.setLineSpacing(.4);
+		// animationText.setLineSpacing(.4);
 		textArea = new ScrollPane();
 		textArea.getStyleClass().add("noborder-scroll-pane");
 		textArea.setContent(animationText);
@@ -303,6 +303,138 @@ public class AnimateFile extends Application {
 			errors.add(semicolon);
 			errors.add(comparison);
 			errors.add(whitespace);
+
+			/*
+			 * The following handles Scanner errors.
+			 */
+			if (!isScannerError) {
+				scanner.setDisable(true);
+			} else {
+				scanner.setDisable(false);
+				ArrayList<Habit> scannerErrors = tp.checkScanner();
+				TextFlow tf = new TextFlow();
+
+				int current = 0;
+				for (Habit h : scannerErrors) {
+					int start = h.getStart();
+					int end = h.getEnd();
+					Text text1 = new Text(currentCode.substring(current, start));
+					Text text2 = new Text(currentCode.substring(start, end + 1));
+					text1.setFont(Font.font(18));
+					text2.setFont(Font.font(18));
+					text2.setId("scannerError");
+					tf.getChildren().addAll(text1, text2);
+					current = end + 1;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(18));
+				tf.getChildren().add(text3);
+
+				scanner.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (scanner.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(scanner))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+							scanner.setId("scanner");
+						} else {
+							textArea.setContent(animationText);
+							scanner.setId("noErrors");
+						}
+					}
+				});
+			}
+
+			if (!isBracketCountError) {
+				bracketCount.setDisable(true);
+			} else {
+				bracketCount.setDisable(false);
+				ArrayList<Habit> bracketCountErrors = tp.checkBracketCount();
+				TextFlow tf = new TextFlow();
+
+				ArrayList<Integer> parenPos = new ArrayList<Integer>();
+				for (Habit h : bracketCountErrors) {
+					parenPos.add(h.getStart());
+				}
+				Collections.sort(parenPos);
+				int current = 0;
+				for (int i = 0; i < parenPos.size(); i++) {
+					Text text1 = new Text(currentCode.substring(current, parenPos.get(i)));
+					Text text2 = new Text(currentCode.substring(parenPos.get(i), parenPos.get(i) + 1));
+					text1.setFont(Font.font(18));
+					text2.setFont(Font.font(18));
+					text2.setId("bracketcount");
+					tf.getChildren().addAll(text1, text2);
+					current = parenPos.get(i) + 1;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(18));
+				tf.getChildren().add(text3);
+
+				bracketCount.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (bracketCount.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(bracketCount))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+							bracketCount.setId("miscount");
+						} else {
+							textArea.setContent(animationText);
+							bracketCount.setId("noErrors");
+						}
+					}
+				});
+			}
+
+			if (!isBracketMismatchError) {
+				bracketMismatch.setDisable(true);
+			} else {
+				bracketMismatch.setDisable(false);
+				ArrayList<Habit> bracketMismatchErrors = tp.checkBracketMatch();
+				TextFlow tf = new TextFlow();
+
+				ArrayList<Integer> parenPos = new ArrayList<Integer>();
+				for (Habit h : bracketMismatchErrors) {
+					parenPos.add(h.getStart());
+					parenPos.add(h.getEnd());
+				}
+				Collections.sort(parenPos);
+
+				int current = 0;
+				for (int i = 0; i < parenPos.size(); i++) {
+					Text text1 = new Text(currentCode.substring(current, parenPos.get(i)));
+					Text text2 = new Text(currentCode.substring(parenPos.get(i), parenPos.get(i) + 1));
+					text1.setFont(Font.font(18));
+					text2.setFont(Font.font(18));
+					text2.setId("bracketmismatch");
+					tf.getChildren().addAll(text1, text2);
+					current = parenPos.get(i) + 1;
+				}
+				Text text3 = new Text(currentCode.substring(current));
+				text3.setFont(Font.font(18));
+				tf.getChildren().add(text3);
+
+				bracketMismatch.selectedProperty().addListener(new ChangeListener<Boolean>() {
+					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
+						if (bracketMismatch.isSelected()) {
+							for (int i = 0; i < errors.size(); i++) {
+								if (!errors.get(i).equals(bracketMismatch))
+									errors.get(i).setSelected(false);
+							}
+							textArea.setContent(tf);
+							bracketMismatch.setId("mismatch");
+						} else {
+							textArea.setContent(animationText);
+							bracketMismatch.setId("noErrors");
+						}
+					}
+				});
+			}
+
 		}
 
 		for (CheckBox e : errors) {
@@ -678,7 +810,7 @@ public class AnimateFile extends Application {
 		 */
 		final Button playButton = new Button(">");
 		playButton.setPadding(new Insets(10, 10, 10, 10));
- 
+
 		playButton.setOnAction(e -> {
 			if (timeline.getStatus() == Status.RUNNING) {
 				playButton.setText(">");
