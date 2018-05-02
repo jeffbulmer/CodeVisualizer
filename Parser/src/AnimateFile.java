@@ -246,9 +246,77 @@ public class AnimateFile extends Application {
 		errorPanel.setAlignment(Pos.TOP_CENTER);
 		errorPanel.setPrefWidth(widthText * 2);
 
+		CheckBox scanner;
+		CheckBox bracketCount;
+		CheckBox bracketMismatch;
+		CheckBox semicolon;
+		CheckBox comparison;
+		CheckBox whitespace;
+		ArrayList<CheckBox> errors = new ArrayList<CheckBox>();
+
+		/*
+		 * The following errorList is for displaying whitespace errors: The lines as
+		 * well as what the correct spacing ought to be.
+		 */
+		TextFlow errorList = new TextFlow();
+		errorList.setPadding(new Insets(20, 10, 10, 10));
+		Text title = new Text("Whitespace errors: \n");
+		title.setFont(Font.font(18));
+		errorList.getChildren().add(title);
+		
+		if (currentCode == null) {
+			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (0)");
+			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (0)");
+			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t (0)");
+			semicolon = new CheckBox("Misplaced Semi-colons \t\t\t (0)");
+			comparison = new CheckBox("Comparison vs. Assignment \t\t (0)");
+			whitespace = new CheckBox("Misaligned Whitespace \t\t\t (0)");
+
+			errors.add(scanner);
+			errors.add(bracketCount);
+			errors.add(bracketMismatch);
+			errors.add(semicolon);
+			errors.add(comparison);
+			errors.add(whitespace);
+
+		} else {
+			tp = new TextProcessor(currentCode, false);
+			boolean isScannerError = (tp.checkScanner().size() == 0) ? false : true;
+			boolean isBracketCountError = (tp.checkBracketCount().size() == 0) ? false : true;
+			boolean isBracketMismatchError = (tp.checkBracketMatch().size() == 0) ? false : true;
+			boolean isSemicolonError = (tp.checkBadSemiColon().size() == 0) ? false : true;
+			boolean isComparisonError = (tp.checkAssignment().size() == 0) ? false : true;
+			boolean isWhitespaceError = (tp.checkTabbing(4).size() == 0) ? false : true;
+			
+			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (" + tp.checkScanner().size() + ")");
+			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (" + tp.checkBracketCount().size() + ")");
+			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t (" + tp.checkBracketMatch().size() + ")");
+			semicolon = new CheckBox("Misplaced Semi-colons \t\t\t (" + tp.checkBadSemiColon().size() + ")");
+			comparison = new CheckBox("Comparison vs. Assignment \t\t (" + tp.checkAssignment().size() + ")");
+			whitespace = new CheckBox("Misaligned Whitespace \t\t\t (" + tp.checkTabbing(4).size() + ")");
+			
+			errors.add(scanner);
+			errors.add(bracketCount);
+			errors.add(bracketMismatch);
+			errors.add(semicolon);
+			errors.add(comparison);
+			errors.add(whitespace);
+		}
+		
+		for (CheckBox e : errors) {
+			e.setFont(Font.font(18));
+			e.setStyle("-fx-faint-focus-color: transparent;");
+		}
+		errorPanel.getChildren().addAll(errors);
 		return errorPanel;
 	}
 
+	/**
+	 * The following method creates a static error panel that reads in a single
+	 * string from a file and parses that into error information.
+	 * 
+	 * @return VBox The error panel.
+	 */
 	public VBox makeErrorPanel() {
 		VBox errorPanel = new VBox(10);
 		errorPanel.setPadding(new Insets(40, 20, 20, 20));
@@ -270,7 +338,6 @@ public class AnimateFile extends Application {
 		errorList.getChildren().add(title);
 
 		if (currentCode == null) {
-			sopl("thinks null");
 			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (0)");
 			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (0)");
 			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t (0)");
@@ -532,7 +599,6 @@ public class AnimateFile extends Application {
 						}
 					}
 				}
-				sopl(lineNumbers);
 
 				whitespace.selectedProperty().addListener(new ChangeListener<Boolean>() {
 					public void changed(ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) {
@@ -599,6 +665,8 @@ public class AnimateFile extends Application {
 				currentCode = translateKeyCodes(codeToAnimateNow);
 				animationText.setText(currentCode);
 				tp = new TextProcessor(currentCode, false);
+				bp.setRight(null);
+				bp.setRight(makeKeycodeErrorPanel());
 			}
 		});
 
@@ -695,11 +763,9 @@ public class AnimateFile extends Application {
 			} else if (keycodes[i] == 39) { // Right Arrow
 				if (cursor == currentString.length() && currentLine == res.size() - 1) {
 					// We're at the very end, do nothing
-					sopl("end");
 					continue;
 				} else if (cursor == currentString.length()) {
 					// We're at the end of a line; Go down to the next line
-					sopl("go down");
 					currentLine++;
 					currentString = res.get(currentLine);
 					cursor = 0;
@@ -880,7 +946,6 @@ public class AnimateFile extends Application {
 				char toInsert = isCapsOn ? 'E' : 'e';
 				currentString.insert(cursor++, toInsert);
 			} else if (keycodes[i] == 70) {
-				// sopl("entered 70");
 				char toInsert = isCapsOn ? 'F' : 'f';
 				currentString.insert(cursor++, toInsert);
 			} else if (keycodes[i] == 71) {
