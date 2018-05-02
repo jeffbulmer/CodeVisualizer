@@ -1,40 +1,39 @@
 
+/* The following are styles for the Error Panel portion of the AnimateFile Visualizer */
+#noErrors {
+	-fx-background-color: transparent;
+}
+
 #scanner {
 	-fx-background-color: rgba(255, 0, 0, 0.4);
 }
-
-#scannerError {
-	-fx-background-color: yellow;
-	-fx-fill: red;
+#miscount {
+	-fx-background-color: rgba(255, 0, 255, 0.4);
 }
-
-#whitespaceError {
-	-fx-fill: rgba(3, 186, 51, 1.0);
-	-fx-font-weight: bold;
+#mismatch {
+	-fx-background-color: rgba(255, 204, 153, 0.4);
 }
-
 #whitespace {
 	-fx-background-color: rgba(3, 186, 51, 0.4);
 }
 
-#miscount {
-	-fx-background-color: rgba(255, 0, 255, 0.4);
+/* The following are styles for the Text portion of the AnimateFile Visualizer */
+#scannerError {
+	-fx-fill: red;
 }
-
 #bracketcount {
-	-rtfx-background-color: yellow;
 	-fx-fill: magenta;
 	-fx-font-weight: bold;
 }
-
 #bracketmismatch {
-	-rtfx-background-color: yellow;
 	-fx-fill: orange;
 	-fx-font-weight: bold;
 }
-
+#whitespaceError {
+	-fx-fill: rgba(3, 186, 51, 1.0);
+	-fx-font-weight: bold;
+}
 #semicolon {
-	-rtfx-background-color: yellow;
 	-fx-fill: green;
 	-fx-font-weight: bold;
 }
