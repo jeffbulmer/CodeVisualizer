@@ -84,6 +84,7 @@ public class AnimateFile extends Application {
 	Timeline timeline;
 	Slider slider;
 	Status status;
+	int pausePosition;
 
 	File file;
 	boolean isKeystrokeFile;
@@ -217,6 +218,7 @@ public class AnimateFile extends Application {
 				totalCurrentLines = 0;
 				timeline = new Timeline();
 				status = timeline.getStatus();
+				pausePosition = 0;
 				readFile(file);
 				bp.setBottom(makeMediaBar());
 				animationText.setText("");
@@ -263,7 +265,7 @@ public class AnimateFile extends Application {
 		Text title = new Text("Whitespace errors: \n");
 		title.setFont(Font.font(18));
 		errorList.getChildren().add(title);
-		
+
 		if (currentCode == null) {
 			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (0)");
 			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (0)");
@@ -287,14 +289,14 @@ public class AnimateFile extends Application {
 			boolean isSemicolonError = (tp.checkBadSemiColon().size() == 0) ? false : true;
 			boolean isComparisonError = (tp.checkAssignment().size() == 0) ? false : true;
 			boolean isWhitespaceError = (tp.checkTabbing(4).size() == 0) ? false : true;
-			
+
 			scanner = new CheckBox("Unclosed Scanners \t\t\t\t (" + tp.checkScanner().size() + ")");
 			bracketCount = new CheckBox("Brackets and Quotes Miscounts \t (" + tp.checkBracketCount().size() + ")");
 			bracketMismatch = new CheckBox("Brackets and Quotes Mismatches \t (" + tp.checkBracketMatch().size() + ")");
 			semicolon = new CheckBox("Misplaced Semi-colons \t\t\t (" + tp.checkBadSemiColon().size() + ")");
 			comparison = new CheckBox("Comparison vs. Assignment \t\t (" + tp.checkAssignment().size() + ")");
 			whitespace = new CheckBox("Misaligned Whitespace \t\t\t (" + tp.checkTabbing(4).size() + ")");
-			
+
 			errors.add(scanner);
 			errors.add(bracketCount);
 			errors.add(bracketMismatch);
@@ -302,7 +304,7 @@ public class AnimateFile extends Application {
 			errors.add(comparison);
 			errors.add(whitespace);
 		}
-		
+
 		for (CheckBox e : errors) {
 			e.setFont(Font.font(18));
 			e.setStyle("-fx-faint-focus-color: transparent;");
@@ -664,7 +666,6 @@ public class AnimateFile extends Application {
 				// time
 				currentCode = translateKeyCodes(codeToAnimateNow);
 				animationText.setText(currentCode);
-				tp = new TextProcessor(currentCode, false);
 				bp.setRight(null);
 				bp.setRight(makeKeycodeErrorPanel());
 			}
@@ -676,26 +677,49 @@ public class AnimateFile extends Application {
 		 * point in the animation while it's currently playing.
 		 */
 		final Button playButton = new Button(">");
-		/*
-		 * playButton.setOnAction(e -> { if (timeline.getStatus() == Status.RUNNING) {
-		 * playButton.setText("||"); timeline.pause(); } else {
-		 * playButton.setText("||"); final IntegerProperty i = new
-		 * SimpleIntegerProperty(0); i.set(currentCode.length()); KeyFrame keyFrame =
-		 * new KeyFrame(Duration.seconds(.3), event -> { if (i.get() >
-		 * codeToAnimate.length) { // If we're at the end of the code, stop the
-		 * animation. timeline.stop(); } else { int[] codeToAnimateNow =
-		 * Arrays.copyOfRange(codeToAnimate, 0, i.intValue() + 10); // translateKeyCodes
-		 * returns a String representation of the code at any given // time. currentCode
-		 * = translateKeyCodes(codeToAnimateNow); animationText.setText(currentCode);
-		 * slider.setValue(i.intValue()); i.set(i.get() + 1);
-		 * slider.valueProperty().addListener(new ChangeListener<Number>() { public void
-		 * changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val)
-		 * { int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0,
-		 * new_val.intValue()); currentCode = translateKeyCodes(codeToAnimateNow);
-		 * animationText.setText(currentCode); i.set(new_val.intValue()); } }); } });
-		 * timeline.getKeyFrames().add(keyFrame);
-		 * timeline.setCycleCount(Animation.INDEFINITE); timeline.play(); } });
-		 */
+		playButton.setPadding(new Insets(10, 10, 10, 10));
+ 
+		playButton.setOnAction(e -> {
+			if (timeline.getStatus() == Status.RUNNING) {
+				playButton.setText(">");
+				timeline.pause();
+			} else {
+				playButton.setText("||");
+				final IntegerProperty i = new SimpleIntegerProperty(0);
+				i.set(pausePosition);
+				KeyFrame keyFrame = new KeyFrame(Duration.seconds(.3), event -> {
+					if (i.get() > codeToAnimate.length) {
+						// If we're at the end of the code, stop the animation.
+						timeline.stop();
+					} else {
+						int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, i.intValue());
+						// translateKeyCodes returns a String representation of the code at any given
+						// time.
+						currentCode = translateKeyCodes(codeToAnimateNow);
+						animationText.setText(currentCode);
+						slider.setValue(i.intValue());
+						i.set(i.get() + 1);
+						pausePosition = i.get();
+						bp.setRight(null);
+						bp.setRight(makeKeycodeErrorPanel());
+						slider.valueProperty().addListener(new ChangeListener<Number>() {
+							public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+								int[] codeToAnimateNow = Arrays.copyOfRange(codeToAnimate, 0, new_val.intValue());
+								currentCode = translateKeyCodes(codeToAnimateNow);
+								animationText.setText(currentCode);
+								i.set(new_val.intValue());
+								pausePosition = i.get();
+								bp.setRight(null);
+								bp.setRight(makeKeycodeErrorPanel());
+							}
+						});
+					}
+				});
+				timeline.getKeyFrames().add(keyFrame);
+				timeline.setCycleCount(Animation.INDEFINITE);
+				timeline.play();
+			}
+		});
 
 		mediaBar.getChildren().addAll(playButton, slider);
 		// }
