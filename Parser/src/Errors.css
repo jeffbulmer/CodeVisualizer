@@ -5,13 +5,16 @@
 }
 
 #scanner {
-	-fx-background-color: rgba(255, 0, 0, 0.4);
+	-fx-background-color: rgba(255, 0, 0, 0.2);
 }
 #miscount {
-	-fx-background-color: rgba(255, 0, 255, 0.4);
+	-fx-background-color: rgba(255, 0, 255, 0.2);
 }
 #mismatch {
-	-fx-background-color: rgba(255, 204, 153, 0.4);
+	-fx-background-color: rgba(255, 204, 153, 1);
+}
+#semicolon {
+	-fx-background-color: rgba(0, 255, 255, .5);
 }
 #whitespace {
 	-fx-background-color: rgba(3, 186, 51, 0.4);
@@ -29,11 +32,10 @@
 	-fx-fill: orange;
 	-fx-font-weight: bold;
 }
+#semicolonError {
+	-fx-fill: rgba(0, 255, 255, 1);
+}
 #whitespaceError {
 	-fx-fill: rgba(3, 186, 51, 1.0);
-	-fx-font-weight: bold;
-}
-#semicolon {
-	-fx-fill: green;
 	-fx-font-weight: bold;
 }

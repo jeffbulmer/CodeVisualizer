@@ -1,0 +1,11 @@
+Known bugs:
+
+- Can't select checkboxes while timeline is Status.RUNNING
+	- The setText makes the visualizer stop animating the code
+- Can't select multiple checkboxes at the same time
+- Can't use slider before hitting the play button, or the timeline will jump back to the beginning
+- Quote miscount seems to be returning some sort of wrong value?
+- Opening one file over top of another currently throws an error
+- isSemiColonError does not highlight the correct piece of test right now
+	- Something is wrong in TextProcessor with the way that start/endPos is being recorded
+- isComparisonError has and IndexOutOfBounds issue

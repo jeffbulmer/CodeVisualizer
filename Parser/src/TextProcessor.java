@@ -544,13 +544,17 @@ public class TextProcessor {
 	public ArrayList<Habit> checkBadSemiColon() {
 
 		ArrayList<Habit> errors = new ArrayList<Habit>();
-		ArrayList<Habit> errorPos = new ArrayList<Habit>();
 		Scanner scan = new Scanner(fileString);
 		int lineIndex = 0;
 		int currentIndex = 0;
+		int startPos = 0;
+		int endPos = 0;
 		while (scan.hasNextLine()) {
+			String input = scan.nextLine();
+			endPos += input.length();
+			//System.out.println("endPos: " + endPos);
 			// removes all whitespace characters and newlines within a line (there shouldn't be any newlines anyway)
-			String line = scan.nextLine().replaceAll("(\\s|\n)", ""); 
+			String line = input.replaceAll("(\\s|\n)", ""); 
 			Pattern patternIf = Pattern.compile("if\\(.*?\\)"); // finds if
 																// statements.
 			Matcher matcherIf = patternIf.matcher(line);
@@ -560,9 +564,10 @@ public class TextProcessor {
 					int nextidx = line.indexOf(matcherIf.group(i)) + matcherIf.group(i).length(); 
 //					System.out.println(line.substring(line.indexOf(matcherIf.group(i)), nextidx));
 					if (line.length() > nextidx && line.charAt(nextidx) == ';') {
+						System.out.println("line index: " + lineIndex);
+						System.out.println("line length: " + line.length());
 						Habit error = new Habit(lineIndex,
-								"Semi-colon after conditional statement on line " + lineIndex, i + currentIndex,
-								i + currentIndex);
+								"Semi-colon after conditional statement on line " + lineIndex, startPos, endPos);
 						errors.add(error);
 					}
 				}
@@ -589,18 +594,26 @@ public class TextProcessor {
 					else if (line.charAt(line.indexOf(matcherLoop.group(i))) == 'w')
 						looptype = "while";
 					if (nextidx < line.length() && line.charAt(nextidx) == ';') {
+						System.out.println("line index: " + lineIndex);
+						System.out.println("line length: " + line.length());
+						
 						Habit error = new Habit(lineIndex,
-								"Semi-colon after " + looptype + " loop declaration on line " + lineIndex, i + currentIndex, i + currentIndex);
+								"Semi-colon after " + looptype + " loop declaration on line " + lineIndex, 
+									startPos, endPos);
 						errors.add(error);
 					}
 				}
 			}
 			lineIndex++;
+			if (input.length() == 0) 
+				endPos += 3;
+			startPos = endPos + 1;
 			currentIndex += lineIndex + 1;
+			System.out.println();
 		}
 		scan.close();
 		for (int i = 0; i < errors.size(); i++) {
-			System.out.println(errors.get(i).getErrorMessage());
+			//System.out.println(errors.get(i).getErrorMessage());
 		}
 		return errors;
 

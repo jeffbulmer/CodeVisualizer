@@ -1,6 +1,0 @@
-Known bugs:
-
-- Can't select checkboxes while timeline is Status.RUNNING
-	- The setText makes the visualizer stop animating the code
-- Can't select multiple checkboxes at the same time
-- Can't use slider before hitting the play button, or the timeline will jump back to the beginning
